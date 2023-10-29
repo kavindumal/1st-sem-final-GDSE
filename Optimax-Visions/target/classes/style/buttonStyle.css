@@ -1,0 +1,5 @@
+/* style.css */
+.hover-button {
+    -fx-background-color: black; /* Change background color on hover */
+    -fx-text-fill: #ffffff; /* Change text color on hover */
+}

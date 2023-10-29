@@ -1,0 +1,6 @@
+/* login button stylesheet */
+.jfx-loginButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 35, 0, 7, 7);
+}
+
+
