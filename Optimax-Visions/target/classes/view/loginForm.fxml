@@ -46,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="204.0" layoutY="865.0" prefHeight="66.0" prefWidth="586.0" style="-fx-background-color: #1A4BCC; -fx-background-radius: 30;" styleClass="hover-button" stylesheets="@../style/buttonStyle.css" text="Login" textFill="WHITE">
+      <JFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="203.0" layoutY="865.0" onAction="#loginBtnOnAction" prefHeight="66.0" prefWidth="586.0" style="-fx-background-color: #1A4BCC; -fx-background-radius: 30;" styleClass="jfx-loginButton" stylesheets="@../style/buttonStyle.css" text="Login" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

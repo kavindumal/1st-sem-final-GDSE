@@ -1,5 +1,6 @@
-/* style.css */
-.hover-button {
-    -fx-background-color: black; /* Change background color on hover */
-    -fx-text-fill: #ffffff; /* Change text color on hover */
+/* login button stylesheet */
+.jfx-loginButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 35, 0, 7, 7);
 }
+
+
