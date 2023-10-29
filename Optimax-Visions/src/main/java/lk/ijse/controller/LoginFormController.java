@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.dto.LoginDto;
+import lk.ijse.model.LoginModel;
 
 public class LoginFormController {
 
@@ -39,6 +41,7 @@ public class LoginFormController {
 
     @FXML
     void loginBtnOnAction(ActionEvent event) {
+        LoginModel.loginToSystem(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
 
     }
 
