@@ -3,11 +3,13 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="loginPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
@@ -20,22 +22,6 @@
             <Rectangle2D height="1080.0" minX="4.0" width="1920.0" />
          </viewport>
       </ImageView>
-      <TextField fx:id="usernameTxt" layoutX="235.0" layoutY="594.0" prefHeight="58.0" prefWidth="516.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <PasswordField fx:id="passwordTxt" layoutX="234.0" layoutY="731.0" prefHeight="58.0" prefWidth="516.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </PasswordField>
       <JFXButton fx:id="createNewAccBtn" layoutX="501.0" layoutY="461.0" onAction="#createNewAccBtnOnAction" opacity="0.0" prefHeight="25.0" prefWidth="268.0">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -54,5 +40,22 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </JFXButton>
+      <Label fx:id="invalidusrOrPwLbl" layoutX="203.0" layoutY="803.0" opacity="0.0" text="username or password is not matched" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="usernameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="203.0" layoutY="588.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
+      <Rectangle fx:id="pwRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="203.0" layoutY="728.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
+      <TextField fx:id="usernameTxt" layoutX="230.0" layoutY="592.0" prefHeight="59.0" prefWidth="511.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="passwordTxt" layoutX="229.0" layoutY="732.0" prefHeight="60.0" prefWidth="513.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
    </children>
 </AnchorPane>

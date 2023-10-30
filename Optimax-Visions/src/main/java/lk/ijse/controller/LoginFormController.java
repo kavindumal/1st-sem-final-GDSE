@@ -5,9 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import lk.ijse.dto.LoginDto;
 import lk.ijse.model.LoginModel;
 
@@ -18,6 +21,9 @@ public class LoginFormController {
 
     @FXML
     private JFXButton createNewAccBtn;
+
+    @FXML
+    private Label invalidusrOrPwLbl;
 
     @FXML
     private JFXButton forgotPwBtn;
@@ -33,6 +39,12 @@ public class LoginFormController {
 
     @FXML
     private TextField usernameTxt;
+
+    @FXML
+    private Rectangle pwRec;
+
+    @FXML
+    private Rectangle usernameRec;
 
     @FXML
     void createNewAccBtnOnAction(ActionEvent event) {
@@ -55,7 +67,8 @@ public class LoginFormController {
                 throw new RuntimeException(e);
             }
         } else {
-            new Alert(Alert.AlertType.ERROR, "username or password is not matched...").show();
+            usernameRec.setStroke(Color.RED);
+            invalidusrOrPwLbl.setOpacity(1);
         }
     }
 
