@@ -40,6 +40,9 @@ public class RegisterFormController {
     private Rectangle usernameRec1;
 
     @FXML
+    private Rectangle passwordRec;
+
+    @FXML
     private Rectangle usernameRec11;
 
     @FXML
@@ -55,6 +58,9 @@ public class RegisterFormController {
     private Label usernameCheckLbl;
 
     @FXML
+    private Label passwordLongLbl;
+
+    @FXML
     private Rectangle conPwRec;
 
     @FXML
@@ -64,29 +70,40 @@ public class RegisterFormController {
     private ImageView alertImage2;
 
     @FXML
+    private ImageView alertImage3;
+
+    @FXML
     private AnchorPane registerPane;
 //requestFocus();
     @FXML
     void registerBtnOnAction(ActionEvent event) {
-        if (passwordTxt.getText().equals(conPwTxt.getText())) {
-            boolean checkAvailability = RegisterModel.setDetails(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText()));
-            if (checkAvailability){
-                registerPane.getChildren().clear();
-                try {
-                    registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/dashboardForm.fxml"))));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+        if (passwordTxt.getLength() > 8){
+            if (passwordTxt.getText().equals(conPwTxt.getText())) {
+                boolean checkAvailability = RegisterModel.setDetails(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText()));
+                if (checkAvailability){
+                    registerPane.getChildren().clear();
+                    try {
+                        registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/dashboardForm.fxml"))));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    usernameCheckLbl.setOpacity(1.0);
+                    alertImage2.setOpacity(1.0);
+                    usernameRec.setStroke(Color.RED);
+                    usernameTxt.requestFocus();
                 }
             } else {
-                usernameCheckLbl.setOpacity(1.0);
-                alertImage2.setOpacity(1.0);
-                usernameRec.setStroke(Color.RED);
-                usernameTxt.requestFocus();
+                alertImsge.setOpacity(1.0);
+                conPwRec.setStroke(Color.RED);
+                confirmPwLbl.setOpacity(1.0);
             }
         } else {
-            alertImsge.setOpacity(1.0);
+            passwordTxt.requestFocus();
             conPwRec.setStroke(Color.RED);
-            confirmPwLbl.setOpacity(1.0);
+            passwordRec.setStroke(Color.RED);
+            alertImage3.setOpacity(1.0);
+            passwordLongLbl.setOpacity(1.0);
         }
     }
 }

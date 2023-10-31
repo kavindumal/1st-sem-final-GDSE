@@ -23,7 +23,7 @@
          </viewport>
       </ImageView>
       <Rectangle fx:id="usernameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="204.0" layoutY="475.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
-      <Rectangle fx:id="usernameRec1" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="475.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
+      <Rectangle fx:id="passwordRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="475.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <Rectangle fx:id="conPwRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <Rectangle fx:id="usernameRec111" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="203.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <TextField fx:id="usernameTxt" layoutX="237.0" layoutY="475.0" prefHeight="66.0" prefWidth="512.0" style="-fx-background-color: trans;">
@@ -64,12 +64,22 @@
             <Image url="@../img/icons/alert.png" />
          </image>
       </ImageView>
-      <Label fx:id="usernameCheckLbl" layoutX="227.0" layoutY="555.0" opacity="0.0" text="username already exists." textFill="RED">
+      <Label fx:id="usernameCheckLbl" layoutX="229.0" layoutY="555.0" opacity="0.0" text="username already exists." textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <ImageView fx:id="alertImage2" fitHeight="20.0" fitWidth="23.0" layoutX="203.0" layoutY="555.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/alert.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="passwordLongLbl" layoutX="1010.0" layoutY="555.0" opacity="0.0" text="Use 8 characters or more for your password" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="alertImage3" fitHeight="20.0" fitWidth="23.0" layoutX="984.0" layoutY="555.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/alert.png" />
          </image>
