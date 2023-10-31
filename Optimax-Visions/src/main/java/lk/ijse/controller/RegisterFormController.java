@@ -11,9 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import lk.ijse.dto.LoginDto;
 import lk.ijse.dto.RegisterDto;
-import lk.ijse.model.LoginModel;
 import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
@@ -41,12 +39,6 @@ public class RegisterFormController {
 
     @FXML
     private Rectangle passwordRec;
-
-    @FXML
-    private Rectangle usernameRec11;
-
-    @FXML
-    private Rectangle usernameRec111;
 
     @FXML
     private TextField usernameTxt;
