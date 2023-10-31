@@ -51,20 +51,30 @@ public class LoginFormController {
 
     @FXML
     void createNewAccBtnOnAction(ActionEvent event) {
-
+        loginPane.getChildren().clear();
+        try {
+            loginPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/registerForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void forgotPwBtnOnAction(ActionEvent event) {
-
+        loginPane.getChildren().clear();
+        try {
+            loginPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/forgotPasswordForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void loginBtnOnAction(ActionEvent event) {
         boolean checkUsername = LoginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
         boolean checkPassword = LoginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
-
         if (checkUsername) {
+            usernameRec.setStroke(Color.BLACK);
             if (checkPassword){
                 loginPane.getChildren().clear();
                 try {
@@ -73,17 +83,16 @@ public class LoginFormController {
                     throw new RuntimeException(e);
                 }
             } else {
-                alertSound.checkSounds(Sounds.INVALID);
+//                alertSound.checkSounds(Sounds.INVALID);
                 pwRec.setStroke(Color.RED);
-                invalidusrOrPwLbl.setText("password is not matched for username");
+                invalidusrOrPwLbl.setText("Incorrect password");
                 invalidusrOrPwLbl.setOpacity(1.0);
             }
         } else {
-            alertSound.checkSounds(Sounds.INVALID);
+//            alertSound.checkSounds(Sounds.INVALID);
             pwRec.setStroke(Color.RED);
             usernameRec.setStroke(Color.RED);
             invalidusrOrPwLbl.setOpacity(1);
         }
     }
-
 }
