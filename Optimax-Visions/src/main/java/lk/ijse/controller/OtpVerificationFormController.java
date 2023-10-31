@@ -71,7 +71,7 @@ public class OtpVerificationFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         OtpVerificationModel otpVerificationModel = new OtpVerificationModel(new OtpVerificationDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText(), register.registerDto.getEmailAddress()));
         if (count > 1) {
-            sendEmailOtp();
+//            sendEmailOtp();
         }
 
         otpField1Txt.addEventFilter(KeyEvent.KEY_TYPED, numericOnlyFilter);
