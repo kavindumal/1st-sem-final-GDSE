@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
@@ -21,5 +24,25 @@
       <Rectangle fx:id="usernameRec1" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="475.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <Rectangle fx:id="usernameRec11" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <Rectangle fx:id="usernameRec111" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="203.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
+      <TextField layoutX="237.0" layoutY="475.0" prefHeight="66.0" prefWidth="512.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="240.0" layoutY="635.0" prefHeight="66.0" prefWidth="512.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <PasswordField layoutX="1021.0" layoutY="476.0" prefHeight="63.0" prefWidth="503.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
+      <PasswordField layoutX="1021.0" layoutY="636.0" prefHeight="63.0" prefWidth="503.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
    </children>
 </AnchorPane>
