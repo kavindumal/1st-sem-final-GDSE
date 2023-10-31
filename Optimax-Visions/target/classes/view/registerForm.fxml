@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
+<AnchorPane fx:id="registerPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="180.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -60,6 +60,16 @@
          </font>
       </Label>
       <ImageView fx:id="alertImsge" fitHeight="20.0" fitWidth="23.0" layoutX="992.0" layoutY="712.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/alert.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="usernameCheckLbl" layoutX="227.0" layoutY="555.0" opacity="0.0" text="username already exists." textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="alertImage2" fitHeight="20.0" fitWidth="23.0" layoutX="203.0" layoutY="555.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/alert.png" />
          </image>

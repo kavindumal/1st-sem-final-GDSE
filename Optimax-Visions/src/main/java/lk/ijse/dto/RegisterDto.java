@@ -1,5 +1,15 @@
 package lk.ijse.dto;
 
-public class RegisterDto {
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+
+public class RegisterDto {
+    private String username;
+    private String emailAddress;
+    private String password;
 }
