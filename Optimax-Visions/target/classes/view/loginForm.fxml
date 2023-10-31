@@ -40,7 +40,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </JFXButton>
-      <Label fx:id="invalidusrOrPwLbl" layoutX="203.0" layoutY="803.0" opacity="0.0" text="username or password is not matched" textFill="RED">
+      <Label fx:id="invalidusrOrPwLbl" layoutX="203.0" layoutY="803.0" opacity="0.0" text="Incorrect username or password." textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
