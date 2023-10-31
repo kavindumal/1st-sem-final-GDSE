@@ -82,6 +82,7 @@ public class RegisterFormController {
                 conPwRec.setStroke(Color.BLACK);
                 confirmPwLbl.setOpacity(0);
                 if (register.checkUsernameAvailability()) {
+                    register.setValues();
                     registerPane.getChildren().clear();
                     try {
                         registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/otpVerificationForm.fxml"))));

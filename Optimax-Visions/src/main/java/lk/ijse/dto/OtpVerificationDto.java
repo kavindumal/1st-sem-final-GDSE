@@ -13,5 +13,4 @@ public class OtpVerificationDto {
     private String otpText2;
     private String otpText3;
     private String otpText4;
-    private String emailAddress;
 }

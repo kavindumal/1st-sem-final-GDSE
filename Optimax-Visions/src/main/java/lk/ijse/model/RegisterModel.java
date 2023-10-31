@@ -2,6 +2,9 @@ package lk.ijse.model;
 
 import lk.ijse.db.DBConnection;
 import lk.ijse.dto.RegisterDto;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.Random;
 
 public class RegisterModel {
     public RegisterDto registerDto;
@@ -25,5 +28,21 @@ public class RegisterModel {
             }
         }
         return false;
+    }
+
+    public void setValues() {
+        String otp = BCrypt.hashpw(""+generateNewOtp(), BCrypt.gensalt());
+        System.out.println(otp);
+        DBConnection.setDetails("INSERT INTO visioncare.tempgmailotp (gmail, otp)\n" +
+                "VALUES ("+ registerDto.getEmailAddress()+", "+ otp +");");
+    }
+
+    public int generateNewOtp() {
+        int otp;
+        do {
+            Random random = new Random(10000);
+            otp = random.nextInt();
+        }while (otp > 1000 && otp < 10000);
+        return otp;
     }
 }

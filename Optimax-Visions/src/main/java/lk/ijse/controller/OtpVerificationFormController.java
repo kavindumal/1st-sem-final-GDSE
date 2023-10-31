@@ -41,8 +41,6 @@ public class OtpVerificationFormController implements Initializable {
 
     @FXML
     private JFXButton vrfBtn;
-    private final RegisterFormController registerFormController = new RegisterFormController();
-    private final RegisterModel register = registerFormController.register;
     int count = 0;
     int otp;
 
@@ -69,9 +67,10 @@ public class OtpVerificationFormController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        OtpVerificationModel otpVerificationModel = new OtpVerificationModel(new OtpVerificationDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText(), register.registerDto.getEmailAddress()));
-        if (count > 1) {
-//            sendEmailOtp();
+        OtpVerificationModel otpVerificationModel = new OtpVerificationModel(new OtpVerificationDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()));
+        if (count < 1) {
+            count++;
+            otpVerificationModel.sendEmail();
         }
 
         otpField1Txt.addEventFilter(KeyEvent.KEY_TYPED, numericOnlyFilter);
