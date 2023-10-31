@@ -66,16 +66,25 @@ public class RegisterFormController {
 
     @FXML
     private AnchorPane registerPane;
+
+    public RegisterModel register;
 //requestFocus();
     @FXML
     void registerBtnOnAction(ActionEvent event) {
-        if (passwordTxt.getLength() > 8){
-            if (passwordTxt.getText().equals(conPwTxt.getText())) {
-                boolean checkAvailability = RegisterModel.setDetails(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText()));
-                if (checkAvailability){
+        register = new RegisterModel(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), conPwTxt.getText()));
+        if (register.checkPasswordLength()) {
+            conPwRec.setStroke(Color.BLACK);
+            passwordRec.setStroke(Color.BLACK);
+            alertImage3.setOpacity(0);
+            passwordLongLbl.setOpacity(0);
+            if (register.checkConfirmPassword()) {
+                alertImsge.setOpacity(0);
+                conPwRec.setStroke(Color.BLACK);
+                confirmPwLbl.setOpacity(0);
+                if (register.checkUsernameAvailability()) {
                     registerPane.getChildren().clear();
                     try {
-                        registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/dashboardForm.fxml"))));
+                        registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/otpVerificationForm.fxml"))));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
