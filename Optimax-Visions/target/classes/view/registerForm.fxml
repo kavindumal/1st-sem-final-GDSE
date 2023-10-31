@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
    <children>
@@ -19,7 +24,45 @@
       </ImageView>
       <Rectangle fx:id="usernameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="204.0" layoutY="475.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <Rectangle fx:id="usernameRec1" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="475.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
-      <Rectangle fx:id="usernameRec11" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
+      <Rectangle fx:id="conPwRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="983.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <Rectangle fx:id="usernameRec111" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="203.0" layoutY="633.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
+      <TextField fx:id="usernameTxt" layoutX="237.0" layoutY="475.0" prefHeight="66.0" prefWidth="512.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="emailTxt" layoutX="240.0" layoutY="635.0" prefHeight="66.0" prefWidth="512.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="passwordTxt" layoutX="1021.0" layoutY="476.0" prefHeight="63.0" prefWidth="503.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="conPwTxt" layoutX="1021.0" layoutY="636.0" prefHeight="63.0" prefWidth="503.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
+      <JFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="655.0" layoutY="870.0" onAction="#registerBtnOnAction" prefHeight="66.0" prefWidth="586.0" style="-fx-background-color: #EF4B3C; -fx-background-radius: 30;" styleClass="jfx-loginButton" stylesheets="@../style/buttonStyle.css" text="Register" textFill="WHITE" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="655.0" AnchorPane.rightAnchor="679.0" AnchorPane.topAnchor="870.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="confirmPwLbl" layoutX="1016.0" layoutY="712.0" opacity="0.0" text="Those passwords didn't matched.Try Again." textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="alertImsge" fitHeight="20.0" fitWidth="23.0" layoutX="992.0" layoutY="712.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/alert.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
