@@ -40,11 +40,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </JFXButton>
-      <Label fx:id="invalidusrOrPwLbl" layoutX="203.0" layoutY="803.0" opacity="0.0" text="Incorrect username or password." textFill="RED">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <Label fx:id="invalidusrOrPwLbl" layoutX="237.0" layoutY="799.0" opacity="0.0" text="Wrong password.Try again or click Forgot password to reset it." textFill="RED" />
       <Rectangle fx:id="usernameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="203.0" layoutY="588.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <Rectangle fx:id="pwRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="203.0" layoutY="728.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
       <TextField fx:id="usernameTxt" layoutX="230.0" layoutY="592.0" prefHeight="59.0" prefWidth="511.0" style="-fx-background-color: trans;">
@@ -57,5 +53,16 @@
             <Font size="25.0" />
          </font>
       </PasswordField>
+      <ImageView fx:id="alertImage" fitHeight="20.0" fitWidth="23.0" layoutX="213.0" layoutY="798.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/alert.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="invalidusrOrPwLbl1" layoutX="237.0" layoutY="660.0" opacity="0.0" text="This username does not exist." textFill="RED" />
+      <ImageView fx:id="alertImage1" fitHeight="20.0" fitWidth="23.0" layoutX="212.0" layoutY="659.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/alert.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

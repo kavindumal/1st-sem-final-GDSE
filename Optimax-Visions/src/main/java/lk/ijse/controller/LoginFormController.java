@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -25,6 +26,9 @@ public class LoginFormController {
 
     @FXML
     private Label invalidusrOrPwLbl;
+
+    @FXML
+    private Label invalidusrOrPwLbl1;
 
     @FXML
     private JFXButton forgotPwBtn;
@@ -46,6 +50,12 @@ public class LoginFormController {
 
     @FXML
     private Rectangle usernameRec;
+
+    @FXML
+    private ImageView alertImage;
+
+    @FXML
+    private ImageView alertImage1;
 
     private AlertSound alertSound = new AlertSound();
 
@@ -75,6 +85,8 @@ public class LoginFormController {
         boolean checkPassword = LoginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
         if (checkUsername) {
             usernameRec.setStroke(Color.BLACK);
+            alertImage1.setOpacity(0);
+            invalidusrOrPwLbl1.setOpacity(0);
             if (checkPassword){
                 loginPane.getChildren().clear();
                 try {
@@ -85,14 +97,14 @@ public class LoginFormController {
             } else {
 //                alertSound.checkSounds(Sounds.INVALID);
                 pwRec.setStroke(Color.RED);
-                invalidusrOrPwLbl.setText("Incorrect password");
+                alertImage.setOpacity(1);
                 invalidusrOrPwLbl.setOpacity(1.0);
             }
         } else {
 //            alertSound.checkSounds(Sounds.INVALID);
-            pwRec.setStroke(Color.RED);
+            alertImage1.setOpacity(1);
             usernameRec.setStroke(Color.RED);
-            invalidusrOrPwLbl.setOpacity(1);
+            invalidusrOrPwLbl1.setOpacity(1);
         }
     }
 }
