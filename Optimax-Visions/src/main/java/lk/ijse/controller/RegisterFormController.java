@@ -103,7 +103,8 @@ public class RegisterFormController {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         } finally {
-                            new OtpVerificationModel(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), conPwTxt.getText()));
+                            int otp = register.generateNewOtp();
+                            new OtpVerificationModel(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), conPwTxt.getText()),otp);
                         }
                     } else {
                         alertSound.checkSounds(Sounds.INVALID);

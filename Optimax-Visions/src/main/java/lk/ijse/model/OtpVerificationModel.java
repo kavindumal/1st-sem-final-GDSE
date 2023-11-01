@@ -9,21 +9,22 @@ import java.sql.SQLException;
 import java.util.Random;
 
 public class OtpVerificationModel {
-    public static RegisterDto registerDto;
-    public OtpVerificationModel(RegisterDto registerDto) {
-        this.registerDto = registerDto;
-    }
     int otp;
+    public static RegisterDto registerDto;
+
+    public OtpVerificationModel(RegisterDto registerDto,int otp) {
+        this.registerDto = registerDto;
+        this.otp = otp;
+    }
+
     OtpVerificationDto otpVerificationDto;
     public OtpVerificationModel(OtpVerificationDto otpVerificationDto){
         this.otpVerificationDto = otpVerificationDto;
     }
 
     public void sendEmail() throws SQLException {
-        String[][] otpAndEmail = DbConnections.getDetails("tempgmailotp",2);
-
         try {
-            Gmailer.setEmailCom(otpAndEmail[0][0], Integer.parseInt(otpAndEmail[0][1]));
+            Gmailer.setEmailCom(registerDto.getEmailAddress(), otp);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
