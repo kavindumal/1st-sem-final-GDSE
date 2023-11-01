@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import lk.ijse.alert.AlertSound;
+import lk.ijse.alert.Sounds;
 import lk.ijse.dto.RegisterDto;
 import lk.ijse.model.RegisterModel;
 
@@ -35,7 +37,7 @@ public class RegisterFormController {
     private Rectangle usernameRec;
 
     @FXML
-    private Rectangle usernameRec1;
+    private Rectangle usernameRec111;
 
     @FXML
     private Rectangle passwordRec;
@@ -67,45 +69,65 @@ public class RegisterFormController {
     @FXML
     private AnchorPane registerPane;
 
+    @FXML
+    private ImageView alertImage4;
+
+    @FXML
+    private Label emailAddressCheckLbl;
+
     public RegisterModel register;
-//requestFocus();
+
     @FXML
     void registerBtnOnAction(ActionEvent event) {
+        AlertSound alertSound = new AlertSound();
         register = new RegisterModel(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), conPwTxt.getText()));
-        if (register.checkPasswordLength()) {
-            conPwRec.setStroke(Color.BLACK);
-            passwordRec.setStroke(Color.BLACK);
-            alertImage3.setOpacity(0);
-            passwordLongLbl.setOpacity(0);
-            if (register.checkConfirmPassword()) {
-                alertImsge.setOpacity(0);
-                conPwRec.setStroke(Color.BLACK);
-                confirmPwLbl.setOpacity(0);
-                if (register.checkUsernameAvailability()) {
-                    register.setValues();
-                    registerPane.getChildren().clear();
-                    try {
-                        registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/otpVerificationForm.fxml"))));
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
+        if (register.checkUsernameAvailability()){
+            usernameCheckLbl.setOpacity(0);
+            alertImage2.setOpacity(0);
+            usernameRec.setStroke(Color.BLACK);
+            if (register.checkEmailLong()){
+                usernameRec111.setStroke(Color.BLACK);
+                emailAddressCheckLbl.setOpacity(0);
+                alertImage4.setOpacity(0);
+                if (register.checkPasswordLength()){
+                    passwordRec.setStroke(Color.BLACK);
+                    alertImage3.setOpacity(0);
+                    passwordLongLbl.setOpacity(0);
+                    if (register.checkConfirmPassword()){
+                        // me method eken hadanna tiyenne itiri tika
+                        register.setValues();
+                        registerPane.getChildren().clear();
+                        try {
+                            registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/otpVerificationForm.fxml"))));
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        alertSound.checkSounds(Sounds.INVALID);
+                        alertImsge.setOpacity(1);
+                        conPwRec.setStroke(Color.RED);
+                        confirmPwLbl.setOpacity(1);
                     }
                 } else {
-                    usernameCheckLbl.setOpacity(1.0);
-                    alertImage2.setOpacity(1.0);
-                    usernameRec.setStroke(Color.RED);
-                    usernameTxt.requestFocus();
+                    alertSound.checkSounds(Sounds.INVALID);
+                    passwordTxt.requestFocus();
+                    passwordRec.setStroke(Color.RED);
+                    alertImage3.setOpacity(1);
+                    passwordLongLbl.setOpacity(1);
                 }
             } else {
-                alertImsge.setOpacity(1.0);
-                conPwRec.setStroke(Color.RED);
-                confirmPwLbl.setOpacity(1.0);
+                alertSound.checkSounds(Sounds.INVALID);
+                emailTxt.requestFocus();
+                usernameRec111.setStroke(Color.RED);
+                emailAddressCheckLbl.setOpacity(1);
+                alertImage4.setOpacity(1);
             }
         } else {
-            passwordTxt.requestFocus();
-            conPwRec.setStroke(Color.RED);
-            passwordRec.setStroke(Color.RED);
-            alertImage3.setOpacity(1.0);
-            passwordLongLbl.setOpacity(1.0);
+            alertSound.checkSounds(Sounds.INVALID);
+            usernameCheckLbl.setOpacity(1.0);
+            alertImage2.setOpacity(1.0);
+            usernameRec.setStroke(Color.RED);
+            usernameTxt.requestFocus();
         }
     }
 }

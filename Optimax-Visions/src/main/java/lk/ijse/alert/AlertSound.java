@@ -14,9 +14,9 @@ public class AlertSound {
     public void checkSounds(Sounds sound){
         switch (sound) {
             case INVALID:
-                soundFile = Objects.requireNonNull(getClass().getResource("sound/alertSounds/attack2t22wav-14511.mp3")).toExternalForm();
-                media = new Media(soundFile);
+                media = new Media(getClass().getResource("/sound/alertSounds/wrongError.mp3").toExternalForm());
                 mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.play();
                 break;
             case CONFIRM:
 //                soundFile = getClass().getResource("sound/alertSounds/wrongError.mp3").toExternalForm();

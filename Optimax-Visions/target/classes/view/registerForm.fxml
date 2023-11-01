@@ -84,5 +84,15 @@
             <Image url="@../img/icons/alert.png" />
          </image>
       </ImageView>
+      <Label fx:id="emailAddressCheckLbl" layoutX="229.0" layoutY="715.0" opacity="0.0" text="email address required." textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="alertImage4" fitHeight="20.0" fitWidth="23.0" layoutX="203.0" layoutY="715.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/alert.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

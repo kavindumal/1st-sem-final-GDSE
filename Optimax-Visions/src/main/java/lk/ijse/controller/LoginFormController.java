@@ -95,13 +95,13 @@ public class LoginFormController {
                     throw new RuntimeException(e);
                 }
             } else {
-//                alertSound.checkSounds(Sounds.INVALID);
+                alertSound.checkSounds(Sounds.INVALID);
                 pwRec.setStroke(Color.RED);
                 alertImage.setOpacity(1);
                 invalidusrOrPwLbl.setOpacity(1.0);
             }
         } else {
-//            alertSound.checkSounds(Sounds.INVALID);
+            alertSound.checkSounds(Sounds.INVALID);
             alertImage1.setOpacity(1);
             usernameRec.setStroke(Color.RED);
             invalidusrOrPwLbl1.setOpacity(1);

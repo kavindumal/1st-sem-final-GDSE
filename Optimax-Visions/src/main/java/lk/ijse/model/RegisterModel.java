@@ -32,9 +32,12 @@ public class RegisterModel {
 
     public void setValues() {
         String otp = BCrypt.hashpw(""+generateNewOtp(), BCrypt.gensalt());
-        System.out.println(otp);
         DBConnection.setDetails("INSERT INTO visioncare.tempgmailotp (gmail, otp)\n" +
                 "VALUES ("+ registerDto.getEmailAddress()+", "+ otp +");");
+    }
+
+    public boolean checkEmailLong(){
+        return !registerDto.getEmailAddress().isEmpty();
     }
 
     public int generateNewOtp() {
