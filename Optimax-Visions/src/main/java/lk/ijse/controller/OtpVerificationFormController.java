@@ -51,14 +51,22 @@ public class OtpVerificationFormController implements Initializable {
 
     @FXML
     void vrfBtnOnAction(ActionEvent event) throws IOException {
-        String[][] dbDetails = DBConnection.getDetails("user",5);
+        String[][] dbDetails = DBConnection.getDetails("tempgmailotp",2);
 
-        for (int i = 0; i < dbDetails.length; i++) {
-            if (otp == Integer.parseInt(dbDetails[i][4])){
-                otpCheckPane.getChildren().clear();
-                otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/newPasswordForm.fxml"))));
-            }
+        int num1 = Integer.parseInt(otpField1Txt.getText());
+        int num2 = Integer.parseInt(otpField2Txt.getText());
+        int num3 = Integer.parseInt(otpField3Txt.getText());
+        int num4 = Integer.parseInt(otpField4Txt.getText());
+        int total = num1 * 1000 + num2 * 100 + num3 * 10 + num4;
+
+        if (total == Integer.parseInt(dbDetails[0][1])){
+            OtpVerificationModel.setDetails();
+            otpCheckPane.getChildren().clear();
+            otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/newPasswordForm.fxml"))));
+        } else {
+            System.out.println("wrong huttoooooo");
         }
+
     }
 
     @FXML

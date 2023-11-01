@@ -31,9 +31,8 @@ public class RegisterModel {
     }
 
     public void setValues() {
-        String otp = BCrypt.hashpw(""+generateNewOtp(), BCrypt.gensalt());
         DBConnection.setDetails("INSERT INTO visioncare.tempgmailotp (gmail, otp)\n" +
-                "VALUES ("+ registerDto.getEmailAddress()+", "+ otp +");");
+                "VALUES ('"+ registerDto.getEmailAddress()+"', '"+ generateNewOtp() +"');");
     }
 
     public boolean checkEmailLong(){
@@ -43,9 +42,9 @@ public class RegisterModel {
     public int generateNewOtp() {
         int otp;
         do {
-            Random random = new Random(10000);
-            otp = random.nextInt();
-        }while (otp > 1000 && otp < 10000);
-        return otp;
+            Random random = new Random();
+            otp = random.nextInt(9999);
+            if (otp > 1000) return otp;
+        }while (true);
     }
 }

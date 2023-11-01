@@ -14,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.RegisterDto;
+import lk.ijse.model.OtpVerificationModel;
 import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
@@ -94,13 +95,14 @@ public class RegisterFormController {
                     alertImage3.setOpacity(0);
                     passwordLongLbl.setOpacity(0);
                     if (register.checkConfirmPassword()){
-                        // me method eken hadanna tiyenne itiri tika
                         register.setValues();
                         registerPane.getChildren().clear();
                         try {
                             registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/otpVerificationForm.fxml"))));
                         } catch (IOException e) {
                             throw new RuntimeException(e);
+                        } finally {
+                            new OtpVerificationModel(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), conPwTxt.getText()));
                         }
                     } else {
                         alertSound.checkSounds(Sounds.INVALID);

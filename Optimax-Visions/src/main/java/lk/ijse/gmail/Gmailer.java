@@ -57,7 +57,7 @@ public class Gmailer {
     }
 
     public static void setEmailCom(String email, int randNum) throws Exception {
-        new Gmailer().sendMail("Your, Petcare account reset OTP", "<!DOCTYPE html>\n" +
+        new Gmailer().sendMail("Your, OptimaxVisions new account OTP", "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "<head>\n" +
                 "    <style>\n" +
@@ -77,22 +77,21 @@ public class Gmailer {
                 "</head>\n" +
                 "<body>\n" +
                 "    <div class=\"container\">\n" +
-                "        <h1>Here's your PetCare OTP code, @" + email + "!</h1>\n" +
+                "        <h1>Here's your OptimaxVisions OTP code, @" + email + "!</h1>\n" +
                 "        <h2>Your One-Time Password (OTP) is: <strong>" + randNum + "</strong></h2>\n" +
                 "    </div>\n" +
                 "</body>\n" +
-                "</html>\n");
+                "</html>\n", email);
     }
 
-    public void sendMail(String subject, String message) throws Exception {
+    public void sendMail(String subject, String message,String gmail) throws Exception {
 
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
         email.setFrom(new InternetAddress(EMAIL));
-        email.addRecipient(TO, new InternetAddress("kavindu11250403@gmail.com"));
+        email.addRecipient(TO, new InternetAddress(gmail));
         email.setSubject(subject);
-//        email.setText(message);
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
         mimeBodyPart.setContent(message, "text/html; charset=utf-8");
