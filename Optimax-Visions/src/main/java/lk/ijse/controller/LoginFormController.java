@@ -17,6 +17,7 @@ import lk.ijse.dto.LoginDto;
 import lk.ijse.model.LoginModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class LoginFormController {
@@ -80,9 +81,10 @@ public class LoginFormController {
     }
 
     @FXML
-    void loginBtnOnAction(ActionEvent event) {
-        boolean checkUsername = LoginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
-        boolean checkPassword = LoginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
+    void loginBtnOnAction(ActionEvent event) throws SQLException {
+        LoginModel loginModel = new LoginModel();
+        boolean checkUsername = loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
+        boolean checkPassword = loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
         if (checkUsername) {
             usernameRec.setStroke(Color.BLACK);
             alertImage1.setOpacity(0);

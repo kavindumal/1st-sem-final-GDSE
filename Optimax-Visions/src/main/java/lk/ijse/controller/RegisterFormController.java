@@ -18,6 +18,7 @@ import lk.ijse.model.OtpVerificationModel;
 import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class RegisterFormController {
@@ -79,7 +80,7 @@ public class RegisterFormController {
     public RegisterModel register;
 
     @FXML
-    void registerBtnOnAction(ActionEvent event) {
+    void registerBtnOnAction(ActionEvent event) throws SQLException {
         AlertSound alertSound = new AlertSound();
         register = new RegisterModel(new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), conPwTxt.getText()));
         if (register.checkUsernameAvailability()){

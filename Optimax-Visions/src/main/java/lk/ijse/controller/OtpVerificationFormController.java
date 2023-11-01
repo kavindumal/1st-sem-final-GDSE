@@ -9,13 +9,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.db.DBConnection;
+import lk.ijse.db.DbConnections;
 import lk.ijse.dto.OtpVerificationDto;
 import lk.ijse.model.OtpVerificationModel;
-import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
@@ -50,8 +50,8 @@ public class OtpVerificationFormController implements Initializable {
     }
 
     @FXML
-    void vrfBtnOnAction(ActionEvent event) throws IOException {
-        String[][] dbDetails = DBConnection.getDetails("tempgmailotp",2);
+    void vrfBtnOnAction(ActionEvent event) throws IOException, SQLException {
+        String[][] dbDetails = DbConnections.getDetails("tempgmailotp",2);
 
         int num1 = Integer.parseInt(otpField1Txt.getText());
         int num2 = Integer.parseInt(otpField2Txt.getText());
@@ -78,7 +78,11 @@ public class OtpVerificationFormController implements Initializable {
         OtpVerificationModel otpVerificationModel = new OtpVerificationModel(new OtpVerificationDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()));
         if (count < 1) {
             count++;
-            otpVerificationModel.sendEmail();
+            try {
+                otpVerificationModel.sendEmail();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         otpField1Txt.addEventFilter(KeyEvent.KEY_TYPED, numericOnlyFilter);

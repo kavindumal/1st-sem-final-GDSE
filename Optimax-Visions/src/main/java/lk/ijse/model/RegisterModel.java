@@ -1,9 +1,9 @@
 package lk.ijse.model;
 
-import lk.ijse.db.DBConnection;
+import lk.ijse.db.DbConnections;
 import lk.ijse.dto.RegisterDto;
-import org.mindrot.jbcrypt.BCrypt;
 
+import java.sql.SQLException;
 import java.util.Random;
 
 public class RegisterModel {
@@ -20,8 +20,8 @@ public class RegisterModel {
         return registerDto.getPassword().equals(registerDto.getConfirmPassword());
     }
 
-    public boolean checkUsernameAvailability() {
-        String[][] details= DBConnection.getDetails("user", 3);
+    public boolean checkUsernameAvailability() throws SQLException {
+        String[][] details= DbConnections.getDetails("user", 3);
         for (int i = 0; i < details.length; i++) {
             if (!details[i][0].equals(registerDto.getUsername())) {
                 return true;
@@ -30,8 +30,8 @@ public class RegisterModel {
         return false;
     }
 
-    public void setValues() {
-        DBConnection.setDetails("INSERT INTO visioncare.tempgmailotp (gmail, otp)\n" +
+    public void setValues() throws SQLException {
+        DbConnections.setDetails("INSERT INTO visioncare.tempgmailotp (gmail, otp)\n" +
                 "VALUES ('"+ registerDto.getEmailAddress()+"', '"+ generateNewOtp() +"');");
     }
 
