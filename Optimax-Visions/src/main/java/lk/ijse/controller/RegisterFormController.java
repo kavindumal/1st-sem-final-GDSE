@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -82,6 +83,15 @@ public class RegisterFormController {
 
     public RegisterModel register;
 
+    @FXML
+    public void backOnAction(MouseEvent event) {
+        registerPane.getChildren().clear();
+        try {
+            registerPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/loginForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     void registerBtnOnAction(ActionEvent event) throws SQLException, IOException {
         AlertSound alertSound = new AlertSound();

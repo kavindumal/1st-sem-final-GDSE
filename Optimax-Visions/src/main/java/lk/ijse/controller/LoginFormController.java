@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -18,10 +17,8 @@ import lk.ijse.dto.LoginDto;
 import lk.ijse.model.LoginModel;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class LoginFormController {
 
@@ -61,7 +58,7 @@ public class LoginFormController {
     @FXML
     private ImageView alertImage1;
 
-    private AlertSound alertSound = new AlertSound();
+    private final AlertSound alertSound = new AlertSound();
 
     @FXML
     void createNewAccBtnOnAction(ActionEvent event) {

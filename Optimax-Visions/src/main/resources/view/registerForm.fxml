@@ -94,5 +94,13 @@
             <Image url="@../img/icons/alert.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="backImg" fitHeight="100.0" fitWidth="100.0" layoutX="1703.0" layoutY="114.0" onMouseClicked="#backOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/back.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

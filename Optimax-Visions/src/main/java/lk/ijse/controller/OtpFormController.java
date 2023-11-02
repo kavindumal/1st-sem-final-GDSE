@@ -17,7 +17,9 @@ import javafx.scene.image.Image;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.OtpDto;
+import lk.ijse.dto.RegisterDto;
 import lk.ijse.model.OtpModel;
+import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -59,9 +61,19 @@ public class OtpFormController implements Initializable{
     public OtpModel otpModel = new OtpModel();
     @FXML
     void resendOtpBtnOnAction(ActionEvent event) {
-
+        otp = otpModel.generateNewOtp();
+        otpModel.getOtp(email, otp);
     }
 
+    @FXML
+    public void backOnAction(MouseEvent event) {
+        otpCheckPane.getChildren().clear();
+        try {
+            otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/registerForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @FXML
     void vrfBtnOnAction(ActionEvent event) {
@@ -144,14 +156,5 @@ public class OtpFormController implements Initializable{
         this.email = email;
         this.password = passwordTxtText;
         this.otp = otp;
-    }
-    @FXML
-    public void backOnAction(MouseEvent event) {
-        otpCheckPane.getChildren().clear();
-        try {
-            otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/registerForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
