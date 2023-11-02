@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import lk.ijse.dto.ChangePasswordDto;
 import lk.ijse.model.ChangePasswordModel;
@@ -69,6 +70,16 @@ public class ChangePasswordFormController {
         ChangePasswordModel changePasswordModel = new ChangePasswordModel();
         if (changePasswordModel.checkPasswordEquality(new ChangePasswordDto(newPasswordTxt.getText(), confirmPasswordTxt.getText()))) {
             changePasswordModel.setDataToDatabase(new ChangePasswordDto(newPasswordTxt.getText(), confirmPasswordTxt.getText()),email);
+            resetPwPane.getChildren().clear();
+            try {
+                resetPwPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/loginForm.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            confirmPasswordErrorLbl.setOpacity(1);
+            conPwRec.setStroke(Color.RED);
+            confirmPasswordTxt.requestFocus();
         }
     }
 
