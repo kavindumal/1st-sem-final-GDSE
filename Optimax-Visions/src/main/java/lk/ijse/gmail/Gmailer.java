@@ -56,8 +56,8 @@ public class Gmailer {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    public static void setEmailCom(String email, int randNum) throws Exception {
-        new Gmailer().sendMail("Your, OptimaxVisions new account OTP", "<!DOCTYPE html>\n" +
+    public static boolean setEmailCom(String email, int randNum) throws Exception {
+        boolean b = new Gmailer().sendMail("Your, OptimaxVisions new account OTP", "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "<head>\n" +
                 "    <style>\n" +
@@ -82,10 +82,11 @@ public class Gmailer {
                 "    </div>\n" +
                 "</body>\n" +
                 "</html>\n", email);
+        return b;
     }
 
-    public void sendMail(String subject, String message,String gmail) throws Exception {
-
+    public boolean sendMail(String subject, String message,String gmail) throws Exception {
+        boolean b = false;
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
@@ -110,17 +111,14 @@ public class Gmailer {
         msg.setRaw(encodedEmail);
 
         try {
+            b = true;
             msg = service.users().messages().send("me", msg).execute();
             System.out.println("Message id: " + msg.getId());
             System.out.println(msg.toPrettyString());
 
         } catch (GoogleJsonResponseException e) {
-            GoogleJsonError error = e.getDetails();
-            if (error.getCode() == 403) {
-                System.err.println("Unable to send message: " + e.getDetails());
-            } else {
-                throw e;
-            }
+            b = false;
         }
+        return b;
     }
 }

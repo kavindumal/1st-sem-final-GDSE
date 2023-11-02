@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.RegisterDto;
+import lk.ijse.gmail.Gmailer;
 
 import java.sql.SQLException;
 import java.util.Random;
@@ -30,9 +31,19 @@ public class RegisterModel {
         return false;
     }
 
-    public void setValues() throws SQLException {
-        DbConnections.setDetails("INSERT INTO visioncare.tempgmailotp (gmail, otp)\n" +
-                "VALUES ('"+ registerDto.getEmailAddress()+"', '"+ generateNewOtp() +"');");
+    public boolean getOtp(String email, int otp) {
+        boolean b1 = false;
+        if (!email.contains("@")) {
+            if (!email.contains("gmail.com")) {
+                email = email + "@gmail.com";
+            }
+        }
+        try {
+            b1 = Gmailer.setEmailCom(email, otp);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return b1;
     }
 
     public boolean checkEmailLong(){
