@@ -14,16 +14,20 @@ public class LoginModel {
 
     public boolean checkUsername(LoginDto loginDto) {
         boolean checkUsername = false;
-        for (int i = 0; i < details.length; i++) {
-            if (loginDto.getUsername().equals(details[i][0])) checkUsername = true;
+        for (String[] detail : details) {
+            if (loginDto.getUsername().equals(detail[0])) {
+                checkUsername = true;
+                break;
+            }
         }
         return checkUsername;
     }
 
     public boolean checkPassword(LoginDto loginDto) {
         boolean checkPassword = false;
-        for (int i = 0; i < details.length; i++) {
-            if (details[i][0].equals(loginDto.getUsername())) if (BCrypt.checkpw(loginDto.getPassword(), details[i][1])) checkPassword = true;
+        for (String[] detail : details) {
+            if (detail[0].equals(loginDto.getUsername()))
+                if (BCrypt.checkpw(loginDto.getPassword(), detail[1])) checkPassword = true;
         }
         return checkPassword;
     }
