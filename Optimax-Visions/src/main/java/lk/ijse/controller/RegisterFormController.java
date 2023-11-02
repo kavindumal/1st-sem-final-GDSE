@@ -122,7 +122,7 @@ public class RegisterFormController {
                             Parent root = loader.load();
                             OtpFormController otpFormController = loader.getController();
 
-                            otpFormController.setDataFromRegister(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(),otp);
+                            otpFormController.setDataFromRegister(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), otp, "create");
 
                             Scene scene = new Scene(root);
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

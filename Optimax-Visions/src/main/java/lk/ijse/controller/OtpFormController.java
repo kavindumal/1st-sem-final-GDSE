@@ -6,6 +6,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -13,13 +16,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.OtpDto;
-import lk.ijse.dto.RegisterDto;
 import lk.ijse.model.OtpModel;
-import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,6 +55,7 @@ public class OtpFormController implements Initializable{
     @FXML
     private Label invalidLbl;
 
+    public String forgotOrCreate;
     public String username;
     public String password;
     public String email;
@@ -76,21 +78,36 @@ public class OtpFormController implements Initializable{
     }
 
     @FXML
-    void vrfBtnOnAction(ActionEvent event) {
-        if (otpModel.verifyOto(new OtpDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()), otp)){
-            if (otpModel.setDetailsToDatabase(username, password, email)) {
-                otpCheckPane.getChildren().clear();
-                try {
-                    otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/loginForm.fxml"))));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+    void vrfBtnOnAction(ActionEvent event) throws IOException {
+        if (forgotOrCreate.equals("create")) {
+            if (otpModel.verifyOto(new OtpDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()), otp)){
+                if (otpModel.setDetailsToDatabase(username, password, email)) {
+                    otpCheckPane.getChildren().clear();
+                    try {
+                        otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/loginForm.fxml"))));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
+            } else {
+                AlertSound alertSound = new AlertSound();
+                alertSound.checkSounds(Sounds.INVALID);
+                invalidLbl.setOpacity(1);
+                alertImage1.setOpacity(1);
             }
-        } else {
-            AlertSound alertSound = new AlertSound();
-            alertSound.checkSounds(Sounds.INVALID);
-            invalidLbl.setOpacity(1);
-            alertImage1.setOpacity(1);
+        } else if (forgotOrCreate.equals("forgot")) {
+            if (otpModel.verifyOto(new OtpDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()), otp)) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/changePasswordForm.fxml"));
+                Parent root = loader.load();
+                ChangePasswordFormController changePasswordFormController = loader.getController();
+
+                changePasswordFormController.setDateForChangePassword(email);
+
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            }
         }
     }
 
@@ -151,10 +168,17 @@ public class OtpFormController implements Initializable{
         }
     };
 
-    public void setDataFromRegister(String username, String email, String passwordTxtText, int otp) {
+    public void setDataFromRegister(String username, String email, String passwordTxtText, int otp, String forgotOrCreate) {
         this.username = username;
         this.email = email;
         this.password = passwordTxtText;
+        this.otp = otp;
+        this.forgotOrCreate = forgotOrCreate;
+    }
+
+    public void setDataFromSubmit(String email, String forgotOrCreate, int otp) {
+        this.email = email;
+        this.forgotOrCreate = forgotOrCreate;
         this.otp = otp;
     }
 }
