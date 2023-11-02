@@ -33,10 +33,13 @@ public class RegisterModel {
 
     public boolean getOtp(String email, int otp) {
         boolean b1 = false;
-        if (!email.contains("@")) {
-            if (!email.contains("gmail.com")) {
-                email = email + "@gmail.com";
+        if (email.contains("@")){
+            int index = email.indexOf("@");
+            if (!email.substring(index + 1).equals("gmail.com")){
+                return false;
             }
+        } else {
+            return false;
         }
         try {
             b1 = Gmailer.setEmailCom(email, otp);

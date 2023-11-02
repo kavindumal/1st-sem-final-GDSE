@@ -88,6 +88,9 @@ public class RegisterFormController {
         RegisterDto registerDto = new RegisterDto(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), conPwTxt.getText());
         register = new RegisterModel(registerDto);
         if (register.checkUsernameAvailability()){
+            usernameRec111.setStroke(Color.BLACK);
+            alertImage4.setOpacity(0);
+            emailAddressCheckLbl.setOpacity(0);
             usernameCheckLbl.setOpacity(0);
             alertImage2.setOpacity(0);
             usernameRec.setStroke(Color.BLACK);
@@ -100,6 +103,9 @@ public class RegisterFormController {
                     alertImage3.setOpacity(0);
                     passwordLongLbl.setOpacity(0);
                     if (register.checkConfirmPassword()){
+                        alertImsge.setOpacity(0);
+                        conPwRec.setStroke(Color.BLACK);
+                        confirmPwLbl.setOpacity(0);
                         int otp = register.generateNewOtp();
                         if (register.getOtp(emailTxt.getText(), otp)) {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/otpForm.fxml"));
@@ -113,6 +119,7 @@ public class RegisterFormController {
                             stage.setScene(scene);
                             stage.show();
                         } else {
+                            alertSound.checkSounds(Sounds.INVALID);
                             usernameRec111.setStroke(Color.RED);
                             alertImage4.setOpacity(1);
                             emailAddressCheckLbl.setOpacity(1);
@@ -132,6 +139,7 @@ public class RegisterFormController {
                     passwordLongLbl.setOpacity(1);
                 }
             } else {
+                emailAddressCheckLbl.setText("email address required.");
                 alertSound.checkSounds(Sounds.INVALID);
                 emailTxt.requestFocus();
                 usernameRec111.setStroke(Color.RED);
