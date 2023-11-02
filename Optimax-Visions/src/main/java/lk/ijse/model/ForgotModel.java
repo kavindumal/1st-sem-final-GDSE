@@ -1,11 +1,20 @@
 package lk.ijse.model;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.ForgotDto;
 import lk.ijse.gmail.Gmailer;
 
+import java.io.IOException;
+import java.sql.ParameterMetaData;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ForgotModel {
 
@@ -44,5 +53,19 @@ public class ForgotModel {
             otp = random.nextInt(9999);
             if (otp > 1000) return otp;
         }while (true);
+    }
+
+    public void openConfirmPage() throws IOException {
+        Parent rootNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/popup/resetPwPopupForm.fxml")));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = new Stage();
+        stage.setOpacity(0.75);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.centerOnScreen();
+        stage.setScene(scene);
+        stage.show();
+
     }
 }
