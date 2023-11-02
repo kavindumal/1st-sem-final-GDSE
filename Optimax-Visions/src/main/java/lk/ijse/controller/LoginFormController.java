@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -17,8 +18,10 @@ import lk.ijse.dto.LoginDto;
 import lk.ijse.model.LoginModel;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class LoginFormController {
 
@@ -83,13 +86,12 @@ public class LoginFormController {
     @FXML
     void loginBtnOnAction(ActionEvent event) throws SQLException {
         LoginModel loginModel = new LoginModel();
-        boolean checkUsername = loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
-        boolean checkPassword = loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()));
-        if (checkUsername) {
+
+        if (loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))) {
             usernameRec.setStroke(Color.BLACK);
             alertImage1.setOpacity(0);
             invalidusrOrPwLbl1.setOpacity(0);
-            if (checkPassword){
+            if (loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))){
                 loginPane.getChildren().clear();
                 try {
                     loginPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/dashboardForm.fxml"))));

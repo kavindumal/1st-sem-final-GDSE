@@ -6,19 +6,18 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.image.Image;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.OtpDto;
-import lk.ijse.dto.RegisterDto;
 import lk.ijse.model.OtpModel;
-import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,6 +62,7 @@ public class OtpFormController implements Initializable{
 
     }
 
+
     @FXML
     void vrfBtnOnAction(ActionEvent event) {
         if (otpModel.verifyOto(new OtpDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()), otp)){
@@ -89,6 +89,7 @@ public class OtpFormController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        otpField1Txt.requestFocus();
         otpField1Txt.addEventFilter(KeyEvent.KEY_TYPED, numericOnlyFilter);
         otpField2Txt.addEventFilter(KeyEvent.KEY_TYPED, numericOnlyFilter);
         otpField3Txt.addEventFilter(KeyEvent.KEY_TYPED, numericOnlyFilter);
@@ -143,5 +144,14 @@ public class OtpFormController implements Initializable{
         this.email = email;
         this.password = passwordTxtText;
         this.otp = otp;
+    }
+    @FXML
+    public void backOnAction(MouseEvent event) {
+        otpCheckPane.getChildren().clear();
+        try {
+            otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/registerForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

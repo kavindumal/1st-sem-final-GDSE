@@ -23,7 +23,7 @@ public class LoginModel {
     public boolean checkPassword(LoginDto loginDto) {
         boolean checkPassword = false;
         for (int i = 0; i < details.length; i++) {
-            if (BCrypt.checkpw(loginDto.getPassword(), details[i][1])) checkPassword = true;
+            if (details[i][0].equals(loginDto.getUsername())) if (BCrypt.checkpw(loginDto.getPassword(), details[i][1])) checkPassword = true;
         }
         return checkPassword;
     }
