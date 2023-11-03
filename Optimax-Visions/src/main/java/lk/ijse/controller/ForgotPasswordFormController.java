@@ -69,17 +69,17 @@ public class ForgotPasswordFormController {
             int otp = forgotModel.generateNewOtp();
             emailforgotErrorLabel.setText("email address is can't find.Please try again.");
             if (forgotModel.getOtp(emailTxt.getText(), otp)){
-                forgotModel.openConfirmPage();
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/otpForm.fxml"));
-//                Parent root = loader.load();
-//                OtpFormController otpFormController = loader.getController();
-//
-//                otpFormController.setDataFromSubmit(emailTxt.getText(), "forgot", otp);
-//
-//                Scene scene = new Scene(root);
-//                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                stage.setScene(scene);
-//                stage.show();
+//                forgotModel.openConfirmPage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/otpForm.fxml"));
+                Parent root = loader.load();
+                OtpFormController otpFormController = loader.getController();
+
+                otpFormController.setDataFromSubmit(emailTxt.getText(), "forgot", otp);
+
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
             } else {
                 emailforgotErrorLabel.setText("Invalid email address. please check again.");
                 alertSound.checkSounds(Sounds.INVALID);
