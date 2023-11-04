@@ -84,28 +84,28 @@ public class LoginFormController {
     void loginBtnOnAction(ActionEvent event) throws SQLException {
         LoginModel loginModel = new LoginModel();
 
-        if (loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))) {
-            usernameRec.setStroke(Color.BLACK);
-            alertImage1.setOpacity(0);
-            invalidusrOrPwLbl1.setOpacity(0);
-            if (loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))){
+//        if (loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))) {
+//            usernameRec.setStroke(Color.BLACK);
+//            alertImage1.setOpacity(0);
+//            invalidusrOrPwLbl1.setOpacity(0);
+//            if (loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))){
                 loginPane.getChildren().clear();
                 try {
                     loginPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/dashboardForm.fxml"))));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-            } else {
-                alertSound.checkSounds(Sounds.INVALID);
-                pwRec.setStroke(Color.RED);
-                alertImage.setOpacity(1);
-                invalidusrOrPwLbl.setOpacity(1.0);
-            }
-        } else {
-            alertSound.checkSounds(Sounds.INVALID);
-            alertImage1.setOpacity(1);
-            usernameRec.setStroke(Color.RED);
-            invalidusrOrPwLbl1.setOpacity(1);
-        }
+//            } else {
+//                alertSound.checkSounds(Sounds.INVALID);
+//                pwRec.setStroke(Color.RED);
+//                alertImage.setOpacity(1);
+//                invalidusrOrPwLbl.setOpacity(1.0);
+//            }
+//        } else {
+//            alertSound.checkSounds(Sounds.INVALID);
+//            alertImage1.setOpacity(1);
+//            usernameRec.setStroke(Color.RED);
+//            invalidusrOrPwLbl1.setOpacity(1);
+//        }
     }
 }
