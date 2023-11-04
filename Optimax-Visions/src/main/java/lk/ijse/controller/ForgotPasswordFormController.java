@@ -15,15 +15,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.ForgotDto;
+import lk.ijse.gmail.Gmailer;
 import lk.ijse.model.ForgotModel;
 import org.checkerframework.checker.units.qual.A;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.Random;
 
 public class ForgotPasswordFormController {
 
@@ -66,10 +69,10 @@ public class ForgotPasswordFormController {
             emailRec.setStroke(Color.BLACK);
             alertImage2.setOpacity(0);
             emailforgotErrorLabel.setOpacity(0);
-            int otp = forgotModel.generateNewOtp();
+            int otp = generateNewOtp();
             emailforgotErrorLabel.setText("email address is can't find.Please try again.");
-            if (forgotModel.getOtp(emailTxt.getText(), otp)){
-//                forgotModel.openConfirmPage();
+            if (getOtp(emailTxt.getText(), otp)){
+//                openConfirmPage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/otpForm.fxml"));
                 Parent root = loader.load();
                 OtpFormController otpFormController = loader.getController();
@@ -93,5 +96,46 @@ public class ForgotPasswordFormController {
             alertImage2.setOpacity(1);
             emailforgotErrorLabel.setOpacity(1);
         }
+    }
+
+    public int generateNewOtp() {
+        int otp;
+        do {
+            Random random = new Random();
+            otp = random.nextInt(9999);
+            if (otp > 1000) return otp;
+        }while (true);
+    }
+
+    public boolean getOtp(String email, int otp) {
+        boolean b1 = false;
+        if (email.contains("@")){
+            int index = email.indexOf("@");
+            if (!email.substring(index + 1).equals("gmail.com")){
+                return false;
+            }
+        } else {
+            return false;
+        }
+        try {
+            b1 = Gmailer.setEmailCom(email, otp);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return b1;
+    }
+
+    public void openConfirmPage() throws IOException {
+        Parent rootNode = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/popup/resetPwPopupForm.fxml")));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = new Stage();
+        stage.setOpacity(0.75);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.centerOnScreen();
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

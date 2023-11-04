@@ -21,6 +21,36 @@
             <Image url="@../img/icons/rectangleChoose.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="movingImg1" fitHeight="70.0" fitWidth="78.0" layoutX="107.0" layoutY="297.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg111111" fitHeight="70.0" fitWidth="78.0" layoutX="108.0" layoutY="925.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg11" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="406.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg11111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="742.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="514.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg1111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="630.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="homePageImg" fitHeight="50.0" fitWidth="50.0" layoutX="121.0" layoutY="199.0" onMouseClicked="#homePageImgOnAction" onMouseEntered="#homeImgMouseEntered" onMouseExited="#homeImgMouseExited" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/homeclicked.png" />
@@ -54,36 +84,6 @@
       <ImageView fx:id="transactionPageImg" fitHeight="40.0" fitWidth="40.0" layoutX="125.0" layoutY="757.0" onMouseClicked="#transactionPageImgOnAction" onMouseEntered="#transactionPageImgOnMouseEntered" onMouseExited="#transactionPageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/transactionclicked.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg1" fitHeight="70.0" fitWidth="78.0" layoutX="108.0" layoutY="299.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg11" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="406.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="514.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg1111" fitHeight="70.0" fitWidth="78.0" layoutX="105.0" layoutY="630.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg11111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="742.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg111111" fitHeight="70.0" fitWidth="78.0" layoutX="108.0" layoutY="925.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
          </image>
       </ImageView>
    </children>

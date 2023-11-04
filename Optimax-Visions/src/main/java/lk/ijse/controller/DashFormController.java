@@ -11,10 +11,16 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardFormController implements Initializable {
+public class DashFormController implements Initializable {
 
     @FXML
     private AnchorPane bodyPane;
+
+    @FXML
+    private AnchorPane rootPane;
+
+    @FXML
+    private AnchorPane sidebarPane;
 
     @FXML
     private ImageView employeePageImg;
@@ -53,9 +59,6 @@ public class DashboardFormController implements Initializable {
     private ImageView prescriptionGlassPageImg;
 
     @FXML
-    private AnchorPane rootPane;
-
-    @FXML
     private ImageView settingPageImg;
 
     @FXML
@@ -64,6 +67,16 @@ public class DashboardFormController implements Initializable {
     @FXML
     void employeePageImgOnAction(MouseEvent event) {
         employeePageImg .setOpacity(1);
+    }
+
+    @FXML
+    void sliderbarPaneOnMouserEntered(MouseEvent event) {
+        sidebarPane.setPrefWidth(310);
+    }
+
+    @FXML
+    void sliderbarPaneOnMouserExited(MouseEvent event) {
+        sidebarPane.setPrefWidth(144);
     }
 
     @FXML

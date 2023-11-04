@@ -53,7 +53,6 @@ public class ChangePasswordFormController {
     @FXML
     private AnchorPane resetPwPane;
 
-    public ChangePasswordModel changePasswordModel;
     public String email;
     @FXML
     void backOnAction(MouseEvent event) {
@@ -68,7 +67,7 @@ public class ChangePasswordFormController {
     @FXML
     void resetPwBtnOnAction(ActionEvent event) throws SQLException {
         ChangePasswordModel changePasswordModel = new ChangePasswordModel();
-        if (changePasswordModel.checkPasswordEquality(new ChangePasswordDto(newPasswordTxt.getText(), confirmPasswordTxt.getText()))) {
+        if (checkPasswordEquality()) {
             changePasswordModel.setDataToDatabase(new ChangePasswordDto(newPasswordTxt.getText(), confirmPasswordTxt.getText()),email);
             resetPwPane.getChildren().clear();
             try {
@@ -85,5 +84,9 @@ public class ChangePasswordFormController {
 
     public void setDateForChangePassword(String email) {
         this.email = email;
+    }
+
+    public boolean checkPasswordEquality() {
+        return newPasswordTxt.getText().equals(confirmPasswordTxt.getText());
     }
 }

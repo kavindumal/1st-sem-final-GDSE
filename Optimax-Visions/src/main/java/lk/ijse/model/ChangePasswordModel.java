@@ -19,11 +19,4 @@ public class ChangePasswordModel {
             }
         }
     }
-
-    public boolean checkPasswordEquality(ChangePasswordDto changePasswordDto) {
-        if (changePasswordDto.getPassword().equals(changePasswordDto.getConfirmPassword())) {
-            return true;
-        }
-        return false;
-    }
 }

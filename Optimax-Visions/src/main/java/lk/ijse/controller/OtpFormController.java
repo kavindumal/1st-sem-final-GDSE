@@ -19,12 +19,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
-import lk.ijse.dto.OtpDto;
+import lk.ijse.gmail.Gmailer;
 import lk.ijse.model.OtpModel;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class OtpFormController implements Initializable{
@@ -63,8 +64,8 @@ public class OtpFormController implements Initializable{
     public OtpModel otpModel = new OtpModel();
     @FXML
     void resendOtpBtnOnAction(ActionEvent event) {
-        otp = otpModel.generateNewOtp();
-        otpModel.getOtp(email, otp);
+        otp = generateNewOtp();
+        sendOtp();
     }
 
     @FXML
@@ -80,7 +81,7 @@ public class OtpFormController implements Initializable{
     @FXML
     void vrfBtnOnAction(ActionEvent event) throws IOException {
         if (forgotOrCreate.equals("create")) {
-            if (otpModel.verifyOto(new OtpDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()), otp)){
+            if (verifyOto()){
                 if (otpModel.setDetailsToDatabase(username, password, email)) {
                     otpCheckPane.getChildren().clear();
                     try {
@@ -96,7 +97,7 @@ public class OtpFormController implements Initializable{
                 alertImage1.setOpacity(1);
             }
         } else if (forgotOrCreate.equals("forgot")) {
-            if (otpModel.verifyOto(new OtpDto(otpField1Txt.getText(), otpField2Txt.getText(), otpField3Txt.getText(), otpField4Txt.getText()), otp)) {
+            if (verifyOto()) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/changePasswordForm.fxml"));
                 Parent root = loader.load();
                 ChangePasswordFormController changePasswordFormController = loader.getController();
@@ -109,6 +110,32 @@ public class OtpFormController implements Initializable{
                 stage.show();
             }
         }
+    }
+
+    public void sendOtp() {
+        boolean b1 = false;
+        if (email.contains("@")){
+            int index = email.indexOf("@");
+            if (!email.substring(index + 1).equals("gmail.com")){
+                return;
+            }
+        } else {
+            return;
+        }
+        try {
+            b1 = Gmailer.setEmailCom(email, otp);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int generateNewOtp() {
+        int otp;
+        do {
+            Random random = new Random();
+            otp = random.nextInt(9999);
+            if (otp > 1000) return otp;
+        }while (true);
     }
 
     @FXML
@@ -180,5 +207,15 @@ public class OtpFormController implements Initializable{
         this.email = email;
         this.forgotOrCreate = forgotOrCreate;
         this.otp = otp;
+    }
+
+    public boolean verifyOto(){
+        int num1 = Integer.parseInt(otpField1Txt.getText());
+        int num2 = Integer.parseInt(otpField2Txt.getText());
+        int num3 = Integer.parseInt(otpField3Txt.getText());
+        int num4 = Integer.parseInt(otpField4Txt.getText());
+        int total = num1 * 1000 + num2 * 100 + num3 * 10 + num4;
+
+        return total == otp;
     }
 }

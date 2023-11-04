@@ -19,11 +19,13 @@ import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.RegisterDto;
+import lk.ijse.gmail.Gmailer;
 import lk.ijse.model.RegisterModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.Random;
 
 public class RegisterFormController {
 
@@ -83,6 +85,8 @@ public class RegisterFormController {
 
     public RegisterModel register;
 
+    int otp;
+
     @FXML
     public void backOnAction(MouseEvent event) {
         registerPane.getChildren().clear();
@@ -104,20 +108,20 @@ public class RegisterFormController {
             usernameCheckLbl.setOpacity(0);
             alertImage2.setOpacity(0);
             usernameRec.setStroke(Color.BLACK);
-            if (register.checkEmailLong()){
+            if (checkEmailLong()){
                 usernameRec111.setStroke(Color.BLACK);
                 emailAddressCheckLbl.setOpacity(0);
                 alertImage4.setOpacity(0);
-                if (register.checkPasswordLength()){
+                if (checkPasswordLength()){
                     passwordRec.setStroke(Color.BLACK);
                     alertImage3.setOpacity(0);
                     passwordLongLbl.setOpacity(0);
-                    if (register.checkConfirmPassword()){
+                    if (checkConfirmPassword()){
                         alertImsge.setOpacity(0);
                         conPwRec.setStroke(Color.BLACK);
                         confirmPwLbl.setOpacity(0);
-                        int otp = register.generateNewOtp();
-                        if (register.getOtp(emailTxt.getText(), otp)) {
+                        otp = generateNewOtp();
+                        if (getOtp()) {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/otpForm.fxml"));
                             Parent root = loader.load();
                             OtpFormController otpFormController = loader.getController();
@@ -163,5 +167,45 @@ public class RegisterFormController {
             usernameRec.setStroke(Color.RED);
             usernameTxt.requestFocus();
         }
+    }
+
+    public boolean getOtp() {
+        boolean b1 = false;
+        if (emailTxt.getText().contains("@")){
+            int index = emailTxt.getText().indexOf("@");
+            if (!emailTxt.getText().substring(index + 1).equals("gmail.com")){
+                return false;
+            }
+        } else {
+            return false;
+        }
+        try {
+            b1 = Gmailer.setEmailCom(emailTxt.getText(), otp);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return b1;
+    }
+
+
+    public int generateNewOtp() {
+        int otp;
+        do {
+            Random random = new Random();
+            otp = random.nextInt(9999);
+            if (otp > 1000) return otp;
+        }while (true);
+    }
+
+    public boolean checkEmailLong(){
+        return !emailTxt.getText().isEmpty();
+    }
+
+    public boolean checkConfirmPassword() {
+        return passwordTxt.getText().equals(conPwTxt.getText());
+    }
+
+    public boolean checkPasswordLength() {
+        return passwordTxt.getText().length() >= 8;
     }
 }
