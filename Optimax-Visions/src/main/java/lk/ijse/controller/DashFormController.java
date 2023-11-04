@@ -1,8 +1,10 @@
 package lk.ijse.controller;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -65,18 +67,53 @@ public class DashFormController implements Initializable {
     private ImageView transactionPageImg;
 
     @FXML
+    private Label homeLbl;
+
+    @FXML
+    private Label prescriptionLbl;
+
+    @FXML
+    private Label glassLbl;
+
+    @FXML
+    private Label patientLbl;
+
+    @FXML
+    private Label empLbl;
+
+    @FXML
+    private Label transactionLbl;
+
+    @FXML
+    private Label settingLbl;
+    private TranslateTransition transition = new TranslateTransition(Duration.millis(500), sidebarPane);
+    @FXML
     void employeePageImgOnAction(MouseEvent event) {
         employeePageImg .setOpacity(1);
     }
 
     @FXML
     void sliderbarPaneOnMouserEntered(MouseEvent event) {
-        sidebarPane.setPrefWidth(310);
+        sidebarPane.setPrefWidth(370);
+        homeLbl.setText("Home");
+        prescriptionLbl.setText("prescriptions");
+        glassLbl.setText("eyeglassses");
+        patientLbl.setText("patients");
+        empLbl.setText("employees");
+        transactionLbl.setText("transactions");
+        settingLbl.setText("settings");
     }
 
     @FXML
     void sliderbarPaneOnMouserExited(MouseEvent event) {
         sidebarPane.setPrefWidth(144);
+        homeLbl.setText("");
+        prescriptionLbl.setText("");
+        glassLbl.setText("");
+        patientLbl.setText("");
+        empLbl.setText("");
+        transactionLbl.setText("");
+        settingLbl.setText("");
     }
 
     @FXML
@@ -230,5 +267,6 @@ public class DashFormController implements Initializable {
         employeePageImg.setOpacity(0.5);
         transactionPageImg.setOpacity(0.5);
         settingPageImg.setOpacity(0.5);
+        homeLbl.setOpacity(1);
     }
 }
