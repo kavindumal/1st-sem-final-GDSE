@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="rootPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashFormController">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="538.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../img/pages/dashboard1.png" />
+         </image>
+         <viewport>
+            <Rectangle2D height="1080.0" minX="4.0" width="1920.0" />
+         </viewport>
+      </ImageView>
+      <AnchorPane fx:id="bodyPane" layoutX="219.0" layoutY="49.0" prefHeight="984.0" prefWidth="1633.0" />
+      <AnchorPane fx:id="sidebarPane" layoutX="72.0" layoutY="49.0" onMouseEntered="#sliderbarPaneOnMouserEntered" onMouseExited="#sliderbarPaneOnMouserExited" prefHeight="984.0" prefWidth="144.0" style="-fx-background-color: white; -fx-opacity: 0.475; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="95.0" layoutX="27.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="movingImg" fitHeight="70.0" fitWidth="78.0" layoutX="107.0" layoutY="199.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg1" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="307.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg111111" fitHeight="70.0" fitWidth="78.0" layoutX="107.0" layoutY="935.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg11" fitHeight="70.0" fitWidth="78.0" layoutX="105.0" layoutY="416.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg11111" fitHeight="70.0" fitWidth="78.0" layoutX="105.0" layoutY="752.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg111" fitHeight="70.0" fitWidth="78.0" layoutX="105.0" layoutY="524.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="movingImg1111" fitHeight="70.0" fitWidth="78.0" layoutX="105.0" layoutY="640.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/rectangleChoose.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="homePageImg" fitHeight="50.0" fitWidth="50.0" layoutX="120.0" layoutY="209.0" onMouseClicked="#homePageImgOnAction" onMouseEntered="#homeImgMouseEntered" onMouseExited="#homeImgMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/homeclicked.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="prescriptionGlassPageImg" fitHeight="50.0" fitWidth="45.0" layoutX="122.0" layoutY="319.0" onMouseClicked="#prescriptionGlassPageImgOnAction" onMouseEntered="#prescriptionGlassPageImgMouseEntered" onMouseExited="#prescriptionGlassPageImgMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/prescriptionglassClicked.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="glassPageImg" fitHeight="40.0" fitWidth="40.0" layoutX="124.0" layoutY="429.0" onMouseClicked="#glassPageImgOnAction" onMouseEntered="#glassPageImgMouseEntered" onMouseExited="#glassPageImgMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/glassOnClick.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="patientPageImg" fitHeight="40.0" fitWidth="40.0" layoutX="124.0" layoutY="538.0" onMouseClicked="#patientPageImgOnAction" onMouseEntered="#patientPageImgOnMouseEntered" onMouseExited="#patientPageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/appointmentclicked.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="employeePageImg" fitHeight="45.0" fitWidth="45.0" layoutX="121.0" layoutY="651.0" onMouseClicked="#employeePageImgOnAction" onMouseEntered="#employeePageImgOnMouseEmtered" onMouseExited="#employeePageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/employee.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="settingPageImg" fitHeight="45.0" fitWidth="45.0" layoutX="123.0" layoutY="948.0" onMouseClicked="#settingPageImgOnAction" onMouseEntered="#settingPageImgOnMouseEntered" onMouseExited="#settingPageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/settingClicked.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="transactionPageImg" fitHeight="40.0" fitWidth="40.0" layoutX="124.0" layoutY="767.0" onMouseClicked="#transactionPageImgOnAction" onMouseEntered="#transactionPageImgOnMouseEntered" onMouseExited="#transactionPageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/transactionclicked.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
