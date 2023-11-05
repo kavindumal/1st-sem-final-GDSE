@@ -43,6 +43,9 @@ public class DashBoardFormController implements Initializable {
     @FXML
     private Pane movInPane;
 
+    int sideBar = 0;
+    int count = 0;
+
     @FXML
     void employeeIconOnAction(MouseEvent event) {
         movInPane.setLayoutX(26);
@@ -79,8 +82,15 @@ public class DashBoardFormController implements Initializable {
     void homeIconOnAction(MouseEvent event) {
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(197);
+        homeIcon.setIconColor(Color.BLUE);
+        checkMoveInPaneLocation();
+        count = 2;
     }
 
+    void checkMoveInPaneLocation() {
+        if (count == 1) sideBarIcon.setIconColor(Color.BLACK);
+        else if (count == 2) homeIcon.setIconColor(Color.BLACK);
+    }
     @FXML
     void homeIconOnMouseEntered(MouseEvent event) {
         homeIcon.setIconColor(Color.BLUE);
@@ -95,6 +105,9 @@ public class DashBoardFormController implements Initializable {
     void patientIconOnAction(MouseEvent event) {
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(467);
+        patientIcon.setIconColor(Color.BLUE);
+        checkMoveInPaneLocation();
+        count = 3;
     }
 
     @FXML
@@ -141,7 +154,9 @@ public class DashBoardFormController implements Initializable {
 
     @FXML
     void sideBarIconOnAction(MouseEvent event) {
-
+        sideBar++;
+        if (sideBar % 2 == 1) sideBarPane.setPrefWidth(280);
+        else sideBarPane.setPrefWidth(101);
     }
 
     @FXML
