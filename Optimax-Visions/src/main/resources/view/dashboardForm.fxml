@@ -4,10 +4,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
-      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="384.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-14.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../img/pages/Dashboard.png" />
          </image>
@@ -15,76 +16,16 @@
             <Rectangle2D height="1080.0" minX="4.0" width="1920.0" />
          </viewport>
       </ImageView>
-      <AnchorPane fx:id="bodyPane" layoutX="217.0" layoutY="48.0" prefHeight="985.0" prefWidth="1631.0" />
-      <ImageView fx:id="movingImg" fitHeight="70.0" fitWidth="78.0" layoutX="108.0" layoutY="189.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg1" fitHeight="70.0" fitWidth="78.0" layoutX="107.0" layoutY="297.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg111111" fitHeight="70.0" fitWidth="78.0" layoutX="108.0" layoutY="925.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg11" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="406.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg11111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="742.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="514.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="movingImg1111" fitHeight="70.0" fitWidth="78.0" layoutX="106.0" layoutY="630.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/rectangleChoose.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="homePageImg" fitHeight="50.0" fitWidth="50.0" layoutX="121.0" layoutY="199.0" onMouseClicked="#homePageImgOnAction" onMouseEntered="#homeImgMouseEntered" onMouseExited="#homeImgMouseExited" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/homeclicked.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="prescriptionGlassPageImg" fitHeight="50.0" fitWidth="45.0" layoutX="123.0" layoutY="309.0" onMouseClicked="#prescriptionGlassPageImgOnAction" onMouseEntered="#prescriptionGlassPageImgMouseEntered" onMouseExited="#prescriptionGlassPageImgMouseExited" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/prescriptionglassClicked.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="glassPageImg" fitHeight="40.0" fitWidth="40.0" layoutX="125.0" layoutY="419.0" onMouseClicked="#glassPageImgOnAction" onMouseEntered="#glassPageImgMouseEntered" onMouseExited="#glassPageImgMouseExited" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/glassOnClick.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="patientPageImg" fitHeight="40.0" fitWidth="40.0" layoutX="125.0" layoutY="528.0" onMouseClicked="#patientPageImgOnAction" onMouseEntered="#patientPageImgOnMouseEntered" onMouseExited="#patientPageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/appointmentclicked.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="employeePageImg" fitHeight="45.0" fitWidth="45.0" layoutX="122.0" layoutY="641.0" onMouseClicked="#employeePageImgOnAction" onMouseEntered="#employeePageImgOnMouseEmtered" onMouseExited="#employeePageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/employee.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="settingPageImg" fitHeight="45.0" fitWidth="45.0" layoutX="124.0" layoutY="938.0" onMouseClicked="#settingPageImgOnAction" onMouseEntered="#settingPageImgOnMouseEntered" onMouseExited="#settingPageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/settingClicked.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="transactionPageImg" fitHeight="40.0" fitWidth="40.0" layoutX="125.0" layoutY="757.0" onMouseClicked="#transactionPageImgOnAction" onMouseEntered="#transactionPageImgOnMouseEntered" onMouseExited="#transactionPageImgOnMouseExited" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/icons/transactionclicked.png" />
-         </image>
-      </ImageView>
+      <AnchorPane layoutX="59.0" layoutY="48.0" prefHeight="984.0" prefWidth="101.0" style="-fx-background-color: white; -fx-opacity: 0.45; -fx-background-radius: 15;">
+         <children>
+            <FontIcon iconLiteral="bi-list" iconSize="30" layoutX="37.0" layoutY="71.0" stroke="BLACK" AnchorPane.topAnchor="41.0" />
+            <FontIcon iconLiteral="bi-house-door-fill" iconSize="25" layoutX="40.0" layoutY="235.0" />
+            <FontIcon iconLiteral="bi-eye-fill" iconSize="25" layoutX="40.0" layoutY="325.0" />
+            <FontIcon iconLiteral="bi-eyeglasses" iconSize="25" layoutX="40.0" layoutY="415.0" />
+            <FontIcon iconLiteral="bi-people-fill" iconSize="25" layoutX="40.0" layoutY="505.0" />
+            <FontIcon iconLiteral="bi-person-badge-fill" iconSize="25" layoutX="40.0" layoutY="595.0" />
+            <FontIcon iconLiteral="bi-cash-stack" iconSize="25" layoutX="40.0" layoutY="685.0" />
+            <FontIcon iconLiteral="bi-gear-fill" iconSize="25" layoutX="40.0" layoutY="945.0" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>
