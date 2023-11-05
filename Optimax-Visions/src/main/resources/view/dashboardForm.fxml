@@ -19,7 +19,7 @@
       <AnchorPane layoutX="59.0" layoutY="48.0" prefHeight="984.0" prefWidth="101.0" style="-fx-background-color: white; -fx-opacity: 0.45; -fx-background-radius: 15;">
          <children>
             <FontIcon iconLiteral="bi-list" iconSize="30" layoutX="37.0" layoutY="71.0" stroke="BLACK" AnchorPane.topAnchor="41.0" />
-            <FontIcon iconLiteral="bi-house-door-fill" iconSize="25" layoutX="40.0" layoutY="235.0" />
+            <FontIcon fx:id="homeIcon" iconLiteral="bi-house-door-fill" iconSize="25" layoutX="40.0" layoutY="235.0" />
             <FontIcon iconLiteral="bi-eye-fill" iconSize="25" layoutX="40.0" layoutY="325.0" />
             <FontIcon iconLiteral="bi-eyeglasses" iconSize="25" layoutX="40.0" layoutY="415.0" />
             <FontIcon iconLiteral="bi-people-fill" iconSize="25" layoutX="40.0" layoutY="505.0" />
