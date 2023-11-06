@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardFormController">
+<AnchorPane fx:id="rootPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardFormController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="238.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -19,7 +19,7 @@
       </ImageView>
       <AnchorPane fx:id="sideBarPane" layoutX="71.0" layoutY="49.0" prefHeight="984.0" prefWidth="101.0" style="-fx-background-color: white; -fx-opacity: 0.45; -fx-background-radius: 15;">
          <children>
-            <Pane fx:id="movInPane" layoutX="26.0" layoutY="197.0" prefHeight="53.0" prefWidth="53.0" style="-fx-background-color: #C3E4ED; -fx-background-radius: 15;" />
+            <Pane fx:id="movInPane" layoutX="26.0" layoutY="197.0" opacity="0.0" prefHeight="53.0" prefWidth="53.0" style="-fx-background-color: #C3E4ED; -fx-background-radius: 15;" />
             <FontIcon fx:id="homeIcon" iconLiteral="bi-house-door-fill" iconSize="25" layoutX="40.0" layoutY="235.0" onMouseClicked="#homeIconOnAction" onMouseEntered="#homeIconOnMouseEntered" onMouseExited="#homeIconOnMouseExited" />
             <FontIcon fx:id="prescriptionIcon" iconLiteral="bi-eye-fill" iconSize="25" layoutX="40.0" layoutY="325.0" onMouseClicked="#prescriptionIconOnAction" onMouseEntered="#prescriptionIconOnMouseEntered" onMouseExited="#prescriptionIconOnMouseExited" />
             <FontIcon fx:id="eyeglassIcon" iconLiteral="bi-eyeglasses" iconSize="25" layoutX="40.0" layoutY="415.0" onMouseClicked="#eyeglassIconOnAction" onMouseEntered="#eyeglassIconOnMouseEntered" onMouseExited="#eyeglassIconOnMouseExited" />
@@ -28,6 +28,15 @@
             <FontIcon fx:id="transactionIcon" iconLiteral="bi-cash-stack" iconSize="25" layoutX="40.0" layoutY="685.0" onMouseClicked="#transactionIconOnAction" onMouseEntered="#transactionIconOnMouseEntered" onMouseExited="#transactionIconOnMouseExited" />
             <FontIcon fx:id="settingIcon" iconLiteral="bi-gear-fill" iconSize="25" layoutX="40.0" layoutY="945.0" onMouseClicked="#settingIconOnAction" onMouseEntered="#settingIconOnMouseEntered" onMouseExited="#settingIconOnMouseExited" />
             <FontIcon fx:id="sideBarIcon" iconLiteral="bi-list" iconSize="30" layoutX="37.0" layoutY="71.0" onMouseClicked="#sideBarIconOnAction" onMouseEntered="#sideBarIconOnMouseAction" onMouseExited="#sideBarIconOnMouseExited" stroke="BLACK" text="" AnchorPane.topAnchor="41.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="bodyPane" layoutX="172.0" layoutY="48.0" prefHeight="984.0" prefWidth="1678.0">
+         <children>
+            <ImageView fx:id="popupImg" fitHeight="223.0" fitWidth="216.0" layoutX="-10.0" layoutY="220.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icons/Union.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
