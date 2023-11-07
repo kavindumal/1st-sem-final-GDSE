@@ -4,6 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -17,7 +18,9 @@ import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class DashBoardFormController implements Initializable {
@@ -134,6 +137,12 @@ public class DashBoardFormController implements Initializable {
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(197);
         count = 2;
+        bodyPane.getChildren().clear();
+        try {
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     void homeIconOnMouseEntered(MouseEvent event) {
@@ -342,6 +351,12 @@ public class DashBoardFormController implements Initializable {
     private void loadUi() {
         count = 2;
         movInPane.setOpacity(1);
+        bodyPane.getChildren().clear();
+        try {
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setTransitionFirstLog() {
