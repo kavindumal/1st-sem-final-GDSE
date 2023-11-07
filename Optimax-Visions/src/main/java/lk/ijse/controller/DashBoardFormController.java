@@ -5,11 +5,16 @@ import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
 import org.kordamp.ikonli.javafx.FontIcon;
 
@@ -65,8 +70,11 @@ public class DashBoardFormController implements Initializable {
 
     int layoutY;
     ImageView home1 = new ImageView("img/icons/dashboardTransition/home1.png");
-    ImageView home2 = new ImageView("img/icons/dashboardTransition/home2.png");
-    ImageView home3 = new ImageView("img/icons/dashboardTransition/home3.png");
+    ImageView home2;
+    ImageView home3;
+
+    Label homeLbl = new Label("Home");
+    Label homeLbl1;
     @FXML
     void employeeIconOnAction(MouseEvent event) {
         checkMoveInPaneLocation();
@@ -130,6 +138,9 @@ public class DashBoardFormController implements Initializable {
     }
     @FXML
     void homeIconOnMouseEntered(MouseEvent event) {
+        home2 = new ImageView("img/icons/dashboardTransition/home2.png");
+        home3 = new ImageView("img/icons/dashboardTransition/home3.png");
+
         homeIcon.setIconColor(Color.BLUE);
         scaleTransition.play();
         bodyPane.getChildren().add(popupsImg);
@@ -137,25 +148,39 @@ public class DashBoardFormController implements Initializable {
 
         home1.setFitWidth(50);
         home1.setFitHeight(50);
-        home1.setLayoutX(75);
-        home1.setLayoutY(139);
+        home1.setLayoutX(80);
+        home1.setLayoutY(159);
 
-        home2.setFitWidth(50);
-        home2.setFitHeight(50);
-        home2.setLayoutX(71);
-        home2.setLayoutY(135);
+        homeLbl1 = new Label("\t    Manage and organize \npatient,appointment and prescription");
+        homeLbl.setLayoutX(77);
+        homeLbl.setLayoutY(235);
+        homeLbl.setTextFill(Color.WHITE);
+        homeLbl.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        homeLbl.setOpacity(0.85);
 
-        home3.setFitWidth(50);
-        home3.setFitHeight(50);
-        home3.setLayoutX(79);
-        home3.setLayoutY(135);
+        homeLbl1.setLayoutX(15);
+        homeLbl1.setLayoutY(270);
+        homeLbl1.setTextFill(Color.WHITE);
+        homeLbl1.setAlignment(Pos.CENTER);
+        homeLbl1.setFont(Font.font("Arial", 11));
+        homeLbl1.setOpacity(0.85);
+
+        home2.setFitWidth(40);
+        home2.setFitHeight(40);
+        home2.setOpacity(0.6);
+        home2.setLayoutX(60);
+        home2.setLayoutY(165);
+
+        home3.setFitWidth(40);
+        home3.setFitHeight(40);
+        home3.setOpacity(0.6);
+        home3.setLayoutX(110);
+        home3.setLayoutY(165);
 
         ScaleTransition transition1 = new ScaleTransition(Duration.millis(300),home1);
         ScaleTransition transition2 = new ScaleTransition(Duration.millis(300),home2);
         ScaleTransition transition3 = new ScaleTransition(Duration.millis(300),home3);
-        bodyPane.getChildren().add(home1);
-        bodyPane.getChildren().add(home2);
-        bodyPane.getChildren().add(home3);
+        bodyPane.getChildren().addAll(home1,home2, home3, homeLbl, homeLbl1);
         home1.setScaleY(0.1);
         home1.setScaleX(0.1);
 
@@ -175,22 +200,31 @@ public class DashBoardFormController implements Initializable {
         transition3.setToY(1.0);
 
         PauseTransition pause1 = new PauseTransition(Duration.millis(300));
+        PauseTransition pause3 = new PauseTransition(Duration.millis(300));
+        PauseTransition pause2 = new PauseTransition(Duration.millis(300));
 
         transition2.play();
         transition3.play();
         pause1.setOnFinished(e -> transition1.play());
         pause1.play();
 
+        TranslateTransition trans1 = new TranslateTransition(Duration.millis(300), home2);
+        trans1.setToX(-35);
+        pause3.setOnFinished(e -> trans1.play());
+        pause3.play();
 
+        TranslateTransition trans2 = new TranslateTransition(Duration.millis(300), home3);
+        trans2.setToX(35);
+        pause2.setOnFinished(e -> trans2.play());
+        pause2.play();
     }
 
     @FXML
     void homeIconOnMouseExited(MouseEvent event) {
         homeIcon.setIconColor(Color.BLACK);
-        bodyPane.getChildren().remove(popupsImg);
-        bodyPane.getChildren().remove(home1);
-        bodyPane.getChildren().remove(home2);
-        bodyPane.getChildren().remove(home3);
+        home3.setLayoutX(110);
+        home2.setLayoutX(60);
+        bodyPane.getChildren().removeAll(popupsImg, homeLbl, home1, home2, home3, homeLbl1);
     }
 
     @FXML
