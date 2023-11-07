@@ -1,6 +1,5 @@
-/* Set the background color for all TextFields */
 .text-field {
-    -fx-background-color: transparent; /* Use your desired color */
+    -fx-background-color: transparent;
     -fx-border-color: #000000;
     -fx-border-radius: 30;
     -fx-border-width: 0.5;
