@@ -6,12 +6,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<?import com.jfoenix.controls.JFXDatePicker?>
-<AnchorPane fx:id="bodyPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddNewAppointmentFormController">
+<AnchorPane fx:id="appoitmentPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddNewAppointmentFormController">
    <children>
-      <JFXDatePicker fx:id="datePicker" />
-
       <Label layoutX="61.0" layoutY="56.0" text="Add new appointment">
          <font>
             <Font name="System Bold" size="32.0" />

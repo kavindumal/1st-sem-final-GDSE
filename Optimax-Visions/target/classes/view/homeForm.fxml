@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="homePane" prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeFormController">
+<AnchorPane fx:id="homePane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeFormController">
    <children>
-      <ImageView fitHeight="984.0" fitWidth="1633.0" layoutX="600.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@../img/pages/homePane.png" />
-         </image>
-      </ImageView>
+      <Pane layoutX="1329.0" layoutY="35.0" prefHeight="912.0" prefWidth="316.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+         <children>
+            <JFXButton fx:id="newAppointmentBtn" buttonType="RAISED" layoutX="23.0" layoutY="823.0" onAction="#newAppointmentBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Add new appointmnet">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
