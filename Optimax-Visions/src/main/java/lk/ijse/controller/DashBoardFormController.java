@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -62,6 +63,10 @@ public class DashBoardFormController implements Initializable {
 
     int count = 0;
 
+    int layoutY;
+    ImageView home1 = new ImageView("img/icons/dashboardTransition/home1.png");
+    ImageView home2 = new ImageView("img/icons/dashboardTransition/home2.png");
+    ImageView home3 = new ImageView("img/icons/dashboardTransition/home3.png");
     @FXML
     void employeeIconOnAction(MouseEvent event) {
         checkMoveInPaneLocation();
@@ -106,14 +111,6 @@ public class DashBoardFormController implements Initializable {
         bodyPane.getChildren().remove(popupsImg);
     }
 
-    @FXML
-    void homeIconOnAction(MouseEvent event) {
-        checkMoveInPaneLocation();
-        movInPane.setLayoutX(26);
-        movInPane.setLayoutY(197);
-        count = 2;
-    }
-
     void checkMoveInPaneLocation() {
         if (count == 2) homeIcon.setIconColor(Color.BLACK);
         else if (count == 3) prescriptionIcon.setIconColor(Color.BLACK);
@@ -123,18 +120,77 @@ public class DashBoardFormController implements Initializable {
         else if (count == 7) transactionIcon.setIconColor(Color.BLACK);
         else if (count == 8) settingIcon.setIconColor(Color.BLACK);
     }
+
+    @FXML
+    void homeIconOnAction(MouseEvent event) {
+        checkMoveInPaneLocation();
+        movInPane.setLayoutX(26);
+        movInPane.setLayoutY(197);
+        count = 2;
+    }
     @FXML
     void homeIconOnMouseEntered(MouseEvent event) {
         homeIcon.setIconColor(Color.BLUE);
         scaleTransition.play();
         bodyPane.getChildren().add(popupsImg);
         popupsImg.setLayoutY(119);
+
+        home1.setFitWidth(50);
+        home1.setFitHeight(50);
+        home1.setLayoutX(75);
+        home1.setLayoutY(139);
+
+        home2.setFitWidth(50);
+        home2.setFitHeight(50);
+        home2.setLayoutX(71);
+        home2.setLayoutY(135);
+
+        home3.setFitWidth(50);
+        home3.setFitHeight(50);
+        home3.setLayoutX(79);
+        home3.setLayoutY(135);
+
+        ScaleTransition transition1 = new ScaleTransition(Duration.millis(300),home1);
+        ScaleTransition transition2 = new ScaleTransition(Duration.millis(300),home2);
+        ScaleTransition transition3 = new ScaleTransition(Duration.millis(300),home3);
+        bodyPane.getChildren().add(home1);
+        bodyPane.getChildren().add(home2);
+        bodyPane.getChildren().add(home3);
+        home1.setScaleY(0.1);
+        home1.setScaleX(0.1);
+
+        home2.setScaleY(0.1);
+        home2.setScaleX(0.1);
+
+        home3.setScaleY(0.1);
+        home3.setScaleX(0.1);
+
+        transition1.setToX(1.0);
+        transition1.setToY(1.0);
+
+        transition2.setToX(1.0);
+        transition2.setToY(1.0);
+
+        transition3.setToX(1.0);
+        transition3.setToY(1.0);
+
+        PauseTransition pause1 = new PauseTransition(Duration.millis(300));
+
+        transition2.play();
+        transition3.play();
+        pause1.setOnFinished(e -> transition1.play());
+        pause1.play();
+
+
     }
 
     @FXML
     void homeIconOnMouseExited(MouseEvent event) {
         homeIcon.setIconColor(Color.BLACK);
         bodyPane.getChildren().remove(popupsImg);
+        bodyPane.getChildren().remove(home1);
+        bodyPane.getChildren().remove(home2);
+        bodyPane.getChildren().remove(home3);
     }
 
     @FXML
@@ -148,9 +204,7 @@ public class DashBoardFormController implements Initializable {
     @FXML
     void patientIconOnMouseEntered(MouseEvent event) {
         patientIcon.setIconColor(Color.BLUE);
-        //        popupsImg.setTranslateY(119);
-//        translateTransition.setToY(209);
-//        translateTransition.play();
+
         scaleTransition.play();
         bodyPane.getChildren().add(popupsImg);
         popupsImg.setLayoutY(386);
