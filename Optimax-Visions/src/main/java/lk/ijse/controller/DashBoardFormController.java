@@ -1,14 +1,15 @@
 package lk.ijse.controller;
 
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
-import javafx.scene.ImageCursor;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.net.URL;
@@ -52,8 +53,13 @@ public class DashBoardFormController implements Initializable {
     @FXML
     private Pane movInPane;
 
-    private ImageView popupsImg = new ImageView("img/icons/Union.png");
+    public ImageView popupsImg = new ImageView("img/icons/Union.png");
+
+    public ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(100), popupsImg);
+    public TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200), popupsImg);
+
     int sideBar = 0;
+
     int count = 0;
 
     @FXML
@@ -67,11 +73,15 @@ public class DashBoardFormController implements Initializable {
     @FXML
     void employeeIconOnMouseEntered(MouseEvent event) {
         employeeIcon.setIconColor(Color.BLUE);
+        scaleTransition.play();
+        bodyPane.getChildren().add(popupsImg);
+        popupsImg.setLayoutY(479);
     }
 
     @FXML
     void employeeIconOnMouseExited(MouseEvent event) {
         employeeIcon.setIconColor(Color.BLACK);
+        bodyPane.getChildren().remove(popupsImg);
     }
 
     @FXML
@@ -85,11 +95,15 @@ public class DashBoardFormController implements Initializable {
     @FXML
     void eyeglassIconOnMouseEntered(MouseEvent event) {
         eyeglassIcon.setIconColor(Color.BLUE);
+        scaleTransition.play();
+        bodyPane.getChildren().add(popupsImg);
+        popupsImg.setLayoutY(300);
     }
 
     @FXML
     void eyeglassIconOnMouseExited(MouseEvent event) {
         eyeglassIcon.setIconColor(Color.BLACK);
+        bodyPane.getChildren().remove(popupsImg);
     }
 
     @FXML
@@ -97,7 +111,6 @@ public class DashBoardFormController implements Initializable {
         checkMoveInPaneLocation();
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(197);
-        homeIcon.setIconColor(Color.BLUE);
         count = 2;
     }
 
@@ -113,11 +126,15 @@ public class DashBoardFormController implements Initializable {
     @FXML
     void homeIconOnMouseEntered(MouseEvent event) {
         homeIcon.setIconColor(Color.BLUE);
+        scaleTransition.play();
+        bodyPane.getChildren().add(popupsImg);
+        popupsImg.setLayoutY(119);
     }
 
     @FXML
     void homeIconOnMouseExited(MouseEvent event) {
         homeIcon.setIconColor(Color.BLACK);
+        bodyPane.getChildren().remove(popupsImg);
     }
 
     @FXML
@@ -125,18 +142,24 @@ public class DashBoardFormController implements Initializable {
         checkMoveInPaneLocation();
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(467);
-        patientIcon.setIconColor(Color.BLUE);
         count = 5;
     }
 
     @FXML
     void patientIconOnMouseEntered(MouseEvent event) {
         patientIcon.setIconColor(Color.BLUE);
+        //        popupsImg.setTranslateY(119);
+//        translateTransition.setToY(209);
+//        translateTransition.play();
+        scaleTransition.play();
+        bodyPane.getChildren().add(popupsImg);
+        popupsImg.setLayoutY(386);
     }
 
     @FXML
     void patientIconOnMouseExited(MouseEvent event) {
         patientIcon.setIconColor(Color.BLACK);
+        bodyPane.getChildren().remove(popupsImg);
     }
 
     @FXML
@@ -150,17 +173,15 @@ public class DashBoardFormController implements Initializable {
     @FXML
     void prescriptionIconOnMouseEntered(MouseEvent event) {
         prescriptionIcon.setIconColor(Color.BLUE);
+        scaleTransition.play();
         bodyPane.getChildren().add(popupsImg);
-        popupsImg.setFitWidth(216);
-        popupsImg.setFitHeight(223);
-        popupsImg.setLayoutX(-10);
-        popupsImg.setLayoutY(220);
+        popupsImg.setLayoutY(209);
     }
 
     @FXML
     void prescriptionIconOnMouseExited(MouseEvent event) {
-        bodyPane.getChildren().remove(popupsImg);
         prescriptionIcon.setIconColor(Color.BLACK);
+        bodyPane.getChildren().remove(popupsImg);
     }
 
     @FXML
@@ -211,21 +232,35 @@ public class DashBoardFormController implements Initializable {
     @FXML
     void transactionIconOnMouseEntered(MouseEvent event) {
         transactionIcon.setIconColor(Color.BLUE);
+        scaleTransition.play();
+        bodyPane.getChildren().add(popupsImg);
+        popupsImg.setLayoutY(570);
     }
 
     @FXML
     void transactionIconOnMouseExited(MouseEvent event) {
         transactionIcon.setIconColor(Color.BLACK);
+        bodyPane.getChildren().remove(popupsImg);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadUi();
+        setTransitionFirstLog();
+        popupsImg.setFitWidth(216);
+        popupsImg.setFitHeight(223);
+        popupsImg.setLayoutX(-10);
     }
 
     private void loadUi() {
         count = 2;
-        homeIcon.setIconColor(Color.BLUE);
         movInPane.setOpacity(1);
+    }
+
+    private void setTransitionFirstLog() {
+        popupsImg.setScaleX(0.1);
+        popupsImg.setScaleY(0.1);
+        scaleTransition.setToX(1.0);
+        scaleTransition.setToY(1.0);
     }
 }
