@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.calendarfx.view.page.MonthPage?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="appoitmentPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddNewAppointmentFormController">
@@ -13,12 +12,6 @@
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Rectangle fx:id="usernameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="66.0" layoutX="453.0" layoutY="662.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="586.0" />
-      <TextField fx:id="usernameTxt" layoutX="480.0" layoutY="666.0" prefHeight="59.0" prefWidth="511.0" style="-fx-background-color: trans;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
       <Label layoutX="1251.0" layoutY="64.0" text="Appointment id">
          <font>
             <Font size="24.0" />
@@ -34,5 +27,6 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <MonthPage layoutX="56.0" layoutY="247.0" prefHeight="426.0" prefWidth="493.0" />
    </children>
 </AnchorPane>

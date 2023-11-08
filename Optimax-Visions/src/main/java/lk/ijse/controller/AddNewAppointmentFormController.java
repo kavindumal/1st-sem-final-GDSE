@@ -7,10 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.scene.layout.GridPane;
+import org.checkerframework.checker.units.qual.C;
 
+import java.awt.*;
 import java.net.URL;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
 import java.util.ResourceBundle;
@@ -21,39 +24,7 @@ public class AddNewAppointmentFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Calendar calendar = Calendar.getInstance();
-        int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        int count = dateCount();
 
-        GridPane gridPane = new GridPane();
-        int numRows = 5; // Number of rows in the calendar grid
-        int numCols = 7; // Number of columns in the calendar grid
-        int remainRow = (numCols * numRows) - daysInMonth;
-
-        // Create a 2D array of Buttons to represent the calendar
-        Button[][] dateButtons = new Button[numRows][numCols];
-        gridPane.setHgap(10.0);
-        gridPane.setVgap(10.0);
-
-        int dayCount = 1; // Initialize the day count
-
-        for (int row = 0; row < numRows; row++) {
-            for (int col = 0; col < numCols; col++) {
-                if (row * numCols + col >= remainRow) {
-                    Button button = new Button();
-                    // Customize the button style and action as needed
-                    button.setMinSize(60, 60);
-                    button.setText(String.valueOf(dayCount)); // Set the button text to the day
-                    button.setStyle("-fx-background-color: transparent;");
-                    gridPane.add(button, col, row);
-                    dateButtons[row][col] = button;
-
-                    dayCount++; // Increment the day count
-                }
-            }
-        }
-
-        appoitmentPane.getChildren().add(gridPane);
     }
 
     public int dateCount() {
