@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.calendarfx.view.page.MonthPage?>
+<?import com.calendarfx.view.page.WeekPage?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -27,6 +27,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <MonthPage layoutX="56.0" layoutY="247.0" prefHeight="426.0" prefWidth="493.0" />
+      <WeekPage fx:id="calanderWeekPage" layoutX="55.0" layoutY="212.0" prefHeight="733.0" prefWidth="1076.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>
