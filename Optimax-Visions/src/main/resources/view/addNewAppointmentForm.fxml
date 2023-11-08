@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.calendarfx.view.CalendarView?>
+<?import com.jfoenix.controls.JFXNodesList?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="appoitmentPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddNewAppointmentFormController">
+<AnchorPane fx:id="appoitmentPane" prefHeight="984.0" prefWidth="1678.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddNewAppointmentFormController">
    <children>
       <Label layoutX="61.0" layoutY="56.0" text="Add new appointment">
          <font>
@@ -27,6 +31,31 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <CalendarView layoutX="62.0" layoutY="207.0" prefHeight="754.0" prefWidth="1207.0" showAddCalendarButton="false" showDeveloperConsole="true" showPageToolBarControls="false" showPrintButton="false" showSearchResultsTray="true" showSourceTrayButton="false" style="-fx-background-color: transparent;" />
+      <CalendarView fx:id="appointmentCalanderView" availabilityFill="#ed000000" layoutX="62.0" layoutY="212.0" prefHeight="701.0" prefWidth="1159.0" showAddCalendarButton="false" showDeveloperConsole="true" showPageToolBarControls="false" showPrintButton="false" showSearchResultsTray="true" showSourceTrayButton="false" style="-fx-background-color: transparent; -fx-background-radius: 30; -fx-border-radius: 30;" styleClass="calendar-view" stylesheets="@../style/calendarStyle.css" />
+      <Label layoutX="1251.0" layoutY="154.0" text="What is the problem?">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="problemChoiceBox" layoutX="1254.0" layoutY="207.0" onMouseClicked="#problemChoiceBoxOnAction" prefHeight="35.0" prefWidth="351.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+      <Rectangle fx:id="problemRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="256.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="problemTxt" layoutX="1281.0" layoutY="264.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <JFXNodesList />
+      <Label layoutX="1251.0" layoutY="354.0" text="want to choose doctor?">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="problemChoiceBox1" layoutX="1254.0" layoutY="407.0" onMouseClicked="#problemChoiceBoxOnAction" prefHeight="35.0" prefWidth="351.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+      <Rectangle fx:id="doctorRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="456.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="doctorChooseTxt" layoutX="1281.0" layoutY="464.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
