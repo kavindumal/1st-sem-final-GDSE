@@ -12,7 +12,6 @@
     -fx-text-fill: #333; /* Text color */
 }
 
-/* Style for the buttons within YearMonthView */
 .year-month-view .button {
     -fx-min-width: 250px; /* Minimum button width */
     -fx-pref-width: 250px; /* Preferred button width */
