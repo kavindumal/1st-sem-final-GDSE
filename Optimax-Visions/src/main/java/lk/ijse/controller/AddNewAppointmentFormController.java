@@ -1,13 +1,13 @@
 package lk.ijse.controller;
 
 import com.calendarfx.view.YearMonthView;
-import com.calendarfx.view.page.DayPage;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -41,6 +41,22 @@ public class AddNewAppointmentFormController implements Initializable {
 
     @FXML
     public YearMonthView calanderYearMonthView;
+    public JFXButton start8Btn;
+    public JFXButton end8Btn;
+    public JFXButton start9Btn;
+    public JFXButton end9Btn;
+    public JFXButton start10Btn;
+    public JFXButton end10Btn;
+    public JFXButton start11Btn;
+    public JFXButton end11Btn;
+    public JFXButton start1Btn;
+    public JFXButton end1Btn;
+    public JFXButton start2Btn;
+    public JFXButton end2Btn;
+    public JFXButton start3Btn;
+    public JFXButton end3Btn;
+    public JFXButton start4Btn;
+    public JFXButton end4Btn;
 
     @FXML
     private Label appointmentIdLbl;
@@ -51,9 +67,16 @@ public class AddNewAppointmentFormController implements Initializable {
     @FXML
     private TextField problemTxt;
 
+    private JFXButton selectedButton = null;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        addAppointmentButtonHandlers();
         try {
+            setSheduleTIme();
             setValuesToComboBox();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -70,17 +93,61 @@ public class AddNewAppointmentFormController implements Initializable {
         });
     }
 
+    private void setSheduleTIme() throws SQLException {
+        JFXButton[] appointmentButtons = new JFXButton[]{
+                start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
+                start1Btn, end1Btn, start2Btn, end2Btn, start3Btn, end3Btn, start4Btn, end4Btn
+        };
+
+        String[][] appointments = DbConnections.getDetails("appointment", 7);
+
+        for (int i = 0; i < appointments.length; i++) {
+            String appointmentTime = appointments[i][1];
+            for (int j = 0; j < appointmentButtons.length; j++) {
+                String[] time = appointmentButtons[j].getText().split(" |-");
+                if (time[0].equals(appointmentTime)) {
+                    appointmentButtons[j].setStyle("-fx-background-color: #EF4B3C; -fx-border-color: transparent; -fx-background-radius: 30; -fx-text-fill: white");
+                    appointmentButtons[j].setDisable(true);
+                }
+            }
+        }
+    }
+
+    private void addAppointmentButtonHandlers() {
+        JFXButton[] appointmentButtons = new JFXButton[]{
+                start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
+                start1Btn, end1Btn, start2Btn, end2Btn, start3Btn, end3Btn, start4Btn, end4Btn
+        };
+
+        for (JFXButton button : appointmentButtons) {
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    handleAppointmentButtonClick(button);
+                }
+            });
+        }
+    }
+
+    private void handleAppointmentButtonClick(JFXButton clickedButton) {
+        if (selectedButton != null) {
+            selectedButton.setStyle("-fx-background-color: transparent; -fx-text-fill: black; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5");
+        }
+        clickedButton.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-background-radius: 30;");
+        selectedButton = clickedButton;
+    }
+
     private void setValuesToComboBox() throws SQLException {
         ObservableList<String> problemChoices = FXCollections.observableArrayList(
-                "\t Buy prescription glass",
-                "\t Check eyes",
-                "\t Option 3"
+                "\tBuy prescription glass",
+                "\tCheck eyes",
+                "\tOption 3"
         );
 
         problemComboBox.setItems(problemChoices);
         problemComboBox.setValue(problemChoices.get(0));
 
-        String[][] doctors = DbConnections.getDetails("doctor", 9);
+        String[][] doctors = DbConnections.getDetails("doctor", 7);
         ObservableList<String> doctorChoiceBox = FXCollections.observableArrayList();
         for (int i = 0; i < doctors.length; i++) {
             if (i == 0) {

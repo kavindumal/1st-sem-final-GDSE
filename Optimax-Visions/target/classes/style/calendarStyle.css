@@ -1,7 +1,7 @@
 .year-month-view {
-    -fx-background-color: transparent; /* Background color */
-    -fx-border-color: #070101; /* Border color */
-    -fx-border-width: 0.5px; /* Border width */
+    -fx-background-color: transparent;
+    -fx-border-color: #070101;
+    -fx-border-width: 0.5px;
     -fx-border-radius: 30;
     -fx-background-radius: 30;
 }
@@ -9,20 +9,19 @@
 .year-month-view .label {
     -fx-font-size: 21px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333; /* Text color */
+    -fx-text-fill: #333;
 }
 
-/* Style for the buttons within YearMonthView */
 .year-month-view .button {
-    -fx-min-width: 250px; /* Minimum button width */
-    -fx-pref-width: 250px; /* Preferred button width */
-    -fx-min-height: 60px; /* Minimum button height */
-    -fx-pref-height: 60px; /* Preferred button height */
+    -fx-min-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-min-height: 60px;
+    -fx-pref-height: 60px;
 
-    -fx-background-color: #1A4BCC; /* Button background color */
-    -fx-text-fill: white; /* Text color for the buttons */
-    -fx-font-size: 20px; /* Font size for the buttons */
-    -fx-background-radius: 30; /* Rounded corners for the buttons */
+    -fx-background-color: #1A4BCC;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-background-radius: 30;
 }
 
 .year-month-view > .container > .weekend-day {

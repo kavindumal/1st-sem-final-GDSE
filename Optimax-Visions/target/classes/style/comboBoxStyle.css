@@ -7,6 +7,7 @@
     -fx-background-color: transparent;
     -fx-border-color: black;
     -fx-border-radius: 30;
+    -fx-font-size: 21px;
 }
 
 /* Remove the focus border */
