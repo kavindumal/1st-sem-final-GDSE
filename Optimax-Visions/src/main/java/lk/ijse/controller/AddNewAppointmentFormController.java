@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.alert.AlertSound;
@@ -62,6 +63,7 @@ public class AddNewAppointmentFormController implements Initializable {
     public JFXButton start4Btn;
     public JFXButton end4Btn;
     public Label timeNotFoundLbl;
+    public ImageView backImg;
 
     @FXML
     private Label appointmentIdLbl;
@@ -79,7 +81,9 @@ public class AddNewAppointmentFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addAppointmentButtonHandlers();
+
         try {
+            appointmentIdLbl.setText((addNewAppointmentModel.findNextAppoitmentId().substring(0,addNewAppointmentModel.findNextAppoitmentId().length() - 1)) +(Integer.parseInt(addNewAppointmentModel.findNextAppoitmentId().substring(addNewAppointmentModel.findNextAppoitmentId().length()-1)) + 1));
             appoitmentArray = addNewAppointmentModel.getEqualDateAppoitments(calanderYearMonthView.getDate().toString().replace("[", "").replace("]", ""));
             setScheduleTime(appoitmentArray);
             setValuesToComboBox();
@@ -205,5 +209,8 @@ public class AddNewAppointmentFormController implements Initializable {
     public void calanderYearMonthViewOnMouseClicked(MouseEvent event) throws SQLException {
         appoitmentArray = addNewAppointmentModel.getEqualDateAppoitments(calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", ""));
         setScheduleTime(appoitmentArray);
+    }
+
+    public void backOnAction(MouseEvent event) {
     }
 }
