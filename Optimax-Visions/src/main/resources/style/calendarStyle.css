@@ -1,3 +1,32 @@
-.calendar-view {
-    -fx-background-color: transparent;
+/* calendarStyles.css */
+
+/* Style for the entire YearMonthView */
+.year-month-view {
+    /* Add your YearMonthView styles here */
+    -fx-background-color: transparent; /* Background color */
+    -fx-border-color: #070101; /* Border color */
+    -fx-border-width: 0.5px; /* Border width */
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+
+.year-month-view .label {
+    /* Add your label styles here */
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333; /* Text color */
+}
+
+/* Style for the cells within YearMonthView */
+.year-month-view .cell {
+    /* Add your cell styles here */
+    -fx-background-color: #fff; /* Cell background color */
+    -fx-border-color: #100000; /* Cell border color */
+    -fx-border-width: 1px; /* Cell border width */
+}
+
+/* Style for the selected cell */
+.year-month-view .cell:selected {
+    -fx-background-color: #007acc;
+    -fx-text-fill: white;
 }

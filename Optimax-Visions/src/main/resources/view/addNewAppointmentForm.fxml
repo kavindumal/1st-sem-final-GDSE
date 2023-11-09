@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.calendarfx.view.CalendarView?>
+<?import com.calendarfx.view.YearMonthView?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXNodesList?>
 <?import javafx.scene.control.Label?>
@@ -32,7 +32,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <CalendarView fx:id="appointmentCalanderView" availabilityFill="#ed000000" layoutX="62.0" layoutY="212.0" prefHeight="701.0" prefWidth="1159.0" showAddCalendarButton="false" showDeveloperConsole="true" showPageToolBarControls="false" showPrintButton="false" showSearchResultsTray="true" showSourceTrayButton="false" style="-fx-background-color: transparent; -fx-background-radius: 30; -fx-border-radius: 30;" styleClass="calendar-view" stylesheets="@../style/calendarStyle.css" />
       <Label layoutX="1251.0" layoutY="154.0" text="What he/she want to?">
          <font>
             <Font size="24.0" />
@@ -67,7 +66,7 @@
             <Font size="21.0" />
          </font>
       </TextField>
-      <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="1254.0" layoutY="833.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Confirm">
+      <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="1254.0" layoutY="853.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Confirm">
          <font>
             <Font size="21.0" />
          </font>
@@ -75,5 +74,6 @@
       <PrefixSelectionComboBox fx:id="problemComboBox" layoutX="1253.0" layoutY="207.0" prefHeight="35.0" prefWidth="368.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
       <PrefixSelectionComboBox fx:id="doctorComboBox" layoutX="1253.0" layoutY="407.0" prefHeight="35.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
       <PrefixSelectionComboBox fx:id="prescriptionComboBox" layoutX="1253.0" layoutY="607.0" prefHeight="35.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
+      <YearMonthView fx:id="calanderYearMonthView" editAvailability="true" layoutX="63.0" layoutY="227.0" prefHeight="633.0" prefWidth="578.0" showWeekNumbers="false" showYear="false" showYearArrows="false" styleClass="year-month-view" stylesheets="@../style/calendarStyle.css" />
    </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 package lk.ijse.controller;
 
-import com.calendarfx.view.CalendarView;
+import com.calendarfx.view.YearMonthView;
+import com.calendarfx.view.page.DayPage;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import lk.ijse.db.DbConnections;
 import org.controlsfx.control.PrefixSelectionComboBox;
 
@@ -21,10 +21,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddNewAppointmentFormController implements Initializable {
-
-    @FXML
-    public Rectangle doctorRec;
-
     @FXML
     public TextField doctorChooseTxt;
 
@@ -43,18 +39,14 @@ public class AddNewAppointmentFormController implements Initializable {
     @FXML
     public PrefixSelectionComboBox prescriptionComboBox;
 
-
     @FXML
-    private CalendarView appointmentCalanderView;
+    public YearMonthView calanderYearMonthView;
 
     @FXML
     private Label appointmentIdLbl;
 
     @FXML
     private AnchorPane appoitmentPane;
-
-    @FXML
-    private Rectangle problemRec;
 
     @FXML
     private TextField problemTxt;
