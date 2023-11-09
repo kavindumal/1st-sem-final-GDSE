@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.calendarfx.view.CalendarView?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXNodesList?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.PrefixSelectionComboBox?>
 
 <AnchorPane fx:id="appoitmentPane" prefHeight="984.0" prefWidth="1678.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddNewAppointmentFormController">
    <children>
@@ -32,16 +33,15 @@
          </font>
       </Label>
       <CalendarView fx:id="appointmentCalanderView" availabilityFill="#ed000000" layoutX="62.0" layoutY="212.0" prefHeight="701.0" prefWidth="1159.0" showAddCalendarButton="false" showDeveloperConsole="true" showPageToolBarControls="false" showPrintButton="false" showSearchResultsTray="true" showSourceTrayButton="false" style="-fx-background-color: transparent; -fx-background-radius: 30; -fx-border-radius: 30;" styleClass="calendar-view" stylesheets="@../style/calendarStyle.css" />
-      <Label layoutX="1251.0" layoutY="154.0" text="What is the problem?">
+      <Label layoutX="1251.0" layoutY="154.0" text="What he/she want to?">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="problemChoiceBox" layoutX="1254.0" layoutY="207.0" onMouseClicked="#problemChoiceBoxOnAction" prefHeight="35.0" prefWidth="351.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-      <Rectangle fx:id="problemRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="256.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="problemTxt" layoutX="1281.0" layoutY="264.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="256.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="problemTxt" editable="false" layoutX="1281.0" layoutY="260.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
          <font>
-            <Font size="25.0" />
+            <Font size="21.0" />
          </font>
       </TextField>
       <JFXNodesList />
@@ -50,12 +50,30 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="problemChoiceBox1" layoutX="1254.0" layoutY="407.0" onMouseClicked="#problemChoiceBoxOnAction" prefHeight="35.0" prefWidth="351.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-      <Rectangle fx:id="doctorRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="456.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="doctorChooseTxt" layoutX="1281.0" layoutY="464.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="456.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="doctorChooseTxt" editable="false" layoutX="1281.0" layoutY="461.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
          <font>
-            <Font size="25.0" />
+            <Font size="21.0" />
          </font>
       </TextField>
+      <Label layoutX="1251.0" layoutY="554.0" text="Have a prescription?">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="656.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="prescriptionTxt" editable="false" layoutX="1281.0" layoutY="661.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="1254.0" layoutY="833.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Confirm">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <PrefixSelectionComboBox fx:id="problemComboBox" layoutX="1253.0" layoutY="207.0" prefHeight="35.0" prefWidth="368.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
+      <PrefixSelectionComboBox fx:id="doctorComboBox" layoutX="1253.0" layoutY="407.0" prefHeight="35.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
+      <PrefixSelectionComboBox fx:id="prescriptionComboBox" layoutX="1253.0" layoutY="607.0" prefHeight="35.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
    </children>
 </AnchorPane>

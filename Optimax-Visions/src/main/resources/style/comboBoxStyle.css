@@ -1,0 +1,14 @@
+.combo-box .arrow-button {
+    -fx-background-color: #1A4BCC;
+    -fx-background-radius: 30;
+}
+
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Remove the focus border */
+.combo-box:focused {
+    -fx-border-color: transparent;
+}

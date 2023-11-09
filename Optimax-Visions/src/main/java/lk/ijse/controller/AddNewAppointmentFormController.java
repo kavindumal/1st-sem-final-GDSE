@@ -1,33 +1,48 @@
 package lk.ijse.controller;
 
 import com.calendarfx.view.CalendarView;
+import com.jfoenix.controls.JFXButton;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import lk.ijse.db.DbConnections;
+import org.controlsfx.control.PrefixSelectionComboBox;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddNewAppointmentFormController implements Initializable {
-    @FXML
-    public ChoiceBox problemChoiceBox1;
 
     @FXML
     public Rectangle doctorRec;
 
     @FXML
     public TextField doctorChooseTxt;
+
+    @FXML
+    public TextField prescriptionTxt;
+
+    @FXML
+    public JFXButton confirmBtn;
+
+    @FXML
+    public PrefixSelectionComboBox problemComboBox;
+
+    @FXML
+    public PrefixSelectionComboBox doctorComboBox;
+
+    @FXML
+    public PrefixSelectionComboBox prescriptionComboBox;
+
 
     @FXML
     private CalendarView appointmentCalanderView;
@@ -39,9 +54,6 @@ public class AddNewAppointmentFormController implements Initializable {
     private AnchorPane appoitmentPane;
 
     @FXML
-    private ChoiceBox<String> problemChoiceBox;
-
-    @FXML
     private Rectangle problemRec;
 
     @FXML
@@ -50,48 +62,55 @@ public class AddNewAppointmentFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            setValuesToChoiceBox();
+            setValuesToComboBox();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        // Add a ChangeListener to the ChoiceBox
-        problemChoiceBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        problemTxt.setText(String.valueOf(problemComboBox.getValue()));
+        doctorChooseTxt.setText(String.valueOf(doctorComboBox.getValue()));
+        prescriptionTxt.setText(String.valueOf(prescriptionComboBox.getValue()));
+        problemComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                // Update the TextField when an option is selected
                 problemTxt.setText(newValue);
             }
         });
     }
 
-    private void setValuesToChoiceBox() throws SQLException {
+    private void setValuesToComboBox() throws SQLException {
         ObservableList<String> problemChoices = FXCollections.observableArrayList(
-                "Buy prescription glass",
-                "Check eyes",
-                "Option 3"
+                "\t Buy prescription glass",
+                "\t Check eyes",
+                "\t Option 3"
         );
 
-        problemChoiceBox.setItems(problemChoices);
-
-        problemChoiceBox.setValue(problemChoices.get(0));
+        problemComboBox.setItems(problemChoices);
+        problemComboBox.setValue(problemChoices.get(0));
 
         String[][] doctors = DbConnections.getDetails("doctor", 9);
-        ObservableList<String> doctorChoises = FXCollections.observableArrayList(
-                "Any",
-                ""+ doctors[0][0] +"",
-                "Option 3"
+        ObservableList<String> doctorChoiceBox = FXCollections.observableArrayList();
+        for (int i = 0; i < doctors.length; i++) {
+            if (i == 0) {
+                doctorChoiceBox.add("\t Any");
+            }
+            doctorChoiceBox.add("\t Dr. " + doctors[i][1]);
+        };
+
+        doctorComboBox.setItems(doctorChoiceBox);
+        doctorComboBox.setValue(doctorChoiceBox.get(0));
+
+        ObservableList<String> prescriptionChoises = FXCollections.observableArrayList(
+                "\t Yes he/she have prescription",
+                "\t No, he/she don't have prescription"
         );
 
-        problemChoiceBox1.setItems(doctorChoises);
-
-        problemChoiceBox1.setValue(doctorChoises.get(0));
+        prescriptionComboBox.setItems(prescriptionChoises);
+        prescriptionComboBox.setValue(prescriptionChoises.get(0));
     }
 
     @FXML
-    public void problemChoiceBoxOnAction(MouseEvent event) {
-        String selectedProblem = problemChoiceBox.getValue();
+    public void confirmBtnOnAction(ActionEvent actionEvent) {
 
-        problemTxt.setText(selectedProblem);
     }
 }
