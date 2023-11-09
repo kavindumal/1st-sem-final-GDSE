@@ -99,20 +99,19 @@ public class AddNewAppointmentFormController implements Initializable {
                 start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
                 start1Btn, end1Btn, start2Btn, end2Btn, start3Btn, end3Btn, start4Btn, end4Btn
         };
+        for (int i = 0; i < appointmentButtons.length; i++) {
+            appointmentButtons[i].setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 30; -fx-border-width: 0.5; -fx-border-radius: 30; -fx-text-fill: black");
+            appointmentButtons[i].setDisable(false);
+        }
 
         for (int i = 0; i < appointments.length; i++) {
             String appointmentTime = appointments[i][1];
-
             for (int j = 0; j < appointmentButtons.length; j++) {
                 String[] time = appointmentButtons[j].getText().split(" |-");
                 if (time[0].equals(appointmentTime)) {
                     appointmentButtons[j].setStyle("-fx-background-color: #EF4B3C; -fx-border-color: transparent; -fx-background-radius: 30; -fx-text-fill: white");
                     appointmentButtons[j].setDisable(true);
                 }
-//                else {
-//                    appointmentButtons[j].setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 30; -fx-border-width: 0.5; -fx-border-radius: 30; -fx-text-fill: black");
-//                    appointmentButtons[j].setDisable(false);
-//                }
             }
         }
     }
