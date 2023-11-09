@@ -1,39 +1,56 @@
-/* calendarStyles.css */
-
-/* Style for the entire YearMonthView */
 .year-month-view {
-    /* Add your YearMonthView styles here */
     -fx-background-color: transparent; /* Background color */
-    -fx-border-color: #936b6b; /* Border color */
+    -fx-border-color: #070101; /* Border color */
     -fx-border-width: 0.5px; /* Border width */
     -fx-border-radius: 30;
     -fx-background-radius: 30;
 }
 
-/* Style for DayPage (if needed) */
-.day-page {
-    /* Add your DayPage styles here */
-}
-
-/* Style for the labels inside YearMonthView */
 .year-month-view .label {
-    /* Add your label styles here */
-    -fx-font-size: 14px;
+    -fx-font-size: 21px;
     -fx-font-weight: bold;
     -fx-text-fill: #333; /* Text color */
 }
 
-/* Style for the cells within YearMonthView */
-.year-month-view .cell {
-    /* Add your cell styles here */
-    -fx-background-color: #fff; /* Cell background color */
-    -fx-border-color: #ccc; /* Cell border color */
-    -fx-border-width: 1px; /* Cell border width */
+/* Style for the buttons within YearMonthView */
+.year-month-view .button {
+    -fx-min-width: 250px; /* Minimum button width */
+    -fx-pref-width: 250px; /* Preferred button width */
+    -fx-min-height: 60px; /* Minimum button height */
+    -fx-pref-height: 60px; /* Preferred button height */
+
+    -fx-background-color: #1A4BCC; /* Button background color */
+    -fx-text-fill: white; /* Text color for the buttons */
+    -fx-font-size: 20px; /* Font size for the buttons */
+    -fx-background-radius: 30; /* Rounded corners for the buttons */
 }
 
-/* Style for the selected cell */
-.year-month-view .cell:selected {
-    /* Add your selected cell styles here */
-    -fx-background-color: #007acc; /* Selected cell background color */
-    -fx-text-fill: white; /* Text color for selected cell */
+.year-month-view > .container > .weekend-day {
+    -fx-background-color: transparent;
+}
+
+.year-month-view > .container > .today {
+    -fx-background-color: #1A4BCC;
+    -fx-text-fill: white !important;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10em;
+    -fx-opacity: 1 !important;
+}
+
+.year-month-view > .container > .selected-month-date {
+    -fx-background-color: #92a5d9;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10em;
+}
+
+.year-month-view > .container > .header > .year-header > .previous-button,
+.year-month-view > .container > .header > .year-header > .next-button,
+.year-month-view > .container > .header > .month-header > .previous-button,
+.year-month-view > .container > .header > .month-header > .next-button {
+    -fx-background-color: blue;
+    -fx-pref-width: 18;
+    -fx-pref-height: 18;
+    -fx-max-width: 18;
+    -fx-max-height: 18;
 }

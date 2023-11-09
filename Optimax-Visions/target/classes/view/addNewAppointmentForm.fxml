@@ -74,6 +74,6 @@
       <PrefixSelectionComboBox fx:id="problemComboBox" layoutX="1253.0" layoutY="207.0" prefHeight="35.0" prefWidth="368.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
       <PrefixSelectionComboBox fx:id="doctorComboBox" layoutX="1253.0" layoutY="407.0" prefHeight="35.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
       <PrefixSelectionComboBox fx:id="prescriptionComboBox" layoutX="1253.0" layoutY="607.0" prefHeight="35.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
-      <YearMonthView fx:id="calanderYearMonthView" editAvailability="true" layoutX="63.0" layoutY="227.0" prefHeight="633.0" prefWidth="578.0" showWeekNumbers="false" showYear="false" showYearArrows="false" stylesheets="@../style/calendarStyle.css" />
+      <YearMonthView fx:id="calanderYearMonthView" editAvailability="true" layoutX="63.0" layoutY="227.0" prefHeight="633.0" prefWidth="578.0" showWeekNumbers="false" showYear="false" showYearArrows="false" styleClass="year-month-view" stylesheets="@../style/calendarStyle.css" />
    </children>
 </AnchorPane>
