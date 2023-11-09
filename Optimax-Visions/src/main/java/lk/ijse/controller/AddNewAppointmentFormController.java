@@ -12,8 +12,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.db.DbConnections;
+import lk.ijse.dto.AddNewAppointmentDto;
+import lk.ijse.model.AddNewAppointmentModel;
 import org.controlsfx.control.PrefixSelectionComboBox;
 
 import java.net.URL;
@@ -68,15 +71,14 @@ public class AddNewAppointmentFormController implements Initializable {
     private TextField problemTxt;
 
     private JFXButton selectedButton = null;
-
-
+    String[][] appoitmentArray;
+    AddNewAppointmentModel addNewAppointmentModel = new AddNewAppointmentModel();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         addAppointmentButtonHandlers();
         try {
-            setSheduleTIme();
+            appoitmentArray = addNewAppointmentModel.getEqualDateAppoitments(calanderYearMonthView.getDate().toString().replace("[", "").replace("]", ""));
+            setScheduleTime(appoitmentArray);
             setValuesToComboBox();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -93,21 +95,69 @@ public class AddNewAppointmentFormController implements Initializable {
         });
     }
 
-    private void setSheduleTIme() throws SQLException {
+//    private void setSheduleTIme(String date) throws SQLException {
+//
+//        JFXButton[] appointmentButtons = new JFXButton[]{
+//                start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
+//                start1Btn, end1Btn, start2Btn, end2Btn, start3Btn, end3Btn, start4Btn, end4Btn
+//        };
+//
+//        String[][] appointments = DbConnections.getDetails("appointment", 7);
+//
+//        for (int i = 0; i < appointments.length; i++) {
+//            String appointmentTime = appointments[i][1];
+//            for (int j = 0; j < appointmentButtons.length; j++) {
+//                String[] time = appointmentButtons[j].getText().split(" |-");
+//                if (time[0].equals(appointmentTime)) {
+//                    appointmentButtons[j].setStyle("-fx-background-color: #EF4B3C; -fx-border-color: transparent; -fx-background-radius: 30; -fx-text-fill: white");
+//                    appointmentButtons[j].setDisable(true);
+//                }
+//            }
+//        }
+//    }
+
+//    private void setSheduleTIme() throws SQLException {
+//        JFXButton[] appointmentButtons = new JFXButton[]{
+//                start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
+//                start1Btn, end1Btn, start2Btn, end2Btn, start3Btn, end3Btn, start4Btn, end4Btn
+//        };
+//
+//        String[][] appointments = DbConnections.getDetails("appointment", 7);
+//
+//        for (int i = 0; i < appointments.length; i++) {
+//            String appointmentTime = appointments[i][1];
+//            for (int j = 0; j < appointmentButtons.length; j++) {
+//                String[] time = appointmentButtons[j].getText().split(" |-");
+//                if (time[0].equals(appointmentTime)) {
+//                    appointmentButtons[j].setStyle("-fx-background-color: #EF4B3C; -fx-border-color: transparent; -fx-background-radius: 30; -fx-text-fill: white");
+//                    appointmentButtons[j].setDisable(true);
+//                }  else {
+//                    appointmentButtons[j].setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 30; -fx-border-width: 0.5; -fx-border-radius: 30; -fx-text-fill: black");
+//                    appointmentButtons[j].setDisable(false);
+//                }
+//            }
+//        }
+//    }
+
+    private void setScheduleTime(String[][] appointments) throws SQLException {
         JFXButton[] appointmentButtons = new JFXButton[]{
                 start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
                 start1Btn, end1Btn, start2Btn, end2Btn, start3Btn, end3Btn, start4Btn, end4Btn
         };
 
-        String[][] appointments = DbConnections.getDetails("appointment", 7);
-
         for (int i = 0; i < appointments.length; i++) {
             String appointmentTime = appointments[i][1];
+
             for (int j = 0; j < appointmentButtons.length; j++) {
                 String[] time = appointmentButtons[j].getText().split(" |-");
+
                 if (time[0].equals(appointmentTime)) {
+
                     appointmentButtons[j].setStyle("-fx-background-color: #EF4B3C; -fx-border-color: transparent; -fx-background-radius: 30; -fx-text-fill: white");
                     appointmentButtons[j].setDisable(true);
+                } else {
+                    appointmentButtons[j].setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 30; -fx-border-width: 0.5; -fx-border-radius: 30; -fx-text-fill: black");
+                    appointmentButtons[j].setDisable(false);
                 }
             }
         }
@@ -171,5 +221,13 @@ public class AddNewAppointmentFormController implements Initializable {
     @FXML
     public void confirmBtnOnAction(ActionEvent actionEvent) {
 
+    }
+    @FXML
+    public void calanderYearMonthViewOnMouseClicked(MouseEvent event) throws SQLException {
+//        String date = calanderYearMonthView.getSelectedDates().toString();
+//        String result = date.replace("[", "").replace("]", "");
+//        setSheduleTIme(result);
+        appoitmentArray = addNewAppointmentModel.getEqualDateAppoitments(calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", ""));
+        setScheduleTime(appoitmentArray);
     }
 }

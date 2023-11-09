@@ -49,6 +49,43 @@ public class DbConnections {
         return details;
     }
 
+    public static String[][] getDetails(String name, int column, String sql, String date) throws SQLException {
+        connection = getInstance().getConnection();
+
+        int rowsCount = checkRowsCount(name, "date", date);
+
+        String[][] details = new String[rowsCount][column];
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        int i = 0;
+        while (resultSet.next()) {
+            for (int j = 0; j < column; j++) {
+                details[i][j] = resultSet.getString(j + 1);
+            }
+            i++;
+        }
+        return details;
+    }
+
+    public static int checkRowsCount(String tableName, String columnName, String value) throws SQLException {
+        connection = getInstance().getConnection();
+
+        int rows = 0;
+
+        String sql = "SELECT COUNT(*) FROM " + tableName + " WHERE " + columnName + " = '"+ value +"'";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            rows = resultSet.getInt(1);
+        }
+        return rows;
+    }
+
     public static int checkRowsCount(String name) throws SQLException {
         connection = getInstance().getConnection();
 
