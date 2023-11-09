@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.alert.AlertSound;
+import lk.ijse.alert.Sounds;
 import lk.ijse.db.DbConnections;
 import lk.ijse.model.AddNewAppointmentModel;
 import org.controlsfx.control.PrefixSelectionComboBox;
@@ -59,6 +61,7 @@ public class AddNewAppointmentFormController implements Initializable {
     public JFXButton end3Btn;
     public JFXButton start4Btn;
     public JFXButton end4Btn;
+    public Label timeNotFoundLbl;
 
     @FXML
     private Label appointmentIdLbl;
@@ -72,6 +75,7 @@ public class AddNewAppointmentFormController implements Initializable {
     private JFXButton selectedButton = null;
     String[][] appoitmentArray;
     AddNewAppointmentModel addNewAppointmentModel = new AddNewAppointmentModel();
+    int clickedCount = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addAppointmentButtonHandlers();
@@ -90,6 +94,20 @@ public class AddNewAppointmentFormController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 problemTxt.setText(newValue);
+            }
+        });
+
+        doctorComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                doctorChooseTxt.setText(newValue);
+            }
+        });
+
+        prescriptionComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                prescriptionTxt.setText(newValue);
             }
         });
     }
@@ -136,7 +154,9 @@ public class AddNewAppointmentFormController implements Initializable {
         if (selectedButton != null) {
             selectedButton.setStyle("-fx-background-color: transparent; -fx-text-fill: black; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5");
         }
+        timeNotFoundLbl.setOpacity(0.0);
         clickedButton.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-background-radius: 30;");
+        clickedCount++;
         selectedButton = clickedButton;
     }
 
@@ -168,12 +188,18 @@ public class AddNewAppointmentFormController implements Initializable {
         );
 
         prescriptionComboBox.setItems(prescriptionChoises);
-        prescriptionComboBox.setValue(prescriptionChoises.get(0));
+        prescriptionComboBox.setValue(prescriptionChoises.get(1));
     }
 
     @FXML
     public void confirmBtnOnAction(ActionEvent actionEvent) {
-
+        AlertSound alertSound = new AlertSound();
+        if (clickedCount > 0) {
+            System.out.println("hiii pagaya");
+        } else {
+            alertSound.checkSounds(Sounds.INVALID);
+            timeNotFoundLbl.setOpacity(1);
+        }
     }
     @FXML
     public void calanderYearMonthViewOnMouseClicked(MouseEvent event) throws SQLException {

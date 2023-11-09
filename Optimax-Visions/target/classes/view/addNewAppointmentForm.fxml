@@ -155,5 +155,10 @@
             <Font size="21.0" />
          </font>
       </JFXButton>
+      <Label fx:id="timeNotFoundLbl" layoutX="1326.0" layoutY="827.0" opacity="0.0" text="Please select time for appointment" textFill="#ff4040">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
