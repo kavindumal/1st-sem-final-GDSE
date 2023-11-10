@@ -46,22 +46,8 @@ public class AddNewAppointmentFormController implements Initializable {
 
     @FXML
     public YearMonthView calanderYearMonthView;
-    public JFXButton start8Btn;
-    public JFXButton end8Btn;
-    public JFXButton start9Btn;
-    public JFXButton end9Btn;
-    public JFXButton start10Btn;
-    public JFXButton end10Btn;
-    public JFXButton start11Btn;
-    public JFXButton end11Btn;
-    public JFXButton start1Btn;
-    public JFXButton end1Btn;
-    public JFXButton start2Btn;
-    public JFXButton end2Btn;
-    public JFXButton start3Btn;
-    public JFXButton end3Btn;
-    public JFXButton start4Btn;
-    public JFXButton end4Btn;
+    @FXML
+    public JFXButton start8Btn,end8Btn,start9Btn,end9Btn,start10Btn,end10Btn,start11Btn,end11Btn,start1Btn,end1Btn,start2Btn,end2Btn,start3Btn,end3Btn,start4Btn,end4Btn;
     public Label timeNotFoundLbl;
     public ImageView backImg;
 
