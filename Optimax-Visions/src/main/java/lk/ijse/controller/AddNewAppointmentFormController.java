@@ -81,7 +81,6 @@ public class AddNewAppointmentFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addAppointmentButtonHandlers();
-
         try {
             appointmentIdLbl.setText((addNewAppointmentModel.findNextAppoitmentId().substring(0,addNewAppointmentModel.findNextAppoitmentId().length() - 1)) +(Integer.parseInt(addNewAppointmentModel.findNextAppoitmentId().substring(addNewAppointmentModel.findNextAppoitmentId().length()-1)) + 1));
             appoitmentArray = addNewAppointmentModel.getEqualDateAppoitments(calanderYearMonthView.getDate().toString().replace("[", "").replace("]", ""));
@@ -212,5 +211,6 @@ public class AddNewAppointmentFormController implements Initializable {
     }
 
     public void backOnAction(MouseEvent event) {
+
     }
 }
