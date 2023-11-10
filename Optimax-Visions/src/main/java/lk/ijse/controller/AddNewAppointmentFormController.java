@@ -106,6 +106,7 @@ public class AddNewAppointmentFormController implements Initializable {
                 start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
                 start1Btn, end1Btn, start2Btn, end2Btn, start3Btn, end3Btn, start4Btn, end4Btn
         };
+
         for (int i = 0; i < appointmentButtons.length; i++) {
             appointmentButtons[i].setStyle("-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 30; -fx-border-width: 0.5; -fx-border-radius: 30; -fx-text-fill: black");
             appointmentButtons[i].setDisable(false);
