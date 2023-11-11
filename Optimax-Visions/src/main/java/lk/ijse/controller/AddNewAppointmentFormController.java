@@ -11,6 +11,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -24,12 +26,14 @@ import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.db.DbConnections;
+import lk.ijse.dto.AddNewAppointmentDto;
 import lk.ijse.model.AddNewAppointmentModel;
 import org.controlsfx.control.PrefixSelectionComboBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -72,6 +76,7 @@ public class AddNewAppointmentFormController implements Initializable {
     String[][] appoitmentArray;
     AddNewAppointmentModel addNewAppointmentModel = new AddNewAppointmentModel();
     int clickedCount = 0;
+    String dateGet;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addAppointmentButtonHandlers();
@@ -142,6 +147,7 @@ public class AddNewAppointmentFormController implements Initializable {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
+                    dateGet = button.getText().substring(0, 5);
                     handleAppointmentButtonClick(button);
                 }
             });
@@ -195,7 +201,12 @@ public class AddNewAppointmentFormController implements Initializable {
         if (clickedCount > 0) {
             appoitmentPane.getChildren().clear();
             try {
-                appoitmentPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/patientForm.fxml"))));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patientForm.fxml"));
+                Parent root = loader.load();
+                PatientFormController controller = loader.getController();
+                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), String.valueOf(calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", "")), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), prescriptionTxt.getText().equals("\t Yes he/she have prescription") ? "yes" : "no"));
+
+                appoitmentPane.getChildren().add(root);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

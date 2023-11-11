@@ -1,6 +1,7 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnections;
+import lk.ijse.dto.AddNewAppointmentDto;
 import lk.ijse.dto.PatientDto;
 
 import java.sql.SQLException;
@@ -36,5 +37,11 @@ public class PatientModel {
         int incrementedNumericPart = numericPart + 1;
 
         return String.format("P%04d", incrementedNumericPart);
+    }
+
+    public boolean setValuestoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId)\n" +
+                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', 'D0001', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "');\n" +
+                "\n");
     }
 }

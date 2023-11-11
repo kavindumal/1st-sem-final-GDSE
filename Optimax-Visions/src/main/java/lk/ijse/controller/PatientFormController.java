@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import lk.ijse.dto.AddNewAppointmentDto;
 import lk.ijse.dto.PatientDto;
 import lk.ijse.model.PatientModel;
 import org.controlsfx.control.PrefixSelectionComboBox;
@@ -72,9 +73,13 @@ public class PatientFormController implements Initializable {
     private PrefixSelectionComboBox<String> profileComboBox;
     public PatientModel model = new PatientModel();
     public PatientDto patientDetails;
-    @FXML
-    void confirmBtnOnAction(ActionEvent event) {
+    public AddNewAppointmentDto setDto;
 
+    @FXML
+    void confirmBtnOnAction(ActionEvent event) throws SQLException {
+        if (model.setValuestoDatabase(setDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
+
+        }
     }
 
     @Override
@@ -139,5 +144,9 @@ public class PatientFormController implements Initializable {
         } else {
 
         }
+    }
+
+    public void setValues(AddNewAppointmentDto addNewAppointmentDto) {
+        this.setDto = addNewAppointmentDto;
     }
 }
