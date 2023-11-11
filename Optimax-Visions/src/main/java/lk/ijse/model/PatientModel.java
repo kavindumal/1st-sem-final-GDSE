@@ -41,7 +41,7 @@ public class PatientModel {
 
     public boolean setValuestoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
         return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId)\n" +
-                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', 'D0001', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "');\n" +
+                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "');\n" +
                 "\n");
     }
 }

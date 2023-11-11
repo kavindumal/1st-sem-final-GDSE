@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -21,8 +22,10 @@ import lk.ijse.model.PatientModel;
 import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class PatientFormController implements Initializable {
@@ -78,7 +81,12 @@ public class PatientFormController implements Initializable {
     @FXML
     void confirmBtnOnAction(ActionEvent event) throws SQLException {
         if (model.setValuestoDatabase(setDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
-
+            patientPane.getChildren().clear();
+            try {
+                patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
