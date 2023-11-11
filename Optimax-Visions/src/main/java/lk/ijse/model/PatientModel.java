@@ -27,4 +27,14 @@ public class PatientModel {
         }
         return false;
     }
+
+    public String getNewPatientId() throws SQLException {
+        String[][] details = DbConnections.getDetails("patient", 6);
+        String lastPatientId = details[details.length - 1][0];
+
+        int numericPart = Integer.parseInt(lastPatientId.replaceFirst("^P0*", ""));
+        int incrementedNumericPart = numericPart + 1;
+
+        return String.format("P%04d", incrementedNumericPart);
+    }
 }

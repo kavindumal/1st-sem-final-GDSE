@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -87,10 +88,17 @@ public class PatientFormController implements Initializable {
         profileComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if ("Yes".equals(newValue)) {
+                if (profileChoices.get(0).equals(newValue)) {
+                    patientIdRec.requestFocus();
                     patientIdTxt.requestFocus();
-                } else if ("No".equals(newValue)){
-                    patientIdTxt.requestFocus();
+                } else if (profileChoices.get(1).equals(newValue)){
+                    try {
+                        patientIdTxt.setText(model.getNewPatientId());
+                        fullNameRec.requestFocus();
+                        fullNameTxt.requestFocus();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });
