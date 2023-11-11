@@ -16,6 +16,9 @@ public class AddNewAppointmentModel {
     public String findNextAppoitmentId() throws SQLException {
         String[][] getLastId = DbConnections.getDetails("appointment", 7);
 
-        return getLastId[getLastId.length-1][0];
+        String lastPatientId = getLastId[getLastId.length - 1][0];
+        int numericPart = Integer.parseInt(lastPatientId.replaceFirst("^A0*", ""));
+        int incrementedNumericPart = numericPart;
+        return String.format("A%04d", incrementedNumericPart);
     }
 }

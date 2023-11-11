@@ -91,7 +91,6 @@ public class AddNewAppointmentFormController implements Initializable {
                 }
             }
         }
-        System.out.println();
     }
 
     @Override
@@ -131,7 +130,7 @@ public class AddNewAppointmentFormController implements Initializable {
             }
         });
     }
-    public String newV;
+    public String newV = " No, he/she don't have prescription";
 
     private void addAppointmentButtonHandlers() {
         JFXButton[] appointmentButtons = new JFXButton[]{
@@ -202,7 +201,7 @@ public class AddNewAppointmentFormController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patientForm.fxml"));
                 Parent root = loader.load();
                 PatientFormController controller = loader.getController();
-                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), calanderYearMonthView.getDate().toString().replace("[", "").replace("]", ""), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), newV.equals("\t Yes he/she have prescription") ? "yes" : "no"));
+                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", ""), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), newV.equals("\t Yes he/she have prescription") ? "yes" : "no"));
 
                 appoitmentPane.getChildren().add(root);
             } catch (IOException e) {
