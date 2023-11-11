@@ -69,7 +69,7 @@
             <Font size="21.0" />
          </font>
       </TextField>
-      <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="1254.0" layoutY="853.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Confirm">
+      <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="1254.0" layoutY="847.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Next">
          <font>
             <Font size="21.0" />
          </font>

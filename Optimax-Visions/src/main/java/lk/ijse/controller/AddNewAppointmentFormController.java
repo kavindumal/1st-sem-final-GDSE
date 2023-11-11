@@ -9,20 +9,28 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.db.DbConnections;
 import lk.ijse.model.AddNewAppointmentModel;
 import org.controlsfx.control.PrefixSelectionComboBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddNewAppointmentFormController implements Initializable {
@@ -182,10 +190,15 @@ public class AddNewAppointmentFormController implements Initializable {
     }
 
     @FXML
-    public void confirmBtnOnAction(ActionEvent actionEvent) {
+    public void confirmBtnOnAction(ActionEvent actionEvent) throws IOException {
         AlertSound alertSound = new AlertSound();
         if (clickedCount > 0) {
-            System.out.println("hiii pagaya");
+            appoitmentPane.getChildren().clear();
+            try {
+                appoitmentPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/patientForm.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             alertSound.checkSounds(Sounds.INVALID);
             timeNotFoundLbl.setOpacity(1);
