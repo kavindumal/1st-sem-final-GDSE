@@ -11,18 +11,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.db.DbConnections;
@@ -33,8 +27,6 @@ import org.controlsfx.control.PrefixSelectionComboBox;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalTime;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddNewAppointmentFormController implements Initializable {
@@ -147,7 +139,7 @@ public class AddNewAppointmentFormController implements Initializable {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    dateGet = button.getText().substring(0, 5);
+                    dateGet = button.getText().substring(0, 4);
                     handleAppointmentButtonClick(button);
                 }
             });
@@ -190,10 +182,13 @@ public class AddNewAppointmentFormController implements Initializable {
                 "\t Yes he/she have prescription",
                 "\t No, he/she don't have prescription"
         );
+        newObservable = prescriptionChoises;
 
         prescriptionComboBox.setItems(prescriptionChoises);
         prescriptionComboBox.setValue(prescriptionChoises.get(1));
     }
+
+    public ObservableList<String> newObservable;
 
     @FXML
     public void confirmBtnOnAction(ActionEvent actionEvent) throws IOException {
@@ -204,7 +199,7 @@ public class AddNewAppointmentFormController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patientForm.fxml"));
                 Parent root = loader.load();
                 PatientFormController controller = loader.getController();
-                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), String.valueOf(calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", "")), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), prescriptionTxt.getText().equals("\t Yes he/she have prescription") ? "yes" : "no"));
+                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), String.valueOf(calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", "")), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), prescriptionTxt.getText().equals(newObservable.get(0)) ? "yes" : "no"));
 
                 appoitmentPane.getChildren().add(root);
             } catch (IOException e) {
@@ -215,6 +210,7 @@ public class AddNewAppointmentFormController implements Initializable {
             timeNotFoundLbl.setOpacity(1);
         }
     }
+
     @FXML
     public void calanderYearMonthViewOnMouseClicked(MouseEvent event) throws SQLException {
         appoitmentArray = addNewAppointmentModel.getEqualDateAppoitments(calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", ""));
