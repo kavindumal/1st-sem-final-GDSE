@@ -90,6 +90,7 @@ public class AddNewAppointmentFormController implements Initializable {
                 }
             }
         }
+        System.out.println();
     }
 
     @Override
