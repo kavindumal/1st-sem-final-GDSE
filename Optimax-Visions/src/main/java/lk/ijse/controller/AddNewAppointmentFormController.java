@@ -69,6 +69,7 @@ public class AddNewAppointmentFormController implements Initializable {
     AddNewAppointmentModel addNewAppointmentModel = new AddNewAppointmentModel();
     int clickedCount = 0;
     String dateGet;
+
     private void setScheduleTime(String[][] appointments) throws SQLException {
         JFXButton[] appointmentButtons = new JFXButton[]{
                 start8Btn, end8Btn, start9Btn, end9Btn, start10Btn, end10Btn, start11Btn, end11Btn,
@@ -126,9 +127,11 @@ public class AddNewAppointmentFormController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 prescriptionTxt.setText(newValue);
+                newV = newValue;
             }
         });
     }
+    public String newV;
 
     private void addAppointmentButtonHandlers() {
         JFXButton[] appointmentButtons = new JFXButton[]{
@@ -174,7 +177,7 @@ public class AddNewAppointmentFormController implements Initializable {
                 doctorChoiceBox.add("\t Any");
             }
             doctorChoiceBox.add("\t Dr. " + doctors[i][1]);
-        };
+        }
 
         doctorComboBox.setItems(doctorChoiceBox);
         doctorComboBox.setValue(doctorChoiceBox.get(0));
@@ -183,7 +186,6 @@ public class AddNewAppointmentFormController implements Initializable {
                 "\t Yes he/she have prescription",
                 "\t No, he/she don't have prescription"
         );
-        newObservable = prescriptionChoises;
 
         prescriptionComboBox.setItems(prescriptionChoises);
         prescriptionComboBox.setValue(prescriptionChoises.get(1));
@@ -200,7 +202,7 @@ public class AddNewAppointmentFormController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patientForm.fxml"));
                 Parent root = loader.load();
                 PatientFormController controller = loader.getController();
-                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), String.valueOf(calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", "")), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), prescriptionTxt.getText().equals(newObservable.get(0)) ? "yes" : "no"));
+                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), calanderYearMonthView.getDate().toString().replace("[", "").replace("]", ""), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), newV.equals("\t Yes he/she have prescription") ? "yes" : "no"));
 
                 appoitmentPane.getChildren().add(root);
             } catch (IOException e) {
