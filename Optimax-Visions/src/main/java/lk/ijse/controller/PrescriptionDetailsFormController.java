@@ -1,21 +1,18 @@
 package lk.ijse.controller;
 
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableView;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class PrescriptionDetailsFormController {
 
-public class PrescriptionDetailsFormController implements Initializable {
+    @FXML
+    private Rectangle appointmentIdRec;
 
-    public Rectangle appointmentIdRec;
-    public TextField appointmentIdTxt;
-    public TableView<String> tableView;
+    @FXML
+    private TextField appointmentIdTxt;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void confirmBtnOnAction(ActionEvent actionEvent) {
     }
 }
