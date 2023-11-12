@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="homePane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.HomeFormController">
    <children>
-      <Pane layoutX="1329.0" layoutY="35.0" prefHeight="912.0" prefWidth="316.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.45;">
-         <children>
-            <JFXButton fx:id="newAppointmentBtn" buttonType="RAISED" layoutX="23.0" layoutY="823.0" onAction="#newAppointmentBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Add new appointmnet">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </Pane>
+      <Pane layoutX="1329.0" layoutY="35.0" prefHeight="912.0" prefWidth="316.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.45;" />
+      <JFXButton fx:id="newAppointmentBtn" buttonType="RAISED" layoutX="1353.0" layoutY="857.0" onAction="#newAppointmentBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Add new appointmnet">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Pane layoutX="776.0" layoutY="619.0" prefHeight="328.0" prefWidth="528.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.45;" />
+      <Label layoutX="1373.0" layoutY="85.0" text="Next appointment">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="823.0" layoutY="655.0" text="Check prescription">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="checkPrescriptionBtn" buttonType="RAISED" layoutX="903.0" layoutY="857.0" onAction="#checkPrescriptionBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Find lense for prescription">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

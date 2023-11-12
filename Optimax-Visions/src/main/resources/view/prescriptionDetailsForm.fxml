@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="984.0" prefWidth="1678.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionDetailsFormController">
+   <children>
+      <Label layoutX="71.0" layoutY="66.0" text="Prescription details">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="1001.0" layoutY="86.0" text="Enter the appointment Id">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="appointmentIdRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1285.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="appointmentIdTxt" editable="false" layoutX="1311.0" layoutY="79.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tableView" editable="true" layoutX="112.0" layoutY="189.0" prefHeight="723.0" prefWidth="1450.0" stylesheets="@../style/tableViewStyle.css">
+        <columns>
+          <TableColumn prefWidth="290.0" />
+          <TableColumn prefWidth="290.0" text="VA" />
+            <TableColumn prefWidth="290.0" text="SPH" />
+            <TableColumn prefWidth="290.0" text="CYL" />
+            <TableColumn prefWidth="290.0" text="AXIS" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

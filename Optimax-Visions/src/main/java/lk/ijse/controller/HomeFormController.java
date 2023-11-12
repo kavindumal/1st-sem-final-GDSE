@@ -25,4 +25,13 @@ public class HomeFormController {
             throw new RuntimeException(e);
         }
     }
+
+    public void checkPrescriptionBtnOnAction(ActionEvent actionEvent) {
+        homePane.getChildren().clear();
+        try {
+            homePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/prescriptionDetailsForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
