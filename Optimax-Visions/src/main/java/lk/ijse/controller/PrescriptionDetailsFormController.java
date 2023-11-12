@@ -14,5 +14,6 @@ public class PrescriptionDetailsFormController {
     private TextField appointmentIdTxt;
 
     public void confirmBtnOnAction(ActionEvent actionEvent) {
+        System.out.println("hi hi");
     }
 }
