@@ -84,8 +84,8 @@ public class AddNewAppointmentFormController implements Initializable {
         for (int i = 0; i < appointments.length; i++) {
             String appointmentTime = appointments[i][1];
             for (int j = 0; j < appointmentButtons.length; j++) {
-                String[] time = appointmentButtons[j].getText().split(" |-");
-                if (time[0].equals(appointmentTime)) {
+                String time = appointmentButtons[j].getText().substring(0, 5);
+                if (time.equals(appointmentTime)) {
                     appointmentButtons[j].setStyle("-fx-background-color: #EF4B3C; -fx-border-color: transparent; -fx-background-radius: 30; -fx-text-fill: white");
                     appointmentButtons[j].setDisable(true);
                 }
@@ -142,7 +142,7 @@ public class AddNewAppointmentFormController implements Initializable {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    dateGet = button.getText().substring(0, 4);
+                    dateGet = button.getText().substring(0, 5);
                     handleAppointmentButtonClick(button);
                 }
             });

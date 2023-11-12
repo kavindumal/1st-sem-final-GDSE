@@ -2,7 +2,6 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -76,16 +75,30 @@ public class PatientFormController implements Initializable {
     private PrefixSelectionComboBox<String> profileComboBox;
     public PatientModel model = new PatientModel();
     public PatientDto patientDetails;
-    public AddNewAppointmentDto setDto;
+    public AddNewAppointmentDto appointmentDto;
+    public String checkConfirmation;
 
     @FXML
     void confirmBtnOnAction(ActionEvent event) throws SQLException {
-        if (model.setValuestoDatabase(setDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
-            patientPane.getChildren().clear();
-            try {
-                patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        if (checkConfirmation.equals("\tYes")) {
+            if (model.setValuestoDatabase(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
+                patientPane.getChildren().clear();
+                try {
+                    patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        } else {
+            if (model.setPatientDetailsToDatabase(new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
+                if (model.setAppointmentDetailstoDatabase(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))){
+                    patientPane.getChildren().clear();
+                    try {
+                        patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
         }
     }
@@ -101,6 +114,7 @@ public class PatientFormController implements Initializable {
         profileComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                checkConfirmation = newValue;
                 if (profileChoices.get(0).equals(newValue)) {
                     patientIdRec.requestFocus();
                     patientIdTxt.requestFocus();
@@ -155,6 +169,6 @@ public class PatientFormController implements Initializable {
     }
 
     public void setValues(AddNewAppointmentDto addNewAppointmentDto) {
-        this.setDto = addNewAppointmentDto;
+        this.appointmentDto = addNewAppointmentDto;
     }
 }

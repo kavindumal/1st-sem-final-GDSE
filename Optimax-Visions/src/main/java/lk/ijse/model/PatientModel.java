@@ -5,7 +5,6 @@ import lk.ijse.dto.AddNewAppointmentDto;
 import lk.ijse.dto.PatientDto;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class PatientModel {
     public PatientDto getPatientDetails(PatientDto dto) throws SQLException {
@@ -40,6 +39,18 @@ public class PatientModel {
     }
 
     public boolean setValuestoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId)\n" +
+                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "');\n" +
+                "\n");
+    }
+
+    public boolean setPatientDetailsToDatabase(PatientDto patientDto) throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.patient (patientId, fullName, address, email, familyName, telNo)\n" +
+                "VALUES ('" + patientDto.getPatientId() + "', '" + patientDto.getFullname() + "', '" + patientDto.getAddress() + "', '" + patientDto.getEmail() + "', '" + patientDto.getFamilyname() + "', "+ patientDto.getTelNo() +");\n" +
+                "\n");
+    }
+
+    public boolean setAppointmentDetailstoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
         return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId)\n" +
                 "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "');\n" +
                 "\n");
