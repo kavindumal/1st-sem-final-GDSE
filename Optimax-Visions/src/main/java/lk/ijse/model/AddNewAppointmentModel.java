@@ -7,18 +7,21 @@ import java.sql.SQLException;
 
 public class AddNewAppointmentModel {
     public String[][] getEqualDateAppoitments(String replace) throws SQLException {
-        String[][] getAppoitments = DbConnections.getDetails("appointment", 7, "SELECT *\n" +
-                "FROM appointment\n" +
-                "WHERE date = '"+ replace +"';", replace);
-        return getAppoitments;
+            return DbConnections.getDetails("appointment", 7, "SELECT *\n" +
+                    "FROM appointment\n" +
+                    "WHERE date = '"+ replace +"';", replace);
+
     }
 
     public String findNextAppoitmentId() throws SQLException {
         String[][] getLastId = DbConnections.getDetails("appointment", 7);
-
-        String lastPatientId = getLastId[getLastId.length - 1][0];
-        int numericPart = Integer.parseInt(lastPatientId.replaceFirst("^A0*", ""));
-        int incrementedNumericPart = numericPart;
-        return String.format("A%04d", incrementedNumericPart);
+        if (getLastId == null || getLastId.length == 0) {
+            return "A0001";
+        } else {
+            String lastPatientId = getLastId[getLastId.length - 1][0];
+            int numericPart = Integer.parseInt(lastPatientId.replaceFirst("^A0*", ""));
+            int incrementedNumericPart = numericPart + 1;
+            return String.format("A%04d", incrementedNumericPart);
+        }
     }
 }

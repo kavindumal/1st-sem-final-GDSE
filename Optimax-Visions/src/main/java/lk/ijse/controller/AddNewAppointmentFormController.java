@@ -98,7 +98,7 @@ public class AddNewAppointmentFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addAppointmentButtonHandlers();
         try {
-            appointmentIdLbl.setText((addNewAppointmentModel.findNextAppoitmentId().substring(0,addNewAppointmentModel.findNextAppoitmentId().length() - 1)) +(Integer.parseInt(addNewAppointmentModel.findNextAppoitmentId().substring(addNewAppointmentModel.findNextAppoitmentId().length()-1)) + 1));
+            appointmentIdLbl.setText((addNewAppointmentModel.findNextAppoitmentId().substring(0,addNewAppointmentModel.findNextAppoitmentId().length() - 1)) +(Integer.parseInt(addNewAppointmentModel.findNextAppoitmentId().substring(addNewAppointmentModel.findNextAppoitmentId().length()-1))));
             appoitmentArray = addNewAppointmentModel.getEqualDateAppoitments(calanderYearMonthView.getDate().toString().replace("[", "").replace("]", ""));
             setScheduleTime(appoitmentArray);
             setValuesToComboBox();
