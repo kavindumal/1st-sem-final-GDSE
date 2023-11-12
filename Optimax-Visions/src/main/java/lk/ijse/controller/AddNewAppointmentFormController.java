@@ -89,6 +89,7 @@ public class AddNewAppointmentFormController implements Initializable {
                     appointmentButtons[j].setStyle("-fx-background-color: #EF4B3C; -fx-border-color: transparent; -fx-background-radius: 30; -fx-text-fill: white");
                     appointmentButtons[j].setDisable(true);
                 }
+                System.out.println();
             }
         }
     }
