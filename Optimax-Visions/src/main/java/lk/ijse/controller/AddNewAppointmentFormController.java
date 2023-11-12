@@ -27,6 +27,7 @@ import org.controlsfx.control.PrefixSelectionComboBox;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddNewAppointmentFormController implements Initializable {
@@ -68,7 +69,7 @@ public class AddNewAppointmentFormController implements Initializable {
     String[][] appoitmentArray;
     AddNewAppointmentModel addNewAppointmentModel = new AddNewAppointmentModel();
     int clickedCount = 0;
-    String dateGet;
+    String timeGet;
 
     private void setScheduleTime(String[][] appointments) throws SQLException {
         JFXButton[] appointmentButtons = new JFXButton[]{
@@ -142,7 +143,7 @@ public class AddNewAppointmentFormController implements Initializable {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    dateGet = button.getText().substring(0, 5);
+                    timeGet = button.getText().substring(0, 5);
                     handleAppointmentButtonClick(button);
                 }
             });
@@ -197,11 +198,16 @@ public class AddNewAppointmentFormController implements Initializable {
         AlertSound alertSound = new AlertSound();
         if (clickedCount > 0) {
             appoitmentPane.getChildren().clear();
+            String date = calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", "");
+            if (date.isEmpty()) {
+                date = String.valueOf(LocalDate.now());
+            }
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patientForm.fxml"));
                 Parent root = loader.load();
                 PatientFormController controller = loader.getController();
-                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", ""), dateGet, problemTxt.getText(), doctorChooseTxt.getText(), newV.equals("\t Yes he/she have prescription") ? "yes" : "no"));
+
+                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), date, timeGet, problemTxt.getText(), doctorChooseTxt.getText(), newV.equals("\t Yes he/she have prescription") ? "yes" : "no"));
 
                 appoitmentPane.getChildren().add(root);
             } catch (IOException e) {
