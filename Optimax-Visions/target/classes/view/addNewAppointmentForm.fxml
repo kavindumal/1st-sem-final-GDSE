@@ -30,130 +30,130 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="154.0" text="Select an appointment time">
+      <Label layoutX="1041.0" layoutY="154.0" text="Select an appointment time">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="1251.0" layoutY="154.0" text="What he/she want to?">
+      <Label layoutX="61.0" layoutY="159.0" text="What he/she want to?">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="problemTxt" editable="false" layoutX="1281.0" layoutY="270.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="65.0" layoutY="291.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="problemTxt" editable="false" layoutX="91.0" layoutY="295.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
       <JFXNodesList />
-      <Label layoutX="1251.0" layoutY="354.0" text="want to choose doctor?">
+      <Label layoutX="61.0" layoutY="379.0" text="want to choose doctor?">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="466.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="doctorChooseTxt" editable="false" layoutX="1281.0" layoutY="471.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="65.0" layoutY="511.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="doctorChooseTxt" editable="false" layoutX="91.0" layoutY="516.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <Label layoutX="1251.0" layoutY="554.0" text="Have a prescription?">
+      <Label layoutX="61.0" layoutY="599.0" text="Have a prescription?">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1255.0" layoutY="666.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="prescriptionTxt" editable="false" layoutX="1281.0" layoutY="671.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+      <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="65.0" layoutY="731.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="prescriptionTxt" editable="false" layoutX="91.0" layoutY="736.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="1254.0" layoutY="847.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Next">
+      <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="1150.0" layoutY="877.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Next">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <PrefixSelectionComboBox fx:id="problemComboBox" layoutX="1253.0" layoutY="197.0" prefHeight="60.0" prefWidth="368.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
-      <PrefixSelectionComboBox fx:id="doctorComboBox" layoutX="1253.0" layoutY="397.0" prefHeight="60.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
-      <PrefixSelectionComboBox fx:id="prescriptionComboBox" layoutX="1253.0" layoutY="597.0" prefHeight="60.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
-      <YearMonthView fx:id="calanderYearMonthView" editAvailability="true" layoutX="63.0" layoutY="227.0" onMouseClicked="#calanderYearMonthViewOnMouseClicked" prefHeight="633.0" prefWidth="578.0" showWeekNumbers="false" showYear="false" showYearArrows="false" styleClass="year-month-view" stylesheets="@../style/calendarStyle.css" />
-      <JFXButton fx:id="start8Btn" buttonType="RAISED" layoutX="693.0" layoutY="218.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="08.15 - 08.45 A.M">
+      <PrefixSelectionComboBox fx:id="problemComboBox" layoutX="63.0" layoutY="222.0" prefHeight="60.0" prefWidth="368.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
+      <PrefixSelectionComboBox fx:id="doctorComboBox" layoutX="63.0" layoutY="442.0" prefHeight="60.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
+      <PrefixSelectionComboBox fx:id="prescriptionComboBox" layoutX="63.0" layoutY="662.0" prefHeight="60.0" prefWidth="368.0" stylesheets="@../style/comboBoxStyle.css" />
+      <YearMonthView fx:id="calanderYearMonthView" editAvailability="true" layoutX="1043.0" layoutY="207.0" onMouseClicked="#calanderYearMonthViewOnMouseClicked" prefHeight="633.0" prefWidth="578.0" showWeekNumbers="false" showYear="false" showYearArrows="false" styleClass="year-month-view" stylesheets="@../style/calendarStyle.css" />
+      <JFXButton fx:id="start8Btn" buttonType="RAISED" layoutX="473.0" layoutY="218.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="08.15 - 08.45 A.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end8Btn" buttonType="RAISED" layoutX="693.0" layoutY="308.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="08.45 - 09.15 A.M">
+      <JFXButton fx:id="end8Btn" buttonType="RAISED" layoutX="473.0" layoutY="308.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="08.45 - 09.15 A.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="start9Btn" buttonType="RAISED" layoutX="693.0" layoutY="398.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="09.15 - 09.45 A.M">
+      <JFXButton fx:id="start9Btn" buttonType="RAISED" layoutX="473.0" layoutY="398.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="09.15 - 09.45 A.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end9Btn" buttonType="RAISED" layoutX="693.0" layoutY="488.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="09.45 - 10.15 A.M">
+      <JFXButton fx:id="end9Btn" buttonType="RAISED" layoutX="473.0" layoutY="488.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="09.45 - 10.15 A.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="start10Btn" buttonType="RAISED" layoutX="693.0" layoutY="578.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="10.15 - 10.45 A.M">
+      <JFXButton fx:id="start10Btn" buttonType="RAISED" layoutX="473.0" layoutY="578.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="10.15 - 10.45 A.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end10Btn" buttonType="RAISED" layoutX="693.0" layoutY="668.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="10.45 - 11.15 A.M">
+      <JFXButton fx:id="end10Btn" buttonType="RAISED" layoutX="473.0" layoutY="668.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="10.45 - 11.15 A.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="start11Btn" buttonType="RAISED" layoutX="693.0" layoutY="758.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="11.15 - 11.45 A.M">
+      <JFXButton fx:id="start11Btn" buttonType="RAISED" layoutX="473.0" layoutY="758.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="11.15 - 11.45 A.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end11Btn" buttonType="RAISED" layoutX="693.0" layoutY="848.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="11.45 - 12.15 P.M">
+      <JFXButton fx:id="end11Btn" buttonType="RAISED" layoutX="473.0" layoutY="848.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="11.45 - 12.15 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="start1Btn" buttonType="RAISED" layoutX="963.0" layoutY="218.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="01.00 - 01.30 P.M">
+      <JFXButton fx:id="start1Btn" buttonType="RAISED" layoutX="743.0" layoutY="218.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="01.00 - 01.30 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end1Btn" buttonType="RAISED" layoutX="963.0" layoutY="308.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="01.30 - 02.00 P.M">
+      <JFXButton fx:id="end1Btn" buttonType="RAISED" layoutX="743.0" layoutY="308.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="01.30 - 02.00 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="start2Btn" buttonType="RAISED" layoutX="963.0" layoutY="398.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="02.00 - 02.30 P.M">
+      <JFXButton fx:id="start2Btn" buttonType="RAISED" layoutX="743.0" layoutY="398.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="02.00 - 02.30 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end2Btn" buttonType="RAISED" layoutX="963.0" layoutY="488.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="02.30 - 03.00 P.M">
+      <JFXButton fx:id="end2Btn" buttonType="RAISED" layoutX="743.0" layoutY="488.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="02.30 - 03.00 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="start3Btn" buttonType="RAISED" layoutX="963.0" layoutY="578.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="03.00 - 03.30 P.M">
+      <JFXButton fx:id="start3Btn" buttonType="RAISED" layoutX="743.0" layoutY="578.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="03.00 - 03.30 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end3Btn" buttonType="RAISED" layoutX="963.0" layoutY="668.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="03.30 - 04.00 P.M">
+      <JFXButton fx:id="end3Btn" buttonType="RAISED" layoutX="743.0" layoutY="668.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="03.30 - 04.00 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="start4Btn" buttonType="RAISED" layoutX="963.0" layoutY="758.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="04.00 - 04.30 P.M">
+      <JFXButton fx:id="start4Btn" buttonType="RAISED" layoutX="743.0" layoutY="758.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="04.00 - 04.30 P.M">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="end4Btn" buttonType="RAISED" layoutX="963.0" layoutY="848.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="04.30 - 05.00 P.M">
+      <JFXButton fx:id="end4Btn" buttonType="RAISED" layoutX="743.0" layoutY="848.0" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: transparent; -fx-border-radius: 30; -fx-border-color: black; -fx-border-width: 0.5;" text="04.30 - 05.00 P.M">
          <font>
             <Font size="21.0" />
          </font>
