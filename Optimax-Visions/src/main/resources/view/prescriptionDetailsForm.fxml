@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.PrefixSelectionComboBox?>
 
 <AnchorPane prefHeight="984.0" prefWidth="1678.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionDetailsFormController">
    <children>
@@ -27,151 +27,55 @@
             <Font size="21.0" />
          </font>
       </TextField>
-      <Line endX="1083.0" endY="-130.66665649414062" layoutX="347.0" layoutY="379.0" startX="-107.66667175292969" startY="-130.66665649414062" />
-      <Line endX="-118.16667175292969" endY="216.66668701171875" layoutX="357.0" layoutY="389.0" startX="-118.16667175292969" startY="-141.16665649414062" />
-      <Line endX="-116.5" endY="218.83331298828125" layoutX="1547.0" layoutY="406.0" startX="-118.16667175292969" startY="-141.16665649414062" />
-      <Line endX="1083.0" endY="-130.66665649414062" layoutX="347.0" layoutY="739.0" startX="-107.66667175292969" startY="-130.66665649414062" />
-      <Line endX="-116.5" endY="218.83331298828125" layoutX="942.0" layoutY="390.0" startX="-118.16667175292969" startY="-141.16665649414062" />
-      <Line endX="1083.0" endY="-130.66665649414062" layoutX="347.0" layoutY="449.0" startX="-107.66667175292969" startY="-130.66665649414062" />
-      <Line endX="1083.0" endY="-130.66665649414062" layoutX="347.0" layoutY="519.0" startX="-107.66667175292969" startY="-130.66665649414062" />
-      <Line endX="1083.0" endY="-130.66665649414062" layoutX="347.0" layoutY="669.0" startX="-107.66667175292969" startY="-130.66665649414062" />
-      <Line endX="-116.5" endY="148.83331298828125" layoutX="645.0" layoutY="390.0" startX="-116.5" startY="-72.16665649414062" />
-      <Line endX="-116.5" endY="148.83331298828125" layoutX="1243.0" layoutY="390.0" startX="-116.5" startY="-71.16665649414062" />
-      <Line endX="-116.5" endY="218.83331298828125" layoutX="505.0" layoutY="390.0" startX="-116.5" startY="-72.16665649414062" />
-      <Line endX="-116.5" endY="147.83331298828125" layoutX="795.0" layoutY="390.0" startX="-116.5" startY="-72.16665649414062" />
-      <Line endX="-116.5" endY="217.83331298828125" layoutX="1085.0" layoutY="390.0" startX="-116.5" startY="-72.16665649414062" />
-      <Line endX="-116.5" endY="148.83331298828125" layoutX="1395.0" layoutY="390.0" startX="-116.5" startY="-72.16665649414062" />
-      <Label layoutX="485.0" layoutY="263.0" text="RIGHT">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1093.0" layoutY="263.0" text="LEFT">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="293.0" layoutY="333.0" text="VA">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="874.0" layoutY="333.0" text="VA">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="429.0" layoutY="333.0" text="SPH">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1018.0" layoutY="333.0" text="SPH">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="577.0" layoutY="333.0" text="CYL">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="718.0" layoutY="333.0" text="AXIS">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1322.0" layoutY="333.0" text="AXIS">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1177.0" layoutY="333.0" text="CYL">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="429.0" layoutY="551.0" text="ADD">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1017.0" layoutY="551.0" text="ADD">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <TextField fx:id="rightVATxt" alignment="CENTER" layoutX="242.0" layoutY="427.0" prefHeight="66.0" prefWidth="144.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="rightSphTxt" alignment="CENTER" layoutX="388.0" layoutY="427.0" prefHeight="66.0" prefWidth="141.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="rightCylTxt" alignment="CENTER" layoutX="528.0" layoutY="427.0" prefHeight="66.0" prefWidth="151.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="rightAxisTxt" alignment="CENTER" layoutX="677.0" layoutY="427.0" prefHeight="66.0" prefWidth="148.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="leftVaTxt" alignment="CENTER" layoutX="825.0" layoutY="427.0" prefHeight="66.0" prefWidth="144.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="leftSphTxt" alignment="CENTER" layoutX="969.0" layoutY="427.0" prefHeight="66.0" prefWidth="157.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="leftCylTxt" alignment="CENTER" layoutX="1129.0" layoutY="427.0" prefHeight="66.0" prefWidth="147.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="leftAxisTxt" alignment="CENTER" layoutX="1279.0" layoutY="427.0" prefHeight="66.0" prefWidth="151.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="leftAddTxt" layoutX="1128.0" layoutY="537.0" prefHeight="66.0" prefWidth="118.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="rightAddTxt" layoutX="544.0" layoutY="537.0" prefHeight="66.0" prefWidth="125.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <Label fx:id="nameLbl" layoutX="234.0" layoutY="194.0" prefHeight="35.0" prefWidth="1196.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <PrefixSelectionComboBox fx:id="workingStatusComboBox" layoutX="640.0" layoutY="702.0" prefHeight="60.0" prefWidth="385.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
-      <Label layoutX="628.0" layoutY="656.0" text="What does he/she do most of the day?">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Rectangle fx:id="workingStatusRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="643.0" layoutY="775.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="workingStatusTxt" layoutX="669.0" layoutY="779.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </TextField>
       <JFXButton fx:id="confirmBtn" buttonType="RAISED" layoutX="640.0" layoutY="887.0" onAction="#confirmBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Calculate">
          <font>
             <Font size="21.0" />
          </font>
       </JFXButton>
+      <AnchorPane layoutX="360.0" layoutY="223.0" prefHeight="570.0" prefWidth="938.0" styleClass="shadow-border-pane" stylesheets="@../style/anchorPaneStyle.css">
+         <effect>
+            <DropShadow height="167.55" offsetX="10.0" offsetY="9.0" radius="59.8275" spread="0.77" width="73.76" />
+         </effect>
+      </AnchorPane>
+      <Label layoutX="525.0" layoutY="286.0" text="Sphere(SPH)">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="709.0" layoutY="286.0" text="Cylinder(CYL)">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="956.0" layoutY="286.0" text="Axis">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1116.0" layoutY="286.0" text="Add">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="415.0" layoutY="389.0" text="OD">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="415.0" layoutY="501.0" text="OS">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="415.0" layoutY="712.0" text="PD">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <JFXCheckBox checkedColor="#1815f8" layoutX="807.0" layoutY="712.0" text="Two PD numbers">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXCheckBox>
    </children>
 </AnchorPane>

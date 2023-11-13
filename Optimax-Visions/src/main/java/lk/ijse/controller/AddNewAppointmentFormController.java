@@ -170,7 +170,7 @@ public class AddNewAppointmentFormController implements Initializable {
         problemComboBox.setItems(problemChoices);
         problemComboBox.setValue(problemChoices.get(0));
 
-        String[][] doctors = DbConnections.getDetails("doctor", 7);
+        String[][] doctors = addNewAppointmentModel.getDoctorsData();
         ObservableList<String> doctorChoiceBox = FXCollections.observableArrayList();
         for (int i = 0; i < doctors.length; i++) {
             if (i == 0) {

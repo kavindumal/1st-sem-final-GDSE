@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -13,7 +14,12 @@ public class PrescriptionDetailsFormController {
     @FXML
     private TextField appointmentIdTxt;
 
-    public void confirmBtnOnAction(ActionEvent actionEvent) {
+    @FXML
+    private JFXButton confirmBtn;
+
+    @FXML
+    void confirmBtnOnAction(ActionEvent event) {
 
     }
+
 }

@@ -24,4 +24,8 @@ public class AddNewAppointmentModel {
             return String.format("A%04d", incrementedNumericPart);
         }
     }
+
+    public String[][] getDoctorsData() throws SQLException {
+        return DbConnections.getDetails("doctor", 7);
+    }
 }

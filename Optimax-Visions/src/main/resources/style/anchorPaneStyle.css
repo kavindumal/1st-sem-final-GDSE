@@ -1,0 +1,9 @@
+/* styles.css */
+.shadow-border-pane {
+    -fx-background-color: white; /* Set your desired background color */
+    -fx-opacity: 0.2;
+    -fx-border-color: black; /* Set your desired border color */
+    -fx-border-width: 0.1; /* Set your desired border width */
+    -fx-border-radius: 5; /* Set your desired border radius */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 3, 5, 0, 0); /* Shadow effect */
+}
