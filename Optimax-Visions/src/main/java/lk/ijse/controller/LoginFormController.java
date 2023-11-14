@@ -107,5 +107,6 @@ public class LoginFormController {
 //            usernameRec.setStroke(Color.RED);
 //            invalidusrOrPwLbl1.setOpacity(1);
 //        }
+
     }
 }

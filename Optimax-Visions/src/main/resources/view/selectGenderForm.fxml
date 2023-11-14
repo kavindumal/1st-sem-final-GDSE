@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SelectGenderFormController">
+   <children>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="616.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/profilePic.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="menCircle" fill="#1f93ff00" layoutX="678.0" layoutY="488.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="876.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/womenProfile.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="womenCircle" fill="#1f93ff00" layoutX="938.0" layoutY="488.0" onMouseClicked="#womenCircleOnMouseClicked" onMouseEntered="#womenCircleOnMouseEntered" onMouseExited="#womenCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="640.0" layoutY="611.0" text="Male">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="878.0" layoutY="611.0" text="Female">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="425.0" layoutY="261.0" text="What kind of glasses are you looking for?">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

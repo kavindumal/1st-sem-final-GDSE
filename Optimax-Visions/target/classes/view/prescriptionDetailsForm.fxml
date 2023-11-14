@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="984.0" prefWidth="1678.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionDetailsFormController">
+<AnchorPane fx:id="prescriptionDetailsPane" prefHeight="984.0" prefWidth="1678.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionDetailsFormController">
    <children>
       <Label layoutX="71.0" layoutY="66.0" text="Prescription details">
          <font>
@@ -103,12 +103,12 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="axisRightComboBox" alignment="CENTER" layoutX="935.0" layoutY="376.0" prefHeight="44.0" prefWidth="85.0" style="-fx-background-color: transparent;">
+      <TextField fx:id="axisRightComboBox" alignment="CENTER" layoutX="935.0" layoutY="391.0" prefHeight="44.0" prefWidth="85.0" style="-fx-background-color: transparent;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <TextField fx:id="axisLeftComboBox" alignment="CENTER" layoutX="935.0" layoutY="496.0" prefHeight="44.0" prefWidth="85.0" style="-fx-background-color: transparent;">
+      <TextField fx:id="axisLeftComboBox" alignment="CENTER" layoutX="935.0" layoutY="511.0" prefHeight="44.0" prefWidth="85.0" style="-fx-background-color: transparent;">
          <font>
             <Font size="21.0" />
          </font>
