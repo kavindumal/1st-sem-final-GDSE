@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SelectFavoriteFormController">
+   <children>
+      <Label layoutX="454.0" layoutY="146.0" text="What are your favorite frame shapes?">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="214.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/shapreBrowline.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="triangleCircle" fill="#1f93ff00" layoutX="278.0" layoutY="398.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="674.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/squreRoot.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="ovalCircle" fill="#1f93ff00" layoutX="736.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="453.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/squreRount.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="heartCircle" fill="#1f93ff00" layoutX="515.0" layoutY="399.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="239.0" layoutY="496.0" text="Browline">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="650.0" layoutY="492.0" text="Square/Rectangle">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="483.0" layoutY="497.0" text="Round">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="668.0" layoutY="817.0" onAction="#nextBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Next">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="894.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/CatEye.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="ovalCircle1" fill="#1f93ff00" layoutX="956.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="921.0" layoutY="492.0" text="Cat-eye">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="1104.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/Aviator.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="ovalCircle11" fill="#1f93ff00" layoutX="1166.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="1137.0" layoutY="492.0" text="Aviator">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="1314.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/Special.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="ovalCircle111" fill="#1f93ff00" layoutX="1376.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="1342.0" layoutY="492.0" text="Special">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,8 +1,14 @@
 package lk.ijse.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class SelectGenderFormController {
 
@@ -13,18 +19,30 @@ public class SelectGenderFormController {
     private Circle womenCircle;
 
     @FXML
+    private AnchorPane genderSelectPane;
+    @FXML
     void menCircleOnMouseClicked(MouseEvent event) {
 
     }
 
     @FXML
     void menCircleOnMouseEntered(MouseEvent event) {
-        menCircle.setOpacity(1.0);
+
     }
 
     @FXML
     void menCircleOnMouseExited(MouseEvent event) {
-        menCircle.setOpacity(0);
+
+    }
+
+    @FXML
+    void nextBtnOnAction(ActionEvent event) {
+        genderSelectPane.getChildren().clear();
+        try {
+            genderSelectPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectFaceShapeForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -34,12 +52,12 @@ public class SelectGenderFormController {
 
     @FXML
     void womenCircleOnMouseEntered(MouseEvent event) {
-        womenCircle.setOpacity(1.0);
+
     }
 
     @FXML
     void womenCircleOnMouseExited(MouseEvent event) {
-        womenCircle.setOpacity(0);
+
     }
 
 }
