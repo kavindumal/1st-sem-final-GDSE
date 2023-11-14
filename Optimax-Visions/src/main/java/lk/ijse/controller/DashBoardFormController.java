@@ -320,6 +320,12 @@ public class DashBoardFormController implements Initializable {
     @FXML
     void transactionIconOnAction(MouseEvent event) {
         checkMoveInPaneLocation();
+        bodyPane.getChildren().clear();
+        try {
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/transactionForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(646);
         count = 7;

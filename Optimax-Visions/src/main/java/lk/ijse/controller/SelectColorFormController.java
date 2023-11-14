@@ -10,10 +10,10 @@ import javafx.scene.shape.Circle;
 import java.io.IOException;
 import java.util.Objects;
 
-public class SelectFaceShapeFormContoller {
+public class SelectColorFormController {
 
     @FXML
-    private Circle diamondCircle;
+    private AnchorPane colorFramePane;
 
     @FXML
     private Circle heartCircle;
@@ -22,19 +22,16 @@ public class SelectFaceShapeFormContoller {
     private Circle ovalCircle;
 
     @FXML
-    private Circle roundCircle;
+    private Circle ovalCircle1;
 
     @FXML
-    private Circle squareCircle;
+    private Circle ovalCircle11;
+
+    @FXML
+    private Circle ovalCircle111;
 
     @FXML
     private Circle triangleCircle;
-
-    @FXML
-    private Circle unsureCircle;
-
-    @FXML
-    private AnchorPane faceShapePane;
 
     @FXML
     void menCircleOnMouseClicked(MouseEvent event) {
@@ -53,9 +50,9 @@ public class SelectFaceShapeFormContoller {
 
     @FXML
     void nextBtnOnAction(ActionEvent event) {
-        faceShapePane.getChildren().clear();
+        colorFramePane.getChildren().clear();
         try {
-            faceShapePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectFavoriteForm.fxml"))));
+            colorFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectFaceShapeForm.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
