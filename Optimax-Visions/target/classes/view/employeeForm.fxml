@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="employeePane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
+   <children>
+      <JFXButton fx:id="checkPrescriptionBtn" buttonType="RAISED" layoutX="1323.0" layoutY="857.0" onAction="#checkPrescriptionBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Add new employee">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
