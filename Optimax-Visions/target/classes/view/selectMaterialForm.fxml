@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="materialPane" prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SelectMaterialFormController">
+   <children>
+      <Label layoutX="482.0" layoutY="156.0" text="Which frame materials do you like?">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="317.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/metal.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="metalCircle" fill="#1f93ff00" layoutX="381.0" layoutY="448.0" onMouseClicked="#metalCircleOnMouseClicked" onMouseEntered="#metalCircleOnMouseEntered" onMouseExited="#metalCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="352.0" layoutY="546.0" text="Metal">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="678.0" layoutY="827.0" onAction="#nextBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Next">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="607.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/plastic.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="plasticCircle" fill="#1f93ff00" layoutX="671.0" layoutY="448.0" onMouseClicked="#plasticCircleOnMouseClicked" onMouseEntered="#plasticCircleOnMouseEntered" onMouseExited="#plasticCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="602.0" layoutY="546.0" text="Plastic/acetate">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="907.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/mixed.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="mixedCircle" fill="#1f93ff00" layoutX="971.0" layoutY="448.0" onMouseClicked="#mixedCircleOnMouseClicked" onMouseEntered="#mixedCircleOnMouseEntered" onMouseExited="#mixedCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="942.0" layoutY="546.0" text="Mixed">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="1207.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/ecoFriendly.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="ecoCircle" fill="#1f93ff00" layoutX="1271.0" layoutY="448.0" onMouseClicked="#ecoCircleOnMouseClicked" onMouseEntered="#ecoCircleOnMouseEntered" onMouseExited="#ecoCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="1214.0" layoutY="546.0" text="Eco-Friendly">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

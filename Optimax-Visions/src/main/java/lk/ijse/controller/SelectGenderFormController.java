@@ -3,14 +3,17 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class SelectGenderFormController {
+public class SelectGenderFormController implements Initializable {
 
     @FXML
     private Circle menCircle;
@@ -21,10 +24,10 @@ public class SelectGenderFormController {
     @FXML
     private AnchorPane genderSelectPane;
 
-    public static int choice = 0;
+    public static int genderSelect = 0;
     @FXML
     void menCircleOnMouseClicked(MouseEvent event) {
-        choice = 1;
+        genderSelect = 1;
         womenCircle.setOpacity(0.0);
         menCircle.setOpacity(1.0);
     }
@@ -41,21 +44,21 @@ public class SelectGenderFormController {
 
     @FXML
     void nextBtnOnAction(ActionEvent event) {
-        if (choice == 0) {
-
-        } else {
+        if (genderSelect != 0) {
             genderSelectPane.getChildren().clear();
             try {
                 genderSelectPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectFaceShapeForm.fxml"))));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        } else {
+
         }
     }
 
     @FXML
     void womenCircleOnMouseClicked(MouseEvent event) {
-        choice = 2;
+        genderSelect = 2;
         menCircle.setOpacity(0.0);
         womenCircle.setOpacity(1.0);
     }
@@ -70,4 +73,8 @@ public class SelectGenderFormController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        genderSelect = 0;
+    }
 }

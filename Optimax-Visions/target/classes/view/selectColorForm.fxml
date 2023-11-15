@@ -20,19 +20,19 @@
             <Image url="@../img/icons/black.png" />
          </image>
       </ImageView>
-      <Circle fx:id="triangleCircle" fill="#1f93ff00" layoutX="278.0" layoutY="398.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="blackCircle" fill="#1f93ff00" layoutX="278.0" layoutY="398.0" onMouseClicked="#blackCircleOnMouseClicked" onMouseEntered="#blackCircleOnMouseEntered" onMouseExited="#blackCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="674.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/pattern.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle" fill="#1f93ff00" layoutX="736.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="patternCircle" fill="#1f93ff00" layoutX="736.0" layoutY="394.0" onMouseClicked="#patternCircleOnMouseClicked" onMouseEntered="#patternCircleOnMouseEntered" onMouseExited="#patternCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="453.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/tortoise.png" />
          </image>
       </ImageView>
-      <Circle fx:id="heartCircle" fill="#1f93ff00" layoutX="515.0" layoutY="399.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="tortoiseCircle" fill="#1f93ff00" layoutX="515.0" layoutY="399.0" onMouseClicked="#tortoiseCircleOnMouseClicked" onMouseEntered="#tortoiseCircleOnMouseEntered" onMouseExited="#tortoiseCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="254.0" layoutY="496.0" text="Black">
          <font>
             <Font size="23.0" />
@@ -58,7 +58,7 @@
             <Image url="@../img/icons/neutral.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle1" fill="#1f93ff00" layoutX="956.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="neutralCircle" fill="#1f93ff00" layoutX="956.0" layoutY="394.0" onMouseClicked="#neutralCircleOnMouseClicked" onMouseEntered="#neutralCircleOnMouseEntered" onMouseExited="#neutralCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="922.0" layoutY="492.0" text="Neutral">
          <font>
             <Font size="23.0" />
@@ -69,7 +69,7 @@
             <Image url="@../img/icons/colorful.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle11" fill="#1f93ff00" layoutX="1166.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="colorfulCircle" fill="#1f93ff00" layoutX="1166.0" layoutY="394.0" onMouseClicked="#colorfulCircleOnMouseClicked" onMouseEntered="#colorfulCircleOnMouseEntered" onMouseExited="#colorfulCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="1129.0" layoutY="492.0" text="Colorful">
          <font>
             <Font size="23.0" />
@@ -80,7 +80,7 @@
             <Image url="@../img/icons/translucent.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle111" fill="#1f93ff00" layoutX="1376.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="translucentCircle" fill="#1f93ff00" layoutX="1376.0" layoutY="394.0" onMouseClicked="#translucentCircleOnMouseClicked" onMouseEntered="#translucentCircleOnMouseEntered" onMouseExited="#translucentCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="1325.0" layoutY="492.0" text="Translucent">
          <font>
             <Font size="23.0" />

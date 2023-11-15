@@ -20,43 +20,43 @@
             <Image url="@../img/icons/Triancgle.png" />
          </image>
       </ImageView>
-      <Circle fx:id="triangleCircle" fill="#1f93ff00" layoutX="336.0" layoutY="388.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="triangleCircle" fill="#1f93ff00" layoutX="336.0" layoutY="388.0" onMouseClicked="#triangleCircleOnMouseClicked" onMouseEntered="#triangleCircleOnMouseEntered" onMouseExited="#triangleCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="592.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/Oval.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle" fill="#1f93ff00" layoutX="654.0" layoutY="388.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="ovalCircle" fill="#1f93ff00" layoutX="654.0" layoutY="388.0" onMouseClicked="#ovalCircleOnMouseClicked" onMouseEntered="#ovalCircleOnMouseEntered" onMouseExited="#ovalCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="902.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/Squere.png" />
          </image>
       </ImageView>
-      <Circle fx:id="squareCircle" fill="#1f93ff00" layoutX="964.0" layoutY="388.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="squareCircle" fill="#1f93ff00" layoutX="964.0" layoutY="388.0" onMouseClicked="#squareCircleOnMouseClicked" onMouseEntered="#squareCircleOnMouseEntered" onMouseExited="#squareCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="1202.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/Round.png" />
          </image>
       </ImageView>
-      <Circle fx:id="roundCircle" fill="#1f93ff00" layoutX="1264.0" layoutY="388.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="roundCircle" fill="#1f93ff00" layoutX="1264.0" layoutY="388.0" onMouseClicked="#roundCircleOnMouseClicked" onMouseEntered="#roundCircleOnMouseEntered" onMouseExited="#roundCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="1052.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/Unsure.png" />
          </image>
       </ImageView>
-      <Circle fx:id="unsureCircle" fill="#1f93ff00" layoutX="1114.0" layoutY="648.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="unsureCircle" fill="#1f93ff00" layoutX="1114.0" layoutY="648.0" onMouseClicked="#unsureCircleOnMouseClicked" onMouseEntered="#unsureCircleOnMouseEntered" onMouseExited="#unsureCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="742.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/Diamond.png" />
          </image>
       </ImageView>
-      <Circle fx:id="diamondCircle" fill="#1f93ff00" layoutX="804.0" layoutY="638.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="diamondCircle" fill="#1f93ff00" layoutX="804.0" layoutY="638.0" onMouseClicked="#diamondCircleOnMouseClicked" onMouseEntered="#diamondCircleOnMouseEntered" onMouseExited="#diamondCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="442.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/Heart.png" />
          </image>
       </ImageView>
-      <Circle fx:id="heartCircle" fill="#1f93ff00" layoutX="504.0" layoutY="638.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="heartCircle" fill="#1f93ff00" layoutX="504.0" layoutY="638.0" onMouseClicked="#heartCircleOnMouseClicked" onMouseEntered="#heartCircleOnMouseEntered" onMouseExited="#heartCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="297.0" layoutY="486.0" text="Triangle">
          <font>
             <Font size="23.0" />

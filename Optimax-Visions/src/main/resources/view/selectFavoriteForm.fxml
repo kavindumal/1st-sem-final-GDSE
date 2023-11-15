@@ -20,19 +20,19 @@
             <Image url="@../img/icons/shapreBrowline.png" />
          </image>
       </ImageView>
-      <Circle fx:id="triangleCircle" fill="#1f93ff00" layoutX="278.0" layoutY="398.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="browlineCircle" fill="#1f93ff00" layoutX="278.0" layoutY="398.0" onMouseClicked="#browlineCircleOnMouseClicked" onMouseEntered="#browlineCircleOnMouseEntered" onMouseExited="#browlineCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="674.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/squreRoot.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle" fill="#1f93ff00" layoutX="736.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="squreCircle" fill="#1f93ff00" layoutX="736.0" layoutY="394.0" onMouseClicked="#squreCircleOnMouseClicked" onMouseEntered="#squreCircleOnMouseEntered" onMouseExited="#squreCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="453.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/squreRount.png" />
          </image>
       </ImageView>
-      <Circle fx:id="heartCircle" fill="#1f93ff00" layoutX="515.0" layoutY="399.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="roundCircle" fill="#1f93ff00" layoutX="515.0" layoutY="399.0" onMouseClicked="#roundCircleOnMOuseClicked" onMouseEntered="#roundCircleOnMOuseEntered" onMouseExited="#roundCircleOnMOuseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="239.0" layoutY="496.0" text="Browline">
          <font>
             <Font size="23.0" />
@@ -58,7 +58,7 @@
             <Image url="@../img/icons/CatEye.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle1" fill="#1f93ff00" layoutX="956.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="catCircle" fill="#1f93ff00" layoutX="956.0" layoutY="394.0" onMouseClicked="#catCircleOnMouseClicked" onMouseEntered="#catCircleOnMouseEntered" onMouseExited="#catCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="921.0" layoutY="492.0" text="Cat-eye">
          <font>
             <Font size="23.0" />
@@ -69,7 +69,7 @@
             <Image url="@../img/icons/Aviator.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle11" fill="#1f93ff00" layoutX="1166.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="aviatorCircle" fill="#1f93ff00" layoutX="1166.0" layoutY="394.0" onMouseClicked="#aviatorCircleOnMouseClicked" onMouseEntered="#aviatorCircleOnMouseEntered" onMouseExited="#aviatorCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="1137.0" layoutY="492.0" text="Aviator">
          <font>
             <Font size="23.0" />
@@ -80,7 +80,7 @@
             <Image url="@../img/icons/Special.png" />
          </image>
       </ImageView>
-      <Circle fx:id="ovalCircle111" fill="#1f93ff00" layoutX="1376.0" layoutY="394.0" onMouseClicked="#menCircleOnMouseClicked" onMouseEntered="#menCircleOnMouseEntered" onMouseExited="#menCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Circle fx:id="specialCircle" fill="#1f93ff00" layoutX="1376.0" layoutY="394.0" onMouseClicked="#specialCircleOnMouseClicked" onMouseEntered="#specialCircleOnMouseEntered" onMouseExited="#specialCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
       <Label layoutX="1342.0" layoutY="492.0" text="Special">
          <font>
             <Font size="23.0" />
