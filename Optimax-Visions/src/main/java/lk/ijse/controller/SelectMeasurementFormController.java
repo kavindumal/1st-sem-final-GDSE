@@ -3,10 +3,15 @@ package lk.ijse.controller;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SelectMeasurementFormController implements Initializable {
@@ -19,6 +24,9 @@ public class SelectMeasurementFormController implements Initializable {
 
     @FXML
     private JFXComboBox<String> templeWidthCombo;
+
+    @FXML
+    private AnchorPane measurePane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,5 +56,14 @@ public class SelectMeasurementFormController implements Initializable {
 
         } while (templeLengths <= 150);
         templeWidthCombo.setItems(templeLength);
+    }
+
+    public void nextBtnOnAction(ActionEvent actionEvent) {
+        measurePane.getChildren().clear();
+        try {
+            measurePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/specialFeaturesForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

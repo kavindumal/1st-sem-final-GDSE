@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionResultFormController">
+   <children>
+      <Label layoutX="89.0" layoutY="56.0" text="Prescription result">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="45.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="445.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="835.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="1235.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="45.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="445.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="835.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="1235.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="289.0" layoutY="456.0" prefHeight="44.0" prefWidth="97.0" text="Sell" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="specialPane" prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SpecialFeaturesFormController">
+   <children>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="217.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/lightweight.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="lightweightCircle" fill="#1f93ff00" layoutX="281.0" layoutY="488.0" onMouseClicked="#lightweightCircleOnMouseClicked" onMouseEntered="#lightweightCircleOnMouseEntered" onMouseExited="#lightweightCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="223.0" layoutY="586.0" text="Lightweight">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="673.0" layoutY="837.0" onAction="#viewResultBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="View result">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="289.0" layoutY="166.0" text="Are you interested in special features for your eyewear?">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="477.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/nosebridge.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="noseBridgeCircle" fill="#1f93ff00" layoutX="541.0" layoutY="488.0" onMouseClicked="#noseBridgeCircleOnMouseClicked" onMouseEntered="#noseBridgeCircleOnMouseEntered" onMouseExited="#noseBridgeCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="444.0" layoutY="586.0" text="Low nose bridge fit">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="737.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/nosepad.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="nosePadCircle" fill="#1f93ff00" layoutX="801.0" layoutY="488.0" onMouseClicked="#nosePadCircleOnMouseClicked" onMouseEntered="#nosePadCircleOnMouseEntered" onMouseExited="#nosePadCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="699.0" layoutY="586.0" text="Adjustable nose pads">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="997.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/clipOn.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="clipCircle" fill="#1f93ff00" layoutX="1061.0" layoutY="488.0" onMouseClicked="#clipCircleOnMouseClicked" onMouseEntered="#clipCircleOnMouseEntered" onMouseExited="#clipCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="1019.0" layoutY="586.0" text="Clip-ons">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="134.0" layoutX="1257.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/spring.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="springCircle" fill="#1f93ff00" layoutX="1321.0" layoutY="488.0" onMouseClicked="#springCircleOnMouseClicked" onMouseEntered="#springCircleOnMouseEntered" onMouseExited="#springCircleOnMouseExited" opacity="0.0" radius="105.0" stroke="#0400ff" strokeType="INSIDE" strokeWidth="0.5" />
+      <Label layoutX="1255.0" layoutY="586.0" text="Spring hinges">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
