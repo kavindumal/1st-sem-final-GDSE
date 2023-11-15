@@ -7,14 +7,14 @@ import java.sql.SQLException;
 
 public class AddNewAppointmentModel {
     public String[][] getEqualDateAppoitments(String replace) throws SQLException {
-            return DbConnections.getDetails("appointment", 7, "SELECT *\n" +
+            return DbConnections.getDetails("appointment", 8, "SELECT *\n" +
                     "FROM appointment\n" +
                     "WHERE date = '"+ replace +"';", replace);
 
     }
 
     public String findNextAppoitmentId() throws SQLException {
-        String[][] getLastId = DbConnections.getDetails("appointment", 7);
+        String[][] getLastId = DbConnections.getDetails("appointment", 8);
         if (getLastId == null || getLastId.length == 0) {
             return "A0001";
         } else {

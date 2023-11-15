@@ -81,22 +81,26 @@ public class PatientFormController implements Initializable {
     @FXML
     void confirmBtnOnAction(ActionEvent event) throws SQLException {
         if (checkConfirmation.equals("\tYes")) {
-            if (model.setValuestoDatabase(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
-                patientPane.getChildren().clear();
-                try {
-                    patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        } else {
-            if (model.setPatientDetailsToDatabase(new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
-                if (model.setAppointmentDetailstoDatabase(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))){
+            if (model.setPaymentDetails()) {
+                if (model.setValuestoDatabase(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
                     patientPane.getChildren().clear();
                     try {
                         patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
+                    }
+                }
+            }
+        } else {
+            if (model.setPatientDetailsToDatabase(new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
+                if (model.setPaymentDetails()){
+                    if (model.setAppointmentDetailstoDatabase(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
+                        patientPane.getChildren().clear();
+                        try {
+                            patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
             }

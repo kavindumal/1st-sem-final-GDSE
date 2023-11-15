@@ -5,6 +5,8 @@ import lk.ijse.dto.AddNewAppointmentDto;
 import lk.ijse.dto.PatientDto;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class PatientModel {
     public PatientDto getPatientDetails(PatientDto dto) throws SQLException {
@@ -39,6 +41,7 @@ public class PatientModel {
     }
 
     public boolean setValuestoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
+        String[][] payments = DbConnections.getDetails("payment", 6);
         String[][] doctorData = DbConnections.getDetails("doctor", 7);
 
         String doctorId = null;
@@ -47,8 +50,8 @@ public class PatientModel {
                 doctorId = doctorData[i][0];
             }
         }
-        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId)\n" +
-                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + doctorId +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "');\n" +
+        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId, paymentId)\n" +
+                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + doctorId +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "', " + payments[payments.length-1][0] + ");\n" +
                 "\n");
     }
 
@@ -59,8 +62,15 @@ public class PatientModel {
     }
 
     public boolean setAppointmentDetailstoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
-        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId)\n" +
-                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "');\n" +
+        String[][] payments = DbConnections.getDetails("payment", 6);
+        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId, paymentId)\n" +
+                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "', " + payments[payments.length-1][0] + ");\n" +
+                "\n");
+    }
+
+    public boolean setPaymentDetails() throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.payment (description, paymentType, time, date, amount)\n" +
+                "VALUES ('Pay for appointment', '"+ "cash" +"', '"+ LocalTime.now() +"', '"+ LocalDate.now() +"', 500);\n" +
                 "\n");
     }
 }
