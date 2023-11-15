@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 
 <AnchorPane prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionResultFormController">
@@ -15,76 +15,52 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Pane layoutX="76.0" layoutY="164.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results1Pane" layoutX="83.0" layoutY="164.0" onMouseEntered="#results1PaneOnMouseEntered" onMouseExited="#results1PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexistI.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg1" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" />
          </children>
       </Pane>
-      <Pane layoutX="446.0" layoutY="164.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results2Pane" layoutX="453.0" layoutY="164.0" onMouseEntered="#results2PaneOnMouseEntered" onMouseExited="#results2PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="28.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexist.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg2" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane layoutX="816.0" layoutY="164.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results3Pane" layoutX="823.0" layoutY="164.0" onMouseEntered="#results3PaneOnMouseEntered" onMouseExited="#results3PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexistI.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg3" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane layoutX="1186.0" layoutY="164.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results4Pane" layoutX="1193.0" layoutY="164.0" onMouseEntered="#results4PaneOnMouseEntered" onMouseExited="#results4PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexistI.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg4" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane layoutX="1186.0" layoutY="534.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results8Pane" layoutX="1193.0" layoutY="534.0" onMouseEntered="#results8PaneOnMouseEntered" onMouseExited="#results8PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexistI.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg8" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane layoutX="816.0" layoutY="534.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results7Pane" layoutX="823.0" layoutY="534.0" onMouseEntered="#results7PaneOnMouseEntered" onMouseExited="#results7PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexistI.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg7" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane layoutX="446.0" layoutY="534.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results6Pane" layoutX="453.0" layoutY="534.0" onMouseEntered="#results6PaneOnMouseEntered" onMouseExited="#results6PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexistI.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg6" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane layoutX="76.0" layoutY="534.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results5Pane" layoutX="83.0" layoutY="534.0" onMouseEntered="#results5PaneOnMouseEntered" onMouseExited="#results5PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="310.0" layoutX="21.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/prescriptionGlass/coexistI.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="resultImg5" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
    </children>
