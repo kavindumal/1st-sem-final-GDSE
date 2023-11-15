@@ -79,6 +79,12 @@ public class DashBoardFormController implements Initializable {
     Label homeLbl1;
     @FXML
     void employeeIconOnAction(MouseEvent event) {
+        bodyPane.getChildren().clear();
+        try {
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewEmployeeForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         checkMoveInPaneLocation();
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(556);

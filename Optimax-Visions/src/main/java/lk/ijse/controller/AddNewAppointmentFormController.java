@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class AddNewAppointmentFormController implements Initializable {
@@ -194,10 +195,12 @@ public class AddNewAppointmentFormController implements Initializable {
     public ObservableList<String> newObservable;
 
     @FXML
-    public void confirmBtnOnAction(ActionEvent actionEvent) throws IOException {
+    public void confirmBtnOnAction(ActionEvent actionEvent) throws IOException, SQLException {
         AlertSound alertSound = new AlertSound();
         if (clickedCount > 0) {
             appoitmentPane.getChildren().clear();
+            String docId = getDoctorId();
+
             String date = calanderYearMonthView.getSelectedDates().toString().replace("[", "").replace("]", "");
             if (date.isEmpty()) {
                 date = String.valueOf(LocalDate.now());
@@ -207,7 +210,7 @@ public class AddNewAppointmentFormController implements Initializable {
                 Parent root = loader.load();
                 PatientFormController controller = loader.getController();
 
-                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), date, timeGet, problemTxt.getText(), doctorChooseTxt.getText(), newV.equals("\t Yes he/she have prescription") ? "yes" : "no"));
+                controller.setValues(new AddNewAppointmentDto(appointmentIdLbl.getText(), date, timeGet, problemTxt.getText(), docId, newV.equals("\t Yes he/she have prescription") ? "yes" : "no"));
 
                 appoitmentPane.getChildren().add(root);
             } catch (IOException e) {
@@ -217,6 +220,30 @@ public class AddNewAppointmentFormController implements Initializable {
             alertSound.checkSounds(Sounds.INVALID);
             timeNotFoundLbl.setOpacity(1);
         }
+    }
+
+    private String getDoctorId() throws SQLException {
+        String[][] doctorsData = addNewAppointmentModel.getDoctorsData();
+        int number = -1;
+        String id = null;
+        if (doctorChooseTxt.getText().equals(" Any")) {
+            Random random = new Random();
+            do {
+                number = random.nextInt(doctorsData.length);
+                if (number > 0) {
+                    break;
+                }
+            } while (true);
+            return doctorsData[number][0];
+        } else {
+            for (int i = 0; i < doctorsData.length; i++) {
+                if (doctorChooseTxt.getText().equals(" " + doctorsData[i][1])) {
+                    id = doctorsData[i][0];
+                    break;
+                } else return null;
+            }
+        }
+        return id;
     }
 
     @FXML

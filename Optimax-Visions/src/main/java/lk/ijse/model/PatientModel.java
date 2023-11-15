@@ -4,6 +4,7 @@ import lk.ijse.db.DbConnections;
 import lk.ijse.dto.AddNewAppointmentDto;
 import lk.ijse.dto.PatientDto;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -40,37 +41,57 @@ public class PatientModel {
         return String.format("P%04d", incrementedNumericPart);
     }
 
-    public boolean setValuestoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
-        String[][] payments = DbConnections.getDetails("payment", 6);
-        String[][] doctorData = DbConnections.getDetails("doctor", 7);
-
-        String doctorId = null;
-        for (int i = 0; i < doctorData.length; i++) {
-            if ((" Dr. "+doctorData[i][1]).equals(appointmentDto.getDoctor())) {
-                doctorId = doctorData[i][0];
+    public boolean setPatientPaymentAppointment(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
+        Connection connection = null;
+        boolean result = false;
+        try {
+            connection = DbConnections.getInstance().getConnection();
+            connection.setAutoCommit(false);
+            System.out.println("yes");
+            if (DbConnections.setDetails("INSERT INTO visioncare.patient (patientId, fullName, address, email, familyName, telNo)\n" +
+                    "VALUES ('" + patientDto.getPatientId() + "', '" + patientDto.getFullname() + "', '" + patientDto.getAddress() + "', '" + patientDto.getEmail() + "', '" + patientDto.getFamilyname() + "', "+ patientDto.getTelNo() +");\n" +
+                    "\n")) {
+                System.out.println("patient");
+                if (DbConnections.setDetails("INSERT INTO visioncare.payment (description, paymentType, time, date, amount)\n" +
+                        "VALUES ('Pay for appointment', '"+ "cash" +"', '"+ LocalTime.now() +"', '"+ LocalDate.now() +"', 500);\n" +
+                        "\n")) {
+                    System.out.println("paymeent");
+                    String[][] payments = DbConnections.getDetails("payment", 6);
+                    if (DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId, paymentId)\n" +
+                            "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "', " + payments[payments.length-1][0] + ");\n" +
+                            "\n")) result = true;
+                }
             }
+        } catch (SQLException e) {
+            System.out.println(e);
+            connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
+            System.out.println("auto true");
         }
-        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId, paymentId)\n" +
-                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + doctorId +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "', " + payments[payments.length-1][0] + ");\n" +
-                "\n");
+        return result;
     }
 
-    public boolean setPatientDetailsToDatabase(PatientDto patientDto) throws SQLException {
-        return DbConnections.setDetails("INSERT INTO visioncare.patient (patientId, fullName, address, email, familyName, telNo)\n" +
-                "VALUES ('" + patientDto.getPatientId() + "', '" + patientDto.getFullname() + "', '" + patientDto.getAddress() + "', '" + patientDto.getEmail() + "', '" + patientDto.getFamilyname() + "', "+ patientDto.getTelNo() +");\n" +
-                "\n");
-    }
+    public boolean setPaymentAppointmentDetails(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
+        Connection connection = null;
+        boolean result = false;
 
-    public boolean setAppointmentDetailstoDatabase(AddNewAppointmentDto appointmentDto, PatientDto patientDto) throws SQLException {
-        String[][] payments = DbConnections.getDetails("payment", 6);
-        return DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId, paymentId)\n" +
-                "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "', " + payments[payments.length-1][0] + ");\n" +
-                "\n");
-    }
-
-    public boolean setPaymentDetails() throws SQLException {
-        return DbConnections.setDetails("INSERT INTO visioncare.payment (description, paymentType, time, date, amount)\n" +
-                "VALUES ('Pay for appointment', '"+ "cash" +"', '"+ LocalTime.now() +"', '"+ LocalDate.now() +"', 500);\n" +
-                "\n");
+        try {
+            connection = DbConnections.getInstance().getConnection();
+            connection.setAutoCommit(false);
+            if (DbConnections.setDetails("INSERT INTO visioncare.payment (description, paymentType, time, date, amount)\n" +
+                        "VALUES ('Pay for appointment', '"+ "cash" +"', '"+ LocalTime.now() +"', '"+ LocalDate.now() +"', 500);\n" +
+                        "\n")) {
+                String[][] payments = DbConnections.getDetails("payment", 6);
+                if (DbConnections.setDetails("INSERT INTO visioncare.appointment (appoitmentId, time, date, problem, docterId, prescription, patientId, paymentId)\n" +
+                        "VALUES ('" + appointmentDto.getId() + "', '" + appointmentDto.getTime() + "', '" + appointmentDto.getDate() + "', '" + appointmentDto.getProblem() + "', '" + appointmentDto.getDoctor() +"', '" + appointmentDto.getPrescription() + "', '" + patientDto.getPatientId() + "', " + payments[payments.length-1][0] + ");\n" +
+                        "\n")) result = true;
+            }
+        } catch (SQLException e) {
+            connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
+        }
+        return result;
     }
 }
