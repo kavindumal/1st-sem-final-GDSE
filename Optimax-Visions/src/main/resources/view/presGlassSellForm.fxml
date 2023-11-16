@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PresGlassSellFormController">
+   <children>
+      <Label layoutX="99.0" layoutY="66.0" text="Checkout">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="1123.0" layoutY="206.0" text="Order summery">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="lenseAmountCircle" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="104.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="lenseAmountTxt" editable="false" layoutX="130.0" layoutY="275.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <Label layoutX="1123.0" layoutY="276.0" text="Lense">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1123.0" layoutY="316.0" text="Frame">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1123.0" layoutY="356.0" text="Prescription">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1123.0" layoutY="396.0" text="Special features">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1123.0" layoutY="496.0" text="Sub total">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1123.0" layoutY="536.0" text="Discount">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="1123.0" layoutY="616.0" text="Total">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lensePriceLbl" alignment="TOP_RIGHT" layoutX="1355.0" layoutY="276.0" prefHeight="34.0" prefWidth="199.0">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="framePriceLbl" alignment="TOP_RIGHT" layoutX="1355.0" layoutY="316.0" prefHeight="34.0" prefWidth="199.0">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="prescriptionPriceLbl" alignment="TOP_RIGHT" layoutX="1355.0" layoutY="356.0" prefHeight="34.0" prefWidth="199.0">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="specialFeaturesPriceLbl" alignment="TOP_RIGHT" layoutX="1355.0" layoutY="396.0" prefHeight="34.0" prefWidth="199.0">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="subTotalPriceLbl" alignment="TOP_RIGHT" layoutX="1356.0" layoutY="496.0" prefHeight="34.0" prefWidth="198.0">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="discountPriceLbl" alignment="TOP_RIGHT" layoutX="1355.0" layoutY="536.0" prefHeight="34.0" prefWidth="199.0">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalPriceLbl" alignment="TOP_RIGHT" layoutX="1355.0" layoutY="616.0" prefHeight="34.0" prefWidth="199.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="1168.0" layoutY="707.0" prefHeight="59.0" prefWidth="365.0" style="-fx-background-color: #1A4BCC; -fx-background-radius: 30;" text="Place order">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </JFXButton>
+      <Line endX="28.3333740234375" endY="485.66668701171875" layoutX="1013.0" layoutY="225.0" startX="28.3333740234375" startY="11.0" strokeWidth="0.2" />
+      <Label layoutX="103.0" layoutY="216.0" text="Enter customer given price">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

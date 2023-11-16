@@ -3,6 +3,7 @@ package lk.ijse.controller;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.kordamp.ikonli.javafx.FontIcon;
 
@@ -58,6 +59,9 @@ public class PrescriptionResultFormController {
 
     @FXML
     private Pane results8Pane;
+
+    @FXML
+    private AnchorPane prescriptionResultPane;
 
     @FXML
     void results1PaneOnMouseEntered(MouseEvent event) {
