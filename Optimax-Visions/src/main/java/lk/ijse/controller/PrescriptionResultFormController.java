@@ -65,7 +65,7 @@ public class PrescriptionResultFormController {
 
     @FXML
     void results1PaneOnMouseEntered(MouseEvent event) {
-
+        System.out.println();
     }
 
     @FXML
