@@ -1,6 +1,7 @@
 package lk.ijse.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +12,33 @@ public class PrescriptionResultFormController {
 
     @FXML
     private FontIcon addtoCartFontIcon;
+
+    @FXML
+    private AnchorPane prescriptionResultPane;
+
+    @FXML
+    private Label priceLbl1;
+
+    @FXML
+    private Label priceLbl11;
+
+    @FXML
+    private Label priceLbl111;
+
+    @FXML
+    private Label priceLbl1111;
+
+    @FXML
+    private Label priceLbl11111;
+
+    @FXML
+    private Label priceLbl111111;
+
+    @FXML
+    private Label priceLbl1111111;
+
+    @FXML
+    private Label priceLbl11111111;
 
     @FXML
     private ImageView resultImg1;
@@ -37,6 +65,30 @@ public class PrescriptionResultFormController {
     private ImageView resultImg8;
 
     @FXML
+    private Label resultLbl1;
+
+    @FXML
+    private Label resultLbl11;
+
+    @FXML
+    private Label resultLbl111;
+
+    @FXML
+    private Label resultLbl1111;
+
+    @FXML
+    private Label resultLbl11111;
+
+    @FXML
+    private Label resultLbl111111;
+
+    @FXML
+    private Label resultLbl1111111;
+
+    @FXML
+    private Label resultLbl11111111;
+
+    @FXML
     private Pane results1Pane;
 
     @FXML
@@ -61,11 +113,8 @@ public class PrescriptionResultFormController {
     private Pane results8Pane;
 
     @FXML
-    private AnchorPane prescriptionResultPane;
-
-    @FXML
     void results1PaneOnMouseEntered(MouseEvent event) {
-        
+
     }
 
     @FXML
@@ -142,5 +191,4 @@ public class PrescriptionResultFormController {
     void results8PaneOnMouseExited(MouseEvent event) {
 
     }
-
 }

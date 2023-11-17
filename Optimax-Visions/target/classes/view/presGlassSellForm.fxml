@@ -3,13 +3,10 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PresGlassSellFormController">
    <children>
@@ -23,8 +20,8 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Rectangle fx:id="customerGIvenPriceRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="104.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="customerGivenPriceTxt" editable="false" layoutX="130.0" layoutY="275.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+      <Rectangle fx:id="lenseAmountCircle" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="104.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="lenseAmountTxt" editable="false" layoutX="130.0" layoutY="275.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
@@ -108,17 +105,6 @@
       <Label layoutX="103.0" layoutY="216.0" text="Enter customer given price">
          <font>
             <Font size="23.0" />
-         </font>
-      </Label>
-      <Pane fx:id="results1Pane" layoutX="353.0" layoutY="394.0" onMouseEntered="#results1PaneOnMouseEntered" onMouseExited="#results1PaneOnMouseExited" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
-         <children>
-            <ImageView fx:id="resultImg1" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
-            <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" />
-         </children>
-      </Pane>
-      <Label fx:id="resultLbl1" layoutX="352.0" layoutY="754.0" text="Coexist Glasses">
-         <font>
-            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
    </children>

@@ -7,8 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-
-<AnchorPane prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionResultFormController">
+<AnchorPane fx:id="prescriptionResultPane" prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionResultFormController">
    <children>
       <Label layoutX="89.0" layoutY="56.0" text="Prescription result">
          <font>
