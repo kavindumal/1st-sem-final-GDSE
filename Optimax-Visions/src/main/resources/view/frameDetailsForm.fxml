@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.FrameDetailsFormController">
+   <children>
+      <Label layoutX="81.0" layoutY="76.0" text="Frame Details">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="FrameTbl" layoutX="86.0" layoutY="146.0" prefHeight="713.0" prefWidth="1490.0" stylesheets="@../style/tableViewStyle.css">
+         <columns>
+            <TableColumn fx:id="frameIdCol" prefWidth="143.0" text="Frame ID" />
+            <TableColumn fx:id="nameCol" prefWidth="186.0" text="Frame name" />
+            <TableColumn fx:id="typeCol" prefWidth="119.0" text="Type" />
+            <TableColumn fx:id="colorCol" prefWidth="188.0" text="Color" />
+            <TableColumn fx:id="materialCol" minWidth="0.0" prefWidth="193.0" text="Material" />
+            <TableColumn fx:id="qtyCol" minWidth="0.0" prefWidth="110.333251953125" text="Qty" />
+            <TableColumn fx:id="priceCol" minWidth="0.0" prefWidth="181.333251953125" text="Price" />
+            <TableColumn fx:id="updateCol" minWidth="0.0" prefWidth="181.333251953125" />
+            <TableColumn fx:id="removeCol" minWidth="0.0" prefWidth="181.333251953125" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="addNewFrameBtn" buttonType="RAISED" layoutX="1210.0" layoutY="885.0" onAction="#addNewFrameBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Add new frame">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

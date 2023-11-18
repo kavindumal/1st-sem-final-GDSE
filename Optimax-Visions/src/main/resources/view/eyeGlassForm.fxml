@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.EyeGlassFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="eyGlassPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EyeGlassFormController">
+   <children>
+      <AnchorPane layoutX="1365.0" layoutY="250.0" prefHeight="285.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.5;" />
+      <Label layoutX="71.0" layoutY="66.0" text="Eyeglass">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="orderedGlassesTbl" layoutX="76.0" layoutY="205.0" prefHeight="713.0" prefWidth="1244.0" stylesheets="@../style/tableViewStyle.css">
+         <columns>
+            <TableColumn fx:id="glassIdCol" prefWidth="143.0" text="GlassId" />
+            <TableColumn fx:id="PatientTypeCol" prefWidth="186.0" text="Frame type" />
+            <TableColumn fx:id="PatientTypeCol" prefWidth="146.33331298828125" text="Patient Id" />
+            <TableColumn fx:id="PatientNameCol" prefWidth="292.33331298828125" text="Patient name" />
+            <TableColumn fx:id="timeCol" prefWidth="132.0" text="Time" />
+            <TableColumn fx:id="dateCol" minWidth="0.0" prefWidth="160.0" text="Date" />
+            <TableColumn fx:id="deleteRecordCol" minWidth="0.0" prefWidth="181.0" />
+         </columns>
+      </TableView>
+      <Label layoutX="71.0" layoutY="146.0" text="Latest ordered glasses">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="frameDetailsBtn" buttonType="RAISED" layoutX="1384.0" layoutY="430.0" onAction="#frameDetailsBtnOnAction" prefHeight="66.0" prefWidth="251.0" stylesheets="@../style/bordorBtn.css" text="Frame details">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="1391.0" layoutY="279.0" text="Frame details">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="102.0" fitWidth="200.0" layoutX="1410.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/prescriptionGlass/coexist.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="1365.0" layoutY="579.0" prefHeight="285.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.5;" />
+      <JFXButton fx:id="lenseDetailsBtn" buttonType="RAISED" layoutX="1384.0" layoutY="759.0" onAction="#lenseDetailsBtnOnAction" prefHeight="66.0" prefWidth="251.0" stylesheets="@../style/bordorBtn.css" text="Lense details">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="1391.0" layoutY="608.0" text="Lense details">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="102.0" fitWidth="200.0" layoutX="1463.0" layoutY="648.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/Squere.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

@@ -111,6 +111,7 @@ public class DashBoardFormController implements Initializable {
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(376);
         count = 4;
+        bodyPane.getChildren().clear();
     }
 
     @FXML
@@ -270,6 +271,12 @@ public class DashBoardFormController implements Initializable {
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(286);
         count = 3;
+        bodyPane.getChildren().clear();
+        try {
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/eyeGlassForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
