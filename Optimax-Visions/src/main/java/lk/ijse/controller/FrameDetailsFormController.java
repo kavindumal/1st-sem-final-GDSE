@@ -5,20 +5,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.FrameDetailsDto;
 import lk.ijse.dto.tm.FrameDetailsTm;
 import lk.ijse.model.FrameModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class FrameDetailsFormController implements Initializable {
+    @FXML
+    public AnchorPane frameDetailsPane;
 
     @FXML
     private TableView<FrameDetailsTm> FrameTbl;
@@ -55,7 +61,12 @@ public class FrameDetailsFormController implements Initializable {
 
     @FXML
     void addNewFrameBtnOnAction(ActionEvent event) {
-
+        frameDetailsPane.getChildren().clear();
+        try {
+            frameDetailsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewFrameForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

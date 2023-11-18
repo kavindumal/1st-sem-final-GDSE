@@ -34,12 +34,10 @@ public class FrameModel {
             String price = resultSet.getString(10);
 
             JFXButton updateBtn = new JFXButton("Update");
-            updateBtn.setBackground(Background.fill(Color.GREEN));
-            updateBtn.setTextFill(Color.WHITE);
+            updateBtn.setStyle("-fx-background-radius: 30; -fx-background-color: green; -fx-text-fill: white; -fx-font-size: 19px;");
 
             JFXButton removeBtn = new JFXButton("Remove");
-            removeBtn.setBackground(Background.fill(Color.RED));
-            removeBtn.setTextFill(Color.WHITE);
+            removeBtn.setStyle("-fx-background-radius: 30; -fx-background-color: Red; -fx-text-fill: white; -fx-font-size: 19px;");
 
             dtoList.add(new FrameDetailsDto(id,name,type,color,material,Integer.parseInt(qty),Double.parseDouble(price),updateBtn,removeBtn));
         }
