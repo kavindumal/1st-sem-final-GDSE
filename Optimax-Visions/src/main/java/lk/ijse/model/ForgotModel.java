@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.ForgotDto;
+import lk.ijse.dto.FrameDto;
 
 import java.sql.SQLException;
 
@@ -16,5 +17,22 @@ public class ForgotModel {
             }
         }
         return false;
+    }
+
+    public String getFrameId() throws SQLException {
+        String[][] getFrameDetails = DbConnections.getDetails("frame",10);
+        String lastFrmaeId = getFrameDetails[getFrameDetails.length - 1][0];
+        if (getFrameDetails.length == 0) return "F0001";
+
+        int numericPart = Integer.parseInt(lastFrmaeId.replaceFirst("^F0*", ""));
+        int incrementedNumericPart = numericPart + 1;
+        return String.format("F%04d", incrementedNumericPart);
+    }
+
+    public boolean setDetailsToDatabase(FrameDto frameDto) throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.frame (frameId, frameName, frameType, wearGlass, faceShape, frameShape, color, material,\n" +
+                "                              qtyOnHand, price)\n" +
+                "VALUES ('"+ frameDto.getId() +"', '"+ frameDto.getName() +"', '"+ frameDto.getType() +"', '"+ frameDto.getGlass() +"', '"+ frameDto.getFaceShape() +"', '"+ frameDto.getFrameShape() +"', '"+ frameDto.getColor() +"', '"+ frameDto.getMaterial() +"', "+ frameDto.getQtyOnHand() +", "+ frameDto.getPrice() +");\n" +
+                "\n");
     }
 }

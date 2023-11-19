@@ -14,9 +14,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
+import lk.ijse.dto.FrameDto;
+import lk.ijse.model.ForgotModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -160,8 +163,10 @@ public class AddNewFrameFormController implements Initializable {
     @FXML
     private Label inputErrorLbl;
 
+    ForgotModel model = new ForgotModel();
+
     @FXML
-    void addBtnOnAction(ActionEvent event) {
+    void addBtnOnAction(ActionEvent event) throws SQLException {
         AlertSound alertSound = new AlertSound();
         if (!nameTxt.getText().isEmpty()) {
             frameNameRec.setStroke(Color.BLACK); inputErrorLbl.setText("");
@@ -180,6 +185,9 @@ public class AddNewFrameFormController implements Initializable {
                                     if (!qtyOnHandTxt.getText().isEmpty()) {
                                         inputErrorLbl.setText(""); qtyRec.setStroke(Color.BLACK);
                                         if (!priceTxt.getText().isEmpty()) {
+                                            if (model.setDetailsToDatabase(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())))) {
+
+                                            }
                                             addNewFramePane.getChildren().clear();
                                             try {
                                                 addNewFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewFrameForm.fxml"))));
@@ -195,6 +203,32 @@ public class AddNewFrameFormController implements Initializable {
                 } else inputErrorLbl.setText("Please select Frame Make for !"); alertSound.checkSounds(Sounds.INVALID);
             } else inputErrorLbl.setText("Please select frame Type!"); alertSound.checkSounds(Sounds.INVALID);
         } else frameNameRec.setStroke(Color.RED); inputErrorLbl.setText("Please enter name of the frame !"); alertSound.checkSounds(Sounds.INVALID);
+    }
+
+    private String getMaterialCheckBox() {
+        return materialMetalCb.isSelected() ? materialMetalCb.getText() : materialPlasticCb.isSelected() ? materialPlasticCb.getText() : materialMixedCb.isSelected() ? materialMixedCb.getText() : materialEcoCb.getText();
+    }
+
+    private String getFrameColorCheckBOx() {
+        return colorBlackCb.isSelected() ? colorBlackCb.getText() : colorTortoiseCb.isSelected() ? colorTortoiseCb.getText() : colorPatternCb.isSelected() ? colorPatternCb.getText() : colorNeutralCb.isSelected() ? colorNeutralCb.getText() : colorColorfulCb.isSelected() ? colorColorfulCb.getText() : colorTranslucentCb.getText();
+    }
+
+    private String getFrameShapeCheckBox() {
+        return frameBrownlineCb.isSelected() ? frameBrownlineCb.getText() : frameRoundCb.isSelected() ? frameRoundCb.getText() : frameSquareCb.isSelected() ? frameSquareCb.getText() : frameCatCb.isSelected() ? frameCatCb.getText() : frameAviatorCb.isSelected() ? frameAviatorCb.getText() : frameSpecialCb.getText();
+    }
+
+    private String getFaceShapeCheckBox() {
+        return shapeTriangleCb.isSelected() ? shapeTriangleCb.getText() : shapeOvalCb.isSelected() ? shapeOvalCb.getText() : shapeSquareCb.isSelected() ? shapeSquareCb.getText() : shapeRoundCb.isSelected() ? shapeRoundCb.getText() : shapeHeartCb.isSelected() ? shapeHeartCb.getText() : shapeDiamondCb.isSelected() ? shapeDiamondCb.getText() : shapeUnsureCb.getText();
+    }
+
+    private String getMakeForCheckBox() {
+        return makeForOutdoorCb.isSelected() ? makeForOutdoorCb.getText() : makeForIndoorCb.isSelected() ? makeForIndoorCb.getText() : makeForBothCb.getText();
+    }
+
+    private String getTypeCheckBox() {
+        if (typeMaleCb.isSelected()) return typeMaleCb.getText();
+        else if (typeFemaleCb.isSelected()) return typeFemaleCb.getText();
+        return typeBothCb.getText();
     }
 
     private boolean checkMaterialOnClicked() {
@@ -221,8 +255,16 @@ public class AddNewFrameFormController implements Initializable {
         return typeMaleCb.isSelected() || typeFemaleCb.isSelected() || typeBothCb.isSelected();
     }
 
+    String frameId;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            frameId = model.getFrameId();
+            frameIdTxt.setText(frameId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         initializetypeCheckBox();
         initializecolorCheckBox();
         initializeMakeForCheckBoxes();
