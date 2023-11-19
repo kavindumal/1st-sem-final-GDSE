@@ -3,6 +3,7 @@ package lk.ijse.model;
 import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.FrameDetailsDto;
+import lk.ijse.dto.FrameDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,5 +52,20 @@ public class FrameModel {
 
     public String[][] getValues() throws SQLException {
         return DbConnections.getDetails("frame",10);
+    }
+
+    public boolean updateDetails(FrameDto frameDto) throws SQLException {
+        return DbConnections.setDetails("UPDATE visioncare.frame t\n" +
+                "SET t.frameName  = '"+ frameDto.getName() +"',\n" +
+                "    t.frameType  = '"+ frameDto.getType() +"',\n" +
+                "    t.wearGlass  = '"+ frameDto.getGlass() +"',\n" +
+                "    t.faceShape  = '"+ frameDto.getFaceShape() +"',\n" +
+                "    t.frameShape = '"+ frameDto.getFrameShape() +"',\n" +
+                "    t.color      = '"+ frameDto.getColor() +"',\n" +
+                "    t.material   = '"+ frameDto.getMaterial() +"',\n" +
+                "    t.qtyOnHand  = "+ frameDto.getQtyOnHand() +",\n" +
+                "    t.price      = "+ frameDto.getPrice() +"\n" +
+                "WHERE t.frameId LIKE '"+ frameDto.getId() +"' ESCAPE '#';\n" +
+                "\n");
     }
 }
