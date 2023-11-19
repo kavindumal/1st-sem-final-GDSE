@@ -1,8 +1,6 @@
 package lk.ijse.model;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.FrameDetailsDto;
 
@@ -42,5 +40,12 @@ public class FrameModel {
             dtoList.add(new FrameDetailsDto(id,name,type,color,material,Integer.parseInt(qty),Double.parseDouble(price),updateBtn,removeBtn));
         }
         return dtoList;
+    }
+
+    public boolean deleteDataFromDatabase(String id) throws SQLException {
+        return DbConnections.setDetails("DELETE\n" +
+                "FROM visioncare.frame\n" +
+                "WHERE frameId LIKE '"+ id +"' ESCAPE '#';\n" +
+                "\n");
     }
 }

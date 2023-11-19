@@ -186,13 +186,12 @@ public class AddNewFrameFormController implements Initializable {
                                         inputErrorLbl.setText(""); qtyRec.setStroke(Color.BLACK);
                                         if (!priceTxt.getText().isEmpty()) {
                                             if (model.setDetailsToDatabase(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())))) {
-
-                                            }
-                                            addNewFramePane.getChildren().clear();
-                                            try {
-                                                addNewFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewFrameForm.fxml"))));
-                                            } catch (IOException e) {
-                                                throw new RuntimeException(e);
+                                                addNewFramePane.getChildren().clear();
+                                                try {
+                                                    addNewFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/frameDetailsForm.fxml"))));
+                                                } catch (IOException e) {
+                                                    throw new RuntimeException(e);
+                                                }
                                             }
                                         } else inputErrorLbl.setText("Please enter Frame price !"); alertSound.checkSounds(Sounds.INVALID); priceRec.setStroke(Color.RED);
                                     } else inputErrorLbl.setText("Please enter quantity on hand !"); alertSound.checkSounds(Sounds.INVALID); qtyRec.setStroke(Color.RED);

@@ -84,6 +84,7 @@ public class FrameDetailsFormController implements Initializable {
             List<FrameDetailsDto> dtoList = model.getAllValues();
 
             for(FrameDetailsDto dto : dtoList) {
+                dto.getRemove().setOnAction(event -> handleButtonClicked(dto.getId()));
                 obList.add(
                         new FrameDetailsTm(
                                 dto.getId(),
@@ -98,8 +99,17 @@ public class FrameDetailsFormController implements Initializable {
                         )
                 );
             }
-
             FrameTbl.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void handleButtonClicked(String id) {
+        FrameModel model = new FrameModel();
+        try {
+            model.deleteDataFromDatabase(id);
+            loadDetailsToTable();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
