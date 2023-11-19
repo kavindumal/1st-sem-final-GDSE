@@ -6,9 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import lk.ijse.alert.AlertSound;
+import lk.ijse.alert.Sounds;
 
 import java.io.IOException;
 import java.net.URL;
@@ -153,15 +158,27 @@ public class AddNewFrameFormController implements Initializable {
     private AnchorPane typePane;
 
     @FXML
+    private Label inputErrorLbl;
+
+    @FXML
     void addBtnOnAction(ActionEvent event) {
+        AlertSound alertSound = new AlertSound();
         if (!nameTxt.getText().isEmpty()) {
+            frameNameRec.setStroke(Color.BLACK); inputErrorLbl.setText("");
             if (checkTypeOnClicked()) {
+                inputErrorLbl.setText("");
                 if (checkMakeForOnClicked()) {
+                    inputErrorLbl.setText("");
                     if (checkFaceShapeOnClicked()) {
+                        inputErrorLbl.setText("");
                         if (checkFrameShapeOnClicked()) {
+                            inputErrorLbl.setText("");
                             if (checkFrameCOlorOnClicked()) {
+                                inputErrorLbl.setText("");
                                 if (checkMaterialOnClicked()) {
+                                    inputErrorLbl.setText("");
                                     if (!qtyOnHandTxt.getText().isEmpty()) {
+                                        inputErrorLbl.setText(""); qtyRec.setStroke(Color.BLACK);
                                         if (!priceTxt.getText().isEmpty()) {
                                             addNewFramePane.getChildren().clear();
                                             try {
@@ -169,15 +186,15 @@ public class AddNewFrameFormController implements Initializable {
                                             } catch (IOException e) {
                                                 throw new RuntimeException(e);
                                             }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+                                        } else inputErrorLbl.setText("Please enter Frame price !"); alertSound.checkSounds(Sounds.INVALID); priceRec.setStroke(Color.RED);
+                                    } else inputErrorLbl.setText("Please enter quantity on hand !"); alertSound.checkSounds(Sounds.INVALID); qtyRec.setStroke(Color.RED);
+                                } else inputErrorLbl.setText("Please select Frame Material !"); alertSound.checkSounds(Sounds.INVALID);
+                            } else inputErrorLbl.setText("Please select Frame Color !"); alertSound.checkSounds(Sounds.INVALID);
+                        } else inputErrorLbl.setText("Please select Frame Shape !"); alertSound.checkSounds(Sounds.INVALID);
+                    } else inputErrorLbl.setText("Please select Face Shape of His/Her!"); alertSound.checkSounds(Sounds.INVALID);
+                } else inputErrorLbl.setText("Please select Frame Make for !"); alertSound.checkSounds(Sounds.INVALID);
+            } else inputErrorLbl.setText("Please select frame Type!"); alertSound.checkSounds(Sounds.INVALID);
+        } else frameNameRec.setStroke(Color.RED); inputErrorLbl.setText("Please enter name of the frame !"); alertSound.checkSounds(Sounds.INVALID);
     }
 
     private boolean checkMaterialOnClicked() {

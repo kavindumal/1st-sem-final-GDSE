@@ -263,5 +263,10 @@
             <Font size="21.0" />
          </font>
       </JFXButton>
+      <Label fx:id="inputErrorLbl" alignment="CENTER" layoutX="1156.0" layoutY="810.0" prefHeight="30.0" prefWidth="380.0" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
