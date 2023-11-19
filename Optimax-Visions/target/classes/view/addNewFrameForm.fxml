@@ -47,166 +47,195 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="typeMaleCb" layoutX="73.0" layoutY="380.0" text="male">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="typeFemaleCb" layoutX="234.0" layoutY="380.0" text="female">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="typeBothCb" layoutX="384.0" layoutY="380.0" text="both">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="makeForOutdoorCb" layoutX="73.0" layoutY="476.0" text="outdoor">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="makeForIndoorCb" layoutX="234.0" layoutY="476.0" text="indoor">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="makeForBothCb" layoutX="384.0" layoutY="476.0" text="both">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
+      <AnchorPane fx:id="typePane"  layoutX="63.0" layoutY="380.0">
+         <children>
+            <JFXCheckBox fx:id="typeMaleCb" layoutX="10.0" text="male">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="typeFemaleCb" layoutX="171.0" text="female">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="typeBothCb" layoutX="321.0" text="both">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="makeForPane" layoutX="63.0" layoutY="476.0">
+         <children>
+            <JFXCheckBox fx:id="makeForOutdoorCb" layoutX="10.0" text="outdoor">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="makeForIndoorCb" layoutX="171.0" text="indoor">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="makeForBothCb" layoutX="321.0" text="both">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
       <Label layoutX="71.0" layoutY="529.0" text="Face Shape">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="shapeTriangleCb" layoutX="74.0" layoutY="574.0" text="triangle">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="shapeOvalCb" layoutX="234.0" layoutY="574.0" text="oval">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="shapeSquareCb" layoutX="384.0" layoutY="574.0" text="square">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="shapeRoundCb" layoutX="534.0" layoutY="574.0" text="round">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="shapeHeartCb" layoutX="694.0" layoutY="574.0" text="heart">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="shapeDiamondCb" layoutX="849.0" layoutY="574.0" text="diamond">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="shapeUnsureCb" layoutX="1029.0" layoutY="574.0" text="unsure">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
+      <AnchorPane fx:id="faceShapePane" layoutX="64.0" layoutY="574.0">
+         <children>
+            <JFXCheckBox fx:id="shapeTriangleCb" layoutX="10.0" text="triangle">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="shapeOvalCb" layoutX="170.0" text="oval">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="shapeSquareCb" layoutX="320.0" text="square">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="shapeRoundCb" layoutX="470.0" text="round">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="shapeHeartCb" layoutX="630.0" text="heart">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="shapeDiamondCb" layoutX="785.0" text="diamond">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="shapeUnsureCb" layoutX="965.0" text="unsure">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
       <Label layoutX="71.0" layoutY="629.0" text="Frame Shape">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="frameBrownlineCb" layoutX="75.0" layoutY="673.0" text="browline">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="frameRoundCb" layoutX="234.0" layoutY="673.0" text="round">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="frameSquareCb" layoutX="384.0" layoutY="673.0" text="square">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="frameCatCb" layoutX="534.0" layoutY="673.0" text="cat">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="frameAviatorCb" layoutX="694.0" layoutY="673.0" text="aviator">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="frameSpecialCb" layoutX="849.0" layoutY="673.0" text="special">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
+      <AnchorPane fx:id="frameShapePane" layoutX="65.0" layoutY="673.0">
+         <children>
+            <JFXCheckBox fx:id="frameBrownlineCb" layoutX="10.0" text="browline">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="frameRoundCb" layoutX="169.0" text="round">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="frameSquareCb" layoutX="319.0" text="square">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="frameCatCb" layoutX="469.0" text="cat">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="frameAviatorCb" layoutX="629.0" text="aviator">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="frameSpecialCb" layoutX="784.0" text="special">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
       <Label layoutX="71.0" layoutY="729.0" text="Frame Color">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="colorBlackCb" layoutX="75.0" layoutY="773.0" text="black">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="colorTortoiseCb" layoutX="234.0" layoutY="773.0" text="tortoise">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="colorPatternCb" layoutX="384.0" layoutY="773.0" text="pattern">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="colorNeutralCb" layoutX="534.0" layoutY="773.0" text="neutral">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="colorColorfulCb" layoutX="693.0" layoutY="773.0" text="colorful">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="colorTranslucentCb" layoutX="849.0" layoutY="773.0" text="translucent">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
+      <AnchorPane fx:id="frameColorPane" layoutX="65.0" layoutY="773.0">
+         <children>
+            <JFXCheckBox fx:id="colorBlackCb" layoutX="10.0" text="black">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="colorTortoiseCb" layoutX="169.0" text="tortoise">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="colorPatternCb" layoutX="319.0" text="pattern">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="colorNeutralCb" layoutX="469.0" text="neutral">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="colorColorfulCb" layoutX="628.0" text="colorful">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="colorTranslucentCb" layoutX="784.0" text="translucent">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
       <Label layoutX="71.0" layoutY="819.0" text="Material">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="materialMetalCb" layoutX="73.0" layoutY="870.0" text="metal">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="materialPlasticCb" layoutX="234.0" layoutY="870.0" text="plastic">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="materialMixedCb" layoutX="384.0" layoutY="870.0" text="mixed">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
+      <AnchorPane fx:id="materialPane" layoutX="63.0" layoutY="870.0">
+         <children>
+            <JFXCheckBox fx:id="materialMetalCb" layoutX="10.0" text="metal">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="materialPlasticCb" layoutX="171.0" text="plastic">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="materialMixedCb" layoutX="321.0" text="mixed">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="materialEcoCb" layoutX="471.0" text="eco">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
       <Label layoutX="891.0" layoutY="189.0" text="Quantity on hand">
          <font>
             <Font size="24.0" />
@@ -234,10 +263,5 @@
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <JFXCheckBox fx:id="materialEcoCb" layoutX="534.0" layoutY="870.0" text="eco">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </JFXCheckBox>
    </children>
 </AnchorPane>

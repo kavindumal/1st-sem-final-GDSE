@@ -47,7 +47,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="typePane" layoutX="63.0" layoutY="380.0">
+      <AnchorPane fx:id="typePane"  layoutX="63.0" layoutY="380.0">
          <children>
             <JFXCheckBox fx:id="typeMaleCb" layoutX="10.0" text="male">
                <font>

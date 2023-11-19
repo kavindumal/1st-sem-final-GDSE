@@ -4,11 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
-public class AddNewFrameFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AddNewFrameFormController implements Initializable {
 
     @FXML
     private JFXButton addBtn;
@@ -147,7 +151,50 @@ public class AddNewFrameFormController {
 
     @FXML
     void addBtnOnAction(ActionEvent event) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializetypeCheckBox();
+        initializecolorCheckBox();
+        initializeMakeForCheckBoxes();
+    }
+
+    private void initializeMakeForCheckBoxes() {
+        makeForBothCb.setOnAction(event -> handleMakeForCheckBoxAction(makeForIndoorCb, makeForOutdoorCb));
+        makeForIndoorCb.setOnAction(event -> handleMakeForCheckBoxAction(makeForBothCb, makeForOutdoorCb));
+        makeForOutdoorCb.setOnAction(event -> handleMakeForCheckBoxAction(makeForBothCb, makeForIndoorCb));
+    }
+
+    private void handleMakeForCheckBoxAction(JFXCheckBox makeFor1, JFXCheckBox makeFor2) {
+        makeFor1.setSelected(false);
+        makeFor2.setSelected(false);
+    }
+
+    private void initializecolorCheckBox() {
+        colorBlackCb.setOnAction(event -> handleColorCheckBoxAction(colorColorfulCb, colorNeutralCb, colorPatternCb, colorTortoiseCb, colorTranslucentCb));
+        colorColorfulCb.setOnAction(event -> handleColorCheckBoxAction(colorBlackCb, colorNeutralCb, colorPatternCb, colorTortoiseCb, colorTranslucentCb));
+        colorNeutralCb.setOnAction(event -> handleColorCheckBoxAction(colorBlackCb, colorColorfulCb, colorPatternCb, colorTortoiseCb, colorTranslucentCb));
+        colorPatternCb.setOnAction(event -> handleColorCheckBoxAction(colorBlackCb, colorColorfulCb, colorNeutralCb, colorTortoiseCb, colorTranslucentCb));
+        colorTortoiseCb.setOnAction(event -> handleColorCheckBoxAction(colorBlackCb, colorColorfulCb, colorNeutralCb, colorPatternCb, colorTranslucentCb));
+        colorTranslucentCb.setOnAction(event -> handleColorCheckBoxAction(colorBlackCb, colorColorfulCb, colorNeutralCb, colorPatternCb, colorTortoiseCb));
 
     }
 
+    private void initializetypeCheckBox() {
+        typeMaleCb.setOnAction(event -> handleTypeCheckBoxAction(typeFemaleCb,typeBothCb));
+        typeFemaleCb.setOnAction(event -> handleTypeCheckBoxAction(typeMaleCb,typeBothCb));
+        typeBothCb.setOnAction(event -> handleTypeCheckBoxAction(typeFemaleCb,typeMaleCb));
+    }
+
+    private void handleColorCheckBoxAction(JFXCheckBox... checkboxes) {
+        for (JFXCheckBox checkbox : checkboxes) {
+            checkbox.setSelected(false);
+        }
+    }
+
+    private void handleTypeCheckBoxAction(JFXCheckBox type1, JFXCheckBox type2) {
+        type1.setSelected(false);
+        type2.setSelected(false);
+    }
 }
