@@ -32,7 +32,7 @@
          </font>
       </Label>
       <Rectangle fx:id="frameNameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="75.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
-      <TextField fx:id="nameTxt" editable="false" layoutX="101.0" layoutY="244.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
+      <TextField fx:id="nameTxt" layoutX="101.0" layoutY="244.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
@@ -47,7 +47,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="typePane"  layoutX="63.0" layoutY="380.0">
+      <AnchorPane fx:id="typePane" layoutX="63.0" layoutY="380.0">
          <children>
             <JFXCheckBox fx:id="typeMaleCb" layoutX="10.0" text="male">
                <font>
@@ -242,7 +242,7 @@
          </font>
       </Label>
       <Rectangle fx:id="qtyRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="895.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
-      <TextField fx:id="qtyOnHandTxt" editable="false" layoutX="921.0" layoutY="244.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
+      <TextField fx:id="qtyOnHandTxt" layoutX="921.0" layoutY="244.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
@@ -253,7 +253,7 @@
          </font>
       </Label>
       <Rectangle fx:id="priceRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="893.0" layoutY="380.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
-      <TextField fx:id="priceTxt" editable="false" layoutX="919.0" layoutY="384.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
+      <TextField fx:id="priceTxt" layoutX="919.0" layoutY="384.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>

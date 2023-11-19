@@ -4,12 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddNewFrameFormController implements Initializable {
@@ -151,6 +154,54 @@ public class AddNewFrameFormController implements Initializable {
 
     @FXML
     void addBtnOnAction(ActionEvent event) {
+        if (!nameTxt.getText().isEmpty()) {
+            if (checkTypeOnClicked()) {
+                if (checkMakeForOnClicked()) {
+                    if (checkFaceShapeOnClicked()) {
+                        if (checkFrameShapeOnClicked()) {
+                            if (checkFrameCOlorOnClicked()) {
+                                if (checkMaterialOnClicked()) {
+                                    if (!qtyOnHandTxt.getText().isEmpty()) {
+                                        if (!priceTxt.getText().isEmpty()) {
+                                            addNewFramePane.getChildren().clear();
+                                            try {
+                                                addNewFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewFrameForm.fxml"))));
+                                            } catch (IOException e) {
+                                                throw new RuntimeException(e);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean checkMaterialOnClicked() {
+        return materialMetalCb.isSelected() || materialPlasticCb.isSelected() || materialMixedCb.isSelected() || materialEcoCb.isSelected();
+    }
+
+    private boolean checkFrameCOlorOnClicked() {
+        return colorBlackCb.isSelected() || colorTortoiseCb.isSelected() || colorPatternCb.isSelected() || colorNeutralCb.isSelected() || colorColorfulCb.isSelected() || colorTranslucentCb.isSelected();
+    }
+
+    private boolean checkFrameShapeOnClicked() {
+        return frameBrownlineCb.isSelected() || frameRoundCb.isSelected() || frameSquareCb.isSelected() || frameCatCb.isSelected() || frameAviatorCb.isSelected() || frameSpecialCb.isSelected();
+    }
+
+    private boolean checkFaceShapeOnClicked() {
+        return shapeTriangleCb.isSelected() || shapeOvalCb.isSelected() || shapeSquareCb.isSelected() || shapeRoundCb.isSelected() || shapeHeartCb.isSelected() || shapeDiamondCb.isSelected() || shapeUnsureCb.isSelected();
+    }
+
+    private boolean checkMakeForOnClicked() {
+        return makeForOutdoorCb.isSelected() || makeForIndoorCb.isSelected() || makeForBothCb.isSelected();
+    }
+
+    private boolean checkTypeOnClicked() {
+        return typeMaleCb.isSelected() || typeFemaleCb.isSelected() || typeBothCb.isSelected();
     }
 
     @Override
