@@ -158,6 +158,53 @@ public class AddNewFrameFormController implements Initializable {
         initializetypeCheckBox();
         initializecolorCheckBox();
         initializeMakeForCheckBoxes();
+        initializeShapeCheckBoxes();
+        initializeFrameCheckBoxes();
+        initializeMaterialCheckBoxes();
+    }
+
+    private void initializeMaterialCheckBoxes() {
+        materialEcoCb.setOnAction(event -> handleMaterialCheckBoxAction(materialMetalCb, materialMixedCb, materialPlasticCb));
+        materialMetalCb.setOnAction(event -> handleMaterialCheckBoxAction(materialEcoCb, materialMixedCb, materialPlasticCb));
+        materialMixedCb.setOnAction(event -> handleMaterialCheckBoxAction(materialEcoCb, materialMetalCb, materialPlasticCb));
+        materialPlasticCb.setOnAction(event -> handleMaterialCheckBoxAction(materialEcoCb, materialMetalCb, materialMixedCb));
+    }
+
+    private void handleMaterialCheckBoxAction(JFXCheckBox material1, JFXCheckBox material2, JFXCheckBox material3) {
+        material1.setSelected(false);
+        material2.setSelected(false);
+        material3.setSelected(false);
+    }
+
+    private void initializeFrameCheckBoxes() {
+        frameAviatorCb.setOnAction(event -> handleFrameCheckBoxAction(frameBrownlineCb, frameCatCb, frameRoundCb, frameSquareCb, frameSpecialCb));
+        frameBrownlineCb.setOnAction(event -> handleFrameCheckBoxAction(frameAviatorCb, frameCatCb, frameRoundCb, frameSquareCb, frameSpecialCb));
+        frameCatCb.setOnAction(event -> handleFrameCheckBoxAction(frameAviatorCb, frameBrownlineCb, frameRoundCb, frameSquareCb, frameSpecialCb));
+        frameRoundCb.setOnAction(event -> handleFrameCheckBoxAction(frameAviatorCb, frameBrownlineCb, frameCatCb, frameSquareCb, frameSpecialCb));
+        frameSquareCb.setOnAction(event -> handleFrameCheckBoxAction(frameAviatorCb, frameBrownlineCb, frameCatCb, frameRoundCb, frameSpecialCb));
+        frameSpecialCb.setOnAction(event -> handleFrameCheckBoxAction(frameAviatorCb, frameBrownlineCb, frameCatCb, frameRoundCb, frameSquareCb));
+    }
+
+    private void handleFrameCheckBoxAction(JFXCheckBox... checkboxes) {
+        for (JFXCheckBox checkbox : checkboxes) {
+            checkbox.setSelected(false);
+        }
+    }
+
+    private void initializeShapeCheckBoxes() {
+        shapeDiamondCb.setOnAction(event -> handleShapeCheckBoxAction(shapeHeartCb, shapeOvalCb, shapeRoundCb, shapeSquareCb, shapeTriangleCb, shapeUnsureCb));
+        shapeHeartCb.setOnAction(event -> handleShapeCheckBoxAction(shapeDiamondCb, shapeOvalCb, shapeRoundCb, shapeSquareCb, shapeTriangleCb, shapeUnsureCb));
+        shapeOvalCb.setOnAction(event -> handleShapeCheckBoxAction(shapeDiamondCb, shapeHeartCb, shapeRoundCb, shapeSquareCb, shapeTriangleCb, shapeUnsureCb));
+        shapeRoundCb.setOnAction(event -> handleShapeCheckBoxAction(shapeDiamondCb, shapeHeartCb, shapeOvalCb, shapeSquareCb, shapeTriangleCb, shapeUnsureCb));
+        shapeSquareCb.setOnAction(event -> handleShapeCheckBoxAction(shapeDiamondCb, shapeHeartCb, shapeOvalCb, shapeRoundCb, shapeTriangleCb, shapeUnsureCb));
+        shapeTriangleCb.setOnAction(event -> handleShapeCheckBoxAction(shapeDiamondCb, shapeHeartCb, shapeOvalCb, shapeRoundCb, shapeSquareCb, shapeUnsureCb));
+        shapeUnsureCb.setOnAction(event -> handleShapeCheckBoxAction(shapeDiamondCb, shapeHeartCb, shapeOvalCb, shapeRoundCb, shapeSquareCb, shapeTriangleCb));
+    }
+
+    private void handleShapeCheckBoxAction(JFXCheckBox... checkboxes) {
+        for (JFXCheckBox checkbox : checkboxes) {
+            checkbox.setSelected(false);
+        }
     }
 
     private void initializeMakeForCheckBoxes() {
