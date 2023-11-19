@@ -7,10 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.dto.FrameDetailsDto;
 import lk.ijse.dto.tm.FrameDetailsTm;
 import lk.ijse.model.FrameModel;
@@ -59,6 +63,8 @@ public class FrameDetailsFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> updateCol;
 
+    public static String id;
+
     @FXML
     void addNewFrameBtnOnAction(ActionEvent event) {
         frameDetailsPane.getChildren().clear();
@@ -84,6 +90,15 @@ public class FrameDetailsFormController implements Initializable {
             List<FrameDetailsDto> dtoList = model.getAllValues();
 
             for(FrameDetailsDto dto : dtoList) {
+                dto.getUpdate().setOnAction(event -> {
+                    try {
+                        handleuButtonClicked(dto.getId());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
                 dto.getRemove().setOnAction(event -> handleButtonClicked(dto.getId()));
                 obList.add(
                         new FrameDetailsTm(
@@ -101,6 +116,16 @@ public class FrameDetailsFormController implements Initializable {
             }
             FrameTbl.setItems(obList);
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void handleuButtonClicked(String id) throws IOException, SQLException {
+        FrameDetailsFormController.id = id;
+        frameDetailsPane.getChildren().clear();
+        try {
+            frameDetailsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/updateFrameForm.fxml"))));
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

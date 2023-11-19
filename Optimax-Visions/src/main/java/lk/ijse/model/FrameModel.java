@@ -48,4 +48,8 @@ public class FrameModel {
                 "WHERE frameId LIKE '"+ id +"' ESCAPE '#';\n" +
                 "\n");
     }
+
+    public String[][] getValues() throws SQLException {
+        return DbConnections.getDetails("frame",10);
+    }
 }
