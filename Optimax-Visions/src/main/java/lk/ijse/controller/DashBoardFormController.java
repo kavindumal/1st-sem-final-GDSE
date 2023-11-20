@@ -81,7 +81,7 @@ public class DashBoardFormController implements Initializable {
     void employeeIconOnAction(MouseEvent event) {
         bodyPane.getChildren().clear();
         try {
-            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewEmployeeForm.fxml"))));
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/employeeForm.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
