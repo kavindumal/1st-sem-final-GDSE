@@ -295,6 +295,12 @@ public class DashBoardFormController implements Initializable {
 
     @FXML
     void settingIconOnAction(MouseEvent event) {
+        bodyPane.getChildren().clear();
+        try {
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/settingsForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         checkMoveInPaneLocation();
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(906);

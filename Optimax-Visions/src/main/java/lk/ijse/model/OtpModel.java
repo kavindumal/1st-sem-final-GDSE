@@ -13,8 +13,8 @@ public class OtpModel {
 
     public boolean setDetailsToDatabase(String username, String password, String email) {
         try {
-            return DbConnections.setDetails("INSERT INTO visioncare.user (username, password, email)\n" +
-                    "VALUES ('" + username + "', '" + BCrypt.hashpw(password, BCrypt.gensalt()) + "', '" + email + "');\n" +
+            return DbConnections.setDetails("INSERT INTO visioncare.user (username, password, email, accountType)\n" +
+                    "VALUES ('" + username + "', '" + BCrypt.hashpw(password, BCrypt.gensalt()) + "', '" + email + "','Local');\n" +
                     "\n");
         } catch (SQLException e) {
             throw new RuntimeException(e);

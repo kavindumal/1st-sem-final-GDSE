@@ -1,0 +1,43 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-background-color: green;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+}
+
+.red-button {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-text-fill: black;
+}
+
+.red-button:hover {
+    -fx-background-color: red;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+}
+
+.blue-button {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-text-fill: black;
+}
+
+.blue-button:hover {
+    -fx-background-color: #1A4BCC;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+}
+
+

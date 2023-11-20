@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.PrefixSelectionComboBox?>
+
+
+<AnchorPane fx:id="settingsPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SettingsFormController">
+   <children>
+      <AnchorPane layoutX="54.0" layoutY="51.0" prefHeight="480.0" prefWidth="388.0">
+         <children>
+            <ImageView fitHeight="480.0" fitWidth="388.0" layoutX="94.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../img/icons/settingPane1.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="114.0" layoutY="247.0" onAction="#uploadnewPhotoBtnOnAction" prefHeight="42.0" prefWidth="159.0" stylesheets="@../style/settingBtnStyle.css" text="Upload new photo" />
+            <ImageView fx:id="profilePictureImgView" fitHeight="90.0" fitWidth="90.0" layoutX="148.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icons/profilePhoto.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="502.0" layoutY="51.0" prefHeight="868.0" prefWidth="1112.0">
+         <children>
+            <ImageView fitHeight="868.0" fitWidth="1112.0" layoutX="131.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../img/icons/settingPane3.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="401.0" layoutY="713.0" onAction="#changePwBtnOnAction" prefHeight="46.0" prefWidth="323.0" stylesheets="@../style/settingBtnStyle.css" text="Change password" />
+            <JFXButton buttonType="RAISED" layoutX="401.0" layoutY="783.0" onAction="#logoutBtnOnAction" prefHeight="46.0" prefWidth="323.0" style="-fx-background-color: #1A4BCC; -fx-background-radius: 30;" text="Log out" />
+            <Label layoutX="71.0" layoutY="239.0" text="Account type">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <PrefixSelectionComboBox fx:id="accountTypeComboBox" layoutX="73.0" layoutY="282.0" prefHeight="60.0" prefWidth="368.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="56.0" layoutY="553.0" prefHeight="365.0" prefWidth="388.0">
+         <children>
+            <ImageView fitHeight="365.0" fitWidth="388.0" layoutX="105.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../img/icons/settingPane2.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="32.0" layoutY="139.0" onAction="#addNewAccountBtnOnAction" prefHeight="46.0" prefWidth="323.0" styleClass="blue-button" stylesheets="@../style/settingBtnStyle.css" text="Add new account" />
+            <JFXButton buttonType="RAISED" layoutX="32.0" layoutY="259.0" onAction="#deleteAccountBtnOnAction" prefHeight="46.0" prefWidth="323.0" styleClass="red-button" stylesheets="@../style/settingBtnStyle.css" text="Delete account" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
