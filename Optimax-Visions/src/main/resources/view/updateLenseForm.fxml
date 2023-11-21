@@ -1,14 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.UpdateLenseFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="updatePane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UpdateLenseFormController">
+   <children>
+      <Label layoutX="81.0" layoutY="76.0" text="Update Lense">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="199.0" text="Lense name">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="lenseIdRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1275.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="lenseIdtTxt" editable="false" layoutX="1301.0" layoutY="72.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <Label layoutX="1163.0" layoutY="79.0" text="Lense id">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="lenseNameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="85.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
+      <TextField fx:id="nameTxt" layoutX="111.0" layoutY="254.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <Label layoutX="80.0" layoutY="339.0" text="Quantity on hand">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="qtyRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="84.0" layoutY="390.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
+      <TextField fx:id="qtyOnHandTxt" layoutX="110.0" layoutY="394.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <Label layoutX="930.0" layoutY="199.0" text="Price">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="priceRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="934.0" layoutY="250.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
+      <TextField fx:id="priceTxt" layoutX="960.0" layoutY="254.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <Label layoutX="81.0" layoutY="489.0" text="Lense for">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="74.0" layoutY="534.0">
+         <children>
+            <JFXCheckBox fx:id="farCb" layoutX="10.0" text="Farsightness">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="nearCb" layoutX="220.0" text="Nearsightness">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="bothFNCb" layoutX="450.0" text="Both F/N">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="blueLightCb" layoutX="620.0" text="Blue light filter">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="antyReflectiveCb" layoutX="840.0" prefHeight="38.0" prefWidth="304.0" text="Anti-Reflective Coating">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </JFXCheckBox>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="addBtn" buttonType="RAISED" layoutX="660.0" layoutY="817.0" onAction="#addBtnOnAction" prefHeight="66.0" prefWidth="368.0" stylesheets="@../style/bordorBtn.css" text="Update">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+   </children>
 </AnchorPane>

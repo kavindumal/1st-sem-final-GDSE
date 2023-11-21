@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import lk.ijse.dto.LenseDetailsDto;
 import lk.ijse.dto.LenseDto;
@@ -16,6 +17,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddNewLenseFormController implements Initializable {
+
+    @FXML
+    private AnchorPane addLensePane;
 
     @FXML
     private JFXButton addBtn;

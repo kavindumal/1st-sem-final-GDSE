@@ -2,7 +2,6 @@ package lk.ijse.model;
 
 import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
-import lk.ijse.dto.FrameDetailsDto;
 import lk.ijse.dto.LenseDetailsDto;
 import lk.ijse.dto.LenseDto;
 
@@ -65,5 +64,19 @@ public class LenseModel {
         return DbConnections.setDetails("INSERT INTO visioncare.lense (lenseId, name, typeFor, qtyOnHand, price)\n" +
                 "VALUES ('"+ dto.getLenseId() +"', '"+ dto.getName() +"', '"+ dto.getTypeFor() +"', "+ dto.getQty() +", "+ dto.getPrice() +");\n" +
                 "\n");
+    }
+
+    public boolean updateDatabase(LenseDetailsDto dto) throws SQLException {
+        return DbConnections.setDetails("UPDATE visioncare.lense t\n" +
+                "SET t.name  = '"+ dto.getName() +"',\n" +
+                "    t.typeFor  = '"+ dto.getTypeFor() +"',\n" +
+                "    t.qtyOnHand  = '"+ dto.getQty() +"',\n" +
+                "    t.price  = '"+ dto.getPrice() +"'\n" +
+                "WHERE t.lenseId LIKE '"+ dto.getLenseId() +"' ESCAPE '#';\n" +
+                "\n");
+    }
+
+    public String[][] getLenseDetails() throws SQLException {
+        return DbConnections.getDetails("lense", 5);
     }
 }
