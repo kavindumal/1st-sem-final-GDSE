@@ -6,12 +6,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 public class PrescriptionResultFormController {
 
     @FXML
     private FontIcon addtoCartFontIcon;
+
+    @FXML
+    private PrefixSelectionComboBox<?> lenseChangeComboBox;
 
     @FXML
     private AnchorPane prescriptionResultPane;
@@ -191,4 +195,5 @@ public class PrescriptionResultFormController {
     void results8PaneOnMouseExited(MouseEvent event) {
 
     }
+
 }

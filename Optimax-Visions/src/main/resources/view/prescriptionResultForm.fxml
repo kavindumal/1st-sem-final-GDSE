@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.PrefixSelectionComboBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane fx:id="prescriptionResultPane" prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PrescriptionResultFormController">
@@ -142,5 +143,11 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
+      <Label layoutX="1011.0" layoutY="46.0" text="Change lense">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <PrefixSelectionComboBox fx:id="lenseChangeComboBox" layoutX="1180.0" layoutY="33.0" prefHeight="60.0" prefWidth="368.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
    </children>
 </AnchorPane>
