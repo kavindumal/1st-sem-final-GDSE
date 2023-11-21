@@ -74,7 +74,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="profilePhoto" fitHeight="255.0" fitWidth="255.0" layoutX="1293.0" layoutY="75.0" onMouseEntered="#profilePhotoOnMouseEntered" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profilePhoto" fitHeight="255.0" fitWidth="255.0" layoutX="1293.0" layoutY="75.0" onMouseClicked="#profilePhotoOnMouseClicked" onMouseEntered="#profilePhotoOnMouseEntered" onMouseExited="#profilePhotoOnMouseExited" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/icons/menProfile.jpeg" />
          </image>

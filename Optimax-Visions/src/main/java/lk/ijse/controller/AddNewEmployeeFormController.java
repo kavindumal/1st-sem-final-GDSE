@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,10 +19,21 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import lk.ijse.dto.AddEmployeeDto;
+import lk.ijse.dto.tm.EmployeeTm;
+import lk.ijse.model.EmployeeModel;
 import org.controlsfx.control.PrefixSelectionComboBox;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddNewEmployeeFormController implements Initializable {
@@ -60,39 +72,61 @@ public class AddNewEmployeeFormController implements Initializable {
     private ImageView profilePhoto;
 
     String profilePhotoLink = "";
+    String destinationFolderPath = "C:\\Users\\Kavindu\\Documents\\GDSE 68\\1 st sem Final Project\\eye clinic\\software\\1st-sem-final-GDSE\\Optimax-Visions\\src\\main\\resources\\img\\profilePicOfEmployees";
+
+    EmployeeModel model = new EmployeeModel();
 
     @FXML
-    void addBtnOnAction(ActionEvent event) {
+    void addBtnOnAction(ActionEvent event) throws SQLException {
+        if (!profilePhotoLink.isEmpty()) {
+            try {
+                File sourceFile = new File(new URL(profilePhotoLink).toURI());
+                Path destinationFolderPath = Paths.get(this.destinationFolderPath);
+                if (!Files.exists(destinationFolderPath)) {
+                    Files.createDirectories(destinationFolderPath);
+                }
 
+                String fileName = nameTxt.getText() + System.currentTimeMillis() + ".png";
+                Path destinationFilePath = destinationFolderPath.resolve(fileName);
+
+                Files.copy(sourceFile.toPath(), destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException | URISyntaxException e) {
+                e.printStackTrace();
+            }
+        } else profilePhotoLink = "img/icons/profilePic.png";
+
+        if (model.setEmployeeToDatabase(new AddEmployeeDto(nicNumberTxt.getText(), nameTxt.getText(), jobTitleComboBox.getValue(), dateOfBirthDP.getValue(), Integer.parseInt(telNoTxt.getText()), findBasicSalary(), profilePhotoLink))) {
+            addNewEmployeePane.getChildren().clear();
+            try {
+                addNewEmployeePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/employeeForm.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private Double findBasicSalary() {
+        return jobTitleComboBox.getValue().equals("c.helpers") ? 26000.00 : jobTitleComboBox.getValue().equals("cashier") ? 32000.00 : jobTitleComboBox.getValue().equals("IT operator") ? 35000.00 : jobTitleComboBox.getValue().equals("security") ? 22000.00 : 18000.00;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Circle clip = new Circle();
-        clip.setCenterX(profilePhoto.getFitWidth() / 2);  // Set the center of the circle to half of the ImageView width
-        clip.setCenterY(profilePhoto.getFitHeight() / 2); // Set the center of the circle to half of the ImageView height
-        clip.setRadius(Math.min(profilePhoto.getFitWidth() / 2, profilePhoto.getFitHeight() / 2)); // Set the radius to half of the ImageView size
+        clip.setCenterX(profilePhoto.getFitWidth() / 2);
+        clip.setCenterY(profilePhoto.getFitHeight() / 2);
+        clip.setRadius(Math.min(profilePhoto.getFitWidth() / 2, profilePhoto.getFitHeight() / 2));
 
-        // Set the clip on the ImageView
         profilePhoto.setClip(clip);
         ObservableList<String> jobTitles = FXCollections.observableArrayList(
                 "c.helpers",
                 "cashier",
-                "IT team",
+                "IT operator",
                 "security",
                 "cleaner"
         );
 
         jobTitleComboBox.setItems(jobTitles);
         jobTitleComboBox.setValue(jobTitles.get(0));
-    }
-
-    private Circle createClip() {
-        Circle clip = new Circle();
-        clip.setCenterX(50);  // Set the center of the circle to half of the ImageView width
-        clip.setCenterY(50);  // Set the center of the circle to half of the ImageView height
-        clip.setRadius(50);   // Set the radius to half of the ImageView size
-        return clip;
     }
 
     @FXML
