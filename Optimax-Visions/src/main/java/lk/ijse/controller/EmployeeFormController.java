@@ -148,4 +148,14 @@ public class EmployeeFormController implements Initializable {
         deleteCol.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
         viewCol.setCellValueFactory(new PropertyValueFactory<>("viewBtn"));
     }
+
+    @FXML
+    void salaryDetailsBtnOnAction(ActionEvent event) {
+        employeePane.getChildren().clear();
+        try {
+            employeePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/salaryDetailsForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -31,5 +31,10 @@
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="1013.0" layoutY="47.0" onAction="#salaryDetailsBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Salary details">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
