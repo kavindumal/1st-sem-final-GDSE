@@ -54,7 +54,12 @@ public class EyeGlassFormController {
 
     @FXML
     void lenseDetailsBtnOnAction(ActionEvent event) {
-
+        eyGlassPane.getChildren().clear();
+        try {
+            eyGlassPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/lensesDetailsForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

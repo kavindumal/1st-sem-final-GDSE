@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="lensePane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LensesDetailsFormController">
+   <children>
+      <Label layoutX="71.0" layoutY="66.0" text="Lenses Details">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="lenseTbl" layoutX="96.0" layoutY="156.0" prefHeight="766.0" prefWidth="1232.0" stylesheets="@../style/tableViewStyle.css">
+         <columns>
+            <TableColumn fx:id="idCol" prefWidth="124.33334350585938" text="lense Id" />
+            <TableColumn fx:id="nameCol" prefWidth="246.66665649414062" text="Name" />
+            <TableColumn fx:id="typeCol" prefWidth="221.33334350585938" text="Type for" />
+            <TableColumn fx:id="qtyCol" prefWidth="100.33331298828125" text="Qty" />
+            <TableColumn fx:id="priceCol" minWidth="0.0" prefWidth="166.6666259765625" text="price" />
+            <TableColumn fx:id="updateCol" minWidth="0.0" prefWidth="188.33331298828125" />
+            <TableColumn fx:id="removeCol" minWidth="0.0" prefWidth="184.666748046875" />
+         </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="1355.0" layoutY="495.0" onAction="#addNewLenseBtnOnAction" prefHeight="66.0" prefWidth="299.0" stylesheets="@../style/bordorBtn.css" text="Add new lense">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
