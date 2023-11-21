@@ -56,9 +56,19 @@ public class EmployeeModel {
     }
 
     public boolean setEmployeeToDatabase(AddEmployeeDto dto) throws SQLException {
-        System.out.println("hiii");
         return DbConnections.setDetails("INSERT INTO visioncare.employee (nicNumber, name, jobTitle, dob, telNo, basicSalary, profilePhoto)\n" +
                 "VALUES ('"+ dto.getNicNumber() +"', '"+ dto.getName() +"', '"+ dto.getJobTitle() +"', '"+ dto.getDob() +"', "+ dto.getTelNo() +", "+ dto.getBasicSalary() +", '"+ dto.getProfileLink() +"');\n" +
                 "\n");
+    }
+
+    public boolean deleteEmployeeFromDatabase(String id) throws SQLException {
+        return DbConnections.setDetails("DELETE\n" +
+                "FROM visioncare.employee\n" +
+                "WHERE nicNumber LIKE '"+ id +"' ESCAPE '#';\n" +
+                "\n");
+    }
+
+    public String[][] getDataFromEmployee() throws SQLException {
+        return DbConnections.getDetails("employee",7);
     }
 }

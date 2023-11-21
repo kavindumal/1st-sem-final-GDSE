@@ -16,6 +16,10 @@ import lk.ijse.model.EmployeeModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
@@ -79,15 +83,15 @@ public class EmployeeFormController implements Initializable {
 
             for(EmployeeDto dto : dtoList) {
                 dto.getUpdateBtn().setOnAction(event -> {
+                    handleUpdateBtn(dto.getNicNumber());
+                });
+                dto.getRemoveBtn().setOnAction(event -> {
                     try {
                         handleRemoveBtn(dto.getNicNumber());
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    } catch (SQLException e) {
+                    } catch (IOException | SQLException e) {
                         throw new RuntimeException(e);
                     }
                 });
-                dto.getRemoveBtn().setOnAction(event -> handleUpdateBtn(dto.getNicNumber()));
                 obList.add(
                         new EmployeeTm(
                                 dto.getNicNumber(),
@@ -108,7 +112,19 @@ public class EmployeeFormController implements Initializable {
     }
 
     private void handleRemoveBtn(String id) throws IOException, SQLException {
+        EmployeeModel model = new EmployeeModel();
+        String[][] dataFromEmployee = model.getDataFromEmployee();
+        System.out.println("pako");
+        for (int i = 0; i < dataFromEmployee.length; i++) {
+            if (dataFromEmployee[i][0].equals(id)) {
+                String photoPath = dataFromEmployee[i][6];
 
+                Files.deleteIfExists(Paths.get(photoPath));
+            }
+        }
+        if (model.deleteEmployeeFromDatabase(id)) {
+            loadDetailsToTable();
+        }
     }
 
     private void handleUpdateBtn(String id) {

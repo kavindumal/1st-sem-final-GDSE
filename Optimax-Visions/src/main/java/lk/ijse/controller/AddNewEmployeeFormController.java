@@ -78,6 +78,7 @@ public class AddNewEmployeeFormController implements Initializable {
 
     @FXML
     void addBtnOnAction(ActionEvent event) throws SQLException {
+        String link = "";
         if (!profilePhotoLink.isEmpty()) {
             try {
                 File sourceFile = new File(new URL(profilePhotoLink).toURI());
@@ -88,14 +89,15 @@ public class AddNewEmployeeFormController implements Initializable {
 
                 String fileName = nameTxt.getText() + System.currentTimeMillis() + ".png";
                 Path destinationFilePath = destinationFolderPath.resolve(fileName);
-
+                link = "img/icons/" + fileName;
                 Files.copy(sourceFile.toPath(), destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException | URISyntaxException e) {
                 e.printStackTrace();
             }
-        } else profilePhotoLink = "img/icons/profilePic.png";
+        } else link = "img/icons/profilePic.png";
 
-        if (model.setEmployeeToDatabase(new AddEmployeeDto(nicNumberTxt.getText(), nameTxt.getText(), jobTitleComboBox.getValue(), dateOfBirthDP.getValue(), Integer.parseInt(telNoTxt.getText()), findBasicSalary(), profilePhotoLink))) {
+
+        if (model.setEmployeeToDatabase(new AddEmployeeDto(nicNumberTxt.getText(), nameTxt.getText(), jobTitleComboBox.getValue(), dateOfBirthDP.getValue(), Integer.parseInt(telNoTxt.getText()), findBasicSalary(), link))) {
             addNewEmployeePane.getChildren().clear();
             try {
                 addNewEmployeePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/employeeForm.fxml"))));
