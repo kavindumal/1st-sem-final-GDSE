@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
+import lk.ijse.dto.AddEmployeeDto;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.FrameDetailsDto;
 
@@ -52,5 +53,11 @@ public class EmployeeModel {
         LocalDate birthDate = new java.sql.Date(date.getTime()).toLocalDate();
         LocalDate currentDate = LocalDate.now();
         return Period.between(birthDate, currentDate).getYears();
+    }
+
+    public boolean setEmployeeToDatabase(AddEmployeeDto dto) throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.employee (nicNumber, name, jobTitle, dob, telNo, basicSalary, profilePhoto)\n" +
+                "VALUES ('"+ dto.getNicNumber() +"', '"+ dto.getName() +"', '"+ dto.getJobTitle() +"', '"+ dto.getDob() +"', "+ dto.getTelNo() +", "+ dto.getBasicSalary() +", '"+ dto.getProfileLink() +"');\n" +
+                "\n");
     }
 }
