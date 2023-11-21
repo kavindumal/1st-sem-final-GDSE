@@ -26,7 +26,7 @@
             <TableColumn fx:id="removeCol" minWidth="0.0" prefWidth="184.666748046875" />
          </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="1355.0" layoutY="495.0" onAction="#addNewLenseBtnOnAction" prefHeight="66.0" prefWidth="299.0" stylesheets="@../style/bordorBtn.css" text="Add new lense">
+      <JFXButton buttonType="RAISED" layoutX="1355.0" layoutY="496.0" onAction="#addNewLenseBtnOnAction" prefHeight="66.0" prefWidth="299.0" stylesheets="@../style/bordorBtn.css" text="Add new lense">
          <font>
             <Font size="21.0" />
          </font>

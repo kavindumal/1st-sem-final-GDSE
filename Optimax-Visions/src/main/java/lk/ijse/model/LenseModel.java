@@ -3,6 +3,7 @@ package lk.ijse.model;
 import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.FrameDetailsDto;
+import lk.ijse.dto.LenseDetailsDto;
 import lk.ijse.dto.LenseDto;
 
 import java.sql.Connection;
@@ -45,6 +46,24 @@ public class LenseModel {
         return DbConnections.setDetails("DELETE\n" +
                 "FROM visioncare.lense\n" +
                 "WHERE lenseId LIKE '"+ id +"' ESCAPE '#';\n" +
+                "\n");
+    }
+
+    public String getLenseId() throws SQLException {
+        String[][] lenseIds = DbConnections.getDetails("lense",5);
+        if (lenseIds.length == 0) return "L0001";
+        String lastPatientId = lenseIds[lenseIds.length - 1][0];
+
+        int numericPart = Integer.parseInt(lastPatientId.replaceFirst("^L0*", ""));
+        int incrementedNumericPart = numericPart + 1;
+
+        return String.format("L%04d", incrementedNumericPart);
+    }
+
+
+    public boolean setLenseToDatabase(LenseDetailsDto dto) throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.lense (lenseId, name, typeFor, qtyOnHand, price)\n" +
+                "VALUES ('"+ dto.getLenseId() +"', '"+ dto.getName() +"', '"+ dto.getTypeFor() +"', "+ dto.getQty() +", "+ dto.getPrice() +");\n" +
                 "\n");
     }
 }
