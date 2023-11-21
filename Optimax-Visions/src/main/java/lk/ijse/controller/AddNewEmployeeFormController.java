@@ -87,14 +87,14 @@ public class AddNewEmployeeFormController implements Initializable {
                     Files.createDirectories(destinationFolderPath);
                 }
 
-                String fileName = nameTxt.getText() + System.currentTimeMillis() + ".png";
+                String fileName = nameTxt.getText() + ".png";
                 Path destinationFilePath = destinationFolderPath.resolve(fileName);
-                link = "img/icons/" + fileName;
+                link = "img/profilePicOfEmployees/" + fileName;
                 Files.copy(sourceFile.toPath(), destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException | URISyntaxException e) {
                 e.printStackTrace();
             }
-        } else link = "img/icons/profilePic.png";
+        } else link = "img/profilePicOfEmployees/profilePic.png";
 
 
         if (model.setEmployeeToDatabase(new AddEmployeeDto(nicNumberTxt.getText(), nameTxt.getText(), jobTitleComboBox.getValue(), dateOfBirthDP.getValue(), Integer.parseInt(telNoTxt.getText()), findBasicSalary(), link))) {

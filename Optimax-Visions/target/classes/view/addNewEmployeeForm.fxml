@@ -69,7 +69,7 @@
          </font>
       </JFXButton>
       <PrefixSelectionComboBox fx:id="jobTitleComboBox" layoutX="93.0" layoutY="506.0" prefHeight="60.0" prefWidth="580.0" styleClass="combo-box" stylesheets="@../style/comboBoxStyle.css" />
-      <Label layoutX="1001.0" layoutY="179.0" text="Upload employee photo">
+      <Label layoutX="1071.0" layoutY="179.0" text="Employee photo">
          <font>
             <Font size="24.0" />
          </font>

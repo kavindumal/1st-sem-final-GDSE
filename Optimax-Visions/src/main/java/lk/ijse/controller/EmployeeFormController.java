@@ -57,6 +57,8 @@ public class EmployeeFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> viewCol;
 
+    public static String id;
+
     @FXML
     void addNewEmployeeBtnOnAction(ActionEvent event) {
         employeePane.getChildren().clear();
@@ -114,21 +116,26 @@ public class EmployeeFormController implements Initializable {
     private void handleRemoveBtn(String id) throws IOException, SQLException {
         EmployeeModel model = new EmployeeModel();
         String[][] dataFromEmployee = model.getDataFromEmployee();
-        System.out.println("pako");
-        for (int i = 0; i < dataFromEmployee.length; i++) {
-            if (dataFromEmployee[i][0].equals(id)) {
-                String photoPath = dataFromEmployee[i][6];
-
-                Files.deleteIfExists(Paths.get(photoPath));
-            }
-        }
+//        for (int i = 0; i < dataFromEmployee.length; i++) {
+//            if (dataFromEmployee[i][0].equals(id)) {
+//                String photoPath = dataFromEmployee[i][6];
+//
+//                Files.deleteIfExists(Paths.get(photoPath));
+//            }
+//        }
         if (model.deleteEmployeeFromDatabase(id)) {
             loadDetailsToTable();
         }
     }
 
     private void handleUpdateBtn(String id) {
-
+        EmployeeFormController.id = id;
+        employeePane.getChildren().clear();
+        try {
+            employeePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/updateEmployeeForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setCellValueFactory() {
