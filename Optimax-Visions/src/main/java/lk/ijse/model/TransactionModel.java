@@ -1,8 +1,6 @@
 package lk.ijse.model;
 
-import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
-import lk.ijse.dto.FrameDetailsDto;
 import lk.ijse.dto.TransactionDto;
 
 import java.sql.Connection;
