@@ -6,16 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="transactionPane" prefHeight="984.0" prefWidth="1633.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TransactionFormController">
    <children>
       <TableView fx:id="transactionTable" layoutX="123.0" layoutY="146.0" prefHeight="774.0" prefWidth="1388.0" stylesheets="@../style/tableViewStyle.css">
         <columns>
-          <TableColumn fx:id="transactionIdCol" prefWidth="221.66665649414062" text="transactionId" />
-          <TableColumn fx:id="transactionTypeCol" prefWidth="455.3333435058594" text="transactionType" />
-            <TableColumn fx:id="timeCol" prefWidth="129.33334350585938" text="time" />
-            <TableColumn fx:id="dateCol" prefWidth="315.3333740234375" text="date" />
-            <TableColumn fx:id="amountCol" prefWidth="267.0000305175781" text="amount" />
+          <TableColumn fx:id="transactionIdCol" prefWidth="131.3333282470703" text="Id" />
+          <TableColumn fx:id="transactionTypeCol" prefWidth="500.33331298828125" text="Description" />
+            <TableColumn fx:id="timeCol" prefWidth="176.66668701171875" text="time" />
+            <TableColumn fx:id="dateCol" prefWidth="282.666748046875" text="date" />
+            <TableColumn fx:id="amountCol" prefWidth="301.333251953125" text="amount" />
         </columns>
       </TableView>
       <Label layoutX="71.0" layoutY="66.0" text="Transaction">

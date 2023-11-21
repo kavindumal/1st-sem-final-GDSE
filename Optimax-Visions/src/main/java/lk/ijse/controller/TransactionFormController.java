@@ -8,9 +8,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.dto.TransactionDto;
 import lk.ijse.dto.tm.TransactionTm;
+import lk.ijse.model.TransactionModel;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class TransactionFormController implements Initializable {
@@ -43,13 +47,28 @@ public class TransactionFormController implements Initializable {
     }
 
     private void loadAllTransaction() {
-        ObservableList<TransactionTm> obList = FXCollections.observableArrayList(
-                new TransactionTm("T0001", "appointment", "20.02.50", "2023-11-14", "300"),
-                new TransactionTm("T0002", "appointment", "20.02.10", "2023-11-14", "300"),
-                new TransactionTm("T0003", "appointment", "19.58.22", "2023-11-14", "300")
-        );
+        var model = new TransactionModel();
 
-        transactionTable.setItems(obList);
+        ObservableList<TransactionTm> obList = FXCollections.observableArrayList();
+
+        try {
+            List<TransactionDto> dtoList = model.getAllValues();
+
+            for(TransactionDto dto : dtoList) {
+                obList.add(
+                        new TransactionTm(
+                                dto.getTransactionId(),
+                                dto.getTransactionType(),
+                                dto.getTime(),
+                                dto.getDate(),
+                                dto.getAmount()
+                        )
+                );
+            }
+            transactionTable.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setCellValueFactory() {

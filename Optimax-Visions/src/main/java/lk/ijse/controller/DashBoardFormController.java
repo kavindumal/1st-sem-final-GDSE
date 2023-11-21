@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.*;
@@ -15,7 +17,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.controller.popup.MaintainingSystemFormController;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
@@ -106,7 +110,16 @@ public class DashBoardFormController implements Initializable {
     }
 
     @FXML
-    void eyeglassIconOnAction(MouseEvent event) {
+    void eyeglassIconOnAction(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/popup/maintainingSystemForm.fxml"));
+        Parent root = loader.load();
+        MaintainingSystemFormController maintainingSystemFormController = loader.getController();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+
+        stage.show();
         checkMoveInPaneLocation();
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(376);
@@ -248,12 +261,17 @@ public class DashBoardFormController implements Initializable {
         movInPane.setLayoutX(26);
         movInPane.setLayoutY(467);
         count = 5;
+        bodyPane.getChildren().clear();
+        try {
+            bodyPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/patientPageForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void patientIconOnMouseEntered(MouseEvent event) {
         patientIcon.setIconColor(Color.BLUE);
-
         scaleTransition.play();
         bodyPane.getChildren().add(popupsImg);
         popupsImg.setLayoutY(386);
