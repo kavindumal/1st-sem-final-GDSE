@@ -56,6 +56,7 @@ public class EmployeeModel {
     }
 
     public boolean setEmployeeToDatabase(AddEmployeeDto dto) throws SQLException {
+        System.out.println("hiii");
         return DbConnections.setDetails("INSERT INTO visioncare.employee (nicNumber, name, jobTitle, dob, telNo, basicSalary, profilePhoto)\n" +
                 "VALUES ('"+ dto.getNicNumber() +"', '"+ dto.getName() +"', '"+ dto.getJobTitle() +"', '"+ dto.getDob() +"', "+ dto.getTelNo() +", "+ dto.getBasicSalary() +", '"+ dto.getProfileLink() +"');\n" +
                 "\n");
