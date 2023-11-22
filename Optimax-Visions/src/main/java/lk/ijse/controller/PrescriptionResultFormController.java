@@ -3,8 +3,10 @@ package lk.ijse.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,7 +16,9 @@ import lombok.SneakyThrows;
 import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class PrescriptionResultFormController implements Initializable {
@@ -124,6 +128,9 @@ public class PrescriptionResultFormController implements Initializable {
     @FXML
     private Pane results8Pane;
 
+    public static Image img;
+    public static String name;
+    public static String lenseChange;
     @FXML
     void results1PaneOnMouseEntered(MouseEvent event) {
 
@@ -204,6 +211,17 @@ public class PrescriptionResultFormController implements Initializable {
 
     }
 
+
+    @FXML
+    void fontIconClickedAction(MouseEvent event) {
+        prescriptionResultPane.getChildren().clear();
+        try {
+            prescriptionResultPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/presGlassSellForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -218,6 +236,28 @@ public class PrescriptionResultFormController implements Initializable {
             lenseChangeComboBox.setValue(lenseDetails[2][1]);
         } else {
             lenseChangeComboBox.setValue(lenseDetails[1][1]);
+        }
+
+        if (SelectColorFormController.colorSelect == 1) {
+            results1Pane.setOpacity(1);
+            resultImg1.setImage(new Image("img/prescriptionGlass/black.jpg"));
+            priceLbl1.setText("Rs. 4900");
+            priceLbl1.setOpacity(1);
+            resultLbl1.setText("cortez");
+            resultLbl1.setOpacity(1);
+            img = new Image("img/prescriptionGlass/black.jpg");
+            name = resultLbl1.getText();
+            lenseChange = lenseChangeComboBox.getValue();
+        } else if (SelectColorFormController.colorSelect == 2) {
+            results1Pane.setOpacity(1);
+            resultImg1.setImage(new Image("img/prescriptionGlass/coexist.png"));
+            priceLbl1.setText("Rs. 6900");
+            priceLbl1.setOpacity(1);
+            resultLbl1.setText("coexist");
+            resultLbl1.setOpacity(1);
+            img = new Image("img/prescriptionGlass/coexist.png");
+            name = resultLbl1.getText();
+            lenseChange = lenseChangeComboBox.getValue();
         }
     }
 }
