@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -12,8 +13,10 @@ import lk.ijse.dto.LenseDetailsDto;
 import lk.ijse.dto.LenseDto;
 import lk.ijse.model.LenseModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddNewLenseFormController implements Initializable {
@@ -67,7 +70,14 @@ public class AddNewLenseFormController implements Initializable {
 
     @FXML
     void addBtnOnAction(ActionEvent event) throws SQLException {
-        lenseModel.setLenseToDatabase(new LenseDetailsDto(lenseIdtTxt.getText(), nameTxt.getText(), getTypeForCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())));
+        if (lenseModel.setLenseToDatabase(new LenseDetailsDto(lenseIdtTxt.getText(), nameTxt.getText(), getTypeForCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())))) {
+            addLensePane.getChildren().clear();
+            try {
+                addLensePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/lensesDetailsForm.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     private String getTypeForCheckBox() {

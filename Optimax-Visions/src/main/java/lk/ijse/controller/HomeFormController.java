@@ -60,7 +60,6 @@ public class HomeFormController implements Initializable {
     private void setTimeForLbl() {
         java.time.LocalTime currentTime = java.time.LocalTime.now();
 
-        // Format the time as a string (e.g., "HH:mm:ss")
         String formattedTime = currentTime.format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
         String timeOfDay;
         int hour = currentTime.getHour();

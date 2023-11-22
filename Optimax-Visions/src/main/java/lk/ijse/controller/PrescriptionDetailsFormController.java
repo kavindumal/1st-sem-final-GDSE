@@ -58,8 +58,12 @@ public class PrescriptionDetailsFormController implements Initializable {
 
     @FXML
     private AnchorPane prescriptionDetailsPane;
+
+    public static Double prescriptionSphere;
+
     @FXML
     void confirmBtnOnAction(ActionEvent event) {
+        prescriptionSphere = Double.valueOf(sphereLeftComboBox.getValue());
         prescriptionDetailsPane.getChildren().clear();
         try {
             prescriptionDetailsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectGenderForm.fxml"))));

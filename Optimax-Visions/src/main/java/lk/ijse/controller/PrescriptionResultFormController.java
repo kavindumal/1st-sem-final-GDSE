@@ -1,21 +1,29 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import lk.ijse.model.LenseModel;
+import lombok.SneakyThrows;
 import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
-public class PrescriptionResultFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PrescriptionResultFormController implements Initializable {
 
     @FXML
     private FontIcon addtoCartFontIcon;
 
     @FXML
-    private PrefixSelectionComboBox<?> lenseChangeComboBox;
+    private PrefixSelectionComboBox<String> lenseChangeComboBox;
 
     @FXML
     private AnchorPane prescriptionResultPane;
@@ -196,4 +204,20 @@ public class PrescriptionResultFormController {
 
     }
 
+    @SneakyThrows
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> lenseOb = FXCollections.observableArrayList();
+        LenseModel model = new LenseModel();
+        String[][] lenseDetails = model.getLenseDetails();
+        for (int i = 0; i < lenseDetails.length; i++) {
+            lenseOb.add(lenseDetails[i][1]);
+        }
+        lenseChangeComboBox.setItems(lenseOb);
+        if (PrescriptionDetailsFormController.prescriptionSphere > 0) {
+            lenseChangeComboBox.setValue(lenseDetails[2][1]);
+        } else {
+            lenseChangeComboBox.setValue(lenseDetails[1][1]);
+        }
+    }
 }
