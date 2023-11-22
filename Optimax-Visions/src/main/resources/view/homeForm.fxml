@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -30,5 +33,36 @@
             <Font size="21.0" />
          </font>
       </JFXButton>
+      <Pane layoutX="776.0" layoutY="35.0" prefHeight="552.0" prefWidth="528.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.45;" />
+      <Label layoutX="823.0" layoutY="85.0" text="Recent transactions">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <StackedBarChart fx:id="recentTransactionSBC" layoutX="824.0" layoutY="175.0" prefHeight="341.0" prefWidth="427.0">
+        <xAxis>
+          <CategoryAxis fx:id="cateforyAxis" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="numberAxis" side="LEFT" />
+        </yAxis>
+      </StackedBarChart>
+      <Pane layoutX="29.0" layoutY="227.0" prefHeight="720.0" prefWidth="722.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.45;" />
+      <Label layoutX="83.0" layoutY="275.0" text="Executive summary">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Pane layoutX="28.0" layoutY="39.0" prefHeight="162.0" prefWidth="722.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.45;" />
+      <Label fx:id="goodStatusLbl" layoutX="83.0" layoutY="65.0" prefHeight="74.0" prefWidth="575.0">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="timeLbl" layoutX="83.0" layoutY="145.0" textFill="#1a4bcc">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

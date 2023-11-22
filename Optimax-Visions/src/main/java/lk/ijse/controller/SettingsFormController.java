@@ -1,6 +1,5 @@
 package lk.ijse.controller;
 
-import com.mysql.cj.log.Log;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -74,13 +74,9 @@ public class SettingsFormController implements Initializable {
     }
 
     @FXML
-    void logoutBtnOnAction(ActionEvent event) {
-        settingsPane.getChildren().clear();
-        try {
-            settingsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/loginForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    void logoutBtnOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/loginForm.fxml")))));
     }
 
     @FXML
