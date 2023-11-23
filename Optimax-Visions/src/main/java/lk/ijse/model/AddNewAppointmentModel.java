@@ -1,7 +1,6 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnections;
-import lk.ijse.dto.AddNewAppointmentDto;
 
 import java.sql.SQLException;
 
@@ -27,5 +26,9 @@ public class AddNewAppointmentModel {
 
     public String[][] getDoctorsData() throws SQLException {
         return DbConnections.getDetails("doctor", 7);
+    }
+
+    public String[][] getResentAppointments() throws SQLException {
+        return DbConnections.getDetails("appointment", 8);
     }
 }

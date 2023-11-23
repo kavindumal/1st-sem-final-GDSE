@@ -83,18 +83,18 @@ public class LoginFormController {
     @FXML
     void loginBtnOnAction(ActionEvent event) throws SQLException {
         LoginModel loginModel = new LoginModel();
-//
+
 //        if (loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))) {
 //            usernameRec.setStroke(Color.BLACK);
 //            alertImage1.setOpacity(0);
 //            invalidusrOrPwLbl1.setOpacity(0);
 //            if (loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))){
-        loginPane.getChildren().clear();
-        try {
-            loginPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/dashboardForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+                loginPane.getChildren().clear();
+                try {
+                    loginPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/dashboardForm.fxml"))));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 //            } else {
 //                alertSound.checkSounds(Sounds.INVALID);
 //                pwRec.setStroke(Color.RED);
