@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="appointmentPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AppointmentFormController">
+   <children>
+      <Label layoutX="81.0" layoutY="76.0" text="Appointment">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <TableView fx:id="appointmentTbl" layoutX="86.0" layoutY="215.0" prefHeight="713.0" prefWidth="1244.0" stylesheets="@../style/tableViewStyle.css">
+         <columns>
+            <TableColumn fx:id="idCol" prefWidth="143.0" text="Appointment Id" />
+            <TableColumn fx:id="timeCol" prefWidth="186.0" text="Time" />
+            <TableColumn fx:id="dateCol" prefWidth="146.33331298828125" text="Date" />
+            <TableColumn fx:id="problemCol" prefWidth="226.66668701171875" text="Problem" />
+            <TableColumn fx:id="doctorNameCol" prefWidth="199.33331298828125" text="DoctorName" />
+            <TableColumn fx:id="patientNameCol" minWidth="0.0" prefWidth="160.0" text="PatientName" />
+            <TableColumn fx:id="deleteRecordCol" minWidth="0.0" prefWidth="181.0" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
