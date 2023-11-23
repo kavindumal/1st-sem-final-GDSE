@@ -148,7 +148,7 @@ public class HomeFormController implements Initializable {
         for (int i = 0; i < obList.size(); i++) {
             LocalTime time = LocalTime.now();
             if (obList.get(i).getTime().isBefore(time)) {
-                time = obList.get(0).getTime();
+                time = obList.get(i).getTime();
                 obListNew.add(obList.get(i));
                 if (obListNew.size() == 5) {
                     break;

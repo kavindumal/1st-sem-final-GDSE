@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.PatientPageFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="patientFormPane" prefHeight="984.0" prefWidth="1678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PatientPageFormController">
+   <children>
+      <AnchorPane layoutX="1375.0" layoutY="260.0" prefHeight="285.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.5;" />
+      <JFXButton buttonType="RAISED" layoutX="1394.0" layoutY="440.0" onAction="#viewAppointmentBtnOnAction" prefHeight="66.0" prefWidth="251.0" stylesheets="@../style/bordorBtn.css" text="View details">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="1401.0" layoutY="289.0" text="Appointment">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="1483.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/calanderImage.gif" />
+         </image>
+      </ImageView>
+      <TableView fx:id="patientCol" layoutX="96.0" layoutY="205.0" prefHeight="713.0" prefWidth="1244.0" stylesheets="@../style/tableViewStyle.css">
+         <columns>
+            <TableColumn fx:id="idCol" prefWidth="121.66667175292969" text="Patient Id" />
+            <TableColumn fx:id="nameCol" prefWidth="224.0" text="Full Name" />
+            <TableColumn fx:id="emailCol" prefWidth="231.0" text="Email" />
+            <TableColumn fx:id="familyCol" prefWidth="180.0" text="Family" />
+            <TableColumn fx:id="telCol" minWidth="0.0" prefWidth="181.3333740234375" text="Tel" />
+            <TableColumn fx:id="updateCol" minWidth="0.0" prefWidth="159.6666259765625" />
+            <TableColumn fx:id="deleteeol" minWidth="0.0" prefWidth="143.0" />
+         </columns>
+      </TableView>
+      <Label layoutX="91.0" layoutY="86.0" text="Patients">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

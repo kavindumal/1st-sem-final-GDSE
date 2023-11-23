@@ -1,13 +1,20 @@
 package lk.ijse.model;
 
+import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.AddNewAppointmentDto;
+import lk.ijse.dto.AppointmentTDto;
 import lk.ijse.dto.PatientDto;
+import lk.ijse.dto.tm.PatientTm;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PatientModel {
     public PatientDto getPatientDetails(PatientDto dto) throws SQLException {
@@ -93,5 +100,34 @@ public class PatientModel {
             connection.setAutoCommit(true);
         }
         return result;
+    }
+
+    public List<PatientTm> getAllData() throws SQLException {
+        Connection connection = DbConnections.getInstance().getConnection();
+
+        String sql = "SELECT * FROM patient";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        List<PatientTm> dtoList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()) {
+            String id = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String email = resultSet.getString(4);
+            String family = resultSet.getString(5);
+            String tel = resultSet.getString(6);
+
+            JFXButton updateBtn = new JFXButton("Update");
+            updateBtn.setStyle("-fx-background-radius: 30; -fx-background-color: Green; -fx-text-fill: white; -fx-font-size: 19px;");
+
+
+            JFXButton removeBtn = new JFXButton("Remove");
+            removeBtn.setStyle("-fx-background-radius: 30; -fx-background-color: Red; -fx-text-fill: white; -fx-font-size: 19px;");
+
+            dtoList.add(new PatientTm(id, name, email, family,tel,updateBtn,removeBtn));
+        }
+        return dtoList;
     }
 }
