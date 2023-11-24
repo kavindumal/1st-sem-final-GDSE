@@ -3,7 +3,6 @@ package lk.ijse.model;
 import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.AddNewAppointmentDto;
-import lk.ijse.dto.AppointmentTDto;
 import lk.ijse.dto.PatientDto;
 import lk.ijse.dto.tm.PatientTm;
 

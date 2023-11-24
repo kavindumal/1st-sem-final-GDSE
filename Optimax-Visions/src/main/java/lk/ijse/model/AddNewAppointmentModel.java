@@ -2,8 +2,7 @@ package lk.ijse.model;
 
 import com.jfoenix.controls.JFXButton;
 import lk.ijse.db.DbConnections;
-import lk.ijse.dto.AppointmentTDto;
-import lk.ijse.dto.EmployeeDto;
+import lk.ijse.dto.tm.AppointmentTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,17 +35,13 @@ public class AddNewAppointmentModel {
         return DbConnections.getDetails("doctor", 7);
     }
 
-    public String[][] getResentAppointments() throws SQLException {
-        return DbConnections.getDetails("appointment", 8);
-    }
-
-    public List<AppointmentTDto> getAllData() throws SQLException {
+    public List<AppointmentTm> getAllData() throws SQLException {
         Connection connection = DbConnections.getInstance().getConnection();
 
         String sql = "SELECT * FROM appointment";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        List<AppointmentTDto> dtoList = new ArrayList<>();
+        List<AppointmentTm> dtoList = new ArrayList<>();
 
         ResultSet resultSet = pstm.executeQuery();
 
@@ -61,7 +56,7 @@ public class AddNewAppointmentModel {
             JFXButton removeBtn = new JFXButton("Remove");
             removeBtn.setStyle("-fx-background-radius: 30; -fx-background-color: Red; -fx-text-fill: white; -fx-font-size: 19px;");
 
-            dtoList.add(new AppointmentTDto(id, time, date, problem,doctorName,patientName,removeBtn));
+            dtoList.add(new AppointmentTm(id, time, date, problem,doctorName,patientName,removeBtn));
         }
         return dtoList;
     }
@@ -84,5 +79,33 @@ public class AddNewAppointmentModel {
             }
         }
         return "any";
+    }
+
+    public boolean removeAppointment(String id) throws SQLException {
+        Connection connection = null;
+        boolean result = false;
+        try {
+            connection = DbConnections.getInstance().getConnection();
+            connection.setAutoCommit(false);
+            String[][] details = DbConnections.getDetails("appointment", 8);
+            String paymentId = null;
+            for (int i = 0; i < details.length; i++) {
+                if (details[i][0].equals(id)) {
+                    paymentId = details[i][7];
+                }
+            }
+            if (DbConnections.setDetails("DELETE\n" +
+                    "FROM visioncare.appointment\n" +
+                    "WHERE appoitmentId LIKE '"+ id +"' ESCAPE '#';\n")) {
+                if (DbConnections.setDetails("DELETE\n" +
+                        "FROM visioncare.payment\n" +
+                        "WHERE paymentId LIKE '"+ paymentId +"' ESCAPE '#';\n")) result = true;
+            }
+        } catch (SQLException e) {
+            connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
+        }
+        return result;
     }
 }
