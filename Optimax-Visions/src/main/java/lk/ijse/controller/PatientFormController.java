@@ -78,10 +78,13 @@ public class PatientFormController implements Initializable {
     public AddNewAppointmentDto appointmentDto;
     public String checkConfirmation;
 
+    public static int countP = 0;
+
     @FXML
     void confirmBtnOnAction(ActionEvent event) throws SQLException {
         if (checkConfirmation.equals("\tYes")) {
             if (model.setPaymentAppointmentDetails(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))) {
+                countP++;
                 patientPane.getChildren().clear();
                 try {
                     patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewAppointmentForm.fxml"))));
@@ -91,6 +94,7 @@ public class PatientFormController implements Initializable {
             }
         } else {
             if (model.setPatientPaymentAppointment(appointmentDto, new PatientDto(patientIdTxt.getText(), fullNameTxt.getText(), addressTxt.getText(), emailTxt.getText(), familyNameTxt.getText(), telTxt.getText()))){
+                countP++;
                 patientPane.getChildren().clear();
                 try {
                     patientPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/addNewAppointmentForm.fxml"))));

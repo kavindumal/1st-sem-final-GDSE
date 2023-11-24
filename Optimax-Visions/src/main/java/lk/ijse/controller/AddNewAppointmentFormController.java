@@ -2,6 +2,8 @@ package lk.ijse.controller;
 
 import com.calendarfx.view.YearMonthView;
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.PauseTransition;
+import javafx.animation.TranslateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -14,9 +16,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.db.DbConnections;
@@ -97,6 +101,18 @@ public class AddNewAppointmentFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (PatientFormController.countP % 2 == 1) {
+            AnchorPane pane = new AnchorPane();
+            pane.setLayoutX(633);
+            pane.setLayoutY(0);
+            pane.setPrefWidth(413);
+            pane.setPrefHeight(99);
+            pane.setStyle("-fx-background-color: #1A4BCC; -fx-background-radius: 15; -fx-opacity: 0.5");
+            appoitmentPane.getChildren().add(pane);
+            animatePaneTransition(pane);
+
+            PatientFormController.countP = 0;
+        }
         addAppointmentButtonHandlers();
         try {
             appointmentIdLbl.setText((addNewAppointmentModel.findNextAppoitmentId().substring(0,addNewAppointmentModel.findNextAppoitmentId().length() - 1)) +(Integer.parseInt(addNewAppointmentModel.findNextAppoitmentId().substring(addNewAppointmentModel.findNextAppoitmentId().length()-1))));
@@ -132,6 +148,42 @@ public class AddNewAppointmentFormController implements Initializable {
             }
         });
     }
+
+    private void animatePaneTransition(AnchorPane pane) {
+        TranslateTransition transition = new TranslateTransition(Duration.millis(500), pane);
+        transition.setFromY(-pane.getPrefHeight());
+        transition.setToY(0);
+        transition.setOnFinished(event -> {
+            ImageView imageView = new ImageView(new Image("img/icons/taskComplete.gif"));
+            imageView.setLayoutX(657);
+            imageView.setLayoutY(25);
+            imageView.setFitWidth(40);
+            imageView.setFitHeight(40);
+            appoitmentPane.getChildren().add(imageView);
+            Label label1 = new Label("Added Successfully!");
+            Label label2 = new Label("New appointment added successfully.");
+            label1.setLayoutX(719);
+            label1.setStyle("-fx-font-size: 21px; -fx-font-weight: bold;");
+            label2.setStyle("-fx-font-size: 16px");
+            label2.setLayoutX(719);
+            label1.setLayoutY(19);
+            label2.setLayoutY(43);
+            appoitmentPane.getChildren().add(label1);
+            appoitmentPane.getChildren().add(label2);
+
+            PauseTransition pause = new PauseTransition(Duration.seconds(5));
+            pause.setOnFinished(e -> {
+                appoitmentPane.getChildren().remove(pane);
+                appoitmentPane.getChildren().remove(imageView);
+                appoitmentPane.getChildren().remove(label1);
+                appoitmentPane.getChildren().remove(label2);
+            });
+
+            pause.play();
+        });
+        transition.play();
+    }
+
     public String newV = " No, he/she don't have prescription";
 
     private void addAppointmentButtonHandlers() {
