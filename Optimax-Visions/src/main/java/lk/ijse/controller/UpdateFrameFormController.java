@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -14,6 +15,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.FrameDto;
@@ -193,7 +197,7 @@ public class UpdateFrameFormController implements Initializable {
                                     if (!qtyOnHandTxt.getText().isEmpty()) {
                                         inputErrorLbl.setText(""); qtyRec.setStroke(Color.BLACK);
                                         if (!priceTxt.getText().isEmpty()) {
-                                            if (model.updateDetails(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())), framePhotoLink)) {
+                                            if (model.updateDetails(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())), getFramePhotoLink())) {
                                                 updateFramePane.getChildren().clear();
                                                 try {
                                                     updateFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/frameDetailsForm.fxml"))));
@@ -278,6 +282,7 @@ public class UpdateFrameFormController implements Initializable {
                     qtyOnHandTxt.setText(values[i][8]);
                     priceTxt.setText(values[i][9]);
                     framePhoto.setImage(new Image("/" + values[i][10]));
+                    defualtPhoto = "/" + values[i][10];
                 }
             }
         } catch (SQLException e) {
@@ -426,8 +431,39 @@ public class UpdateFrameFormController implements Initializable {
 
     String destinationFolderPath = "C:\\Users\\Kavindu\\Documents\\GDSE 68\\1 st sem Final Project\\eye clinic\\software\\1st-sem-final-GDSE\\Optimax-Visions\\src\\main\\resources\\img\\framePhotos";
     String framePhotoLink = "";
+    String defualtPhoto = "";
+
     @FXML
-    public String framePhotoOnMouseClicked(MouseEvent event) {
+    public void framePhotoOnMouseClicked(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose a photo");
+
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png");
+        fileChooser.getExtensionFilters().add(imageFilter);
+
+        Stage stage = new Stage();
+        centerStage(stage);
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            framePhotoLink = selectedFile.toURI().toString();
+            framePhoto.setImage(image);
+        }
+    }
+
+    private void centerStage(Stage stage) {
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        double centerX = bounds.getMinX() + (bounds.getWidth() - stage.getWidth()) / 2.0;
+        double centerY = bounds.getMinY() + (bounds.getHeight() - stage.getHeight()) / 2.0;
+
+        stage.setX(centerX);
+        stage.setY(centerY);
+    }
+
+    public String getFramePhotoLink() {
         String link = "";
         if (!framePhotoLink.isEmpty()) {
             try {
@@ -444,7 +480,7 @@ public class UpdateFrameFormController implements Initializable {
             } catch (IOException | URISyntaxException e) {
                 e.printStackTrace();
             }
-        } else link = "img/framePhotos/noPhoto.png";
+        } else link = defualtPhoto;
         return link;
     }
 }
