@@ -51,7 +51,7 @@ public class FrameModel {
     }
 
     public String[][] getValues() throws SQLException {
-        return DbConnections.getDetails("frame",10);
+        return DbConnections.getDetails("frame",11);
     }
 
     public boolean updateDetails(FrameDto frameDto) throws SQLException {

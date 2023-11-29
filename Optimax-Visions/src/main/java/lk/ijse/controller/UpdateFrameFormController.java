@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -253,6 +256,9 @@ public class UpdateFrameFormController implements Initializable {
         return typeMaleCb.isSelected() || typeFemaleCb.isSelected() || typeBothCb.isSelected();
     }
 
+    @FXML
+    private ImageView framePhoto;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FrameModel model = new FrameModel();
@@ -265,6 +271,7 @@ public class UpdateFrameFormController implements Initializable {
                     checkType(values[i][2]); checkGlass(values[i][3]); checkFace(values[i][4]); checkFrame(values[i][5]); checkFrameColor(values[i][6]); checkMaterial(values[i][7]);
                     qtyOnHandTxt.setText(values[i][8]);
                     priceTxt.setText(values[i][9]);
+                    framePhoto.setImage(new Image("/" + values[i][10]));
                 }
             }
         } catch (SQLException e) {
@@ -405,5 +412,14 @@ public class UpdateFrameFormController implements Initializable {
     private void handleTypeCheckBoxAction(JFXCheckBox type1, JFXCheckBox type2) {
         type1.setSelected(false);
         type2.setSelected(false);
+    }
+
+    @FXML
+    public void backOnAction(MouseEvent event) {
+    }
+
+    @FXML
+    public void framePhotoOnMouseClicked(MouseEvent event) {
+
     }
 }
