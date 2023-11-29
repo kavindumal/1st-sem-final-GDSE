@@ -286,7 +286,7 @@
       </Label>
       <ImageView fx:id="framePhoto" fitHeight="224.0" fitWidth="224.0" layoutX="352.0" layoutY="87.0" onMouseClicked="#framePhotoOnMouseClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/icons/menProfile.jpeg" />
+            <Image url="@../img/framePhotos/noPhoto.png" />
          </image>
       </ImageView>
    </children>

@@ -29,10 +29,10 @@ public class ForgotModel {
         return String.format("F%04d", incrementedNumericPart);
     }
 
-    public boolean setDetailsToDatabase(FrameDto frameDto) throws SQLException {
+    public boolean setDetailsToDatabase(FrameDto frameDto, String photo) throws SQLException {
         return DbConnections.setDetails("INSERT INTO visioncare.frame (frameId, frameName, frameType, wearGlass, faceShape, frameShape, color, material,\n" +
-                "                              qtyOnHand, price)\n" +
-                "VALUES ('"+ frameDto.getId() +"', '"+ frameDto.getName() +"', '"+ frameDto.getType() +"', '"+ frameDto.getGlass() +"', '"+ frameDto.getFaceShape() +"', '"+ frameDto.getFrameShape() +"', '"+ frameDto.getColor() +"', '"+ frameDto.getMaterial() +"', "+ frameDto.getQtyOnHand() +", "+ frameDto.getPrice() +");\n" +
+                "                              qtyOnHand, price, photo)\n" +
+                "VALUES ('"+ frameDto.getId() +"', '"+ frameDto.getName() +"', '"+ frameDto.getType() +"', '"+ frameDto.getGlass() +"', '"+ frameDto.getFaceShape() +"', '"+ frameDto.getFrameShape() +"', '"+ frameDto.getColor() +"', '"+ frameDto.getMaterial() +"', "+ frameDto.getQtyOnHand() +", "+ frameDto.getPrice() +",'"+ photo +"');\n" +
                 "\n");
     }
 }

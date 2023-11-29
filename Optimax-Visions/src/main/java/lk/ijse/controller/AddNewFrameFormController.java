@@ -25,7 +25,12 @@ import lk.ijse.model.ForgotModel;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -197,7 +202,7 @@ public class AddNewFrameFormController implements Initializable {
                                     if (!qtyOnHandTxt.getText().isEmpty()) {
                                         inputErrorLbl.setText(""); qtyRec.setStroke(Color.BLACK);
                                         if (!priceTxt.getText().isEmpty()) {
-                                            if (model.setDetailsToDatabase(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())))) {
+                                            if (model.setDetailsToDatabase(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())), getPhotoLink())) {
                                                 addNewFramePane.getChildren().clear();
                                                 try {
                                                     addNewFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/frameDetailsForm.fxml"))));
@@ -214,6 +219,29 @@ public class AddNewFrameFormController implements Initializable {
                 } else inputErrorLbl.setText("Please select Frame Make for !"); alertSound.checkSounds(Sounds.INVALID);
             } else inputErrorLbl.setText("Please select frame Type!"); alertSound.checkSounds(Sounds.INVALID);
         } else frameNameRec.setStroke(Color.RED); inputErrorLbl.setText("Please enter name of the frame !"); alertSound.checkSounds(Sounds.INVALID);
+    }
+
+    String destinationFolderPath = "C:\\Users\\Kavindu\\Documents\\GDSE 68\\1 st sem Final Project\\eye clinic\\software\\1st-sem-final-GDSE\\Optimax-Visions\\src\\main\\resources\\img\\framePhotos";
+
+    private String getPhotoLink() {
+        String link = "";
+        if (!framePhotoLink.isEmpty()) {
+            try {
+                File sourceFile = new File(new URL(framePhotoLink).toURI());
+                Path destinationFolderPath = Paths.get(this.destinationFolderPath);
+                if (!Files.exists(destinationFolderPath)) {
+                    Files.createDirectories(destinationFolderPath);
+                }
+
+                String fileName = nameTxt.getText() + ".png";
+                Path destinationFilePath = destinationFolderPath.resolve(fileName);
+                link = "img/framePhotos/" + fileName;
+                Files.copy(sourceFile.toPath(), destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException | URISyntaxException e) {
+                e.printStackTrace();
+            }
+        } else link = "img/framePhotos/noPhoto.png";
+        return link;
     }
 
     private String getMaterialCheckBox() {
