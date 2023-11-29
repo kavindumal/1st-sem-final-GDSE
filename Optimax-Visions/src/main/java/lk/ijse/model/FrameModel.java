@@ -54,7 +54,7 @@ public class FrameModel {
         return DbConnections.getDetails("frame",11);
     }
 
-    public boolean updateDetails(FrameDto frameDto) throws SQLException {
+    public boolean updateDetails(FrameDto frameDto, String photoLink) throws SQLException {
         return DbConnections.setDetails("UPDATE visioncare.frame t\n" +
                 "SET t.frameName  = '"+ frameDto.getName() +"',\n" +
                 "    t.frameType  = '"+ frameDto.getType() +"',\n" +
@@ -64,7 +64,8 @@ public class FrameModel {
                 "    t.color      = '"+ frameDto.getColor() +"',\n" +
                 "    t.material   = '"+ frameDto.getMaterial() +"',\n" +
                 "    t.qtyOnHand  = "+ frameDto.getQtyOnHand() +",\n" +
-                "    t.price      = "+ frameDto.getPrice() +"\n" +
+                "    t.price      = "+ frameDto.getPrice() +",\n" +
+                "    t.photo      = '"+ photoLink + "'\n" +
                 "WHERE t.frameId LIKE '"+ frameDto.getId() +"' ESCAPE '#';\n" +
                 "\n");
     }

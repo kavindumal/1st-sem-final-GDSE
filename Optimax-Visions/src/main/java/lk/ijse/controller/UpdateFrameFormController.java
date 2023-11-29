@@ -19,8 +19,14 @@ import lk.ijse.alert.Sounds;
 import lk.ijse.dto.FrameDto;
 import lk.ijse.model.FrameModel;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -187,7 +193,7 @@ public class UpdateFrameFormController implements Initializable {
                                     if (!qtyOnHandTxt.getText().isEmpty()) {
                                         inputErrorLbl.setText(""); qtyRec.setStroke(Color.BLACK);
                                         if (!priceTxt.getText().isEmpty()) {
-                                            if (model.updateDetails(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())))) {
+                                            if (model.updateDetails(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())), framePhotoLink)) {
                                                 updateFramePane.getChildren().clear();
                                                 try {
                                                     updateFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/frameDetailsForm.fxml"))));
@@ -418,8 +424,27 @@ public class UpdateFrameFormController implements Initializable {
     public void backOnAction(MouseEvent event) {
     }
 
+    String destinationFolderPath = "C:\\Users\\Kavindu\\Documents\\GDSE 68\\1 st sem Final Project\\eye clinic\\software\\1st-sem-final-GDSE\\Optimax-Visions\\src\\main\\resources\\img\\framePhotos";
+    String framePhotoLink = "";
     @FXML
-    public void framePhotoOnMouseClicked(MouseEvent event) {
+    public String framePhotoOnMouseClicked(MouseEvent event) {
+        String link = "";
+        if (!framePhotoLink.isEmpty()) {
+            try {
+                File sourceFile = new File(new URL(framePhotoLink).toURI());
+                Path destinationFolderPath = Paths.get(this.destinationFolderPath);
+                if (!Files.exists(destinationFolderPath)) {
+                    Files.createDirectories(destinationFolderPath);
+                }
 
+                String fileName = nameTxt.getText() + ".png";
+                Path destinationFilePath = destinationFolderPath.resolve(fileName);
+                link = "img/framePhotos/" + fileName;
+                Files.copy(sourceFile.toPath(), destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException | URISyntaxException e) {
+                e.printStackTrace();
+            }
+        } else link = "img/framePhotos/noPhoto.png";
+        return link;
     }
 }
