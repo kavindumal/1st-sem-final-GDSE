@@ -6,17 +6,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
 import lk.ijse.dto.FrameDto;
 import lk.ijse.model.ForgotModel;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -162,6 +169,11 @@ public class AddNewFrameFormController implements Initializable {
 
     @FXML
     private Label inputErrorLbl;
+
+    @FXML
+    private ImageView framePhoto;
+
+    String framePhotoLink = "";
 
     ForgotModel model = new ForgotModel();
 
@@ -352,5 +364,40 @@ public class AddNewFrameFormController implements Initializable {
     private void handleTypeCheckBoxAction(JFXCheckBox type1, JFXCheckBox type2) {
         type1.setSelected(false);
         type2.setSelected(false);
+    }
+
+    @FXML
+    public void backOnAction(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void framePhotoOnMouseClicked(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose a photo");
+
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png");
+        fileChooser.getExtensionFilters().add(imageFilter);
+
+        Stage stage = new Stage();
+        centerStage(stage);
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            framePhotoLink = selectedFile.toURI().toString();
+            framePhoto.setImage(image);
+        }
+    }
+
+    private void centerStage(Stage stage) {
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        double centerX = bounds.getMinX() + (bounds.getWidth() - stage.getWidth()) / 2.0;
+        double centerY = bounds.getMinY() + (bounds.getHeight() - stage.getHeight()) / 2.0;
+
+        stage.setX(centerX);
+        stage.setY(centerY);
     }
 }

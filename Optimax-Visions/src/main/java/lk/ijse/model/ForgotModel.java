@@ -21,8 +21,8 @@ public class ForgotModel {
 
     public String getFrameId() throws SQLException {
         String[][] getFrameDetails = DbConnections.getDetails("frame",10);
-        String lastFrmaeId = getFrameDetails[getFrameDetails.length - 1][0];
         if (getFrameDetails.length == 0) return "F0001";
+        String lastFrmaeId = getFrameDetails[getFrameDetails.length - 1][0];
 
         int numericPart = Integer.parseInt(lastFrmaeId.replaceFirst("^F0*", ""));
         int incrementedNumericPart = numericPart + 1;

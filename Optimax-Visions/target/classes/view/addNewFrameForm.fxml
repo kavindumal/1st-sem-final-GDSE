@@ -2,8 +2,11 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -15,39 +18,39 @@
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Label layoutX="71.0" layoutY="189.0" text="Frame name">
+      <Label layoutX="71.0" layoutY="289.0" text="Frame name">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Rectangle fx:id="frameIdRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1265.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
-      <TextField fx:id="frameIdTxt" editable="false" layoutX="1291.0" layoutY="62.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
+      <Rectangle fx:id="frameIdRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="1004.0" layoutY="78.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="365.0" />
+      <TextField fx:id="frameIdTxt" editable="false" layoutX="1030.0" layoutY="82.0" prefHeight="50.0" prefWidth="314.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <Label layoutX="1153.0" layoutY="69.0" text="Frame id">
+      <Label layoutX="892.0" layoutY="89.0" text="Frame id">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Rectangle fx:id="frameNameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="75.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
-      <TextField fx:id="nameTxt" layoutX="101.0" layoutY="244.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
+      <Rectangle fx:id="frameNameRec" arcHeight="60.0" arcWidth="60.0" fill="#ffffff00" height="59.0" layoutX="75.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.5" width="622.0" />
+      <TextField fx:id="nameTxt" layoutX="101.0" layoutY="344.0" prefHeight="50.0" prefWidth="563.0" style="-fx-background-color: trans;">
          <font>
             <Font size="21.0" />
          </font>
       </TextField>
-      <Label layoutX="71.0" layoutY="329.0" text="Type">
+      <Label layoutX="71.0" layoutY="419.0" text="Type">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="71.0" layoutY="429.0" text="Make for">
+      <Label layoutX="71.0" layoutY="519.0" text="Make for">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="typePane" layoutX="63.0" layoutY="380.0">
+      <AnchorPane fx:id="typePane" layoutX="63.0" layoutY="470.0">
          <children>
             <JFXCheckBox fx:id="typeMaleCb" layoutX="10.0" text="male">
                <font>
@@ -66,7 +69,7 @@
             </JFXCheckBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="makeForPane" layoutX="63.0" layoutY="476.0">
+      <AnchorPane fx:id="makeForPane" layoutX="63.0" layoutY="566.0">
          <children>
             <JFXCheckBox fx:id="makeForOutdoorCb" layoutX="10.0" text="outdoor">
                <font>
@@ -85,12 +88,12 @@
             </JFXCheckBox>
          </children>
       </AnchorPane>
-      <Label layoutX="71.0" layoutY="529.0" text="Face Shape">
+      <Label layoutX="71.0" layoutY="619.0" text="Face Shape">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="faceShapePane" layoutX="64.0" layoutY="574.0">
+      <AnchorPane fx:id="faceShapePane" layoutX="64.0" layoutY="664.0">
          <children>
             <JFXCheckBox fx:id="shapeTriangleCb" layoutX="10.0" text="triangle">
                <font>
@@ -129,12 +132,12 @@
             </JFXCheckBox>
          </children>
       </AnchorPane>
-      <Label layoutX="71.0" layoutY="629.0" text="Frame Shape">
+      <Label layoutX="71.0" layoutY="719.0" text="Frame Shape">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="frameShapePane" layoutX="65.0" layoutY="673.0">
+      <AnchorPane fx:id="frameShapePane" layoutX="65.0" layoutY="763.0">
          <children>
             <JFXCheckBox fx:id="frameBrownlineCb" layoutX="10.0" text="browline">
                <font>
@@ -168,12 +171,12 @@
             </JFXCheckBox>
          </children>
       </AnchorPane>
-      <Label layoutX="71.0" layoutY="729.0" text="Frame Color">
+      <Label layoutX="71.0" layoutY="819.0" text="Frame Color">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="frameColorPane" layoutX="65.0" layoutY="773.0">
+      <AnchorPane fx:id="frameColorPane" layoutX="65.0" layoutY="863.0">
          <children>
             <JFXCheckBox fx:id="colorBlackCb" layoutX="10.0" text="black">
                <font>
@@ -207,12 +210,12 @@
             </JFXCheckBox>
          </children>
       </AnchorPane>
-      <Label layoutX="71.0" layoutY="819.0" text="Material">
+      <Label layoutX="891.0" layoutY="514.0" text="Material">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="materialPane" layoutX="63.0" layoutY="870.0">
+      <AnchorPane fx:id="materialPane" layoutX="883.0" layoutY="565.0">
          <children>
             <JFXCheckBox fx:id="materialMetalCb" layoutX="10.0" text="metal">
                <font>
@@ -268,5 +271,23 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1547.0" layoutY="25.0" onMouseClicked="#backOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/back.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="72.0" layoutY="180.0" text="Frame photo">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="framePhoto" fitHeight="224.0" fitWidth="224.0" layoutX="352.0" layoutY="87.0" onMouseClicked="#framePhotoOnMouseClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons/menProfile.jpeg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

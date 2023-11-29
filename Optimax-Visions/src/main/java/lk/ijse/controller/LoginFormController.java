@@ -88,27 +88,27 @@ public class LoginFormController {
     @FXML
     void loginBtnOnAction(ActionEvent event) throws Exception {
         LoginModel loginModel = new LoginModel();
-        if (loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))) {
-            usernameRec.setStroke(Color.BLACK);
-            alertImage1.setOpacity(0);
-            invalidusrOrPwLbl1.setOpacity(0);
-            if (loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))){
+//        if (loginModel.checkUsername(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))) {
+//            usernameRec.setStroke(Color.BLACK);
+//            alertImage1.setOpacity(0);
+//            invalidusrOrPwLbl1.setOpacity(0);
+//            if (loginModel.checkPassword(new LoginDto(usernameTxt.getText(), passwordTxt.getText()))){
                 displayLoadingAnimation(loginPane);
 
                 Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> navigateToDashboard(loginPane)));
                 timeline.play();
-            } else {
-                alertSound.checkSounds(Sounds.INVALID);
-                pwRec.setStroke(Color.RED);
-                alertImage.setOpacity(1);
-                invalidusrOrPwLbl.setOpacity(1.0);
-            }
-        } else {
-            alertSound.checkSounds(Sounds.INVALID);
-            alertImage1.setOpacity(1);
-            usernameRec.setStroke(Color.RED);
-            invalidusrOrPwLbl1.setOpacity(1);
-        }
+//            } else {
+//                alertSound.checkSounds(Sounds.INVALID);
+//                pwRec.setStroke(Color.RED);
+//                alertImage.setOpacity(1);
+//                invalidusrOrPwLbl.setOpacity(1.0);
+//            }
+//        } else {
+//            alertSound.checkSounds(Sounds.INVALID);
+//            alertImage1.setOpacity(1);
+//            usernameRec.setStroke(Color.RED);
+//            invalidusrOrPwLbl1.setOpacity(1);
+//        }
     }
 
     private void navigateToDashboard(AnchorPane loginPane) {
