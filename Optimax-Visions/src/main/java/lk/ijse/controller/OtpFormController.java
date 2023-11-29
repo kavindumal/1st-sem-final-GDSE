@@ -70,11 +70,20 @@ public class OtpFormController implements Initializable{
 
     @FXML
     public void backOnAction(MouseEvent event) {
-        otpCheckPane.getChildren().clear();
-        try {
-            otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/registerForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (forgotOrCreate.equals("create")) {
+            otpCheckPane.getChildren().clear();
+            try {
+                otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/registerForm.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            otpCheckPane.getChildren().clear();
+            try {
+                otpCheckPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/forgotPasswordForm.fxml"))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

@@ -1,22 +1,18 @@
 package lk.ijse.model;
 
+import lk.ijse.AesAlgorithm.AesAlgorithm;
 import lk.ijse.db.DbConnections;
-import lk.ijse.dto.OtpDto;
-import lk.ijse.gmail.Gmailer;
-import org.mindrot.jbcrypt.BCrypt;
-
-import java.sql.SQLException;
-import java.util.Random;
 
 public class OtpModel {
 
 
     public boolean setDetailsToDatabase(String username, String password, String email) {
+        AesAlgorithm aes = new AesAlgorithm();
         try {
             return DbConnections.setDetails("INSERT INTO visioncare.user (username, password, email, accountType)\n" +
-                    "VALUES ('" + username + "', '" + BCrypt.hashpw(password, BCrypt.gensalt()) + "', '" + email + "','Local');\n" +
+                    "VALUES ('" + username + "', '" + aes.encrypt(password) + "', '" + email + "','Local');\n" +
                     "\n");
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

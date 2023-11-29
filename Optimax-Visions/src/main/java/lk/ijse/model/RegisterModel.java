@@ -14,12 +14,16 @@ public class RegisterModel {
     public boolean checkUsernameAvailability() throws SQLException {
         String[][] details= DbConnections.getDetails("user", 3);
         boolean b = false;
-        for (int i = 0; i < details.length; i++) {
-            if (!details[i][0].equals(registerDto.getUsername())) {
-                b = true;
-            }
-            else {
-                return false;
+        if (details.length == 0) {
+            return true;
+        } else {
+            for (int i = 0; i < details.length; i++) {
+                if (!details[i][0].equals(registerDto.getUsername())) {
+                    b = true;
+                }
+                else {
+                    return false;
+                }
             }
         }
         return b;

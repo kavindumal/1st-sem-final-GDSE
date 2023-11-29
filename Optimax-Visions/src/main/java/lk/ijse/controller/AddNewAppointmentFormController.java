@@ -23,7 +23,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import lk.ijse.alert.AlertSound;
 import lk.ijse.alert.Sounds;
-import lk.ijse.db.DbConnections;
 import lk.ijse.dto.AddNewAppointmentDto;
 import lk.ijse.model.AddNewAppointmentModel;
 import org.controlsfx.control.PrefixSelectionComboBox;

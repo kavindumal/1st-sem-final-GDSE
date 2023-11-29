@@ -1,5 +1,6 @@
 package lk.ijse.model;
 
+import lk.ijse.AesAlgorithm.AesAlgorithm;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.LoginDto;
 import org.mindrot.jbcrypt.BCrypt;
@@ -25,11 +26,12 @@ public class LoginModel {
         return checkUsername;
     }
 
-    public boolean checkPassword(LoginDto loginDto) throws SQLException {
+    public boolean checkPassword(LoginDto loginDto) throws Exception {
+        AesAlgorithm aes = new AesAlgorithm();
         boolean checkPassword = false;
         for (String[] detail : details) {
             if (detail[0].equals(loginDto.getUsername()))
-                if (BCrypt.checkpw(loginDto.getPassword(), detail[1])) {
+                if (aes.decrypt(detail[1]).equals(loginDto.getPassword())) {
                     checkPassword = true;
                     DbConnections.setDetails("INSERT INTO visioncare.loginhistory (username, time, date)\n" +
                             "VALUES ('"+ loginDto.getUsername() +"', '"+ LocalTime.now() +"', '"+ LocalDate.now() +"');\n" +
