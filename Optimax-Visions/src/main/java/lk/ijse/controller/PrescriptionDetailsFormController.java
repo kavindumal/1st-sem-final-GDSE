@@ -71,17 +71,45 @@ public class PrescriptionDetailsFormController implements Initializable {
     @FXML
     private AnchorPane prescriptionDetailsPane;
 
-    public static Double prescriptionSphere;
+    public static double sphereRight;
+    public static double sphereLeft;
+    public static double cylRight;
+    public static double cylLeft;
+    public static int axisRight;
+    public static int axisLeft;
+    public static double addRight;
+    public static double addLeft;
+    public static int pd;
 
     @FXML
     void confirmBtnOnAction(ActionEvent event) {
+        if (!sphereRightComboBox.getValue().isEmpty()) {
+            if (!sphereLeftComboBox.getValue().isEmpty()) {
+                if (!cylinderRightComboBox.getValue().isEmpty()) {
+                    if (!cylinderLeftComboBox.getValue().isEmpty()) {
+                        if (!axisRightComboBox.getText().isEmpty()) {
+                            if (!axisLeftComboBox.getText().isEmpty()) {
+                                sphereRight = Double.parseDouble(sphereRightComboBox.getValue());
+                                sphereLeft = Double.parseDouble(sphereLeftComboBox.getValue());
+                                cylRight = Double.parseDouble(cylinderRightComboBox.getValue());
+                                cylLeft = Double.parseDouble(cylinderLeftComboBox.getValue());
+                                axisRight = Integer.parseInt(axisRightComboBox.getText());
+                                axisLeft = Integer.parseInt(axisLeftComboBox.getText());
+                                addRight = Double.parseDouble(addRightCiomboBox.getValue());
+                                addLeft = Double.parseDouble(addLeftCiomboBox.getValue());
+                                pd = Integer.parseInt(pdComboBox.getValue());
 
-        prescriptionSphere = Double.valueOf(sphereLeftComboBox.getValue());
-        prescriptionDetailsPane.getChildren().clear();
-        try {
-            prescriptionDetailsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectGenderForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+                                prescriptionDetailsPane.getChildren().clear();
+                                try {
+                                    prescriptionDetailsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectGenderForm.fxml"))));
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -142,7 +170,7 @@ public class PrescriptionDetailsFormController implements Initializable {
         ObservableList<String> pdList = FXCollections.observableArrayList();
         int pd = 46;
         do {
-            pdList.add("\t" + pd);
+            pdList.add("" + pd);
             pd = pd + 1;
 
         } while (pd <= 80);
@@ -151,7 +179,7 @@ public class PrescriptionDetailsFormController implements Initializable {
         ObservableList<String> sphereRightList = FXCollections.observableArrayList();
         double countsphere = -16.00;
         do {
-            sphereRightList.add("\t" + countsphere);
+            sphereRightList.add("" + countsphere);
             countsphere = countsphere + 0.25;
 
         } while (countsphere <= 12.00);
@@ -161,7 +189,7 @@ public class PrescriptionDetailsFormController implements Initializable {
         ObservableList<String> CylinderRightList = FXCollections.observableArrayList();
         double countRight = -6.00;
         do {
-            CylinderRightList.add("\t" + countRight);
+            CylinderRightList.add("" + countRight);
             countRight = countRight + 0.25;
 
         } while (countRight <= 6.00);
@@ -171,7 +199,7 @@ public class PrescriptionDetailsFormController implements Initializable {
         ObservableList<String> addRightList = FXCollections.observableArrayList();
         double countAdd = 0.00;
         do {
-            addRightList.add("\t" + countAdd);
+            addRightList.add("" + countAdd);
             countAdd = countAdd + 0.25;
 
         } while (countAdd <= 08.00);

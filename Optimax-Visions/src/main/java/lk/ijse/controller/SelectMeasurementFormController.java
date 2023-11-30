@@ -28,6 +28,10 @@ public class SelectMeasurementFormController implements Initializable {
     @FXML
     private AnchorPane measurePane;
 
+    public static int widthOfLense;
+    public static int widthOfBridge;
+    public static int widthOfTemple;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> lenseWidth = FXCollections.observableArrayList();
@@ -59,11 +63,21 @@ public class SelectMeasurementFormController implements Initializable {
     }
 
     public void nextBtnOnAction(ActionEvent actionEvent) {
-        measurePane.getChildren().clear();
-        try {
-            measurePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/specialFeaturesForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (!lenseWidthCombo.getValue().isEmpty()) {
+            if (!bridgeWidthCombo.getValue().isEmpty()) {
+                if (!templeWidthCombo.getValue().isEmpty()) {
+                    widthOfBridge = Integer.parseInt(bridgeWidthCombo.getValue());
+                    widthOfLense = Integer.parseInt(lenseWidthCombo.getValue());
+                    widthOfTemple = Integer.parseInt(templeWidthCombo.getValue());
+                    measurePane.getChildren().clear();
+                    try {
+                        measurePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/specialFeaturesForm.fxml"))));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
         }
+
     }
 }

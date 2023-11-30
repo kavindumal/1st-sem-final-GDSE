@@ -232,7 +232,7 @@ public class PrescriptionResultFormController implements Initializable {
             lenseOb.add(lenseDetails[i][1]);
         }
         lenseChangeComboBox.setItems(lenseOb);
-        if (PrescriptionDetailsFormController.prescriptionSphere > 0) {
+        if (PrescriptionDetailsFormController.sphereRight > 0) {
             lenseChangeComboBox.setValue(lenseDetails[2][1]);
         } else {
             lenseChangeComboBox.setValue(lenseDetails[1][1]);
