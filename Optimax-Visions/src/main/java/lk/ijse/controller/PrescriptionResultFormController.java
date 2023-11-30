@@ -1,7 +1,5 @@
 package lk.ijse.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,13 +9,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import lk.ijse.model.LenseModel;
+import lk.ijse.dto.FrameDto;
+import lk.ijse.model.PrescriptionModel;
 import lombok.SneakyThrows;
 import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -225,39 +225,23 @@ public class PrescriptionResultFormController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> lenseOb = FXCollections.observableArrayList();
-        LenseModel model = new LenseModel();
-        String[][] lenseDetails = model.getLenseDetails();
-        for (int i = 0; i < lenseDetails.length; i++) {
-            lenseOb.add(lenseDetails[i][1]);
-        }
-        lenseChangeComboBox.setItems(lenseOb);
-        if (PrescriptionDetailsFormController.sphereRight > 0) {
-            lenseChangeComboBox.setValue(lenseDetails[2][1]);
-        } else {
-            lenseChangeComboBox.setValue(lenseDetails[1][1]);
-        }
-
-        if (SelectColorFormController.colorSelect == 1) {
-            results1Pane.setOpacity(1);
-            resultImg1.setImage(new Image("img/prescriptionGlass/black.jpg"));
-            priceLbl1.setText("Rs. 4900");
-            priceLbl1.setOpacity(1);
-            resultLbl1.setText("cortez");
-            resultLbl1.setOpacity(1);
-            img = new Image("img/prescriptionGlass/black.jpg");
-            name = resultLbl1.getText();
-            lenseChange = lenseChangeComboBox.getValue();
-        } else if (SelectColorFormController.colorSelect == 2) {
-            results1Pane.setOpacity(1);
-            resultImg1.setImage(new Image("img/prescriptionGlass/coexist.png"));
-            priceLbl1.setText("Rs. 6900");
-            priceLbl1.setOpacity(1);
-            resultLbl1.setText("coexist");
-            resultLbl1.setOpacity(1);
-            img = new Image("img/prescriptionGlass/coexist.png");
-            name = resultLbl1.getText();
-            lenseChange = lenseChangeComboBox.getValue();
+        PrescriptionModel model = new PrescriptionModel();
+        List<FrameDto> generatedFrames = model.getGeneratedFrames();
+        if (generatedFrames.isEmpty()) {
+            Label label1 = new Label();
+            Label label2 = new Label();
+            label1.setPrefWidth(869);
+            label2.setPrefWidth(869);
+            label1.setPrefHeight(77);
+            label2.setPrefHeight(77);
+            label1.setLayoutX(353);
+            label2.setLayoutX(353);
+            label1.setLayoutY(417);
+            label2.setLayoutY(417);
+            label1.setStyle("-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-alignment: center;");
+            label2.setStyle("-fx-font-size: 25px; -fx-text-alignment: center;");
+            prescriptionResultPane.getChildren().add(label1);
+            prescriptionResultPane.getChildren().add(label2);
         }
     }
 }

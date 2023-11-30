@@ -15,49 +15,49 @@
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Pane fx:id="results1Pane" layoutX="83.0" layoutY="124.0" onMouseEntered="#results1PaneOnMouseEntered" onMouseExited="#results1PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results1Pane" layoutX="83.0" layoutY="124.0" onMouseEntered="#results1PaneOnMouseEntered" onMouseExited="#results1PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg1" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" onMouseClicked="#fontIconClickedAction" />
          </children>
       </Pane>
-      <Pane fx:id="results2Pane" layoutX="453.0" layoutY="124.0" onMouseEntered="#results2PaneOnMouseEntered" onMouseExited="#results2PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results2Pane" layoutX="453.0" layoutY="124.0" onMouseEntered="#results2PaneOnMouseEntered" onMouseExited="#results2PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg2" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="results3Pane" layoutX="823.0" layoutY="124.0" onMouseEntered="#results3PaneOnMouseEntered" onMouseExited="#results3PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results3Pane" layoutX="823.0" layoutY="124.0" onMouseEntered="#results3PaneOnMouseEntered" onMouseExited="#results3PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg3" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="results4Pane" layoutX="1193.0" layoutY="124.0" onMouseEntered="#results4PaneOnMouseEntered" onMouseExited="#results4PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results4Pane" layoutX="1193.0" layoutY="124.0" onMouseEntered="#results4PaneOnMouseEntered" onMouseExited="#results4PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg4" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="results8Pane" layoutX="1193.0" layoutY="550.0" onMouseEntered="#results8PaneOnMouseEntered" onMouseExited="#results8PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results8Pane" layoutX="1193.0" layoutY="550.0" onMouseEntered="#results8PaneOnMouseEntered" onMouseExited="#results8PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg8" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="results7Pane" layoutX="823.0" layoutY="550.0" onMouseEntered="#results7PaneOnMouseEntered" onMouseExited="#results7PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results7Pane" layoutX="823.0" layoutY="550.0" onMouseEntered="#results7PaneOnMouseEntered" onMouseExited="#results7PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg7" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="results6Pane" layoutX="453.0" layoutY="550.0" onMouseEntered="#results6PaneOnMouseEntered" onMouseExited="#results6PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results6Pane" layoutX="453.0" layoutY="550.0" onMouseEntered="#results6PaneOnMouseEntered" onMouseExited="#results6PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg6" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />
          </children>
       </Pane>
-      <Pane fx:id="results5Pane" layoutX="83.0" layoutY="550.0" onMouseEntered="#results5PaneOnMouseEntered" onMouseExited="#results5PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;">
+      <Pane fx:id="results5Pane" layoutX="83.0" layoutY="550.0" onMouseEntered="#results5PaneOnMouseEntered" onMouseExited="#results5PaneOnMouseExited" opacity="0.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-width: 0.1;" visible="false">
          <children>
             <ImageView fx:id="resultImg5" fitHeight="103.0" fitWidth="310.0" layoutX="33.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
             <FontIcon fx:id="addtoCartFontIcon" iconLiteral="bi-bag" iconSize="38" layoutX="290.0" layoutY="323.0" text="" />

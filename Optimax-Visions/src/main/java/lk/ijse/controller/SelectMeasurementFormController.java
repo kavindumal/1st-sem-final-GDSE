@@ -37,7 +37,7 @@ public class SelectMeasurementFormController implements Initializable {
         ObservableList<String> lenseWidth = FXCollections.observableArrayList();
         int lenseWidths = 30;
         do {
-            lenseWidth.add("\t" + lenseWidths);
+            lenseWidth.add("" + lenseWidths);
             lenseWidths = lenseWidths + 1;
 
         } while (lenseWidths <= 66);
@@ -46,7 +46,7 @@ public class SelectMeasurementFormController implements Initializable {
         ObservableList<String> bridgeWidth = FXCollections.observableArrayList();
         int bridgeWidths = 10;
         do {
-            bridgeWidth.add("\t" + bridgeWidths);
+            bridgeWidth.add("" + bridgeWidths);
             bridgeWidths = bridgeWidths + 1;
 
         } while (bridgeWidths <= 30);
@@ -55,7 +55,7 @@ public class SelectMeasurementFormController implements Initializable {
         ObservableList<String> templeLength = FXCollections.observableArrayList();
         int templeLengths = 120;
         do {
-            templeLength.add("\t" + templeLengths);
+            templeLength.add("" + templeLengths);
             templeLengths = templeLengths + 1;
 
         } while (templeLengths <= 150);

@@ -1,8 +1,13 @@
 package lk.ijse.model;
 
+import lk.ijse.controller.*;
 import lk.ijse.db.DbConnections;
+import lk.ijse.dto.FrameDto;
+import lk.ijse.prescriptionGeneratingCase.PrescriptionGeneratingCase;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PrescriptionModel {
 
@@ -14,5 +19,25 @@ public class PrescriptionModel {
             }
         }
         return false;
+    }
+
+    public List<FrameDto> getGeneratedFrames() throws SQLException {
+        String[][] frameDetails = DbConnections.getDetails("frame", 11);
+        List<FrameDto> frameDtoList = new ArrayList<>();
+        for (int i = 0; i < frameDetails.length; i++) {
+            if (frameDetails[i][2].equals(PrescriptionGeneratingCase.getType(SelectGenderFormController.genderSelect))) {
+                if (frameDetails[i][3].equals(PrescriptionGeneratingCase.getFaceShape(SelectFaceShapeFormContoller.faceSelect))) {
+                    if (frameDetails[i][4].equals(PrescriptionGeneratingCase.getFrameShape(SelectFavoriteFormController.frameSelect))) {
+                        if (frameDetails[i][5].equals(PrescriptionGeneratingCase.getColor(SelectColorFormController.colorSelect))) {
+                            if (frameDetails[i][6].equals(PrescriptionGeneratingCase.getMaterial(SelectMaterialFormController.materialSelect))) {
+                                frameDtoList.add(new FrameDto(frameDetails[i][0], frameDetails[i][1], frameDetails[i][2], frameDetails[i][3], frameDetails[i][4], frameDetails[i][5], frameDetails[i][6], frameDetails[i][7], Integer.parseInt(frameDetails[i][8]), Double.parseDouble(frameDetails[i][9])));
+                                System.out.println("hri bn");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return frameDtoList;
     }
 }

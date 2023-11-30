@@ -48,9 +48,9 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="lenseWidthCombo" layoutX="575.0" layoutY="702.0" prefHeight="42.0" prefWidth="100.0" promptText="            00" />
-      <JFXComboBox fx:id="bridgeWidthCombo" layoutX="757.0" layoutY="702.0" prefHeight="42.0" prefWidth="100.0" promptText="            00" />
-      <JFXComboBox fx:id="templeWidthCombo" layoutX="946.0" layoutY="702.0" prefHeight="42.0" prefWidth="100.0" promptText="            00" />
+      <JFXComboBox fx:id="lenseWidthCombo" layoutX="575.0" layoutY="702.0" prefHeight="42.0" prefWidth="100.0" />
+      <JFXComboBox fx:id="bridgeWidthCombo" layoutX="757.0" layoutY="702.0" prefHeight="42.0" prefWidth="100.0" />
+      <JFXComboBox fx:id="templeWidthCombo" layoutX="946.0" layoutY="702.0" prefHeight="42.0" prefWidth="100.0" />
       <JFXButton buttonType="RAISED" layoutX="688.0" layoutY="857.0" onAction="#nextBtnOnAction" prefHeight="66.0" prefWidth="272.0" stylesheets="@../style/bordorBtn.css" text="Next">
          <font>
             <Font size="21.0" />
