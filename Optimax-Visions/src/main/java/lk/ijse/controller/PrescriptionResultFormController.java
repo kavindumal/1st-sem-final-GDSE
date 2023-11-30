@@ -228,20 +228,30 @@ public class PrescriptionResultFormController implements Initializable {
         PrescriptionModel model = new PrescriptionModel();
         List<FrameDto> generatedFrames = model.getGeneratedFrames();
         if (generatedFrames.isEmpty()) {
+            ImageView imageView = new ImageView(new Image("img/icons/sorry.gif"));
+            imageView.setFitHeight(150);
+            imageView.setFitWidth(150);
+            imageView.setLayoutX(731);
+            imageView.setLayoutY(190);
             Label label1 = new Label();
             Label label2 = new Label();
+            label2.setText("Sorry");
+            label1.setText("No matching glasses in now.");
             label1.setPrefWidth(869);
             label2.setPrefWidth(869);
             label1.setPrefHeight(77);
             label2.setPrefHeight(77);
-            label1.setLayoutX(353);
-            label2.setLayoutX(353);
-            label1.setLayoutY(417);
-            label2.setLayoutY(417);
-            label1.setStyle("-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-alignment: center;");
-            label2.setStyle("-fx-font-size: 25px; -fx-text-alignment: center;");
+            label1.setLayoutX(360);
+            label2.setLayoutX(360);
+            label1.setLayoutY(430);
+            label2.setLayoutY(400);
+            label2.setStyle("-fx-font-size: 40px; -fx-font-weight: bold; -fx-alignment: center;");
+            label1.setStyle("-fx-font-size: 25px; -fx-alignment: center;");
             prescriptionResultPane.getChildren().add(label1);
             prescriptionResultPane.getChildren().add(label2);
+            prescriptionResultPane.getChildren().add(imageView);
+        } else {
+
         }
     }
 }
