@@ -17,6 +17,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -222,9 +223,18 @@ public class PrescriptionResultFormController implements Initializable {
         }
     }
 
+    List<Pane> paneList = new ArrayList<>();
+    List<Label> nameList = new ArrayList<Label>();
+    List<Label> priceList = new ArrayList<Label>();
+    List<ImageView> resultImgList = new ArrayList<ImageView>();
+
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addPanesToPaneList();
+        addNameLabelsToLabelList();
+        addPriceLabelsToLabelList();
+        addResultImageToList();
         PrescriptionModel model = new PrescriptionModel();
         List<FrameDto> generatedFrames = model.getGeneratedFrames();
         if (generatedFrames.isEmpty()) {
@@ -251,7 +261,58 @@ public class PrescriptionResultFormController implements Initializable {
             prescriptionResultPane.getChildren().add(label2);
             prescriptionResultPane.getChildren().add(imageView);
         } else {
+            for (int i = 0; i < generatedFrames.size(); i++) {
+                paneList.get(i).setVisible(true);
+//                resultImgList.get(i).setImage();
 
+
+                nameList.get(i).setOpacity(1);
+                priceList.get(i).setOpacity(1);
+            }
         }
+    }
+
+    private void addResultImageToList() {
+        resultImgList.add(resultImg1);
+        resultImgList.add(resultImg2);
+        resultImgList.add(resultImg3);
+        resultImgList.add(resultImg4);
+        resultImgList.add(resultImg5);
+        resultImgList.add(resultImg6);
+        resultImgList.add(resultImg7);
+        resultImgList.add(resultImg8);
+    }
+
+    private void addPriceLabelsToLabelList() {
+        priceList.add(priceLbl1);
+        priceList.add(priceLbl11);
+        priceList.add(priceLbl111);
+        priceList.add(priceLbl1111);
+        priceList.add(priceLbl11111);
+        priceList.add(priceLbl111111);
+        priceList.add(priceLbl1111111);
+        priceList.add(priceLbl11111111);
+    }
+
+    private void addNameLabelsToLabelList() {
+        nameList.add(resultLbl1);
+        nameList.add(resultLbl11);
+        nameList.add(resultLbl111);
+        nameList.add(resultLbl1111);
+        nameList.add(resultLbl11111);
+        nameList.add(resultLbl111111);
+        nameList.add(resultLbl1111111);
+        nameList.add(resultLbl11111111);
+    }
+
+    private void addPanesToPaneList() {
+        paneList.add(results1Pane);
+        paneList.add(results2Pane);
+        paneList.add(results3Pane);
+        paneList.add(results4Pane);
+        paneList.add(results5Pane);
+        paneList.add(results6Pane);
+        paneList.add(results7Pane);
+        paneList.add(results8Pane);
     }
 }
