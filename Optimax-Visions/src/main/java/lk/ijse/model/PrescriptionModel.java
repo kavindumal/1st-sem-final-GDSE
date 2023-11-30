@@ -39,4 +39,14 @@ public class PrescriptionModel {
         }
         return frameDtoList;
     }
+
+    public String getImage(String id) throws SQLException {
+        String[][] details = DbConnections.getDetails("frame", 11);
+        for (int i = 0; i < details.length; i++) {
+            if (id.equals(details[i][0])) {
+                return details[i][10];
+            }
+        }
+        return null;
+    }
 }

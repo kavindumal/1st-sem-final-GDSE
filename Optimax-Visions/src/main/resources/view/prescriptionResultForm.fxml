@@ -68,7 +68,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl1" layoutX="170.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl1" layoutX="180.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -78,7 +78,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl11" layoutX="540.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl11" layoutX="570.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -88,7 +88,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl111" layoutX="910.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl111" layoutX="950.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -98,7 +98,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl1111" layoutX="1280.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl1111" layoutX="1300.0" layoutY="484.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -108,7 +108,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl11111" layoutX="1280.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl11111" layoutX="1310.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -118,7 +118,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl111111" layoutX="910.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl111111" layoutX="930.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -128,7 +128,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl1111111" layoutX="540.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl1111111" layoutX="570.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -138,7 +138,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="priceLbl11111111" layoutX="170.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
+      <Label fx:id="priceLbl11111111" layoutX="200.0" layoutY="907.0" opacity="0.0" text="Rs.5000">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>

@@ -263,10 +263,14 @@ public class PrescriptionResultFormController implements Initializable {
         } else {
             for (int i = 0; i < generatedFrames.size(); i++) {
                 paneList.get(i).setVisible(true);
-//                resultImgList.get(i).setImage();
-
-
+                paneList.get(i).setOpacity(1);
+                System.out.println(model.getImage(generatedFrames.get(i).getId()));
+                resultImgList.get(i).setOpacity(1);
+                resultImgList.get(i).setImage(new Image(model.getImage(generatedFrames.get(i).getId())));
                 nameList.get(i).setOpacity(1);
+                nameList.get(i).setText(generatedFrames.get(i).getName());
+                priceList.get(i).setText(String.valueOf(generatedFrames.get(i).getPrice()));
+
                 priceList.get(i).setOpacity(1);
             }
         }
