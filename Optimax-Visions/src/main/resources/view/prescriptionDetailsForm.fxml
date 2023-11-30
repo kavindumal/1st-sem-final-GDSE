@@ -87,7 +87,7 @@
       <JFXComboBox fx:id="cylinderLeftComboBox" layoutX="731.0" layoutY="512.0" prefHeight="42.0" prefWidth="100.0" />
       <JFXComboBox fx:id="addRightCiomboBox" layoutX="1096.0" layoutY="392.0" prefHeight="42.0" prefWidth="100.0" />
       <JFXComboBox fx:id="addLeftCiomboBox" layoutX="1096.0" layoutY="512.0" prefHeight="42.0" prefWidth="100.0" />
-      <JFXComboBox layoutX="536.0" layoutY="722.0" prefHeight="42.0" prefWidth="100.0" />
+      <JFXComboBox fx:id="pdComboBox" layoutX="536.0" layoutY="722.0" prefHeight="42.0" prefWidth="100.0" />
       <Label layoutX="366.0" layoutY="742.0" text="(Pupilary Distance)">
          <font>
             <Font size="15.0" />

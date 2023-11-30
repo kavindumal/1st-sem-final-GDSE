@@ -27,6 +27,9 @@ public class PrescriptionDetailsFormController implements Initializable {
     private JFXComboBox<String> addRightCiomboBox;
 
     @FXML
+    private JFXComboBox<String> pdComboBox;
+
+    @FXML
     private Rectangle appointmentIdRec;
 
     @FXML
@@ -63,6 +66,7 @@ public class PrescriptionDetailsFormController implements Initializable {
 
     @FXML
     void confirmBtnOnAction(ActionEvent event) {
+
         prescriptionSphere = Double.valueOf(sphereLeftComboBox.getValue());
         prescriptionDetailsPane.getChildren().clear();
         try {
@@ -74,6 +78,15 @@ public class PrescriptionDetailsFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> pdList = FXCollections.observableArrayList();
+        int pd = 46;
+        do {
+            pdList.add("\t" + pd);
+            pd = pd + 1;
+
+        } while (pd <= 80);
+        pdComboBox.setItems(pdList);
+
         ObservableList<String> sphereRightList = FXCollections.observableArrayList();
         double countsphere = -16.00;
         do {

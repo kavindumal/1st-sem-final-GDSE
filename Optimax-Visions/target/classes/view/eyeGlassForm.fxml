@@ -45,7 +45,7 @@
       </Label>
       <ImageView fitHeight="102.0" fitWidth="200.0" layoutX="1410.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/prescriptionGlass/coexist.png" />
+            <Image url="@../img/framePhotos/Rayb03165.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="1365.0" layoutY="579.0" prefHeight="285.0" prefWidth="285.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.5;" />
