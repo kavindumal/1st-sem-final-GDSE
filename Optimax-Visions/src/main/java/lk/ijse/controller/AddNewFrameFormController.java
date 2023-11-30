@@ -203,6 +203,7 @@ public class AddNewFrameFormController implements Initializable {
                                         inputErrorLbl.setText(""); qtyRec.setStroke(Color.BLACK);
                                         if (!priceTxt.getText().isEmpty()) {
                                             if (model.setDetailsToDatabase(new FrameDto(frameIdTxt.getText(), nameTxt.getText(), getTypeCheckBox(), getMakeForCheckBox(), getFaceShapeCheckBox(), getFrameShapeCheckBox(), getFrameColorCheckBOx(), getMaterialCheckBox(), Integer.parseInt(qtyOnHandTxt.getText()), Double.parseDouble(priceTxt.getText())), getPhotoLink())) {
+                                                countAF++;
                                                 addNewFramePane.getChildren().clear();
                                                 try {
                                                     addNewFramePane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/frameDetailsForm.fxml"))));
@@ -222,7 +223,7 @@ public class AddNewFrameFormController implements Initializable {
     }
 
     String destinationFolderPath = "C:\\Users\\Kavindu\\Documents\\GDSE 68\\1 st sem Final Project\\eye clinic\\software\\1st-sem-final-GDSE\\Optimax-Visions\\src\\main\\resources\\img\\framePhotos";
-
+    public static int countAF = 0;
     private String getPhotoLink() {
         String link = "";
         if (!framePhotoLink.isEmpty()) {

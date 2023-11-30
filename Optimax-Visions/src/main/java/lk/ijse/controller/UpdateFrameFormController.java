@@ -281,8 +281,8 @@ public class UpdateFrameFormController implements Initializable {
                     checkType(values[i][2]); checkGlass(values[i][3]); checkFace(values[i][4]); checkFrame(values[i][5]); checkFrameColor(values[i][6]); checkMaterial(values[i][7]);
                     qtyOnHandTxt.setText(values[i][8]);
                     priceTxt.setText(values[i][9]);
-                    framePhoto.setImage(new Image("/" + values[i][10]));
-                    defualtPhoto = "/" + values[i][10];
+                    framePhoto.setImage(new Image(values[i][10]));
+                    defualtPhoto = values[i][10];
                 }
             }
         } catch (SQLException e) {
