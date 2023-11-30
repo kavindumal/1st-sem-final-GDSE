@@ -113,5 +113,10 @@
             <Font size="21.0" />
          </font>
       </TextField>
+      <Label fx:id="invalidAppointmentIdTxt" alignment="CENTER" layoutX="1321.0" layoutY="137.0" opacity="0.0" prefHeight="18.0" prefWidth="301.0" text="Invalid appointment ID" textFill="RED">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
