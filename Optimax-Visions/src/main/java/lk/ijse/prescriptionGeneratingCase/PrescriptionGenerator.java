@@ -37,15 +37,18 @@ public class PrescriptionGenerator {
                     lenseTypeForRightEye = "Farsightedness";
                     detailsForRightEye = "He or she doesn't show far. A Farsightedness lens is suitable for eyes and He has astigmatism.Astigmatism is caused by rotational asymmetry in the eye's refractive power, and it often occurs at birth and can change or develop later in life. Correct presbyopia added because the natural farsightedness that happens with age and Do eye surgery quickly!!!";
                 } else if (PrescriptionDetailsFormController.addRight > 0 && PrescriptionDetailsFormController.addRight <= 4) {
-
+                    lenseTypeForRightEye = "Farsightedness";
+                    detailsForRightEye = "He or she doesn't show far. A Farsightedness lens is suitable for eyes and He has astigmatism.Astigmatism is caused by rotational asymmetry in the eye's refractive power, and it often occurs at birth and can change or develop later in life. Correct presbyopia added because the natural farsightedness that happens with age and Do eye surgery quickly!!!";
                 } else if (PrescriptionDetailsFormController.addRight > 4) {
-
+                    lenseTypeForRightEye = "Farsightedness";
+                    detailsForRightEye = "He or she doesn't show far. A Farsightedness lens is suitable for eyes and He has astigmatism.Astigmatism is caused by rotational asymmetry in the eye's refractive power, and it often occurs at birth and can change or develop later in life. Correct presbyopia added because the natural farsightedness that happens with age and Do eye surgery quickly!!!";
                 }
             }
         } else if (PrescriptionDetailsFormController.sphereRight < 0) {
             if (PrescriptionDetailsFormController.cylRight == 0) {
                 if (PrescriptionDetailsFormController.addRight == 0) {
-
+                    lenseTypeForRightEye = "Farsightedness";
+                    detailsForRightEye = "He or she doesn't show far. A Farsightedness lens is suitable for eyes and He has astigmatism.Astigmatism is caused by rotational asymmetry in the eye's refractive power, and it often occurs at birth and can change or develop later in life. Correct presbyopia added because the natural farsightedness that happens with age and Do eye surgery quickly!!!";
                 } else if (PrescriptionDetailsFormController.addRight > 0 && PrescriptionDetailsFormController.addRight <= 4) {
 
                 } else if (PrescriptionDetailsFormController.addRight > 4) {
