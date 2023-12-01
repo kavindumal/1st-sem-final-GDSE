@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orderBill" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="609d2ac5-2f1d-4589-ab67-5e4e2f9893cd">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="345"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="643"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="lensePrice" class="java.lang.String"/>
+	<field name="framePrice" class="java.lang.String"/>
+	<field name="prescriptionPrice" class="java.lang.String"/>
+	<field name="specialFeatures" class="java.lang.String"/>
+	<field name="subTotal" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="156" y="30" width="260" height="30" forecolor="#1C1CD9" uuid="3210c3c5-5aa8-4205-aa60-4f3653d77227"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Console" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Optimax Vision Care]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="10" width="100" height="30" uuid="e2c88911-1991-4fad-9ed9-efeeb8f0d881"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Pay bill]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="348" splitType="Stretch">
+			<textField>
+				<reportElement x="330" y="0" width="100" height="30" uuid="08f003e7-cb07-439e-a0d9-a2ebea362e86"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lensePrice}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="0" width="100" height="30" uuid="30a8a28f-7e08-4f70-a442-6087c67a007a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[lense Price]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="61" width="100" height="30" uuid="df2ad1f4-3228-4abd-ad52-7698f9c0ae9c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{framePrice}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="60" width="100" height="30" uuid="6edf5c8f-2ce8-4c7e-a15d-2aefddfd4173"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[frame Price]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="120" width="100" height="30" uuid="9ff36979-0d67-404c-aba1-0c1b8fa80809"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prescriptionPrice}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="120" y="120" width="120" height="30" uuid="bc2901c7-e27d-490f-bf3c-ffef672b3378"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Prescription Price]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="180" width="100" height="30" uuid="2dcdea56-59d1-45d0-9617-3e272c17b200"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{specialFeatures}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="125" y="180" width="110" height="30" uuid="c6e09c9e-eeb2-483c-8de2-ef18c444c60a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Special Features]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="240" width="100" height="30" uuid="88c013d1-eb48-4fd1-86db-126e4f84b6b5"/>
+				<textElement textAlignment="Left">
+					<font size="19" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="240" width="100" height="30" uuid="2d7c8ac6-06b3-41e8-9621-f7896f30f5cb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Sub total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="300" width="100" height="30" uuid="3a8977d8-9e7b-4016-bf7a-65daec71927d"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="300" width="100" height="30" uuid="86342f49-2b7b-4325-9540-b3840ce6d14e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="168" y="8" width="224" height="30" uuid="cc01071d-a315-43f6-866b-7adefde095d7"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Thank you and come again!]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

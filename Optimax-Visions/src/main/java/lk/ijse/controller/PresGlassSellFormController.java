@@ -17,11 +17,16 @@ import lk.ijse.model.FrameModel;
 import lk.ijse.model.LenseModel;
 import lk.ijse.model.PrescriptionModel;
 import lombok.SneakyThrows;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class PresGlassSellFormController implements Initializable {
@@ -105,10 +110,18 @@ public class PresGlassSellFormController implements Initializable {
     }
 
     @FXML
-    void placeOrderBtnOnAction(ActionEvent event) throws SQLException {
+    void placeOrderBtnOnAction(ActionEvent event) throws SQLException, JRException {
         PrescriptionModel prescriptionModel = new PrescriptionModel();
         if (prescriptionModel.updateValues()) {
-            System.out.println("hari bn update");
+            JasperReport jasperReport = JasperCompileManager.compileReport("report/orderBill.jrxml");
+
+//            YourBeanClass bean = new YourBeanClass();
+//            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(List.of(bean));
+            Map<String, Object> parameters = new HashMap<>();
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+
+            JasperViewer.viewReport(jasperPrint, false);
+
         } else {
             System.out.println("nane hutto cvaradiy");
         }
