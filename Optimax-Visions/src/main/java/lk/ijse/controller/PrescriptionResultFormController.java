@@ -19,6 +19,7 @@ import lombok.SneakyThrows;
 import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -28,9 +29,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class PrescriptionResultFormController implements Initializable {
-
-    @FXML
-    private FontIcon addtoCartFontIcon;
 
     @FXML
     private PrefixSelectionComboBox<String> leftEyeLenseComboBox;
@@ -141,10 +139,35 @@ public class PrescriptionResultFormController implements Initializable {
     public static String name;
     public static String lenseChange;
 
+    @FXML
+    private FontIcon addtoCartFontIcon1;
+
+    @FXML
+    private FontIcon addtoCartFontIcon2;
+
+    @FXML
+    private FontIcon addtoCartFontIcon3;
+
+    @FXML
+    private FontIcon addtoCartFontIcon4;
+
+    @FXML
+    private FontIcon addtoCartFontIcon5;
+
+    @FXML
+    private FontIcon addtoCartFontIcon6;
+
+    @FXML
+    private FontIcon addtoCartFontIcon7;
+
+    @FXML
+    private FontIcon addtoCartFontIcon8;
+
     List<Pane> paneList = new ArrayList<>();
     List<Label> nameList = new ArrayList<Label>();
     List<Label> priceList = new ArrayList<Label>();
     List<ImageView> resultImgList = new ArrayList<ImageView>();
+    List<FontIcon> fontIconList = new ArrayList<FontIcon>();
     @FXML
     void results1PaneOnMouseEntered(MouseEvent event) {
 
@@ -225,17 +248,6 @@ public class PrescriptionResultFormController implements Initializable {
 
     }
 
-
-    @FXML
-    void fontIconClickedAction(MouseEvent event) {
-        prescriptionResultPane.getChildren().clear();
-        try {
-            prescriptionResultPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/presGlassSellForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -252,6 +264,7 @@ public class PrescriptionResultFormController implements Initializable {
         addPanesToPaneList();
         addNameLabelsToLabelList();
         addPriceLabelsToLabelList();
+        addtoCartFontIconToLabelList();
         addResultImageToList();
         PrescriptionModel model = new PrescriptionModel();
         List<FrameDto> generatedFrames = model.getGeneratedFrames();
@@ -315,6 +328,28 @@ public class PrescriptionResultFormController implements Initializable {
                 leftEyeLenseComboBox.setValue(lenseDetails[i][1]);
                 break;
             }
+        }
+    }
+
+    private void addtoCartFontIconToLabelList() {
+        fontIconList.add(addtoCartFontIcon1);
+        fontIconList.add(addtoCartFontIcon2);
+        fontIconList.add(addtoCartFontIcon3);
+        fontIconList.add(addtoCartFontIcon4);
+        fontIconList.add(addtoCartFontIcon8);
+        fontIconList.add(addtoCartFontIcon7);
+        fontIconList.add(addtoCartFontIcon6);
+        fontIconList.add(addtoCartFontIcon5);
+
+        for (int i = 0; i < fontIconList.size(); i++) {
+            fontIconList.get(i).setOnMouseClicked(event -> {
+                prescriptionResultPane.getChildren().clear();
+                try {
+                    prescriptionResultPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/presGlassSellForm.fxml"))));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         }
     }
 
