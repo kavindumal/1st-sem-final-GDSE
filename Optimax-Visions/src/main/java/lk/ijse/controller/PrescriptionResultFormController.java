@@ -1,5 +1,7 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,13 +12,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.dto.FrameDto;
+import lk.ijse.model.LenseModel;
 import lk.ijse.model.PrescriptionModel;
+import lk.ijse.prescriptionGeneratingCase.PrescriptionGenerator;
 import lombok.SneakyThrows;
 import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +33,10 @@ public class PrescriptionResultFormController implements Initializable {
     private FontIcon addtoCartFontIcon;
 
     @FXML
-    private PrefixSelectionComboBox<String> lenseChangeComboBox;
+    private PrefixSelectionComboBox<String> leftEyeLenseComboBox;
+
+    @FXML
+    private PrefixSelectionComboBox<String> rightEyeLenseComboBox;
 
     @FXML
     private AnchorPane prescriptionResultPane;
@@ -132,6 +140,11 @@ public class PrescriptionResultFormController implements Initializable {
     public static Image img;
     public static String name;
     public static String lenseChange;
+
+    List<Pane> paneList = new ArrayList<>();
+    List<Label> nameList = new ArrayList<Label>();
+    List<Label> priceList = new ArrayList<Label>();
+    List<ImageView> resultImgList = new ArrayList<ImageView>();
     @FXML
     void results1PaneOnMouseEntered(MouseEvent event) {
 
@@ -223,14 +236,12 @@ public class PrescriptionResultFormController implements Initializable {
         }
     }
 
-    List<Pane> paneList = new ArrayList<>();
-    List<Label> nameList = new ArrayList<Label>();
-    List<Label> priceList = new ArrayList<Label>();
-    List<ImageView> resultImgList = new ArrayList<ImageView>();
-
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addLenseToComboBox();
+        PrescriptionGenerator.checkSuitableLenseForRightEyeGlass();
+        PrescriptionGenerator.checkSuitableLenseForLeftEyeGlass();
         addPanesToPaneList();
         addNameLabelsToLabelList();
         addPriceLabelsToLabelList();
@@ -264,7 +275,6 @@ public class PrescriptionResultFormController implements Initializable {
             for (int i = 0; i < generatedFrames.size(); i++) {
                 paneList.get(i).setVisible(true);
                 paneList.get(i).setOpacity(1);
-                System.out.println(model.getImage(generatedFrames.get(i).getId()));
                 resultImgList.get(i).setOpacity(1);
                 resultImgList.get(i).setImage(new Image(model.getImage(generatedFrames.get(i).getId())));
                 nameList.get(i).setOpacity(1);
@@ -274,6 +284,17 @@ public class PrescriptionResultFormController implements Initializable {
                 priceList.get(i).setOpacity(1);
             }
         }
+    }
+
+    private void addLenseToComboBox() throws SQLException {
+        LenseModel model = new LenseModel();
+        String[][] lenseDetails = model.getLenseDetails();
+        ObservableList<String> problemChoices = FXCollections.observableArrayList();
+        for (int i = 0; i < lenseDetails.length; i++) {
+            problemChoices.add(lenseDetails[i][1]);
+        }
+        leftEyeLenseComboBox.setItems(problemChoices);
+        rightEyeLenseComboBox.setItems(problemChoices);
     }
 
     private void addResultImageToList() {
@@ -292,10 +313,10 @@ public class PrescriptionResultFormController implements Initializable {
         priceList.add(priceLbl11);
         priceList.add(priceLbl111);
         priceList.add(priceLbl1111);
-        priceList.add(priceLbl11111);
-        priceList.add(priceLbl111111);
-        priceList.add(priceLbl1111111);
         priceList.add(priceLbl11111111);
+        priceList.add(priceLbl1111111);
+        priceList.add(priceLbl111111);
+        priceList.add(priceLbl11111);
     }
 
     private void addNameLabelsToLabelList() {
@@ -303,10 +324,10 @@ public class PrescriptionResultFormController implements Initializable {
         nameList.add(resultLbl11);
         nameList.add(resultLbl111);
         nameList.add(resultLbl1111);
-        nameList.add(resultLbl11111);
-        nameList.add(resultLbl111111);
-        nameList.add(resultLbl1111111);
         nameList.add(resultLbl11111111);
+        nameList.add(resultLbl1111111);
+        nameList.add(resultLbl111111);
+        nameList.add(resultLbl11111);
     }
 
     private void addPanesToPaneList() {
