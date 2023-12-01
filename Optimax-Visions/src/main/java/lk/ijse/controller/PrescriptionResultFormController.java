@@ -240,8 +240,13 @@ public class PrescriptionResultFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addLenseToComboBox();
+
         PrescriptionGenerator.checkSuitableLenseForRightEyeGlass();
+        String lenseTypeForRightEye = PrescriptionGenerator.lenseTypeForRightEye;
+
         PrescriptionGenerator.checkSuitableLenseForLeftEyeGlass();
+        String lenseTypeForLeftEye = PrescriptionGenerator.lenseTypeForLeftEye;
+
         addPanesToPaneList();
         addNameLabelsToLabelList();
         addPriceLabelsToLabelList();
