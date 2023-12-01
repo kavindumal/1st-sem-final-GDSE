@@ -5,6 +5,7 @@ import lk.ijse.db.DbConnections;
 import lk.ijse.dto.FrameDto;
 import lk.ijse.prescriptionGeneratingCase.PrescriptionGeneratingCase;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,55 @@ public class PrescriptionModel {
         for (int i = 0; i < details.length; i++) {
             if (id.equals(details[i][0])) {
                 return details[i][10];
+            }
+        }
+        return null;
+    }
+
+    public boolean updateValues() throws SQLException {
+        boolean result = false;
+        Connection connection = null;
+        try {
+            connection = DbConnections.getInstance().getConnection();
+            connection.setAutoCommit(false);
+
+            LenseModel lenseModel = new LenseModel();
+            FrameModel frameModel = new FrameModel();
+            TransactionModel transactionModel = new TransactionModel();
+
+            if (lenseModel.updateRightLense()) {
+                if (lenseModel.updateLeftLense()) {
+                    if (frameModel.updateFrameModel()) {
+                        if (transactionModel.setValuesToDatabase()) {
+                            if (setPrescriptionToDatabase()) {
+                                connection.commit();
+                                result = true;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+            connection.rollback();
+        } finally {
+            connection.setAutoCommit(true);
+        }
+        return result;
+    }
+
+    private boolean setPrescriptionToDatabase() throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.prescription (patientId, sphereRight, sphereLeft, cylRight, cylLeft, axisRight, axisLeft,\n" +
+                "                                     addRight, addLeft, pdDistance)\n" +
+                "VALUES ('"+ getPatientId() +"', "+ PrescriptionDetailsFormController.sphereRight +", "+ PrescriptionDetailsFormController.sphereLeft +", "+ PrescriptionDetailsFormController.cylRight +", "+ PrescriptionDetailsFormController.cylLeft +", "+ PrescriptionDetailsFormController.axisRight +", "+ PrescriptionDetailsFormController.axisLeft +", "+ PrescriptionDetailsFormController.addRight +", "+ PrescriptionDetailsFormController.addLeft +", "+ PrescriptionDetailsFormController.pd +");\n" +
+                "\n");
+    }
+
+    private String getPatientId() throws SQLException {
+        String[][] details = DbConnections.getDetails("appointment", 8);
+        for (int i = 0; i < details.length; i++) {
+            if (PrescriptionDetailsFormController.appointmentId.equals(details[i][0])) {
+                return details[i][6];
             }
         }
         return null;

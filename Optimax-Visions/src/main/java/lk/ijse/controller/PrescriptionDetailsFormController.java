@@ -80,30 +80,33 @@ public class PrescriptionDetailsFormController implements Initializable {
     public static double addRight;
     public static double addLeft;
     public static int pd;
+    public static String appointmentId;
 
     @FXML
     void confirmBtnOnAction(ActionEvent event) {
-        if (!sphereRightComboBox.getValue().isEmpty()) {
-            if (!sphereLeftComboBox.getValue().isEmpty()) {
-                if (!cylinderRightComboBox.getValue().isEmpty()) {
-                    if (!cylinderLeftComboBox.getValue().isEmpty()) {
-                        if (!axisRightComboBox.getText().isEmpty()) {
-                            if (!axisLeftComboBox.getText().isEmpty()) {
-                                sphereRight = Double.parseDouble(sphereRightComboBox.getValue());
-                                sphereLeft = Double.parseDouble(sphereLeftComboBox.getValue());
-                                cylRight = Double.parseDouble(cylinderRightComboBox.getValue());
-                                cylLeft = Double.parseDouble(cylinderLeftComboBox.getValue());
-                                axisRight = Integer.parseInt(axisRightComboBox.getText());
-                                axisLeft = Integer.parseInt(axisLeftComboBox.getText());
-                                addRight = Double.parseDouble(addRightCiomboBox.getValue());
-                                addLeft = Double.parseDouble(addLeftCiomboBox.getValue());
-                                pd = Integer.parseInt(pdComboBox.getValue());
+        if (count == 1) {
+            if (!sphereRightComboBox.getValue().isEmpty()) {
+                if (!sphereLeftComboBox.getValue().isEmpty()) {
+                    if (!cylinderRightComboBox.getValue().isEmpty()) {
+                        if (!cylinderLeftComboBox.getValue().isEmpty()) {
+                            if (!axisRightComboBox.getText().isEmpty()) {
+                                if (!axisLeftComboBox.getText().isEmpty()) {
+                                    sphereRight = Double.parseDouble(sphereRightComboBox.getValue());
+                                    sphereLeft = Double.parseDouble(sphereLeftComboBox.getValue());
+                                    cylRight = Double.parseDouble(cylinderRightComboBox.getValue());
+                                    cylLeft = Double.parseDouble(cylinderLeftComboBox.getValue());
+                                    axisRight = Integer.parseInt(axisRightComboBox.getText());
+                                    axisLeft = Integer.parseInt(axisLeftComboBox.getText());
+                                    addRight = Double.parseDouble(addRightCiomboBox.getValue());
+                                    addLeft = Double.parseDouble(addLeftCiomboBox.getValue());
+                                    pd = Integer.parseInt(pdComboBox.getValue());
 
-                                prescriptionDetailsPane.getChildren().clear();
-                                try {
-                                    prescriptionDetailsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectGenderForm.fxml"))));
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
+                                    prescriptionDetailsPane.getChildren().clear();
+                                    try {
+                                        prescriptionDetailsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/selectGenderForm.fxml"))));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                 }
                             }
                         }
@@ -118,8 +121,10 @@ public class PrescriptionDetailsFormController implements Initializable {
     @FXML
     private Label invalidAppointmentIdTxt;
 
+    private int count;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        count = 0;
         PrescriptionModel model = new PrescriptionModel();
         JFXButton button = new JFXButton("Check");
         button.setLayoutX(1389);
@@ -149,11 +154,13 @@ public class PrescriptionDetailsFormController implements Initializable {
                         fadeInTransition.setToValue(1.0);
                         fadeInTransition.play();
 
+                        count = 1;
                         prescriptionDetailsPane.getChildren().add(newFontIcon);
                         appointmentIdTxt.setEditable(false);
                     });
                     fadeTransition.play();
                     checkAppointmentId = true;
+                    appointmentId = appointmentIdTxt.getText();
                 }
                 else {
                     AlertSound alertSound = new AlertSound();

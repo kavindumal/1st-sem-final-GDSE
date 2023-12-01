@@ -1,5 +1,6 @@
 package lk.ijse.model;
 
+import lk.ijse.controller.PresGlassSellFormController;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.TransactionDto;
 
@@ -34,5 +35,11 @@ public class TransactionModel {
             dtoList.add(new TransactionDto(id, description,time,date, amount));
         }
         return dtoList;
+    }
+
+    public boolean setValuesToDatabase() throws SQLException {
+        return DbConnections.setDetails("INSERT INTO visioncare.payment (description, paymentType, time, date, amount)\n" +
+                "VALUES ('Prescription order', 'cash', '"+ LocalTime.now() +"', '"+ LocalDate.now() +"', "+ PresGlassSellFormController.totalPrice +");\n" +
+                "\n");
     }
 }

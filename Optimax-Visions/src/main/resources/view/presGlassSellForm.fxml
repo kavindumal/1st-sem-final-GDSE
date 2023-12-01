@@ -99,7 +99,7 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="1168.0" layoutY="707.0" prefHeight="59.0" prefWidth="365.0" style="-fx-background-color: #1A4BCC; -fx-background-radius: 30;" text="Place order" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1168.0" layoutY="707.0" onAction="#placeOrderBtnOnAction" prefHeight="59.0" prefWidth="365.0" style="-fx-background-color: #1A4BCC; -fx-background-radius: 30;" text="Place order" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>

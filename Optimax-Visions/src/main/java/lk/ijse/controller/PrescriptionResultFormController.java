@@ -19,7 +19,6 @@ import lombok.SneakyThrows;
 import org.controlsfx.control.PrefixSelectionComboBox;
 import org.kordamp.ikonli.javafx.FontIcon;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -248,6 +247,8 @@ public class PrescriptionResultFormController implements Initializable {
 
     }
 
+    List<FrameDto> generatedFrames = new ArrayList<>();
+
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -267,7 +268,7 @@ public class PrescriptionResultFormController implements Initializable {
         addtoCartFontIconToLabelList();
         addResultImageToList();
         PrescriptionModel model = new PrescriptionModel();
-        List<FrameDto> generatedFrames = model.getGeneratedFrames();
+        generatedFrames = model.getGeneratedFrames();
         if (generatedFrames.isEmpty()) {
             ImageView imageView = new ImageView(new Image("img/icons/sorry.gif"));
             imageView.setFitHeight(150);
@@ -342,7 +343,11 @@ public class PrescriptionResultFormController implements Initializable {
         fontIconList.add(addtoCartFontIcon5);
 
         for (int i = 0; i < fontIconList.size(); i++) {
+            final int count  = i;
             fontIconList.get(i).setOnMouseClicked(event -> {
+                leftlenseValue = leftEyeLenseComboBox.getValue();
+                rightlenseValue = rightEyeLenseComboBox.getValue();
+                dto = generatedFrames.get(count);
                 prescriptionResultPane.getChildren().clear();
                 try {
                     prescriptionResultPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/presGlassSellForm.fxml"))));
@@ -352,6 +357,9 @@ public class PrescriptionResultFormController implements Initializable {
             });
         }
     }
+    public static FrameDto dto;
+    public static String leftlenseValue;
+    public static String rightlenseValue;
 
     private void addResultImageToList() {
         resultImgList.add(resultImg1);

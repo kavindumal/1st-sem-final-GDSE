@@ -1,6 +1,7 @@
 package lk.ijse.model;
 
 import com.jfoenix.controls.JFXButton;
+import lk.ijse.controller.PresGlassSellFormController;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.FrameDetailsDto;
 import lk.ijse.dto.FrameDto;
@@ -67,6 +68,13 @@ public class FrameModel {
                 "    t.price      = "+ frameDto.getPrice() +",\n" +
                 "    t.photo      = '"+ photoLink + "'\n" +
                 "WHERE t.frameId LIKE '"+ frameDto.getId() +"' ESCAPE '#';\n" +
+                "\n");
+    }
+
+    public boolean updateFrameModel() throws SQLException {
+        return DbConnections.setDetails("UPDATE visioncare.frame t\n" +
+                "SET t.qtyOnHand = "+ (PresGlassSellFormController.qty - 1) +"\n" +
+                "WHERE t.frameId LIKE '"+ PresGlassSellFormController.frameId +"' ESCAPE '#';\n" +
                 "\n");
     }
 }

@@ -1,6 +1,7 @@
 package lk.ijse.model;
 
 import com.jfoenix.controls.JFXButton;
+import lk.ijse.controller.PresGlassSellFormController;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.LenseDetailsDto;
 import lk.ijse.dto.LenseDto;
@@ -78,5 +79,19 @@ public class LenseModel {
 
     public String[][] getLenseDetails() throws SQLException {
         return DbConnections.getDetails("lense", 5);
+    }
+
+    public boolean updateRightLense() throws SQLException {
+        return DbConnections.setDetails("UPDATE visioncare.lense t\n" +
+                "SET t.qtyOnHand = "+ (PresGlassSellFormController.lenseQtyRight - 1) +"\n" +
+                "WHERE t.lenseId LIKE '"+ PresGlassSellFormController.lenseIfRight +"' ESCAPE '#';\n" +
+                "\n");
+    }
+
+    public boolean updateLeftLense() throws SQLException {
+        return DbConnections.setDetails("UPDATE visioncare.lense t\n" +
+                "SET t.qtyOnHand = "+ (PresGlassSellFormController.lenseQtyLeft - 1) +"\n" +
+                "WHERE t.lenseId LIKE '"+ PresGlassSellFormController.lenseIfLeft +"' ESCAPE '#';\n" +
+                "\n");
     }
 }
