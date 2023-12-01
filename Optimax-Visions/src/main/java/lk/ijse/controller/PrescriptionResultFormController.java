@@ -239,13 +239,15 @@ public class PrescriptionResultFormController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        addLenseToComboBox();
 
         PrescriptionGenerator.checkSuitableLenseForRightEyeGlass();
         String lenseTypeForRightEye = PrescriptionGenerator.lenseTypeForRightEye;
 
         PrescriptionGenerator.checkSuitableLenseForLeftEyeGlass();
         String lenseTypeForLeftEye = PrescriptionGenerator.lenseTypeForLeftEye;
+
+        addLenseToComboBox(lenseTypeForRightEye, lenseTypeForLeftEye);
+
 
         addPanesToPaneList();
         addNameLabelsToLabelList();
@@ -291,7 +293,7 @@ public class PrescriptionResultFormController implements Initializable {
         }
     }
 
-    private void addLenseToComboBox() throws SQLException {
+    private void addLenseToComboBox(String lenseRight, String lenseLeft) throws SQLException {
         LenseModel model = new LenseModel();
         String[][] lenseDetails = model.getLenseDetails();
         ObservableList<String> problemChoices = FXCollections.observableArrayList();
@@ -300,6 +302,20 @@ public class PrescriptionResultFormController implements Initializable {
         }
         leftEyeLenseComboBox.setItems(problemChoices);
         rightEyeLenseComboBox.setItems(problemChoices);
+
+        for (int i = 0; i < lenseDetails.length; i++) {
+            if (lenseDetails[i][2].equals(lenseRight)) {
+                rightEyeLenseComboBox.setValue(lenseDetails[i][1]);
+                break;
+            }
+        }
+
+        for (int i = 0; i < lenseDetails.length; i++) {
+            if (lenseDetails[i][2].equals(lenseLeft)) {
+                leftEyeLenseComboBox.setValue(lenseDetails[i][1]);
+                break;
+            }
+        }
     }
 
     private void addResultImageToList() {
