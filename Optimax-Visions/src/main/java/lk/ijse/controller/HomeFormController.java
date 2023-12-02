@@ -107,6 +107,8 @@ public class HomeFormController implements Initializable {
 
         int count1 = 154;
         int count2 = 167;
+        int count3 = 177;
+
         for (int i = 0; i < times.size(); i++) {
             Pane pane1 = new Pane();
             pane1.setStyle("-fx-background-color: rgba(255,255,255,0.51); -fx-background-radius: 30; ");
@@ -119,11 +121,22 @@ public class HomeFormController implements Initializable {
             ImageView imageView = new ImageView();
             Pane pane2 = new Pane();
             imageView.setImage(new Image("/img/icons/pulse.gif"));
-            if (i < 1) {
-                pane2.setStyle("-fx-background-radius: 30;-fx-background-color: red");
-            }else {
-                pane2.setStyle("-fx-background-radius: 30;-fx-background-color: blue");
+
+            Label label = new Label();
+            for (int j = 0; j < getTodayData.size(); j++) {
+                if (Double.parseDouble(getTodayData.get(j).getTime()) == times.get(i)) {
+                    if (times.get(i) >= 8 && times.get(i) < 12.00) {
+                        label.setText(getTodayData.get(i).getTime() + " A.M.");
+                    } else {
+                        label.setText(getTodayData.get(i).getTime() + " P.M.");
+                    }
+                }
             }
+
+
+            label.setStyle("-fx-font-size: 18px;");
+            pane2.setStyle("-fx-background-radius: 30;-fx-background-color: blue");
+
             pane2.setPrefWidth(67);
             pane2.setPrefHeight(79);
             pane2.setLayoutX(1391);
@@ -136,8 +149,13 @@ public class HomeFormController implements Initializable {
             imageView.setLayoutY(count2);
             homePane.getChildren().add(imageView);;;
 
+            label.setLayoutX(1475);
+            label.setLayoutY(count3);
+            homePane.getChildren().add(label);
+
             count1 = count1 + 106;
             count2 = count2 + 106;
+            count3 = count3 + 106;
         }
     }
 
