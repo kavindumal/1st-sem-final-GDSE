@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
@@ -103,28 +105,39 @@ public class HomeFormController implements Initializable {
         }
         Collections.sort(times);
 
-        int count = 154;
+        int count1 = 154;
+        int count2 = 167;
         for (int i = 0; i < times.size(); i++) {
             Pane pane1 = new Pane();
             pane1.setStyle("-fx-background-color: rgba(255,255,255,0.51); -fx-background-radius: 30; ");
             pane1.setPrefWidth(200);
             pane1.setPrefHeight(80);
             pane1.setLayoutX(1391);
-            pane1.setLayoutY(count);
+            pane1.setLayoutY(count1);
             homePane.getChildren().add(pane1);
-            count = count + 106;
 
+            ImageView imageView = new ImageView();
             Pane pane2 = new Pane();
+            imageView.setImage(new Image("/img/icons/pulse.gif"));
             if (i < 1) {
                 pane2.setStyle("-fx-background-radius: 30;-fx-background-color: red");
             }else {
                 pane2.setStyle("-fx-background-radius: 30;-fx-background-color: blue");
             }
             pane2.setPrefWidth(67);
-            pane2.setPrefWidth(79);
+            pane2.setPrefHeight(79);
             pane2.setLayoutX(1391);
-            pane2.setLayoutY(count);
+            pane2.setLayoutY(count1);
             homePane.getChildren().add(pane2);
+
+            imageView.setFitWidth(45);
+            imageView.setFitHeight(45);
+            imageView.setLayoutX(1405);
+            imageView.setLayoutY(count2);
+            homePane.getChildren().add(imageView);;;
+
+            count1 = count1 + 106;
+            count2 = count2 + 106;
         }
     }
 
