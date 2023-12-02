@@ -26,6 +26,7 @@ import lombok.SneakyThrows;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
@@ -117,6 +118,14 @@ public class HomeFormController implements Initializable {
                 todayTotal = todayTotal + allValues.get(i).getAmount();
             }
         }
+
+        double yesterdayDate = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getDate().equals(LocalDate.now().minusDays(1))) {
+                yesterdayDate = yesterdayDate + allValues.get(i).getAmount();
+            }
+        }
+
         Label label1 = new Label();
         label1.setText("Yesterday income");
         label1.setLayoutX(132);
@@ -126,12 +135,60 @@ public class HomeFormController implements Initializable {
         homePane.getChildren().add(label1);
 
         Label label2 = new Label();
-        label2.setText("Rs. " + todayTotal);
+        label2.setText("Rs. " + yesterdayDate);
         label2.setLayoutX(140);
         label2.setLayoutY(745);
         label2.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
 
         homePane.getChildren().add(label2);
+
+        Label label3 = new Label();
+        label3.setText("Today income");
+        label3.setLayoutX(412);
+        label3.setLayoutY(668);
+        label3.setStyle("-fx-font-size: 26px");
+
+        homePane.getChildren().add(label3);
+
+        Label label4 = new Label();
+        label4.setText("Rs. " + todayTotal);
+        label4.setLayoutX(420);
+        label4.setLayoutY(745);
+        label4.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
+
+        homePane.getChildren().add(label4);
+
+        double percentageOfToday = 0;
+        if (todayTotal > yesterdayDate) {
+            percentageOfToday = ((todayTotal - yesterdayDate) / yesterdayDate) * 100;
+        } else if (todayTotal < yesterdayDate) {
+            percentageOfToday = ((yesterdayDate - todayTotal) / todayTotal) * 100;
+        }
+
+        double persentageOfYesterday = 0;
+        if (yesterdayDate > todayTotal) {
+            persentageOfYesterday = ((yesterdayDate - todayTotal) / todayTotal) * 100;
+        } else if (yesterdayDate < todayTotal) {
+            persentageOfYesterday = ((todayTotal - yesterdayDate) / yesterdayDate) * 100;
+        }
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
+        Label label5 = new Label();
+        label5.setText(decimalFormat.format(percentageOfToday) + " %");
+        label5.setLayoutX(160);
+        label5.setLayoutY(800);
+        label5.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
+
+        homePane.getChildren().add(label5);
+
+        Label label6 = new Label();
+        label6.setText(decimalFormat.format(persentageOfYesterday) + " %");
+        label6.setLayoutX(440);
+        label6.setLayoutY(800);
+        label6.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
+
+        homePane.getChildren().add(label6);
     }
 
     private void setAppointmentToday() throws SQLException {
