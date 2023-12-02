@@ -15,8 +15,11 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import lk.ijse.dto.TransactionDto;
 import lk.ijse.dto.tm.AppointmentTm;
 import lk.ijse.model.AddNewAppointmentModel;
+import lk.ijse.model.TransactionModel;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
@@ -85,9 +88,15 @@ public class HomeFormController implements Initializable {
         };
         timer.start();
         setChartData();
+        setAppointmentToday();
+    }
+
+    private void setAppointmentToday() {
+
     }
 
     private void setChartData() throws SQLException {
+        recentTransactionSBC.setStyle("-fx-background-color: transparent;");
         ObservableList<String> obList = FXCollections.observableArrayList();
         obList.add("Mon");
         obList.add("Tue");
@@ -104,6 +113,9 @@ public class HomeFormController implements Initializable {
         AddNewAppointmentModel appointmentModel = new AddNewAppointmentModel();
         List<AppointmentTm> allData = appointmentModel.getAllData();
 
+        TransactionModel model = new TransactionModel();
+        List<TransactionDto> allValues = model.getAllValues();
+
         final XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Appointment");
         series1.getData().add(new XYChart.Data<>("Mon", getAppointmentDetailsForMonday(allData)));
@@ -116,15 +128,99 @@ public class HomeFormController implements Initializable {
 
         final XYChart.Series<String, Number> series2 = new XYChart.Series<>();
         series2.setName("Buy Prescription");
-        series2.getData().add(new XYChart.Data<>("Mon", 2500));
-        series2.getData().add(new XYChart.Data<>("Tue", 2500));
-        series2.getData().add(new XYChart.Data<>("Wed", 2500));
-        series2.getData().add(new XYChart.Data<>("Thu", 2500));
-        series2.getData().add(new XYChart.Data<>("Fri", 2500));
-        series2.getData().add(new XYChart.Data<>("Sat", 2500));
-        series2.getData().add(new XYChart.Data<>("Sun", 2500));
+        series2.getData().add(new XYChart.Data<>("Mon", getPrescriptionDetailsForMon(allValues)));
+        series2.getData().add(new XYChart.Data<>("Tue", getPrescriptionDetailsForTue(allValues)));
+        series2.getData().add(new XYChart.Data<>("Wed", getPrescriptionDetailsForWed(allValues)));
+        series2.getData().add(new XYChart.Data<>("Thu", getPrescriptionDetailsForThu(allValues)));
+        series2.getData().add(new XYChart.Data<>("Fri", getPrescriptionDetailsForFri(allValues)));
+        series2.getData().add(new XYChart.Data<>("Sat", getPrescriptionDetailsForSat(allValues)));
+        series2.getData().add(new XYChart.Data<>("Sun", getPrescriptionDetailsForSun(allValues)));
 
         recentTransactionSBC.getData().addAll(series1, series2);
+    }
+
+    private double getPrescriptionDetailsForSun(List<TransactionDto> allValues) {
+        double total = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getTransactionType().equals("Prescription order")) {
+                if (allValues.get(i).getDate().getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+                    total = total + allValues.get(i).getAmount();
+                }
+            }
+        }
+        return total;
+    }
+
+    private double getPrescriptionDetailsForSat(List<TransactionDto> allValues) {
+        double total = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getTransactionType().equals("Prescription order")) {
+                if (allValues.get(i).getDate().getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+                    total = total + allValues.get(i).getAmount();
+                }
+            }
+        }
+        return total;
+    }
+
+    private double getPrescriptionDetailsForFri(List<TransactionDto> allValues) {
+        double total = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getTransactionType().equals("Prescription order")) {
+                if (allValues.get(i).getDate().getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+                    total = total + allValues.get(i).getAmount();
+                }
+            }
+        }
+        return total;
+    }
+
+    private double getPrescriptionDetailsForThu(List<TransactionDto> allValues) {
+        double total = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getTransactionType().equals("Prescription order")) {
+                if (allValues.get(i).getDate().getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+                    total = total + allValues.get(i).getAmount();
+                }
+            }
+        }
+        return total;
+    }
+
+    private double getPrescriptionDetailsForWed(List<TransactionDto> allValues) {
+        double total = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getTransactionType().equals("Prescription order")) {
+                if (allValues.get(i).getDate().getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
+                    total = total + allValues.get(i).getAmount();
+                }
+            }
+        }
+        return total;
+    }
+
+    private double getPrescriptionDetailsForTue(List<TransactionDto> allValues) {
+        double total = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getTransactionType().equals("Prescription order")) {
+                if (allValues.get(i).getDate().getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
+                    total = total + allValues.get(i).getAmount();
+                }
+            }
+        }
+        return total;
+    }
+
+    private double getPrescriptionDetailsForMon(List<TransactionDto> allValues) {
+        double total = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getTransactionType().equals("Prescription order")) {
+                if (allValues.get(i).getDate().getDayOfWeek().equals(DayOfWeek.MONDAY)) {
+                    total = total + allValues.get(i).getAmount();
+                }
+            }
+        }
+        return total;
     }
 
     private double getAppointmentDetailsForSunday(List<AppointmentTm> allData) {
@@ -214,7 +310,6 @@ public class HomeFormController implements Initializable {
             timeOfDay = "Night";
         }
 
-        // Update the Label with the formatted time
         timeLbl.setText(formattedTime);
         goodStatusLbl.setText("Good " + timeOfDay + "," + "kavindu");
     }
