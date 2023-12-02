@@ -98,7 +98,7 @@ public class HomeFormController implements Initializable {
         pane1.setPrefWidth(252);
         pane1.setPrefHeight(256);
         pane1.setLayoutX(110);
-        pane1.setLayoutY(604);
+        pane1.setLayoutY(634);
         homePane.getChildren().add(pane1);
 
         Pane pane2 = new Pane();
@@ -106,7 +106,7 @@ public class HomeFormController implements Initializable {
         pane2.setPrefWidth(252);
         pane2.setPrefHeight(256);
         pane2.setLayoutX(390);
-        pane2.setLayoutY(604);
+        pane2.setLayoutY(634);
         homePane.getChildren().add(pane2);
 
         TransactionModel model = new TransactionModel();
@@ -129,7 +129,7 @@ public class HomeFormController implements Initializable {
         Label label1 = new Label();
         label1.setText("Yesterday income");
         label1.setLayoutX(132);
-        label1.setLayoutY(668);
+        label1.setLayoutY(698);
         label1.setStyle("-fx-font-size: 26px");
 
         homePane.getChildren().add(label1);
@@ -137,7 +137,7 @@ public class HomeFormController implements Initializable {
         Label label2 = new Label();
         label2.setText("Rs. " + yesterdayDate);
         label2.setLayoutX(140);
-        label2.setLayoutY(745);
+        label2.setLayoutY(775);
         label2.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
 
         homePane.getChildren().add(label2);
@@ -145,7 +145,7 @@ public class HomeFormController implements Initializable {
         Label label3 = new Label();
         label3.setText("Today income");
         label3.setLayoutX(412);
-        label3.setLayoutY(668);
+        label3.setLayoutY(698);
         label3.setStyle("-fx-font-size: 26px");
 
         homePane.getChildren().add(label3);
@@ -153,23 +153,35 @@ public class HomeFormController implements Initializable {
         Label label4 = new Label();
         label4.setText("Rs. " + todayTotal);
         label4.setLayoutX(420);
-        label4.setLayoutY(745);
+        label4.setLayoutY(775);
         label4.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
 
         homePane.getChildren().add(label4);
 
         double percentageOfToday = 0;
         if (todayTotal > yesterdayDate) {
-            percentageOfToday = ((todayTotal - yesterdayDate) / yesterdayDate) * 100;
+            percentageOfToday = ((todayTotal - yesterdayDate) / todayTotal) * 100;
         } else if (todayTotal < yesterdayDate) {
-            percentageOfToday = ((yesterdayDate - todayTotal) / todayTotal) * 100;
+            percentageOfToday = ((yesterdayDate - todayTotal) / yesterdayDate) * 100;
         }
 
         double persentageOfYesterday = 0;
         if (yesterdayDate > todayTotal) {
-            persentageOfYesterday = ((yesterdayDate - todayTotal) / todayTotal) * 100;
+            ImageView imageView = new ImageView(new Image("/img/icons/down.png"));
+            imageView.setLayoutX(420);
+            imageView.setLayoutY(830);
+            imageView.setFitHeight(20);
+            imageView.setFitWidth(20);
+            homePane.getChildren().add(imageView);
+            persentageOfYesterday = ((yesterdayDate - todayTotal) / yesterdayDate) * 100;
         } else if (yesterdayDate < todayTotal) {
-            persentageOfYesterday = ((todayTotal - yesterdayDate) / yesterdayDate) * 100;
+            ImageView imageView = new ImageView(new Image("/img/icons/up.png"));
+            imageView.setLayoutX(420);
+            imageView.setLayoutY(830);
+            imageView.setFitHeight(20);
+            imageView.setFitWidth(20);
+            homePane.getChildren().add(imageView);
+            persentageOfYesterday = ((todayTotal - yesterdayDate) / todayTotal) * 100;
         }
 
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
@@ -177,16 +189,16 @@ public class HomeFormController implements Initializable {
         Label label5 = new Label();
         label5.setText(decimalFormat.format(percentageOfToday) + " %");
         label5.setLayoutX(160);
-        label5.setLayoutY(800);
+        label5.setLayoutY(830);
         label5.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
 
-        homePane.getChildren().add(label5);
+//        homePane.getChildren().add(label5);
 
         Label label6 = new Label();
         label6.setText(decimalFormat.format(persentageOfYesterday) + " %");
-        label6.setLayoutX(440);
-        label6.setLayoutY(800);
-        label6.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
+        label6.setLayoutX(445);
+        label6.setLayoutY(820);
+        label6.setStyle("-fx-font-size: 28px; -fx-alignment: center");
 
         homePane.getChildren().add(label6);
     }
