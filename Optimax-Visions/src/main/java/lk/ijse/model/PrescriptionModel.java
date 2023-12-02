@@ -3,6 +3,8 @@ package lk.ijse.model;
 import lk.ijse.controller.*;
 import lk.ijse.db.DbConnections;
 import lk.ijse.dto.FrameDto;
+import lk.ijse.dto.LenseDto;
+import lk.ijse.dto.tm.PrescriptionTm;
 import lk.ijse.prescriptionGeneratingCase.PrescriptionGeneratingCase;
 
 import java.sql.Connection;
@@ -104,4 +106,10 @@ public class PrescriptionModel {
 
     public static String patientId;
 
+    public List<PrescriptionTm> getAllValues() throws SQLException {
+        LenseModel lenseModel = new LenseModel();
+        List<LenseDto> lenseDetails = lenseModel.getAllValues();
+
+        return  null;
+    }
 }

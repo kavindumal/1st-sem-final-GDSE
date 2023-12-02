@@ -139,8 +139,7 @@ public class PresGlassSellFormController implements Initializable {
             parameters.put("addLeft", String.valueOf(PrescriptionDetailsFormController.addLeft));
             parameters.put("patientName", getPatientName(PrescriptionModel.patientId));
             parameters.put("description", PrescriptionGenerator.detailsForRightEye + PrescriptionGenerator.detailsForLeftEye);
-
-
+            parameters.put("pd", String.valueOf(PrescriptionDetailsFormController.pd));
 
             InputStream resourceAsStream = getClass().getResourceAsStream("/report/orderBill.jrxml");
             JasperDesign load = JRXmlLoader.load(resourceAsStream);
@@ -155,7 +154,7 @@ public class PresGlassSellFormController implements Initializable {
 
             JasperViewer.viewReport(jasperPrint, false);
         } else {
-            System.out.println("nane hutto cvaradiy");
+
         }
 
     }
