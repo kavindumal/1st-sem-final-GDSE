@@ -2,12 +2,15 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import lk.ijse.dto.FrameDetailsDto;
@@ -28,13 +31,11 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PresGlassSellFormController implements Initializable {
 
@@ -117,9 +118,19 @@ public class PresGlassSellFormController implements Initializable {
     }
 
     @FXML
+    private AnchorPane resultPrescriptionPane;
+
+    @FXML
     void placeOrderBtnOnAction(ActionEvent event) throws SQLException, JRException {
         PrescriptionModel prescriptionModel = new PrescriptionModel();
         if (prescriptionModel.updateValues()) {
+            resultPrescriptionPane.getChildren().clear();
+            try {
+                Parent dashboard = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/homeForm.fxml")));
+                resultPrescriptionPane.getChildren().add(dashboard);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("lensePrice", lensePriceLbl.getText());
             parameters.put("framePrice", framePriceLbl.getText());

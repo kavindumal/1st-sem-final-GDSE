@@ -39,23 +39,25 @@ public class SettingsFormController implements Initializable {
     private AnchorPane settingsPane;
 
     @FXML
-    void addNewAccountBtnOnAction(ActionEvent event) {
-        settingsPane.getChildren().clear();
-        try {
-            settingsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/registerForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    void addNewAccountBtnOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/registerForm.fxml"));
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void changePwBtnOnAction(ActionEvent event) {
-        settingsPane.getChildren().clear();
-        try {
-            settingsPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/forgotPasswordForm.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    void changePwBtnOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/forgotPasswordForm.fxml"));
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
