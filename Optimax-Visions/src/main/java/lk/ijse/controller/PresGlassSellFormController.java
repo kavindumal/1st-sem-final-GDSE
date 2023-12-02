@@ -19,9 +19,12 @@ import lk.ijse.model.PrescriptionModel;
 import lombok.SneakyThrows;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -113,15 +116,26 @@ public class PresGlassSellFormController implements Initializable {
     void placeOrderBtnOnAction(ActionEvent event) throws SQLException, JRException {
         PrescriptionModel prescriptionModel = new PrescriptionModel();
         if (prescriptionModel.updateValues()) {
-            JasperReport jasperReport = JasperCompileManager.compileReport("report/orderBill.jrxml");
-
-//            YourBeanClass bean = new YourBeanClass();
-//            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(List.of(bean));
             Map<String, Object> parameters = new HashMap<>();
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters);
+            parameters.put("lensePrice", lensePriceLbl.getText());
+            parameters.put("framePrice", framePriceLbl.getText());
+            parameters.put("prescriptionPrice", prescriptionPriceLbl.getText());
+            parameters.put("specialFeatures", specialFeaturesPriceLbl.getText());
+            parameters.put("subTotal", subTotalPriceLbl.getText());
+            parameters.put("total", totalPriceLbl.getText());
+
+            InputStream resourceAsStream = getClass().getResourceAsStream("/report/orderBill.jrxml");
+            JasperDesign load = JRXmlLoader.load(resourceAsStream);
+            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+            JasperPrint jasperPrint =
+                    JasperFillManager.fillReport(
+                            jasperReport, //compiled report
+                            parameters,
+                            new JREmptyDataSource() //database connection
+                    );
 
             JasperViewer.viewReport(jasperPrint, false);
-
         } else {
             System.out.println("nane hutto cvaradiy");
         }

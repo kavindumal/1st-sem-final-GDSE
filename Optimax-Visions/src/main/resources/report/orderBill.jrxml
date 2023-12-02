@@ -7,9 +7,9 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
-		<field name="framePrice" class="java.lang.String"/>
 	</queryString>
 	<field name="lensePrice" class="java.lang.String"/>
+	<field name="framePrice" class="java.lang.String"/>
 	<field name="prescriptionPrice" class="java.lang.String"/>
 	<field name="specialFeatures" class="java.lang.String"/>
 	<field name="subTotal" class="java.lang.String"/>
