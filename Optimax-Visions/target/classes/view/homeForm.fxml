@@ -34,7 +34,7 @@
          </font>
       </JFXButton>
       <Pane layoutX="776.0" layoutY="35.0" prefHeight="552.0" prefWidth="528.0" style="-fx-background-color: white; -fx-background-radius: 30; -fx-opacity: 0.45;" />
-      <Label layoutX="823.0" layoutY="85.0" text="Recent transactions">
+      <Label layoutX="823.0" layoutY="85.0" text="Recent income">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

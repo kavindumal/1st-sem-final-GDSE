@@ -15,9 +15,16 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import lk.ijse.dto.tm.AppointmentTm;
+import lk.ijse.model.AddNewAppointmentModel;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -67,6 +74,7 @@ public class HomeFormController implements Initializable {
         }
     }
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         AnimationTimer timer = new AnimationTimer() {
@@ -79,7 +87,7 @@ public class HomeFormController implements Initializable {
         setChartData();
     }
 
-    private void setChartData() {
+    private void setChartData() throws SQLException {
         ObservableList<String> obList = FXCollections.observableArrayList();
         obList.add("Mon");
         obList.add("Tue");
@@ -93,16 +101,18 @@ public class HomeFormController implements Initializable {
         cateforyAxis.setLabel("Week days");
 
         numberAxis.setLabel("Transactions (Rupees)");
+        AddNewAppointmentModel appointmentModel = new AddNewAppointmentModel();
+        List<AppointmentTm> allData = appointmentModel.getAllData();
 
         final XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Appointment");
-        series1.getData().add(new XYChart.Data<>("Mon", 2500));
-        series1.getData().add(new XYChart.Data<>("Tue", 2500));
-        series1.getData().add(new XYChart.Data<>("Wed", 2500));
-        series1.getData().add(new XYChart.Data<>("Thu", 2500));
-        series1.getData().add(new XYChart.Data<>("Fri", 2500));
-        series1.getData().add(new XYChart.Data<>("Sat", 2500));
-        series1.getData().add(new XYChart.Data<>("Sun", 2500));
+        series1.getData().add(new XYChart.Data<>("Mon", getAppointmentDetailsForMonday(allData)));
+        series1.getData().add(new XYChart.Data<>("Tue", getAppointmentDetailsForTuesday(allData)));
+        series1.getData().add(new XYChart.Data<>("Wed", getAppointmentDetailsForWednesday(allData)));
+        series1.getData().add(new XYChart.Data<>("Thu", getAppointmentDetailsForThursday(allData)));
+        series1.getData().add(new XYChart.Data<>("Fri", getAppointmentDetailsForFriday(allData)));
+        series1.getData().add(new XYChart.Data<>("Sat", getAppointmentDetailsForSaturday(allData)));
+        series1.getData().add(new XYChart.Data<>("Sun", getAppointmentDetailsForSunday(allData)));
 
         final XYChart.Series<String, Number> series2 = new XYChart.Series<>();
         series2.setName("Buy Prescription");
@@ -117,7 +127,75 @@ public class HomeFormController implements Initializable {
         recentTransactionSBC.getData().addAll(series1, series2);
     }
 
+    private double getAppointmentDetailsForSunday(List<AppointmentTm> allData) {
+        double total = 0;
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+                total = total + 500;
+            }
+        }
+        return total;
+    }
 
+    private double getAppointmentDetailsForSaturday(List<AppointmentTm> allData) {
+        double total = 0;
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).getDayOfWeek().equals(DayOfWeek.SATURDAY)) {
+                total = total + 500;
+            }
+        }
+        return total;
+    }
+
+    private double getAppointmentDetailsForThursday(List<AppointmentTm> allData) {
+        double total = 0;
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
+                total = total + 500;
+            }
+        }
+        return total;
+    }
+
+    private double getAppointmentDetailsForFriday(List<AppointmentTm> allData) {
+        double total = 0;
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+                total = total + 500;
+            }
+        }
+        return total;
+    }
+
+    private double getAppointmentDetailsForWednesday(List<AppointmentTm> allData) {
+        double total = 0;
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).getDayOfWeek().equals(DayOfWeek.WEDNESDAY)) {
+                total = total + 500;
+            }
+        }
+        return total;
+    }
+
+    private double getAppointmentDetailsForTuesday(List<AppointmentTm> allData) {
+        double total = 0;
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).getDayOfWeek().equals(DayOfWeek.TUESDAY)) {
+                total = total + 500;
+            }
+        }
+        return total;
+    }
+
+    private double getAppointmentDetailsForMonday(List<AppointmentTm> allData) throws SQLException {
+        double total = 0;
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).getDayOfWeek().equals(DayOfWeek.MONDAY)) {
+                total = total + 500;
+            }
+        }
+        return total;
+    }
 
 
     private void setTimeForLbl() {
