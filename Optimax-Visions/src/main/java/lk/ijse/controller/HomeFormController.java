@@ -88,6 +88,50 @@ public class HomeFormController implements Initializable {
         timer.start();
         setChartData();
         setAppointmentToday();
+        setExecutiveSummery();
+    }
+
+    private void setExecutiveSummery() throws SQLException {
+        Pane pane1 = new Pane();
+        pane1.setStyle("-fx-background-color: rgba(255,255,255,0.51); -fx-background-radius: 30; ");
+        pane1.setPrefWidth(252);
+        pane1.setPrefHeight(256);
+        pane1.setLayoutX(110);
+        pane1.setLayoutY(604);
+        homePane.getChildren().add(pane1);
+
+        Pane pane2 = new Pane();
+        pane2.setStyle("-fx-background-color: rgba(255,255,255,0.51); -fx-background-radius: 30; ");
+        pane2.setPrefWidth(252);
+        pane2.setPrefHeight(256);
+        pane2.setLayoutX(390);
+        pane2.setLayoutY(604);
+        homePane.getChildren().add(pane2);
+
+        TransactionModel model = new TransactionModel();
+        List<TransactionDto> allValues = model.getAllValues();
+
+        double todayTotal = 0;
+        for (int i = 0; i < allValues.size(); i++) {
+            if (allValues.get(i).getDate().equals(LocalDate.now())) {
+                todayTotal = todayTotal + allValues.get(i).getAmount();
+            }
+        }
+        Label label1 = new Label();
+        label1.setText("Yesterday income");
+        label1.setLayoutX(132);
+        label1.setLayoutY(668);
+        label1.setStyle("-fx-font-size: 26px");
+
+        homePane.getChildren().add(label1);
+
+        Label label2 = new Label();
+        label2.setText("Rs. " + todayTotal);
+        label2.setLayoutX(140);
+        label2.setLayoutY(745);
+        label2.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-alignment: center");
+
+        homePane.getChildren().add(label2);
     }
 
     private void setAppointmentToday() throws SQLException {
