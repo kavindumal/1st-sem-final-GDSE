@@ -19,7 +19,7 @@
       </Label>
       <TableView fx:id="orderedGlassesTbl" layoutX="76.0" layoutY="205.0" prefHeight="713.0" prefWidth="1244.0" stylesheets="@../style/tableViewStyle.css">
          <columns>
-            <TableColumn fx:id="glassIdCol" prefWidth="143.0" text="Lense name" />
+            <TableColumn fx:id="glassIdCol" prefWidth="143.0" text="Glass id" />
             <TableColumn fx:id="frameTypeCol" prefWidth="186.0" text="Frame type" />
             <TableColumn fx:id="patientIdCol" prefWidth="146.33331298828125" text="Patient Id" />
             <TableColumn fx:id="PatientNameCol" prefWidth="292.33331298828125" text="Patient name" />

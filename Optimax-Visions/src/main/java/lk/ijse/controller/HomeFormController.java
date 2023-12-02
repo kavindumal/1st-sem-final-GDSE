@@ -2,49 +2,52 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.StackedBarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.util.Duration;
-import lk.ijse.dto.AppointmentDto;
-import lk.ijse.model.AddNewAppointmentModel;
-import lombok.SneakyThrows;
-import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HomeFormController implements Initializable {
+    @FXML
+    private Pane appointmentPane;
 
     @FXML
-    private Label timeLbl;
+    private CategoryAxis cateforyAxis;
+
+    @FXML
+    private JFXButton checkPrescriptionBtn;
 
     @FXML
     private Label goodStatusLbl;
 
     @FXML
+    private AnchorPane homePane;
+
+    @FXML
     private JFXButton newAppointmentBtn;
 
     @FXML
-    private AnchorPane homePane;
+    private NumberAxis numberAxis;
+
+    @FXML
+    private StackedBarChart recentTransactionSBC;
+
+    @FXML
+    private Label timeLbl;
 
     public void newAppointmentBtnOnAction(ActionEvent actionEvent) {
         homePane.getChildren().clear();
@@ -64,10 +67,6 @@ public class HomeFormController implements Initializable {
         }
     }
 
-    @FXML
-    private Pane appointmentPane;
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         AnimationTimer timer = new AnimationTimer() {
@@ -77,7 +76,49 @@ public class HomeFormController implements Initializable {
             }
         };
         timer.start();
+        setChartData();
     }
+
+    private void setChartData() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        obList.add("Mon");
+        obList.add("Tue");
+        obList.add("Wed");
+        obList.add("Thu");
+        obList.add("Fri");
+        obList.add("Sat");
+        obList.add("Sun");
+
+        cateforyAxis.setCategories(obList);
+        cateforyAxis.setLabel("Week days");
+
+        numberAxis.setLabel("Transactions (Rupees)");
+
+        final XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+        series1.setName("Appointment");
+        series1.getData().add(new XYChart.Data<>("Mon", 2500));
+        series1.getData().add(new XYChart.Data<>("Tue", 2500));
+        series1.getData().add(new XYChart.Data<>("Wed", 2500));
+        series1.getData().add(new XYChart.Data<>("Thu", 2500));
+        series1.getData().add(new XYChart.Data<>("Fri", 2500));
+        series1.getData().add(new XYChart.Data<>("Sat", 2500));
+        series1.getData().add(new XYChart.Data<>("Sun", 2500));
+
+        final XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+        series2.setName("Buy Prescription");
+        series2.getData().add(new XYChart.Data<>("Mon", 2500));
+        series2.getData().add(new XYChart.Data<>("Tue", 2500));
+        series2.getData().add(new XYChart.Data<>("Wed", 2500));
+        series2.getData().add(new XYChart.Data<>("Thu", 2500));
+        series2.getData().add(new XYChart.Data<>("Fri", 2500));
+        series2.getData().add(new XYChart.Data<>("Sat", 2500));
+        series2.getData().add(new XYChart.Data<>("Sun", 2500));
+
+        recentTransactionSBC.getData().addAll(series1, series2);
+    }
+
+
+
 
     private void setTimeForLbl() {
         java.time.LocalTime currentTime = java.time.LocalTime.now();
