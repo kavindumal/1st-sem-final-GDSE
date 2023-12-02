@@ -15,7 +15,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import lk.ijse.dto.TransactionDto;
 import lk.ijse.dto.tm.AppointmentTm;
 import lk.ijse.model.AddNewAppointmentModel;
@@ -27,9 +26,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class HomeFormController implements Initializable {
     @FXML
@@ -91,8 +88,44 @@ public class HomeFormController implements Initializable {
         setAppointmentToday();
     }
 
-    private void setAppointmentToday() {
+    private void setAppointmentToday() throws SQLException {
+        AddNewAppointmentModel model =new AddNewAppointmentModel();
+        List<AppointmentTm> allData = model.getAllData();
 
+        List<AppointmentTm> getTodayData = new ArrayList<>();
+        List<Double> times = new ArrayList<>();
+
+        for (int i = 0; i < allData.size(); i++) {
+            if (LocalDate.parse(allData.get(i).getDate()).equals(LocalDate.now())) {
+                getTodayData.add(allData.get(i));
+                times.add(Double.parseDouble(allData.get(i).getTime()));
+            }
+        }
+        Collections.sort(times);
+
+        int count = 154;
+        for (int i = 0; i < times.size(); i++) {
+            Pane pane1 = new Pane();
+            pane1.setStyle("-fx-background-color: rgba(255,255,255,0.51); -fx-background-radius: 30; ");
+            pane1.setPrefWidth(200);
+            pane1.setPrefHeight(80);
+            pane1.setLayoutX(1391);
+            pane1.setLayoutY(count);
+            homePane.getChildren().add(pane1);
+            count = count + 106;
+
+            Pane pane2 = new Pane();
+            if (i < 1) {
+                pane2.setStyle("-fx-background-radius: 30;-fx-background-color: red");
+            }else {
+                pane2.setStyle("-fx-background-radius: 30;-fx-background-color: blue");
+            }
+            pane2.setPrefWidth(67);
+            pane2.setPrefWidth(79);
+            pane2.setLayoutX(1391);
+            pane2.setLayoutY(count);
+            homePane.getChildren().add(pane2);
+        }
     }
 
     private void setChartData() throws SQLException {
