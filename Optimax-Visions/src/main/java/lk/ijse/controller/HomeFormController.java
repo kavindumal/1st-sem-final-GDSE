@@ -8,18 +8,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.StackedBarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import lk.ijse.dto.LenseDto;
 import lk.ijse.dto.TransactionDto;
 import lk.ijse.dto.tm.AppointmentTm;
 import lk.ijse.model.AddNewAppointmentModel;
+import lk.ijse.model.LenseModel;
 import lk.ijse.model.TransactionModel;
 import lombok.SneakyThrows;
 
@@ -59,6 +58,9 @@ public class HomeFormController implements Initializable {
     @FXML
     private Label timeLbl;
 
+    @FXML
+    private PieChart pieChart;
+
     public void newAppointmentBtnOnAction(ActionEvent actionEvent) {
         homePane.getChildren().clear();
         try {
@@ -90,6 +92,24 @@ public class HomeFormController implements Initializable {
         setChartData();
         setAppointmentToday();
         setExecutiveSummery();
+        setValuesToPieChart();
+    }
+
+    private void setValuesToPieChart() throws SQLException {
+        LenseModel model = new LenseModel();
+        List<LenseDto> allValues = model.getAllValues();
+
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+        for (LenseDto lenseDto : allValues) {
+            String lenseName = lenseDto.getName();
+            double quantity = lenseDto.getQty();
+
+            PieChart.Data data = new PieChart.Data(lenseName, quantity);
+
+            pieChartData.add(data);
+        }
+
+        pieChart.setData(pieChartData);
     }
 
     private void setExecutiveSummery() throws SQLException {

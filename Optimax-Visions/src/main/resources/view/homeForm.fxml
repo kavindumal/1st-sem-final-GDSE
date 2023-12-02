@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -73,5 +74,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <PieChart fx:id="pieChart" layoutX="186.0" layoutY="313.0" prefHeight="313.0" prefWidth="396.0" />
    </children>
 </AnchorPane>

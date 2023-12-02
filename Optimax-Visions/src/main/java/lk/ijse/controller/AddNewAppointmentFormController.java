@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -304,6 +305,11 @@ public class AddNewAppointmentFormController implements Initializable {
     }
 
     public void backOnAction(MouseEvent event) {
-
+        appoitmentPane.getChildren().clear();
+        try {
+            appoitmentPane.getChildren().add(FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/homeForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
