@@ -83,6 +83,7 @@ public class PrescriptionModel {
         return result;
     }
 
+
     private boolean setPrescriptionToDatabase() throws SQLException {
         return DbConnections.setDetails("INSERT INTO visioncare.prescription (patientId, sphereRight, sphereLeft, cylRight, cylLeft, axisRight, axisLeft,\n" +
                 "                                     addRight, addLeft, pdDistance)\n" +
@@ -94,9 +95,13 @@ public class PrescriptionModel {
         String[][] details = DbConnections.getDetails("appointment", 8);
         for (int i = 0; i < details.length; i++) {
             if (PrescriptionDetailsFormController.appointmentId.equals(details[i][0])) {
+                patientId = details[i][6];
                 return details[i][6];
             }
         }
         return null;
     }
+
+    public static String patientId;
+
 }

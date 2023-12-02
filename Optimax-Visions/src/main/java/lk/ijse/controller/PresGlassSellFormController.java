@@ -13,9 +13,13 @@ import javafx.scene.shape.Rectangle;
 import lk.ijse.dto.FrameDetailsDto;
 import lk.ijse.dto.FrameDto;
 import lk.ijse.dto.LenseDto;
+import lk.ijse.dto.PatientDto;
+import lk.ijse.dto.tm.PatientTm;
 import lk.ijse.model.FrameModel;
 import lk.ijse.model.LenseModel;
+import lk.ijse.model.PatientModel;
 import lk.ijse.model.PrescriptionModel;
+import lk.ijse.prescriptionGeneratingCase.PrescriptionGenerator;
 import lombok.SneakyThrows;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -123,6 +127,20 @@ public class PresGlassSellFormController implements Initializable {
             parameters.put("specialFeatures", specialFeaturesPriceLbl.getText());
             parameters.put("subTotal", subTotalPriceLbl.getText());
             parameters.put("total", totalPriceLbl.getText());
+            parameters.put("discount", discountPriceLbl.getText());
+            parameters.put("balance", String.valueOf(Double.parseDouble(customerGivenPriceTxt.getText()) - Double.parseDouble(totalPriceLbl.getText())));
+            parameters.put("sphRight", String.valueOf(PrescriptionDetailsFormController.sphereRight));
+            parameters.put("cylRight", String.valueOf(PrescriptionDetailsFormController.cylRight));
+            parameters.put("axisRight", String.valueOf(PrescriptionDetailsFormController.axisRight));
+            parameters.put("addRight", String.valueOf(PrescriptionDetailsFormController.addRight));
+            parameters.put("sphLeft", String.valueOf(PrescriptionDetailsFormController.sphereLeft));
+            parameters.put("cylLeft", String.valueOf(PrescriptionDetailsFormController.cylLeft));
+            parameters.put("axisLeft", String.valueOf(PrescriptionDetailsFormController.axisLeft));
+            parameters.put("addLeft", String.valueOf(PrescriptionDetailsFormController.addLeft));
+            parameters.put("patientName", getPatientName(PrescriptionModel.patientId));
+            parameters.put("description", PrescriptionGenerator.detailsForRightEye + PrescriptionGenerator.detailsForLeftEye);
+
+
 
             InputStream resourceAsStream = getClass().getResourceAsStream("/report/orderBill.jrxml");
             JasperDesign load = JRXmlLoader.load(resourceAsStream);
@@ -140,6 +158,17 @@ public class PresGlassSellFormController implements Initializable {
             System.out.println("nane hutto cvaradiy");
         }
 
+    }
+
+    private String getPatientName(String patientId) throws SQLException {
+        PatientModel patientModel = new PatientModel();
+        List<PatientTm> allData = patientModel.getAllData();
+        for (int i = 0; i < allData.size(); i++) {
+            if (allData.get(i).getId().equals(patientId)) {
+                return allData.get(i).getName();
+            }
+        }
+        return null;
     }
 
     public static String lenseIfLeft;
