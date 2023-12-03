@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -26,6 +27,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 public class RegisterFormController {
 
@@ -108,57 +110,61 @@ public class RegisterFormController {
             usernameCheckLbl.setOpacity(0);
             alertImage2.setOpacity(0);
             usernameRec.setStroke(Color.BLACK);
-            if (checkEmailLong()){
-                usernameRec111.setStroke(Color.BLACK);
-                emailAddressCheckLbl.setOpacity(0);
-                alertImage4.setOpacity(0);
-                if (checkPasswordLength()){
-                    passwordRec.setStroke(Color.BLACK);
-                    alertImage3.setOpacity(0);
-                    passwordLongLbl.setOpacity(0);
-                    if (checkConfirmPassword()){
-                        alertImsge.setOpacity(0);
-                        conPwRec.setStroke(Color.BLACK);
-                        confirmPwLbl.setOpacity(0);
-                        otp = generateNewOtp();
-                        if (getOtp()) {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/otpForm.fxml"));
-                            Parent root = loader.load();
-                            OtpFormController otpFormController = loader.getController();
+            if (!checkUsername(usernameTxt.getText())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid username").show();
+            }else {
+                if (checkEmailLong()){
+                    usernameRec111.setStroke(Color.BLACK);
+                    emailAddressCheckLbl.setOpacity(0);
+                    alertImage4.setOpacity(0);
+                    if (checkPasswordLength()){
+                        passwordRec.setStroke(Color.BLACK);
+                        alertImage3.setOpacity(0);
+                        passwordLongLbl.setOpacity(0);
+                        if (checkConfirmPassword()){
+                            alertImsge.setOpacity(0);
+                            conPwRec.setStroke(Color.BLACK);
+                            confirmPwLbl.setOpacity(0);
+                            otp = generateNewOtp();
+                            if (getOtp()) {
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/otpForm.fxml"));
+                                Parent root = loader.load();
+                                OtpFormController otpFormController = loader.getController();
 
-                            otpFormController.setDataFromRegister(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), otp, "create");
+                                otpFormController.setDataFromRegister(usernameTxt.getText(), emailTxt.getText(), passwordTxt.getText(), otp, "create");
 
-                            Scene scene = new Scene(root);
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.setScene(scene);
-                            stage.show();
+                                Scene scene = new Scene(root);
+                                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                stage.setScene(scene);
+                                stage.show();
+                            } else {
+                                alertSound.checkSounds(Sounds.INVALID);
+                                usernameRec111.setStroke(Color.RED);
+                                alertImage4.setOpacity(1);
+                                emailAddressCheckLbl.setOpacity(1);
+                                emailAddressCheckLbl.setText("Please check your email address");
+                            }
                         } else {
                             alertSound.checkSounds(Sounds.INVALID);
-                            usernameRec111.setStroke(Color.RED);
-                            alertImage4.setOpacity(1);
-                            emailAddressCheckLbl.setOpacity(1);
-                            emailAddressCheckLbl.setText("Please check your email address");
+                            alertImsge.setOpacity(1);
+                            conPwRec.setStroke(Color.RED);
+                            confirmPwLbl.setOpacity(1);
                         }
                     } else {
                         alertSound.checkSounds(Sounds.INVALID);
-                        alertImsge.setOpacity(1);
-                        conPwRec.setStroke(Color.RED);
-                        confirmPwLbl.setOpacity(1);
+                        passwordTxt.requestFocus();
+                        passwordRec.setStroke(Color.RED);
+                        alertImage3.setOpacity(1);
+                        passwordLongLbl.setOpacity(1);
                     }
                 } else {
+                    emailAddressCheckLbl.setText("email address required.");
                     alertSound.checkSounds(Sounds.INVALID);
-                    passwordTxt.requestFocus();
-                    passwordRec.setStroke(Color.RED);
-                    alertImage3.setOpacity(1);
-                    passwordLongLbl.setOpacity(1);
+                    emailTxt.requestFocus();
+                    usernameRec111.setStroke(Color.RED);
+                    emailAddressCheckLbl.setOpacity(1);
+                    alertImage4.setOpacity(1);
                 }
-            } else {
-                emailAddressCheckLbl.setText("email address required.");
-                alertSound.checkSounds(Sounds.INVALID);
-                emailTxt.requestFocus();
-                usernameRec111.setStroke(Color.RED);
-                emailAddressCheckLbl.setOpacity(1);
-                alertImage4.setOpacity(1);
             }
         } else {
             alertSound.checkSounds(Sounds.INVALID);
@@ -167,6 +173,10 @@ public class RegisterFormController {
             usernameRec.setStroke(Color.RED);
             usernameTxt.requestFocus();
         }
+    }
+
+    public boolean checkUsername(String text) {
+        return Pattern.matches("^[A-Z][a-zA-Z0-9]*$", text);
     }
 
     public boolean getOtp() {
