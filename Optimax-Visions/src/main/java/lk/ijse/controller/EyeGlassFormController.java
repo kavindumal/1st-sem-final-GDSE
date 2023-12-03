@@ -128,16 +128,16 @@ public class EyeGlassFormController implements Initializable {
     }
 
     private void handleRemoveBtn(String id) throws IOException, SQLException {
-        EmployeeModel model = new EmployeeModel();
-        String[][] dataFromEmployee = model.getDataFromEmployee();
-//        for (int i = 0; i < dataFromEmployee.length; i++) {
-//            if (dataFromEmployee[i][0].equals(id)) {
-//                String photoPath = dataFromEmployee[i][6];
-//
-//                Files.deleteIfExists(Paths.get(photoPath));
-//            }
-//        }
-        if (model.deleteEmployeeFromDatabase(id)) {
+        PrescriptionModel model = new PrescriptionModel();
+        //        String[][] dataFromEmployee = model.getDataFromEmployee();
+////        for (int i = 0; i < dataFromEmployee.length; i++) {
+////            if (dataFromEmployee[i][0].equals(id)) {
+////                String photoPath = dataFromEmployee[i][6];
+////
+////                Files.deleteIfExists(Paths.get(photoPath));
+////            }
+////        }
+        if (model.deleteEyeglassFromDatabase(id)) {
             loadDetailsToTable();
         }
     }

@@ -180,4 +180,11 @@ public class PrescriptionModel {
         }
         return null;
     }
+
+    public boolean deleteEyeglassFromDatabase(String id) throws SQLException {
+        return DbConnections.setDetails("DELETE\n" +
+                "FROM visioncare.prescriptionglass\n" +
+                "WHERE glassId LIKE '"+ id +"' ESCAPE '#';\n" +
+                "\n");
+    }
 }
