@@ -79,8 +79,8 @@ public class EyeGlassFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        setCellValueFactory();
-//        loadDetailsToTable();
+        setCellValueFactory();
+        loadDetailsToTable();
     }
 
     private void setCellValueFactory() {
@@ -104,14 +104,14 @@ public class EyeGlassFormController implements Initializable {
             for(PrescriptionTm dto : dtoList) {
                 dto.getButton().setOnAction(event -> {
                     try {
-                        handleRemoveBtn(dto.getPatientId());
+                        handleRemoveBtn(dto.getGlassId());
                     } catch (IOException | SQLException e) {
                         throw new RuntimeException(e);
                     }
                 });
                 obList.add(
                         new PrescriptionTm(
-                                dto.getLenseName(),
+                                dto.getGlassId(),
                                 dto.getFrameType(),
                                 dto.getPatientId(),
                                 dto.getPatientName(),

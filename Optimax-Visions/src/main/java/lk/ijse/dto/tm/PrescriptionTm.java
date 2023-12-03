@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 @Getter@Setter@NoArgsConstructor@AllArgsConstructor@ToString
 public class PrescriptionTm {
-    private String lenseName;
+    private String glassId;
     private String frameType;
     private String patientId;
     private String patientName;

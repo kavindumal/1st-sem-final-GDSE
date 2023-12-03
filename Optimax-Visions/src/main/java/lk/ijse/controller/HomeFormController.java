@@ -243,6 +243,7 @@ public class HomeFormController implements Initializable {
         int count3 = 177;
 
         for (int i = 0; i < times.size(); i++) {
+            if (times.size() > 5) break;
             Pane pane1 = new Pane();
             pane1.setStyle("-fx-background-color: rgba(255,255,255,0.51); -fx-background-radius: 30; ");
             pane1.setPrefWidth(200);
