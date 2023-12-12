@@ -171,7 +171,7 @@ public class AddNewAppointmentFormController implements Initializable {
             appoitmentPane.getChildren().add(label1);
             appoitmentPane.getChildren().add(label2);
 
-            PauseTransition pause = new PauseTransition(Duration.seconds(5));
+            PauseTransition pause = new PauseTransition(Duration.seconds(2));
             pause.setOnFinished(e -> {
                 appoitmentPane.getChildren().remove(pane);
                 appoitmentPane.getChildren().remove(imageView);
